@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+
+		<title>
+			{% block title %}Association Paul Green
+			{% endblock %}
+		</title>
+
+		{# <meta name="description" content={{render(controller('App\\Controller\\MainController::paramRecup'))}} & " || Téléphones d'occasions remis à Neuf, voir plus !!!" <meta="" charset="UTF-8"> #}
+
+		<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+
+		{# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
+		{# {% block stylesheets %}
+				            {{ encore_entry_link_tags('app') }}
+				        {% endblock %}
+				
+				        {% block javascripts %}
+				            {{ encore_entry_script_tags('app') }}
+				        {% endblock %} #}
+
+
+		<!-- Favicon -->
+		<!-- <link rel="shortcut icon" type="image/png" href="public/images/favicon.ico" /> -->
+		<link
+		rel="shortcut icon" type="image/png" href="public/icones/logo.png"/> <!-- Icons-->
+		<script src="https://kit.fontawesome.com/4d2daebcf2.js" crossorigin="anonymous"></script>
+
+		<!-- Fonts-->
+		<!-- <link rel="preconnect" href="https://fonts.googleapis.com">
+				        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+				        <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet"> -->
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link
+		href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,500;0,700;0,900;1,500;1,600;1,900&display=swap" rel="stylesheet">
+
+		<!-- Styles -->
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+
+		<link rel="stylesheet" href="{{asset('css/styles.css')}}">
+
+		<script src="{{asset('js/photos.js')}}" defer></script>
+		<script src="{{asset('js/app.js')}}" defer></script>
+	</head>
+
+
+	<body>
+
+		<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+			<div class="container-fluid">
+				<a class="navbar-brand" href="#">
+					<img src="{{ asset('icones/logo.png')}}" alt="" width="30" height="24" class="d-inline-block align-text-top">
+					Association Paul Green
+					{# {{render(controller('App\\Controller\\MainController::paramRecup'))}} #}
+				</a>
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+
+				<div
+					class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+					{# <ul class="navbar-nav me-auto mb-2 mb-lg-0"> #}
+					<ul class="navbar-nav mb-2 mb-lg-0">
+						<li class="nav-item">
+
+							<a class="nav-link active" aria-current="page" href="{{ path('home') }}">
+								Accueil
+
+								{# <span class="sronly"> #}
+								<span
+									class="visually-hidden-focusable">
+									{# visually-hidden #}
+									(current)
+
+								</span>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#APropos">
+								A Propos
+							</a>
+						</li>
+
+						<li class="nav-item">
+							<a class="nav-link" href="#positionContacts">
+								Contacts
+							</a>
+						</li>
+
+						{% if app.user %}
+							<li class="nav-item">
+								<a class="nav-link" href="{{ path('app_logout') }}">Se déconnecter</a>
+							</li>
+
+							{% if app.user.roles[0]=="ROLE_ADMIN" %}
+								<li class="nav-item">
+									<a class="nav-link" href="{{ path('admin') }}">
+										Administration
+									</a>
+								</li>
+							{% endif %}
+						{% endif %}
+
+						<li class="nav-item">
+							<a class="nav-link" href="{{ path('app_register') }}">
+								Création d'un compte
+							</a>
+						</li>
+
+						<li class="nav-item">
+							<a class="nav-link" href="{{ path('app_login') }}">Se Connecter</a>
+						</li>
+						{# {{dump (app.user.roles)}} #}
+						{% if app.user %}
+
+							{% if app.user.roles[0]=="ROLE_USER" %}
+
+								<li class="nav-item dropdown">
+									<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Gestion</a>
+
+									<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+										<li>
+											{# <a class="dropdown-item" href="{{ path('produits_index') }}">Produits</a>
+																													</li>
+																													<li><hr class="dropdown-divider"></li>
+																													<li>
+																														<a class="dropdown-item" href="{{ path('categories_index') }}">Catégories</a>
+																													</li>
+																													<li>
+																														<a class="dropdown-item" href="{{ path('marques_index') }}">Marques</a> #}
+										</li>
+
+									</ul>
+								</li>
+							{% endif %}
+						{% endif %}
+
+					</ul>
+
+					{# <form class="d-flex">
+																<input class="form-control me-2" type="search" placeholder="recherche" aria-label="recherche">
+																<button class="btn btn-outline-success" type="submit">
+																	Recherche
+																</button>
+															</form> #}
+
+				</div>
+			</div>
+		</nav>
+
+
+		{% block body %}{% endblock %}
+
+
+		{# ==== FOOTER======================= #}
+
+		<footer id="Footer">
+
+			{# <div class="flecheHaut">
+				<img src="{{asset('icones/sticker_rond_icone_fleche_vers_le_haut_540.jpg')}}" class="icone">
+			</div> #}
+
+
+			{# <section class="clFooter" id="APropos">
+				<div class="container ">
+					<div class="row">
+
+						<div class="col-xl-4">
+							<h3>{{render(controller('App\\Controller\\MainController::paramRecup'))}}</h3>
+							<p class="mb-0">13, rue de la Bulle</p>
+							<p class="mb-0">44600 Saint-Nazaire</p>
+							<p class="mb-0">uneteloccas@gmail.com</p>
+							<br>
+							<img src="{{ asset('images/img-slider-03.jpg') }}" alt="Vitrine Librairie" width="250" height="150" class="imgClass2">
+						</div>
+
+						<div class="col-xl-4">
+							<div class="">
+								<h3>Localisation</h3>
+								<iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d5414.425532545955!2d-2.2347180072687576!3d47.27109519685373!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sla%20soucoupe!5e0!3m2!1sfr!2sfr!4v1641474139907!5m2!1sfr!2sfr" width="350" height="200" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+							</div>
+						</div>
+
+						<div class="col-xl-4">
+							<h3>Web</h3>
+							<div class="clIconeEnLigne">
+								<a href="https://www.facebook.com/Librairie-Le-Chaudron-Saint-Nazaire-101224782219594" target="_blank" class="clRond">
+									<i class="fab fa-facebook-f"></i>
+								</a>
+								<a href="https://twitter.com/LeChaudronLibr1" rel="noopener" class="clRond">
+									<i class="fab fa-twitter"></i>
+								</a>
+								<div class="clRond">
+									<i class="fab fa-linkedin-in"></i>
+								</div>
+								<div class="clRond">
+									<i class="fab fa-dribbble"></i>
+								</div>
+								<div class="clRond">
+									<i class="fas fa-phone-alt"></i>
+								</div>
+							</div>
+							<div class="clIconeEnLigne">
+								<a href="https://www.instagram.com/le_chaudron_librairie" class="clRond">
+									<i class="fab fa-instagram"></i>
+								</a>
+								<div class="clRond">
+									<i class="fab fa-behance"></i>
+								</div>
+								<div class="clRond">
+									<i class="fab fa-snapchat"></i>
+								</div>
+								<div class="clRond">
+									<i class="fab fa-pinterest"></i>
+								</div>
+							</div>
+							<hr>
+							<h3>Partenaires</h3>
+							<div class="">
+								<a href="https://www.plusmobile.fr/" class="">Comparateur de Portables et Smartphones - PlusMobile</a>
+							</div>
+							<div class="">
+								<a href="https://www.meilleurmobile.com/" class="">Meilleur Mobile : comparateur de smartphones.</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section> #}
+
+			<section class="clCopyright text-white text-center">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-12 d-flex justify-content-around align-items-center">
+							<p>
+								<small>Copyright &copy; Your Website 2021</small>
+							</p>
+							<a href="{{ path('politique_index') }}" class="">Politique de confidentialité.</a>
+						</div>
+					</div>
+				</div>
+			</section>
+			{# =========================== #}
+
+
+			<!-- Bootstrap  ==================================================== -->
+			<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+			<!-- JQuery  ==================================================== -->
+			<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+			{# <script src="app.js"></script> #}
+		</body>
+	</body>
+</html>

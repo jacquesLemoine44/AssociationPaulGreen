@@ -1,0 +1,71 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}Params index{% endblock %}
+
+{% block body %}
+    <h1>Params index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                {# <th>Id</th> #}
+                <th>TextParam</th>
+                <th>LogoParam</th>
+                <th>PhotoParam</th>
+                <th>EmailParam</th>
+                <th>TitleParam</th>
+                <th>Address1Param</th>
+                <th>Address2Param</th>
+                <th>CpParam</th>
+                <th>TownParam</th>
+                <th>UpdateParam</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for param in params %}
+            <tr>
+                {# <td>{{ param.id }}</td> #}
+                <td>{{ param.textParam }}</td>
+                <td>{{ param.logoParam }}</td>
+                <td>{{ param.photoParam }}</td>
+                <td>{{ param.emailParam }}</td>
+                <td>{{ param.titleParam }}</td>
+                <td>{{ param.address1Param }}</td>
+                <td>{{ param.address2Param }}</td>
+                <td>{{ param.cpParam }}</td>
+                <td>{{ param.townParam }}</td>
+
+
+                    {# {{ form_label(form.updateParam) }}
+                    {{ form_widget(form.updateParam, { 'attr': {'class': 'w-25 text-center', 'disabled':true} }) }}  #}
+
+                {# <td>{{ param.updateParam ? param.updateParam|date('Y-m-d H:i:s') : '' }}</td> #}
+                <td>
+                    {{ param.updateParam ? param.updateParam|date('Y-m-d H:i:s') : '' }}
+                </td>
+
+
+
+                <td>
+                    <a href="{{ path('params_show', {'id': param.id}) }}">Afficher</a>
+                    <a href="{{ path('params_edit', {'id': param.id}) }}">Modifier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="12">Pas de Paramètres</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+{% if params%}
+{# plus de bouton #}
+{% else %}
+    <a href="{{ path('params_new') }}">Nouveau</a>
+{% endif%}
+
+
+{% endblock %}

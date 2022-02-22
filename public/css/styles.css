@@ -3,6 +3,46 @@
   background-color: #c6d4b6;
 }
 
+@media (min-width: 576px) {
+  .h-sm-100 {
+    height: 100%;
+  }
+}
+
+#sidebar-nav {
+  width: 160px;
+}
+
+* {
+  border-radius: 5px;
+}
+
+body.thumb {
+  -webkit-transform: scale(0.4);
+          transform: scale(0.4);
+  -webkit-box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+          box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+}
+
+main {
+  min-height: 80vh;
+}
+
+[class*='container'] {
+  border: 1px dashed #eee;
+  background-clip: content-box;
+}
+
+.row [class*='col'] {
+  background-color: #efefef;
+  background-clip: content-box;
+}
+
+.nav-item {
+  background-color: #eeeeff;
+  background-clip: content-box;
+}
+
 .sousHeader {
   background-image: url(../images/header.jpg);
   background-position: center;

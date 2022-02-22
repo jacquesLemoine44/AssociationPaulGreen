@@ -1,37 +1,44 @@
-{% extends 'base.html.twig' %}
+{% extends 'admin.html.twig' %}
 
-{% block title %}Functions index{% endblock %}
+{% block title %}Gestion des Fonctions{% endblock %}
 
 {% block body %}
-    <h1>Functions index</h1>
+
+    <h1>Gestions des Fonctions</h1>
 
     <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
-                <th>Mission</th>
-                <th>DescriptionFunction</th>
+                {# <th>Id</th> #}
+                <th>Fonctions </th>
+                <th>Description</th>
                 <th>actions</th>
             </tr>
         </thead>
         <tbody>
         {% for function in functions %}
             <tr>
-                <td>{{ function.id }}</td>
+                {# <td>{{ function.id }}</td> #}
                 <td>{{ function.mission }}</td>
                 <td>{{ function.descriptionFunction }}</td>
                 <td>
-                    <a href="{{ path('functions_show', {'id': function.id}) }}">show</a>
-                    <a href="{{ path('functions_edit', {'id': function.id}) }}">edit</a>
+                    <a href="{{ path('functions_show', {'id': function.id}) }}">Afficher</a>
+                    <a href="{{ path('functions_edit', {'id': function.id}) }}">Modifier</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="4">no records found</td>
+                <td colspan="4">Aucune Fonction de  créée !!</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('functions_new') }}">Create new</a>
+    <a href="{{ path('functions_new') }}" title="Nouveau">Nouveau</a>
+
+
+
+
+
+
 {% endblock %}

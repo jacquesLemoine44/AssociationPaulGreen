@@ -96,7 +96,7 @@
 								<a class="nav-link" href="{{ path('app_logout') }}">Se déconnecter</a>
 							</li>
 
-							{% if app.user.roles[0]=="ROLE_ADMIN" %}
+							{% if app.user.roles[0]=="ROLE_USER" %}
 								<li class="nav-item">
 									<a class="nav-link" href="{{ path('admin') }}">
 										Administration

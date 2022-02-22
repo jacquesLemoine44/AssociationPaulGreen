@@ -1,11 +1,12 @@
-{% extends 'base.html.twig' %}
+{% extends 'admin.html.twig' %}
 
-{% block title %}New Functions{% endblock %}
+{% block title %}Nouvelle Fonction{% endblock %}
 
 {% block body %}
-    <h1>Create new Functions</h1>
+    <h1>Nouvelle Fonction</h1>
 
     {{ include('functions/_form.html.twig') }}
 
-    <a href="{{ path('functions_index') }}">back to list</a>
+    <a href="{{ path('functions_index') }}">Retour</a>
+
 {% endblock %}

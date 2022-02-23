@@ -38,8 +38,11 @@
                     {{ user.address2User }} <br>
                     {{ user.cpUser }}  {{ user.townUser }}</td>
 
-                <td></td>
-                <td>{{ user.photoUser }}</td>
+                {# <td></td> #}
+
+  			    <td><img src="{{ asset('uploads/photos/' ~ user.photoUser) }}" width="100" alt="{{ user.nameUser }} {{ user.firstNameUser }}"></td>
+                {# <td>{{ user.photoUser }}</td> #}
+
                 <td>{{ user.studyUser }}</td>
                 <td>{{ user.yearMenbershipUser }}</td>
 
@@ -71,8 +74,8 @@
 
                 <td>
                      <div class="col d-flex flex-column">
-                     <a href="{{ path('users_show', {'id': user.id}) }}">Afficher</a>
-                     <a href="{{ path('users_edit', {'id': user.id}) }}">Modifier</a>
+                     <a class="btn btn-primary" href="{{ path('users_show', {'id': user.id}) }}">Afficher</a>
+                     <a class="btn btn-warning" href="{{ path('users_edit', {'id': user.id}) }}">Modifier</a>
                     </div>
                 </td>
             </tr>
@@ -84,6 +87,6 @@
         </tbody>
     </table>
 
-    <a href="{{ path('users_new') }}">Nouveau</a>
+    <a class="btn btn-info" href="{{ path('users_new') }}">Nouveau</a>
     
 {% endblock %}

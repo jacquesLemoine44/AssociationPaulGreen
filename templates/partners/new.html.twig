@@ -1,0 +1,12 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}Nouveau Partenaires{% endblock %}
+
+{% block body %}
+    <h1>Nouveau Partenaires</h1>
+
+    {{ include('partners/_form.html.twig') }}
+
+    <a class="btn btn-secondary" href="{{ path('partners_index') }}">Retour</a>
+
+{% endblock %}

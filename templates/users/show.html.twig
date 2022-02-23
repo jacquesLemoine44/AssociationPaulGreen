@@ -83,9 +83,9 @@
         </tbody>
     </table>
 
-    <a href="{{ path('users_index') }}">Retour</a>
+    <a class="btn btn-secondary" href="{{ path('users_index') }}">Retour</a>
 
-    <a href="{{ path('users_edit', {'id': user.id}) }}">Modifier</a>
+    <a class="btn btn-warning" href="{{ path('users_edit', {'id': user.id}) }}">Modifier</a>
 
     {{ include('users/_delete_form.html.twig') }}
     

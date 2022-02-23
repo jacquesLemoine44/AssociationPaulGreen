@@ -1,0 +1,42 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}News index{% endblock %}
+
+{% block body %}
+    <h1>News index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                {# <th>Id</th> #}
+                <th>DateNew</th>
+                <th>TitleNew</th>
+                <th>PictureNew</th>
+                <th>TextNew</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for news in news %}
+            <tr>
+                {# <td>{{ news.id }}</td> #}
+                <td>{{ news.dateNew ? news.dateNew|date('d-m-Y H:i:s') : '' }}</td>
+                <td>{{ news.titleNew }}</td>
+                <td>{{ news.pictureNew }}</td>
+                <td>{{ news.textNew }}</td>
+                <td>
+                    <a href="{{ path('news_show', {'id': news.id}) }}">show</a>
+                    <a href="{{ path('news_edit', {'id': news.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">Pas de Saisie</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('news_new') }}">Nouveau</a>
+    
+{% endblock %}

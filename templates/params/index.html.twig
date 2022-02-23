@@ -48,8 +48,8 @@
 
 
                 <td>
-                    <a href="{{ path('params_show', {'id': param.id}) }}">Afficher</a>
-                    <a href="{{ path('params_edit', {'id': param.id}) }}">Modifier</a>
+                    <a class="btn btn-primary" href="{{ path('params_show', {'id': param.id}) }}">Afficher</a>
+                    <a class="btn btn-warning" href="{{ path('params_edit', {'id': param.id}) }}">Modifier</a>
                 </td>
             </tr>
         {% else %}
@@ -64,7 +64,7 @@
 {% if params%}
 {# plus de bouton #}
 {% else %}
-    <a href="{{ path('params_new') }}">Nouveau</a>
+    <a class="btn btn-info" href="{{ path('params_new') }}">Nouveau</a>
 {% endif%}
 
 

@@ -1,13 +1,13 @@
 {% extends 'admin.html.twig' %}
 
-{% block title %}Edit Functions{% endblock %}
+{% block title %}Modification Fonction{% endblock %}
 
 {% block body %}
-    <h1>Edit Functions</h1>
+    <h1>Modification Fonction</h1>
 
     {{ include('functions/_form.html.twig', {'button_label': 'Update'}) }}
 
-    <a href="{{ path('functions_index') }}">Retour</a>
+    <a  class="btn btn-secondary" href="{{ path('functions_index') }}">Retour</a>
 
     {{ include('functions/_delete_form.html.twig') }}
     

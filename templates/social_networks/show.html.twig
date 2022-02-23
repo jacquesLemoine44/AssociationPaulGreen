@@ -1,38 +1,39 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}SocialNetworks{% endblock %}
+{% block title %}Réseaux Sociaux{% endblock %}
 
 {% block body %}
-    <h1>SocialNetworks</h1>
+    <h1>Réseau Social</h1>
 
     <table class="table">
         <tbody>
-            <tr>
+            {# <tr>
                 <th>Id</th>
                 <td>{{ social_network.id }}</td>
-            </tr>
+            </tr> #}
             <tr>
-                <th>SocialNetwork</th>
+                <th>Réseau</th>
                 <td>{{ social_network.socialNetwork }}</td>
             </tr>
             <tr>
-                <th>LogoSocialnetwork</th>
+                <th>Logo</th>
                 <td>{{ social_network.logoSocialnetwork }}</td>
             </tr>
             <tr>
-                <th>CodeSocialnetwork</th>
+                <th>Code</th>
                 <td>{{ social_network.codeSocialnetwork }}</td>
             </tr>
             <tr>
-                <th>LinkSocialnetwork</th>
+                <th>Lien</th>
                 <td>{{ social_network.linkSocialnetwork }}</td>
             </tr>
         </tbody>
     </table>
 
-    <a href="{{ path('social_networks_index') }}">back to list</a>
+    <a class="btn btn-secondary" href="{{ path('social_networks_index') }}">Retour</a>
 
-    <a href="{{ path('social_networks_edit', {'id': social_network.id}) }}">edit</a>
+    <a class="btn btn-warning" href="{{ path('social_networks_edit', {'id': social_network.id}) }}">Modifier</a>
 
     {{ include('social_networks/_delete_form.html.twig') }}
+
 {% endblock %}

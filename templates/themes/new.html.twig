@@ -1,0 +1,12 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}Nouveau Theme{% endblock %}
+
+{% block body %}
+    <h1>Nouveau Thème</h1>
+
+    {{ include('themes/_form.html.twig') }}
+
+    <a class="btn btn-warning" href="{{ path('themes_index') }}">Retour</a>
+
+{% endblock %}

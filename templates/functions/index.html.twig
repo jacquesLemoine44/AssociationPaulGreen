@@ -22,8 +22,8 @@
                 <td>{{ function.mission }}</td>
                 <td>{{ function.descriptionFunction }}</td>
                 <td>
-                    <a href="{{ path('functions_show', {'id': function.id}) }}">Afficher</a>
-                    <a href="{{ path('functions_edit', {'id': function.id}) }}">Modifier</a>
+                    <a class="btn btn-primary" href="{{ path('functions_show', {'id': function.id}) }}">Afficher</a>
+                    <a class="btn btn-warning" href="{{ path('functions_edit', {'id': function.id}) }}">Modifier</a>
                 </td>
             </tr>
         {% else %}
@@ -34,7 +34,7 @@
         </tbody>
     </table>
 
-    <a href="{{ path('functions_new') }}" title="Nouveau">Nouveau</a>
+    <a class="btn btn-info" href="{{ path('functions_new') }}" title="Nouveau">Nouveau</a>
 
 
 

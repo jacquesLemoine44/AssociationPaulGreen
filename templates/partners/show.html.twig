@@ -1,0 +1,42 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}Partenaires{% endblock %}
+
+{% block body %}
+    <h1>Partenaires</h1>
+
+    <table class="table">
+        <tbody>
+            {# <tr>
+                <th>Id</th>
+                <td>{{ partner.id }}</td>
+            </tr> #}
+            <tr>
+                <th>Partenaires</th>
+                <td>{{ partner.namePartner }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ partner.textPartner }}</td>
+            </tr>
+            <tr>
+                <th>Photo</th>
+                <td>{{ partner.photoPartner }}</td>
+            </tr>
+            <tr>
+                <th>Logo</th>
+                <td>{{ partner.logoPartner }}</td>
+            </tr>
+            <tr>
+                <th>Lien</th>
+                <td>{{ partner.linkPartner }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a class="btn btn-secondary" href="{{ path('partners_index') }}">Retour</a>
+
+    <a class="btn btn-warning" href="{{ path('partners_edit', {'id': partner.id}) }}">Modifier</a>
+
+    {{ include('partners/_delete_form.html.twig') }}
+{% endblock %}

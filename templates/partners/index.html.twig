@@ -1,0 +1,44 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}Partenaires{% endblock %}
+
+{% block body %}
+    <h1>Partenaires</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                {# <th>Id</th> #}
+                <th>Partenaire</th>
+                <th>Description</th>
+                <th>Photo</th>
+                <th>Logo</th>
+                <th>Lien</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for partner in partners %}
+            <tr>
+                {# <td>{{ partner.id }}</td> #}
+                <td>{{ partner.namePartner }}</td>
+                <td>{{ partner.textPartner }}</td>
+                <td>{{ partner.photoPartner }}</td>
+                <td>{{ partner.logoPartner }}</td>
+                <td>{{ partner.linkPartner }}</td>
+                <td>
+                    <a class="btn btn-primary" href="{{ path('partners_show', {'id': partner.id}) }}">Afficher</a>
+                    <a class="btn btn-warning" href="{{ path('partners_edit', {'id': partner.id}) }}">Modifier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">Aucun enregistrement</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a class="btn btn-info" href="{{ path('partners_new') }}">Nouveau</a>
+
+{% endblock %}

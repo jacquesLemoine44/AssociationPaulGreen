@@ -70,6 +70,7 @@ class ParamsController extends AbstractController
             $entityManager->flush();
 
             return $this->redirectToRoute('params_index', [], Response::HTTP_SEE_OTHER);
+            // return $this->redirectToRoute('params_show', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->renderForm('params/edit.html.twig', [

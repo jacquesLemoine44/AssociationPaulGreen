@@ -13,7 +13,7 @@ class NewsPhotosType extends AbstractType
     {
         $builder
             ->add('photoNewPhoto')
-            ->add('altNewsPhoto')
+            ->add('altNewsPhoto', TextType::class, ['label' => 'Description Image : ', 'required'=> false])
             ->add('newsPhotosnews')
         ;
     }

@@ -14,7 +14,7 @@ class FunctionsType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('mission', TextType::class, ['label' => 'Fonction : ', 'required'=> false])
+            ->add('mission', TextType::class, ['label' => 'Fonction : ', 'required'=> true])
             ->add('descriptionFunction', TextareaType::class, [
                 'label' => 'Description : ',
                 'required'   => false,

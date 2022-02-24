@@ -20,8 +20,7 @@ class PartnersType extends AbstractType
             ->add('textPartner', TextareaType::class, ['label' => 'Description : ', 'required'=> false])
             ->add('photoPartner')
             ->add('logoPartner')
-            ->add('linkPartner')
-
+            ->add('linkPartner', TextType::class, ['label' => 'Lien : ', 'required'=> false])
             ->add('partnerGrouping')
             ->add('partnerGrouping', EntityType::class,[
                 'class' => GroupingPartners::class,

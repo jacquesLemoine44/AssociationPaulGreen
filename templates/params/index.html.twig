@@ -1,24 +1,21 @@
 {% extends 'admin.html.twig' %}
 
-{% block title %}Params index{% endblock %}
+{% block title %}Paramètres Principaux{% endblock %}
 
 {% block body %}
-    <h1>Params index</h1>
+<h1>Paramètres Principaux Applicatifs</h1>
 
     <table class="table">
         <thead>
             <tr>
                 {# <th>Id</th> #}
-                <th>TextParam</th>
-                <th>LogoParam</th>
-                <th>PhotoParam</th>
+                <th>Titre</th>
+                <th>Présentation</th>
+                <th>Logo</th>
+                <th>Photo de Présentation</th>
                 <th>EmailParam</th>
-                <th>TitleParam</th>
-                <th>Address1Param</th>
-                <th>Address2Param</th>
-                <th>CpParam</th>
-                <th>TownParam</th>
-                <th>UpdateParam</th>
+                <th>Adresse</th>
+                <th>Mise à Jour</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -26,32 +23,33 @@
         {% for param in params %}
             <tr>
                 {# <td>{{ param.id }}</td> #}
+                <td>{{ param.titleParam }}</td>                    
+                <td>{{ param.emailParam }}</td>
+
                 <td>{{ param.textParam }}</td>
                 <td>{{ param.logoParam }}</td>
                 <td>{{ param.photoParam }}</td>
-                <td>{{ param.emailParam }}</td>
-                <td>{{ param.titleParam }}</td>
-                <td>{{ param.address1Param }}</td>
-                <td>{{ param.address2Param }}</td>
-                <td>{{ param.cpParam }}</td>
-                <td>{{ param.townParam }}</td>
 
+                <td>{{ param.address1Param }}
+                {{ param.address2Param }}
+                {{ param.cpParam }}
+                {{ param.townParam }}</td>
 
                     {# {{ form_label(form.updateParam) }}
                     {{ form_widget(form.updateParam, { 'attr': {'class': 'w-25 text-center', 'disabled':true} }) }}  #}
-
                 {# <td>{{ param.updateParam ? param.updateParam|date('Y-m-d H:i:s') : '' }}</td> #}
+
                 <td>
-                    {{ param.updateParam ? param.updateParam|date('Y-m-d H:i:s') : '' }}
+                    {{ param.updateParam ? param.updateParam|date('d-m-Y H:i:s') : '' }}
                 </td>
-
-
 
                 <td>
                     <a class="btn btn-primary" href="{{ path('params_show', {'id': param.id}) }}">Afficher</a>
                     <a class="btn btn-warning" href="{{ path('params_edit', {'id': param.id}) }}">Modifier</a>
                 </td>
+                
             </tr>
+
         {% else %}
             <tr>
                 <td colspan="12">Pas de Paramètres</td>
@@ -62,7 +60,7 @@
 
 
 {% if params%}
-{# plus de bouton #}
+    {# plus de bouton #}
 {% else %}
     <a class="btn btn-info" href="{{ path('params_new') }}">Nouveau</a>
 {% endif%}

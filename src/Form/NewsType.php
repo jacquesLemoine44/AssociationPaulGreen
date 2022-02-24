@@ -6,6 +6,7 @@ use App\Entity\News;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 
 class NewsType extends AbstractType
 {
@@ -13,7 +14,7 @@ class NewsType extends AbstractType
     {
         $builder
             ->add('dateNew')
-            ->add('titleNew')
+            ->add('titleNew', TextType::class, ['label' => 'Titre : ', 'required'=> true])
             ->add('pictureNew')
             ->add('textNew')
         ;

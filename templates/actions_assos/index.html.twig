@@ -1,0 +1,49 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}Actions de l'association{% endblock %}
+
+{% block body %}
+    <h1>Actions de l'association</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                {# <th>Id</th> #}
+                <th>Titre</th>
+                <th>Image Principal</th>
+                <th>Texte</th>
+                <th>Lien</th>
+                <th>Début</th>
+                <th>Fin</th>
+                {# <th>....</th> #}
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for actions_asso in actions_assos %}
+            <tr>
+                {# <td>{{ actions_asso.id }}</td> #}
+                <td>{{ actions_asso.titleactionsasso }}</td>
+                <td>{{ actions_asso.pictureactionsasso }}</td>
+                <td>{{ actions_asso.textactionsasso }}</td>
+                <td>
+                    {{ actions_asso.titlelinkactionsasso }}
+                    {{ actions_asso.linkactionsasso }}
+                </td>
+                <td>{{ actions_asso.startactionsasso ? actions_asso.startactionsasso|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ actions_asso.endactionsasso ? actions_asso.endactionsasso|date('Y-m-d H:i:s') : '' }}</td>
+                <td>
+                    <a class="btn btn-primary" href="{{ path('actions_assos_show', {'id': actions_asso.id}) }}">Afficher</a>
+                    <a class="btn btn-warning" href="{{ path('actions_assos_edit', {'id': actions_asso.id}) }}">Modifier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="9">Aucune donnée</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a class="btn btn-info" href="{{ path('actions_assos_new') }}">Nouveau</a>
+{% endblock %}

@@ -26,6 +26,7 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
         {
         $this->roles = [self::ROLE_USER];
         $this->functionUser = new ArrayCollection();
+        $this->usersactionsasso = new ArrayCollection();
         }
 
     /**
@@ -125,6 +126,11 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
      * @ORM\Column(type="boolean")
      */
     private $contactinfoUser;
+
+    /**
+     * @ORM\OneToMany(targetEntity=ActionsAssos::class, mappedBy="actionsassosuser")
+     */
+    private $usersactionsasso;
 
     public function getId(): ?int
     {
@@ -403,6 +409,36 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
     public function setContactinfoUser(bool $contactinfoUser): self
     {
         $this->contactinfoUser = $contactinfoUser;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, ActionsAssos>
+     */
+    public function getUsersactionsasso(): Collection
+    {
+        return $this->usersactionsasso;
+    }
+
+    public function addUsersactionsasso(ActionsAssos $usersactionsasso): self
+    {
+        if (!$this->usersactionsasso->contains($usersactionsasso)) {
+            $this->usersactionsasso[] = $usersactionsasso;
+            $usersactionsasso->setActionsassosuser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeUsersactionsasso(ActionsAssos $usersactionsasso): self
+    {
+        if ($this->usersactionsasso->removeElement($usersactionsasso)) {
+            // set the owning side to null (unless already changed)
+            if ($usersactionsasso->getActionsassosuser() === $this) {
+                $usersactionsasso->setActionsassosuser(null);
+            }
+        }
 
         return $this;
     }

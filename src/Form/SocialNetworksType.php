@@ -12,11 +12,11 @@ class SocialNetworksType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('socialNetwork')
+            ->add('socialNetwork', TextType::class, ['Réseau' => 'Votre Nom : '])
             ->add('logoSocialnetwork')
             ->add('codeSocialnetwork')
             ->add('linkSocialnetwork')
-            ->add('params')
+            // ->add('params')
         ;
     }
 

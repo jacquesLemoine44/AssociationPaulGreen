@@ -24,12 +24,12 @@ class MainController extends AbstractController
     /**
      * @Route("/admin", name="admin")
      */
-    public function indexAdmin(): Response 
-    // public function indexAdmin(ParamsRepository $paramsRepository): Response 
+     public function indexAdmin(ParamsRepository $paramsRepository): Response 
     {
         return $this->render('main/indexAdmin.html.twig', [
+            'params' => $paramsRepository->findAll(),            
             'controller_name' => 'MainController',
-            // 'params' => $paramsRepository->findAll(),
+
         ]);
     }
 
@@ -41,7 +41,12 @@ class MainController extends AbstractController
     ]);
     }
 
-
+    public function recupParamId(ParamsRepository $paramsRepository): Response
+    {
+    return $this->render('params/recupParamId.html.twig', [
+        'params' => $paramsRepository->findAll(),
+    ]);
+    }
 
 
 }

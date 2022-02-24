@@ -6,18 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>{% block title %}Association Paul Green{% endblock %}</title>
+    <title>{% block title %}{{render(controller('App\\Controller\\MainController::paramRecup'))}}{% endblock %}</title>
 
 	<meta name="description" content={{render(controller('App\\Controller\\MainController::paramRecup'))}} & " || Campus BIODIV+  ||  Faire de l’Université Paul Valéry un campus à biodiversité positive" <meta="" charset="UTF-8"> 
-
-    {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
-    {# {% block stylesheets %}
-        {{ encore_entry_link_tags('app') }}
-    {% endblock %} #}
-        
-    {# {% block javascripts %}
-    {{ encore_entry_script_tags('app') }}
-    {% endblock %} #}       
 
     <!-- Favicon -->
     <!-- <link rel="shortcut icon" type="image/png" href="public/images/favicon.ico" /> -->
@@ -46,6 +37,7 @@
 <body>
 
     <!-- ========================================== -->
+
     <div class="container-fluid overflow-hidden">
 
         <div class="row vh-100 overflow-auto">
@@ -63,25 +55,23 @@
                                 <span class="ms-1 d-none d-sm-inline"> Accueil </span>
                             </a>
                         </li>
+
                         <li>
-                            <a href="{{ path('params_index') }}" class="nav-link px-sm-0 px-2">
-                                <i class="fas fa-laptop-house"></i>
-                                <span class="ms-1 d-none d-sm-inline">Paramètres</span>
-                            </a>
+							{# {% for param in params %} #}
+                                {# {%  set isFirst = render(controller('App\\Controller\\MainController::recupParamId')) %} #}
+                                <a href="{{ path('params_show', {'id': render(controller('App\\Controller\\MainController::recupParamId')) }) }}" class="nav-link px-sm-0 px-2"> 
+                                    <i class="fas fa-laptop-house"></i>
+                                    <span class="ms-1 d-none d-sm-inline">Paramètres</span>
+                                </a>
+							{# {% else %}
+                                <a href="{{ path('params_index') }}" class="nav-link px-sm-0 px-2"> 
+                                    <i class="fas fa-laptop-house"></i>
+                                    <span class="ms-1 d-none d-sm-inline">Paramètres</span>
+                                </a>
+							{% endfor %}  #}
                         </li>
 {# === Adhérents #}
-                        {# <li class="nav-item">
-                            <a href="{{ path('users_index') }}" class="nav-link px-sm-0 px-2">
-                                <i class="fas fa-users-cog"></i>
-                                <span class="ms-1 d-none d-sm-inline"> Adhérents </span>
-                            </a>
-                        </li> #}
-                                                {# <li>
-                            <a href="{{ path('functions_index') }}" class="nav-link px-sm-0 px-2">
-                                <i class="fas fa-user-graduate"></i>
-                                <span class="ms-1 d-none d-sm-inline">Fonctions</span>
-                            </a>
-                        </li> #}
+                        
                         <li class="dropdown">
                           <a href="#" class="nav-link dropdown-toggle px-sm-0 px-1" id="dropdown" data-bs-toggle="dropdown" aria-expanded="false">
                             <i class="fas fa-users-cog"></i>
@@ -94,9 +84,7 @@
                                         <span class="ms-1 d-none d-sm-inline"> Adhérents</span>
                                     </a>
                                 </li>
-                                <li>
-                                    <hr class="dropdown-divider">
-                                </li>
+                                <li><hr class="dropdown-divider"></li>
                                 <li>
                                     <a class="dropdown-item" href="{{ path('functions_index') }}">
                                         <i class="fas fa-user-graduate"></i>
@@ -108,18 +96,7 @@
                         </li>
 {# === #}
 
-
 {# === Partenaires #}
-{# <li>
-    <a href="{{ path('home') }}" class="nav-link px-sm-0 px-2">
-        <i class="far fa-handshake"></i>
-        <span class="ms-1 d-none d-sm-inline">Partenaires</span></a>
-</li>
-<li>
-    <a href="{{ path('home') }}" class="nav-link px-sm-0 px-2">
-<i class="fas fa-hat-cowboy-side"></i>
-        <span class="ms-1 d-none d-sm-inline">Regroupement Partenaires</span></a>
-</li> #}
 
                         <li class="dropdown">
                           <a href="#" class="nav-link dropdown-toggle px-sm-0 px-1" id="dropdown" data-bs-toggle="dropdown" aria-expanded="false">
@@ -161,40 +138,31 @@
                                 <span class="ms-1 d-none d-sm-inline"> Thèmes</span>
                             </a>
                         </li>
-                        {# <li>
-                            <a href="{{ path('home') }}" data-bs-toggle="collapse" class="nav-link px-sm-0 px-2">
-                                <i class="fas fa-laptop-house"></i>
-                                <span class="ms-1 d-none d-sm-inline">Paramètres</span>
-                            </a>
-                        </li> #}
-
-
-                        
-
-                        <li class="dropdown">
-                            <a href="#" class="nav-link dropdown-toggle px-sm-0 px-1" id="dropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="fs-5 bi-bootstrap"></i><span class="ms-1 d-none d-sm-inline">Bootstrap</span>
-                            </a>
-                            <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdown">
-                                <li><a class="dropdown-item" href="#">New project...</a></li>
-                                <li><a class="dropdown-item" href="#">Settings</a></li>
-                                <li><a class="dropdown-item" href="#">Profile</a></li>
-                                <li>
-                                    <hr class="dropdown-divider">
-                                </li>
-                                <li><a class="dropdown-item" href="#">Sign out</a></li>
-                            </ul>
+                        <li>
+                            <hr class="dropdown-divider">
                         </li>
                         <li>
-                            <a href="#" class="nav-link px-sm-0 px-2">
-                                <i class="fs-5 bi-grid"></i><span class="ms-1 d-none d-sm-inline">Products</span></a>
-                        </li>
-                        <li>
-                            <a href="#" class="nav-link px-sm-0 px-2">
-                                <i class="fs-5 bi-people"></i><span class="ms-1 d-none d-sm-inline">Customers</span>
+                            <a href="{{ path('actions_assos_index') }}" class="nav-link px-sm-0 px-2">
+                                <i class="fab fa-pagelines"></i>
+                                <span class="ms-1 d-none d-sm-inline"> Actions Associatives</span>
                             </a>
                         </li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+
+                        <li>
+                            <a href="#"  data-bs-toggle="collapse" class="nav-link px-sm-0 px-2">
+                                <i class="fas fa-spa"></i>
+                                <span class="ms-1 d-none d-sm-inline"> Projets Masters</span>
+                            </a>
+                        </li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>   
+
                     </ul>
+
                     <div class="dropdown py-sm-4 mt-sm-auto ms-auto ms-sm-0 flex-shrink-1">
                         <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
                             <img src="https://github.com/mdo.png" alt="hugenerd" width="28" height="28" class="rounded-circle">
@@ -210,6 +178,7 @@
                             <li><a class="dropdown-item" href="#">Sign out</a></li>
                         </ul>
                     </div>
+
                 </div>
             </div>
 

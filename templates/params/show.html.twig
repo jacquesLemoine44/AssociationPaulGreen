@@ -1,9 +1,9 @@
-{% extends 'base.html.twig' %}
+{% extends 'admin.html.twig' %}
 
-{% block title %}Params{% endblock %}
+{% block title %}Paramètres Principaux{% endblock %}
 
 {% block body %}
-    <h1>Params</h1>
+    <h1>Paramètres Principaux</h1>
 
     <table class="table">
         <tbody>
@@ -12,49 +12,52 @@
                 <td>{{ param.id }}</td>
             </tr> #}
             <tr>
-                <th>TextParam</th>
-                <td>{{ param.textParam }}</td>
-            </tr>
-            <tr>
-                <th>LogoParam</th>
-                <td>{{ param.logoParam }}</td>
-            </tr>
-            <tr>
-                <th>PhotoParam</th>
-                <td>{{ param.photoParam }}</td>
-            </tr>
-            <tr>
-                <th>EmailParam</th>
-                <td>{{ param.emailParam }}</td>
-            </tr>
-            <tr>
-                <th>TitleParam</th>
+                <th>Titre</th>
                 <td>{{ param.titleParam }}</td>
             </tr>
             <tr>
-                <th>Address1Param</th>
+                <th>Texte</th>
+                <td>{{ param.textParam }}</td>
+            </tr>
+            <tr>
+                <th>Logo</th>
+                <td>{{ param.logoParam }}</td>
+            </tr>
+            <tr>
+                <th>Photo Principal</th>
+                <td>{{ param.photoParam }}</td>
+            </tr>
+            <tr>
+                <th>Mail</th>
+                <td>{{ param.emailParam }}</td>
+            </tr>
+            <tr>
+                <th>Adresse 1</th>
                 <td>{{ param.address1Param }}</td>
             </tr>
             <tr>
-                <th>Address2Param</th>
+                <th>Adresse 2</th>
                 <td>{{ param.address2Param }}</td>
             </tr>
             <tr>
-                <th>CpParam</th>
+                <th>Cp</th>
                 <td>{{ param.cpParam }}</td>
             </tr>
             <tr>
-                <th>TownParam</th>
+                <th>Ville</th>
                 <td>{{ param.townParam }}</td>
             </tr>
             <tr>
-                <th>UpdateParam</th>
+                <th>Mise à Jour</th>
                 <td>{{ param.updateParam ? param.updateParam|date('Y-m-d H:i:s') : '' }}</td>
             </tr>
         </tbody>
     </table>
 
-    <a class="btn btn-secondary" href="{{ path('params_index') }}">Retour</a>
+    {# <a class="btn btn-secondary" href="{{ path('params_index') }}">Retour</a> #}
+    <a class="btn btn-secondary" href="{{ path('params_show', {'id': render(controller('App\\Controller\\MainController::recupParamId')) }) }}" class="nav-link px-sm-0 px-2"> 
+        Retour
+    </a>    
 
     <a class="btn btn-warning" href="{{ path('params_edit', {'id': param.id}) }}">Modifier</a>
 

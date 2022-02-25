@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\SocialNetworks;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -12,10 +13,10 @@ class SocialNetworksType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('socialNetwork', TextType::class, ['Réseau' => 'Votre Nom : '])
-            ->add('logoSocialnetwork')
-            ->add('codeSocialnetwork')
-            ->add('linkSocialnetwork')
+            ->add('socialNetwork', TextType::class, ['label' => 'Réseau social : '])
+            ->add('logoSocialnetwork', TextType::class, ['label' => 'Logo : '])
+            ->add('codeSocialnetwork', TextType::class, ['label' => 'Code Logo : '])
+            ->add('linkSocialnetwork', TextType::class, ['label' => 'Lien : '])
             // ->add('params')
         ;
     }

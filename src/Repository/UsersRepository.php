@@ -36,6 +36,21 @@ class UsersRepository extends ServiceEntityRepository implements PasswordUpgrade
         $this->_em->flush();
     }
 
+    /**
+    * @return Users[] Returns an array of Users objects
+    */
+    
+    public function findByTriUsers()
+    {
+        return $this->createQueryBuilder('u')
+            ->addorderBy('u.nameUser', 'ASC')
+            ->addorderBy('u.firstNameUser', 'ASC')
+            ->addorderBy('u.email', 'ASC')
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+
     // /**
     //  * @return Users[] Returns an array of Users objects
     //  */

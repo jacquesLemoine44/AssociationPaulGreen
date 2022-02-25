@@ -1,4 +1,51 @@
 {{ form_start(form) }}
+
     {{ form_widget(form) }}
+
+    {# Si la route est "xxxx_edit on affiche les logos #}
+	{% if app.request.attributes.get('_route') == 'social_networks_edit' %}
+            <div>
+                {% if (social_network.logoSocialnetwork) %}
+                    {% set xlogo = social_network.logoSocialnetwork %}
+                    <p>logo :  {{ xlogo | raw }}</p>
+                {# {% else %} #}
+                {% endif %}                
+
+                {% if (social_network.codeSocialnetwork) %}
+                    {% set xlogo = social_network.codeSocialnetwork %}
+                    <p>Code logo :  <i class="{{ xlogo }}"></i> </p>
+                {# {% else %} #}
+                {% endif %}    
+
+                {#
+                {% if (social_network.logoSocialnetwork) %}
+                    {{ form_label(form.logoSocialnetwork) }}
+                    {{ social_network.logoSocialnetwork|raw }}
+                    <a href="{{ path('produits_delete_photo', {id: photo.id})}}" data-delete data-token="{{ csrf_token('delete' ~ photo.id )}}">
+                      Effacer
+                    </a>                    
+                {% else %}
+                    {{ form_label(form.logoSocialnetwork) }}
+                    {{ social_network.logoSocialnetwork}}
+                {% endif %}
+                #}
+            </div>
+    {% endif %}
+
+    {# Si la route est "produits_edit on affiche les photos #}
+	{# {% if app.request.attributes.get('_route') == 'produits_edit' %}
+        <h2>Photos</h2>
+        {% for photo in produit.photos %}
+            <div>
+                <img src="{{ asset('/uploads/'~photo.photo) }}" alt="" width="150"> #}
+                {# On ajoute un lien permettant de supprimer une photo (sera géré en Ajax) #}
+                {# <a href="{{ path('produits_delete_photo', {id: photo.id})}}" data-delete data-token="{{ csrf_token('delete' ~ photo.id )}}">
+            Supprimer
+                </a>
+            </div>
+        {% endfor %}
+    {% endif %}     #}
+
+
     <button class="btn btn-success">{{ button_label|default('Sauver') }}</button>
 {{ form_end(form) }}

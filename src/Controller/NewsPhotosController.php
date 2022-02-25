@@ -7,6 +7,7 @@ use App\Form\NewsPhotosType;
 use App\Repository\NewsPhotosRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -90,4 +91,33 @@ class NewsPhotosController extends AbstractController
 
         return $this->redirectToRoute('news_photos_index', [], Response::HTTP_SEE_OTHER);
     }
+
+
+/**
+ * @Route("/supprime/photo/{id}", name="news_delete_photo", methods={"DELETE"})
+ */
+public function deleteImage(Request $request, NewsPhotos $photo, EntityManagerInterface $entityManager){
+    $data = json_decode($request->getContent(), true);
+
+    // On vérifie si le token est valide
+    if($this->isCsrfTokenValid('delete'.$photo->getId(), $data['_token'])){
+        // On récupère le nom de l'image
+        $nom = $photo->getPhotoNewPhoto();
+        // On supprime le fichier
+        unlink($this->getParameter('photos_directoryNews').'/'.$nom);
+
+        // On supprime l'entrée de la base
+        // $em = $this->getDoctrine()->getManager();
+        // $em->remove($photo);
+        // $em->flush();
+        $entityManager->remove($photo);
+        $entityManager->flush();
+
+        // On répond en json
+        return new JsonResponse(['success' => 1]);
+    }else{
+        return new JsonResponse(['error' => 'Token Invalide'], 400);
+    }
+}
+
 }

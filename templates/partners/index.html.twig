@@ -23,6 +23,23 @@
                 {# <td>{{ partner.id }}</td> #}
                 <td>{{ partner.namePartner }}</td>
                 <td>{{ partner.textPartner }}</td>
+
+                <td>
+                    {{ partner.logoPartner }}
+                    {% if (partner.logoPartner) %}
+                        <img src="{{ asset('photosPartners/' ~ partner.logoPartner) }}" width="100">
+                    {# {% else %} #}
+                    {% endif %}                               
+                </td>
+                <td>
+                    {{ partner.photoPartner }}
+                    <br>
+                    {% if (partner.photoPartner) %}                        
+                        <img src="{{ asset('photosPartners/' ~ partner.photoPartner) }}" width="100">
+                    {# {% else %} #}
+                    {% endif %}                               
+                </td> 
+
                 <td>{{ partner.photoPartner }}</td>
                 <td>{{ partner.logoPartner }}</td>
                 <td>{{ partner.linkPartner }}</td>

@@ -19,6 +19,19 @@ class ThemesRepository extends ServiceEntityRepository
         parent::__construct($registry, Themes::class);
     }
 
+    /**
+    * @return Themes[] Returns an array of Themes objects
+    */
+    public function findByNameThemeField()
+    {
+        return $this->createQueryBuilder('t')
+            ->orderBy('t.nameTheme', 'ASC')
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+    
+
     // /**
     //  * @return Themes[] Returns an array of Themes objects
     //  */

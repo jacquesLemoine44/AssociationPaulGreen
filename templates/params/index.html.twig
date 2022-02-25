@@ -8,13 +8,15 @@
     <table class="table">
         <thead>
             <tr>
-                {# <th>Id</th> #}
-                <th>Titre</th>
+
+                <th>
+                    Titre<br>
+                    Mail    
+                </th>
                 <th>Présentation</th>
                 <th>Logo</th>
                 <th>Photo de Présentation</th>
-                <th>EmailParam</th>
-                <th>Adresse</th>
+                <th>Adresse complète</th>
                 <th>Mise à Jour</th>
                 <th>actions</th>
             </tr>
@@ -22,21 +24,44 @@
         <tbody>
         {% for param in params %}
             <tr>
-                {# <td>{{ param.id }}</td> #}
-                <td>{{ param.titleParam }}</td>                    
-                <td>{{ param.emailParam }}</td>
 
-                <td>{{ param.textParam }}</td>
-                <td>{{ param.logoParam }}</td>
-                <td>{{ param.photoParam }}</td>
+                <td>
+                    {{ param.titleParam }} <br>              
+                    {{ param.emailParam }}
+                </td>
 
-                <td>{{ param.address1Param }}
-                {{ param.address2Param }}
-                {{ param.cpParam }}
-                {{ param.townParam }}</td>
+                <td>
 
-                    {# {{ form_label(form.updateParam) }}
-                    {{ form_widget(form.updateParam, { 'attr': {'class': 'w-25 text-center', 'disabled':true} }) }}  #}
+                    {{ param.textParam|length > 300 ? param.textParam|slice(0,300)|raw : param.textParam|raw }}
+                    {# {% if param.textParam|length > 300 %}
+                        <a class="" href="{{ path('produits_show', {'id': produit.id}) }}">lire la suite...</a>
+                    {% endif %}   #}
+
+                </td>
+                
+                <td>
+                    <img src="{{ asset('photosParams/' ~ param.logoParam) }}" width="100">
+                </td>
+
+                <td>
+                    <img src="{{ asset('photosParams/' ~ param.photoParam) }}" width="100">
+                </td>                    
+
+                <td>
+                    {{ param.address1Param }} <br>
+                    {% if(param.address2Param) %}
+                        {{ param.address2Param }} <br>
+                    {% else %}
+                        {# rien #}
+                    {% endif %}
+                    {{ param.cpParam }} <br>
+                    {{ param.townParam }}
+                </td>
+
+                {#
+                {{ form_label(form.updateParam) }}
+                    {{ form_widget(form.updateParam, { 'attr': {'class': 'w-25 text-center', 'disabled':true} }) }}
+                #}
                 {# <td>{{ param.updateParam ? param.updateParam|date('Y-m-d H:i:s') : '' }}</td> #}
 
                 <td>

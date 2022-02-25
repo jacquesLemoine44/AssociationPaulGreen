@@ -1,9 +1,9 @@
-{% extends 'base.html.twig' %}
+{% extends 'admin.html.twig' %}
 
-{% block title %}SocialNetworks index{% endblock %}
+{% block title %}Réseaux Sociaux{% endblock %}
 
 {% block body %}
-    <h1>SocialNetworks index</h1>
+    <h1>Réseaux Sociaux</h1>
 
     <table class="table">
         <thead>
@@ -21,8 +21,15 @@
             <tr>
                 {# <td>{{ social_network.id }}</td> #}
                 <td>{{ social_network.socialNetwork }}</td>
-                <td>{{ social_network.logoSocialnetwork }}</td>
-                <td>{{ social_network.codeSocialnetwork }}</td>
+                <td>
+                    {{ social_network.logoSocialnetwork }} <br>
+                    {{ social_network.logoSocialnetwork|raw }}
+                </td>
+                <td>
+                    {{ social_network.codeSocialnetwork }} <br>
+                    <i class="{{ social_network.codeSocialnetwork }}" aria-hidden="true"></i>
+                </td>
+
                 <td>{{ social_network.linkSocialnetwork }}</td>
                 <td>
                     <a class="btn btn-primary" href="{{ path('social_networks_show', {'id': social_network.id}) }}">Afficher</a>
@@ -38,4 +45,5 @@
     </table>
 
     <a class="btn btn-success" href="{{ path('social_networks_new') }}">Nouveau</a>
+
 {% endblock %}

@@ -13,11 +13,11 @@
 
                 <th>Adresse</th>
 
-                <th>PhotoUser</th>
+                <th>Photo</th>
 
-                <th>StudyUser</th>
+                <th>Etudiant</th>
 
-                <th>YearMenbershipUser</th>
+                <th>Année</th>
 
                 <th>News letters</th>
                 <th>actions</th>
@@ -39,8 +39,8 @@
                     {{ user.cpUser }}  {{ user.townUser }}</td>
 
                 {# <td></td> #}
-
-  			    <td><img src="{{ asset('uploads/photos/' ~ user.photoUser) }}" width="100" alt="{{ user.nameUser }} {{ user.firstNameUser }}"></td>
+                {# <td><img src="{{ asset('uploads/photos/' ~ licency.photoLicencie) }}" width="100"></td> #}
+  			    <td><img src="{{ asset('photosAdherents/' ~ user.photoUser) }}" width="100" alt="{{ user.nameUser }} {{ user.firstNameUser }}"></td>
                 {# <td>{{ user.photoUser }}</td> #}
 
                 <td>{{ user.studyUser }}</td>
@@ -87,6 +87,8 @@
         </tbody>
     </table>
 
-    <a class="btn btn-info" href="{{ path('users_new') }}">Nouveau</a>
+    <p class="text-danger">POUR CREER UN NOUVELLE ADHERENT, PASSER PAR L'OPTION DU MENU "Création d'un compte" !</p>
+
+    {# <a class="btn btn-info" href="{{ path('users_new') }}">Nouveau</a> #}
     
 {% endblock %}

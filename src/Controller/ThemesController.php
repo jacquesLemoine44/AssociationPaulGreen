@@ -22,7 +22,7 @@ class ThemesController extends AbstractController
     public function index(ThemesRepository $themesRepository): Response
     {
         return $this->render('themes/index.html.twig', [
-            'themes' => $themesRepository->findAll(),
+            'themes' => $themesRepository->findByNameThemeField(),
         ]);
     }
 

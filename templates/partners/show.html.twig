@@ -21,11 +21,25 @@
             </tr>
             <tr>
                 <th>Photo</th>
-                <td>{{ partner.photoPartner }}</td>
+                <td>
+                    {{ partner.photoPartner }}
+                     <br>
+                    {% if (partner.photoPartner) %}
+                        <img src="{{ asset('photosPartners/' ~ partner.photoPartner) }}" width="100">
+                    {# {% else %} #}
+                    {% endif %} 
+                </td>  
             </tr>
             <tr>
                 <th>Logo</th>
-                <td>{{ partner.logoPartner }}</td>
+                <td>
+                    {{ partner.logoPartner }}
+                    <br>
+                    {% if (partner.logoPartner) %}
+                        <img src="{{ asset('photosPartners/' ~ partner.logoPartner) }}" width="100">
+                    {# {% else %} #}
+                    {% endif %}                         
+                </td>
             </tr>
             <tr>
                 <th>Lien</th>

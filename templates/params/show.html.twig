@@ -7,25 +7,28 @@
 
     <table class="table">
         <tbody>
-            {# <tr>
-                <th>Id</th>
-                <td>{{ param.id }}</td>
-            </tr> #}
+
             <tr>
                 <th>Titre</th>
                 <td>{{ param.titleParam }}</td>
             </tr>
             <tr>
                 <th>Texte</th>
-                <td>{{ param.textParam }}</td>
+                <td>    
+                    {{ param.textParam|length > 300 ? param.textParam|slice(0,300)|raw : param.textParam|raw }}                    
+                </td>
             </tr>
             <tr>
                 <th>Logo</th>
-                <td>{{ param.logoParam }}</td>
+                <td>    
+                    <img src="{{ asset('photosParams/' ~ param.logoParam) }}" width="100">                  
+                </td>   
             </tr>
             <tr>
-                <th>Photo Principal</th>
-                <td>{{ param.photoParam }}</td>
+            <th>Photo principale</th>                
+                <td>    
+                    <img src="{{ asset('photosParams/' ~ param.photoParam) }}" width="100">                    
+                </td>    
             </tr>
             <tr>
                 <th>Mail</th>
@@ -49,18 +52,21 @@
             </tr>
             <tr>
                 <th>Mise à Jour</th>
-                <td>{{ param.updateParam ? param.updateParam|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ param.updateParam ? param.updateParam|date('d-m-Y H:i:s') : '' }}</td>
             </tr>
         </tbody>
     </table>
 
-    {# <a class="btn btn-secondary" href="{{ path('params_index') }}">Retour</a> #}
+    {#
+    <a class="btn btn-secondary" href="{{ path('params_index') }}">Retour</a>
     <a class="btn btn-secondary" href="{{ path('params_show', {'id': render(controller('App\\Controller\\MainController::recupParamId')) }) }}" class="nav-link px-sm-0 px-2"> 
         Retour
-    </a>    
+    </a> 
+    {{ include('params/_delete_form.html.twig') }} 
+    #}
 
     <a class="btn btn-warning" href="{{ path('params_edit', {'id': param.id}) }}">Modifier</a>
 
-    {# {{ include('params/_delete_form.html.twig') }} #}
+
 
 {% endblock %}

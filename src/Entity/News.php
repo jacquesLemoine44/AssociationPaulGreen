@@ -39,8 +39,11 @@ class News
      */
     private $textNew;
 
+
+//     * @ORM\OneToMany(targetEntity=NewsPhotos::class, mappedBy="newsPhotosnews")
+
     /**
-     * @ORM\OneToMany(targetEntity=NewsPhotos::class, mappedBy="newsPhotosnews")
+     * @ORM\OneToMany(targetEntity=NewsPhotos::class, mappedBy="newsPhotosnews", cascade={"persist"})
      */
     private $newsPhotosNews;
 

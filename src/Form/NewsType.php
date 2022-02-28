@@ -11,6 +11,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 
 class NewsType extends AbstractType
 {
@@ -40,7 +41,9 @@ class NewsType extends AbstractType
                 'widget' => 'single_text',
             ])
 
-            ->add('textNew', CKEditorType::class)
+            ->add('textNew', CKEditorType::class, [
+                'label' => 'Texte long : ',
+            ])
 
     //  Voir https://nouvelle-techno.fr/articles/live-coding-upload-dimages-multiples-avec-symfony-4-et-5
             // On ajoute le champ "images" dans le formulaire

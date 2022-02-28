@@ -27,6 +27,7 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
         $this->roles = [self::ROLE_USER];
         $this->functionUser = new ArrayCollection();
         $this->usersactionsasso = new ArrayCollection();
+        $this->usersnew = new ArrayCollection();
         }
 
     /**
@@ -131,6 +132,11 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
      * @ORM\OneToMany(targetEntity=ActionsAssos::class, mappedBy="actionsassosuser")
      */
     private $usersactionsasso;
+
+    /**
+     * @ORM\OneToMany(targetEntity=News::class, mappedBy="newsuser")
+     */
+    private $usersnew;
 
     public function getId(): ?int
     {
@@ -437,6 +443,36 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
             // set the owning side to null (unless already changed)
             if ($usersactionsasso->getActionsassosuser() === $this) {
                 $usersactionsasso->setActionsassosuser(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, News>
+     */
+    public function getUsersnew(): Collection
+    {
+        return $this->usersnew;
+    }
+
+    public function addUsersnew(News $usersnew): self
+    {
+        if (!$this->usersnew->contains($usersnew)) {
+            $this->usersnew[] = $usersnew;
+            $usersnew->setNewsuser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeUsersnew(News $usersnew): self
+    {
+        if ($this->usersnew->removeElement($usersnew)) {
+            // set the owning side to null (unless already changed)
+            if ($usersnew->getNewsuser() === $this) {
+                $usersnew->setNewsuser(null);
             }
         }
 

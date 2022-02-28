@@ -39,14 +39,17 @@ class News
      */
     private $textNew;
 
-
-//     * @ORM\OneToMany(targetEntity=NewsPhotos::class, mappedBy="newsPhotosnews")
-
     /**
      * @ORM\OneToMany(targetEntity=NewsPhotos::class, mappedBy="newsPhotosnews", cascade={"persist"})
      */
     private $newsPhotosNews;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Users::class, inversedBy="usersnew")
+     */
+    private $newsuser;
+
+    
     public function __construct()
     {
         $this->newsPhotosNews = new ArrayCollection();
@@ -134,4 +137,18 @@ class News
 
         return $this;
     }
+
+    public function getNewsuser(): ?Users
+    {
+        return $this->newsuser;
+    }
+
+    public function setNewsuser(?Users $newsuser): self
+    {
+        $this->newsuser = $newsuser;
+
+        return $this;
+    }
+
+
 }

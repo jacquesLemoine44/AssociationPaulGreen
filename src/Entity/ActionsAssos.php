@@ -55,7 +55,7 @@ class ActionsAssos
     private $titlelinkactionsasso;
 
     /**
-     * @ORM\OneToMany(targetEntity=PhotosActionsAssos::class, mappedBy="photoactasso")
+     * @ORM\OneToMany(targetEntity=PhotosActionsAssos::class, mappedBy="photoactasso", cascade={"persist"}))
      */
     private $actionsassosphoto;
 

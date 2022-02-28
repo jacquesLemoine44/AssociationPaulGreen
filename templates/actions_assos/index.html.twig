@@ -24,7 +24,9 @@
             <tr>
                 {# <td>{{ actions_asso.id }}</td> #}
                 <td>{{ actions_asso.titleactionsasso }}</td>
-                <td>{{ actions_asso.pictureactionsasso }}</td>
+                    <td>
+                        <img src="{{ asset('photosActionsAssos/' ~ actions_asso.pictureactionsasso) }}" width="100">
+                    </td>                    
                 <td>{{ actions_asso.textactionsasso }}</td>
                 <td>
                     {{ actions_asso.titlelinkactionsasso }}

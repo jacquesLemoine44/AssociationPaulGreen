@@ -4,6 +4,8 @@
 
 {% block body %}
     <h1>Liste des Adhérents</h1>
+    <p class="text-danger">POUR CREER UN NOUVEAU ADHERENT, PASSER PAR L'OPTION DU MENU "Création d'un compte" !</p>
+
 
     <table class="table">
         <thead>
@@ -86,8 +88,6 @@
         {% endfor %}
         </tbody>
     </table>
-
-    <p class="text-danger">POUR CREER UN NOUVELLE ADHERENT, PASSER PAR L'OPTION DU MENU "Création d'un compte" !</p>
 
     {# <a class="btn btn-info" href="{{ path('users_new') }}">Nouveau</a> #}
     

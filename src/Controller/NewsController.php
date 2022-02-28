@@ -15,6 +15,7 @@ use Symfony\Component\String\Slugger\SluggerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
 
+
 /**
  * @Route("/news")
  */
@@ -61,7 +62,8 @@ class NewsController extends AbstractController
 
             // =================================             
 
-// ===== Photos
+            // ===== Photos Multiples
+
             // On récupère les images transmises
             $photos = $form->get('newsPhotosNews')->getData();
             // On boucle sur les images
@@ -80,7 +82,10 @@ class NewsController extends AbstractController
                 $news->addNewsPhotosNews($img);
             }
             // $entityManager = $this->getDoctrine()->getManager(); ne marche plus
-// ===
+
+            // =====
+
+            $news->setNewsuser($this->getUser());
 
             $entityManager->persist($news);
             $entityManager->flush();
@@ -109,6 +114,7 @@ class NewsController extends AbstractController
      */
     public function edit(Request $request, News $news, EntityManagerInterface $entityManager, SluggerInterface $slugger): Response
     {
+
         $form = $this->createForm(NewsType::class, $news);
         $form->handleRequest($request);
 
@@ -134,9 +140,8 @@ class NewsController extends AbstractController
 
             // =================================   
 
+            // ===== Photos Multiples
 
-
-// ===== Photos
             // On récupère les images transmises
             $photos = $form->get('newsPhotosNews')->getData();
             // On boucle sur les images
@@ -155,7 +160,15 @@ class NewsController extends AbstractController
                 $news->addNewsPhotosNews($img);
             }
             // $entityManager = $this->getDoctrine()->getManager(); ne marche plus
-// ===
+
+            // =====
+
+
+            // use Symfony\Component\Security\Core\User\UserInterface;
+            // , UserInterface $user
+            // ($user->getId())
+
+            $news->setNewsuser($this->getUser());
 
             $entityManager->flush();
 

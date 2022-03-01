@@ -4,16 +4,19 @@ namespace App\Form;
 
 use App\Entity\Users;
 use App\Entity\Functions;
+use Webmozart\Assert\Assert;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Symfony\Component\Validator\Constraints\File;
+use Symfony\Component\Validator\Constraints\Regex;
+
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TelType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
-use Symfony\Component\Form\Extension\Core\Type\FileType;
-use Symfony\Component\Validator\Constraints\File;
 
 class UsersType extends AbstractType
 {
@@ -31,21 +34,36 @@ class UsersType extends AbstractType
             ->add('townUser', TextType::class, ['label' => 'Ville : ', 'required'=> true])
 
 
-            ->add('phoneUser', TelType::class, ['label' => 'Téléphone : ', 'required'=> true])
+            ->add('phoneUser', TelType::class, [
+                'label' => 'Téléphone : ',
+                 'required'=> true,
+            ])
+            
+        //     'constraints' => [
+        //         new Regex([
+        //             'pattern' => '/^\+33\(0\)[0-9]*$',
+        //             'message' => 'Please use only positive numbers.'
+        //         ])
+        //    ], 
 
-            // ->add('photos', FileType::class,[
-            //     'label' => false,
-            //     'multiple' => true,
-            //     'mapped' => false,
-            //     'required' => false
-            // ])             
+// ======
+            // ->add('field_name', 'integer', array(
+            //     'label' => 'Your label here', 
+            //     'data' => 0, //default value
+            //     'precision' => 0, //disallow floats
+            //     'constraints' => array(
+            //         new Assert\NotBlank(), 
+            //         new Assert\Type('integer'), 
+            //         new Assert\Regex(array(
+            //             'pattern' => '/^[0-9]\d*$/',
+            //             'message' => 'Please use only positive numbers.'
+            //             )
+            //         ),
+            //         new Assert\Length(array('max' => 2))
+            //     )
+            // ))
+// ======
 
-            // ->add('photoUser', FileType::class,[
-            //     'label' => false,
-            //     'multiple' => false,
-            //     'mapped' => false,
-            //     'required' => false
-            // ]) 
             ->add('photoUser', FileType::class, [
                 'label' => 'Photo',
                 'mapped' => false,
@@ -61,8 +79,6 @@ class UsersType extends AbstractType
                 ],
             ])
 
-
-
             ->add('studyUser', TextType::class, ['label' => 'Etudiant : ', 'required'=> true])
             ->add('yearMenbershipUser', IntegerType::class, ['label' => 'Année : ', 'required'=> true])
             ->add('newslettersNewsUser')
@@ -75,6 +91,8 @@ class UsersType extends AbstractType
                 'choice_label' => 'mission',
                 'multiple' => True,
                 'expanded' => true,
+                'required'   => false,
+                'is_granted' => 'ROLE_ADMIN',
                 ]) 
         ;
     }

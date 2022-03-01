@@ -5,13 +5,15 @@ namespace App\Controller;
 use App\Entity\Users;
 use App\Form\UsersType;
 use App\Repository\UsersRepository;
+use App\Repository\ParamsRepository;
 use Doctrine\ORM\EntityManagerInterface;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\File\Exception\FileException;
+use App\Repository\SocialNetworksRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\String\Slugger\SluggerInterface;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\File\Exception\FileException;
 
 /**
  * @Route("/users")
@@ -85,7 +87,8 @@ class UsersController extends AbstractController
     /**
      * @Route("/{id}/edit", name="users_edit", methods={"GET", "POST"})
      */
-    public function edit(Request $request, Users $user, EntityManagerInterface $entityManager, SluggerInterface $slugger): Response
+    public function edit(Request $request, Users $user, EntityManagerInterface $entityManager, SluggerInterface $slugger, ParamsRepository $paramsRepository, SocialNetworksRepository $socialNetworksRepository): Response
+
     {
         $form = $this->createForm(UsersType::class, $user);
         $form->handleRequest($request);
@@ -120,6 +123,8 @@ class UsersController extends AbstractController
         return $this->renderForm('users/edit.html.twig', [
             'user' => $user,
             'form' => $form,
+            'params' => $paramsRepository->findAll(),
+            'social_networks' => $socialNetworksRepository->findAll(),            
         ]);
     }
 

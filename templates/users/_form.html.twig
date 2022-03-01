@@ -19,6 +19,14 @@
 						<td>{{ form_widget(form.firstNameUser) }}</td>
 					</tr>
 					<tr>
+						<th>Photo :</th>
+						<td>
+							{{ form_widget(form.photoUser) }}
+							<hr>
+							<img src="{{ asset('photosAdherents/' ~ user.photoUser) }}" width="100" alt="{{ user.nameUser }} {{ user.firstNameUser }}">
+						</td>
+					</tr>					
+					<tr>
 						<th>Adresse 1:</th>
 						{# <td><input type="text" class="form-control form-control-lg" id="colFormLabelLg" placeholder="" value="{{ contact.emailContact }}"></td> #}
 						<td>{{ form_widget(form.address1User) }}</td>
@@ -58,12 +66,15 @@
 						{# <td><input type="text" class="form-control form-control-lg" id="colFormLabelLg" placeholder="" value="{{ contact.emailContact }}"></td> #}
 						<td>{{ form_widget(form.yearMenbershipUser) }}</td>
 					</tr>
+				{% if app.user.roles[0]=="ROLE_ADMIN" %}
 					<tr>
 						<th>Fonction(s) :</th>
 						{# <td><input type="text" class="form-control form-control-lg" id="colFormLabelLg" placeholder="" value="{{ contact.emailContact }}"></td> #}
 						{# <td>{{ form_widget(form.nameUser) }}</td> #}
                         <td>{{ form_widget(form.functionUser) }}</td>
 					</tr>
+				{% endif %}
+
 					<tr>
 						<th>Newsletter :</th>
 						{# <td><input type="text" class="form-control form-control-lg" id="colFormLabelLg" placeholder="" value="{{ contact.emailContact }}"></td> #}

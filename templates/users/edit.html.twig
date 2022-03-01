@@ -1,4 +1,12 @@
-{% extends 'admin.html.twig' %}
+
+{# {% if app.user.roles[0]=="ROLE_ADMIN" %}
+    {% extends 'admin.html.twig' %}
+ {% else %}    
+    {% extends 'base.html.twig' %}
+{% endif %}  #}
+
+{% extends (app.user.roles[0]=="ROLE_ADMIN") ? 'admin.html.twig' : 'base.html.twig' %}
+
 
 {% block title %}Modification des Adhérents{% endblock %}
 

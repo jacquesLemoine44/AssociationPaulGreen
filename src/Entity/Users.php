@@ -2,13 +2,18 @@
 
 namespace App\Entity;
 
-use App\Repository\UsersRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
+use App\Entity\News;
+use App\Entity\Functions;
+use App\Entity\ActionsAssos;
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\UsersRepository;
+use Doctrine\Common\Collections\Collection;
+use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
-use Symfony\Component\Security\Core\User\UserInterface;
+// use Symfony\Polyfill\Intl\Idn\Resources\unidata\Regex;
+// use Symfony\Component\Validator\Constraints\Regex;
 
 /**
  * @ORM\Entity(repositoryClass=UsersRepository::class)
@@ -87,6 +92,11 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $townUser;
+
+
+    // * @Assert\Regex(
+    //     *     pattern     = "/^\+33\(0\)[0-9]*$"
+    //     * )
 
     /**
      * @ORM\Column(type="string", length=50)

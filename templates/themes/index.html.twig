@@ -5,10 +5,10 @@
 {% block body %}
     <h1>Thèmes</h1>
         <br>
-    <h5>
-        Les Thémes servents aussi bien pour les blogs Association que pour les blogs Masters
+    <h5 class="text-success2">
+        Les Thémes servents aussi bien pour les projets de l'Association que pour les projets Masters
         <br>
-        Plusieurs thèmes pourront être reliès aux blogs.
+        Plusieurs thèmes peuvent être associés aux projets.
     </h5>     
 
     <table class="table">
@@ -38,7 +38,8 @@
         {% endfor %}
         </tbody>
     </table>
-
-    <a class="btn btn-info" href="{{ path('themes_new') }}">Nouveau</a>
+    <div>
+        <a class="btn btn-info" href="{{ path('themes_new') }}">Nouveau</a>
+    </div>
     
 {% endblock %}

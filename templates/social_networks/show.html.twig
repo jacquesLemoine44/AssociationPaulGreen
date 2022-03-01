@@ -30,10 +30,14 @@
         </tbody>
     </table>
 
-    <a class="btn btn-secondary" href="{{ path('social_networks_index') }}">Retour</a>
+    <div class="d-flex">
 
-    <a class="btn btn-warning" href="{{ path('social_networks_edit', {'id': social_network.id}) }}">Modifier</a>
+        <a class="btn btn-secondary me-1" href="{{ path('social_networks_index') }}">Retour</a>
 
-    {{ include('social_networks/_delete_form.html.twig') }}
+        <a class="btn btn-warning me-1" href="{{ path('social_networks_edit', {'id': social_network.id}) }}">Modifier</a>
+
+        {{ include('social_networks/_delete_form.html.twig') }}
+
+    </div>
 
 {% endblock %}

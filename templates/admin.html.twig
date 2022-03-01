@@ -42,10 +42,13 @@
 
         <div class="row vh-100 overflow-auto">
 
-            <div class="col-12 col-sm-3 col-xl-2 px-sm-2 px-0 bg-secondary d-flex sticky-top">
-                <div class="d-flex flex-sm-column flex-row flex-grow-1 align-items-center align-items-sm-start px-3 pt-2 text-white">
-                    <div class="d-flex justify-content-center align-items-center">
-                        <img src="{{ asset('photosAdherents/' ~ app.user.photoUser) }}" width="100" alt="{{ app.user.nameUser }} {{ app.user.firstNameUser }}">
+            <div class="col-12 col-sm-3 col-xl-2 px-sm-2 px-0 bg-info2 d-flex sticky-top">
+
+                <div class="d-flex flex-sm-column flex-row flex-grow-1 align-items-center align-items-sm-start px-3 pt-2 text-success2">
+
+                    <div class="">
+                            <img src="{{ asset('photosAdherents/' ~ app.user.photoUser) }}" width="100" alt="{{ app.user.nameUser }} {{ app.user.firstNameUser }}">
+                            <p>Bonjour {{ app.user.firstNameUser }}</p>
                     </div>
 
 
@@ -111,9 +114,9 @@
 {# === Partenaires #}
 
                         <li class="dropdown">
-                          <a href="#" class="nav-link dropdown-toggle px-sm-0 px-1" id="dropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                            <i class="far fa-handshake"></i>
-                            <span class="ms-1 d-none d-sm-inline"> Partenaires</span>
+                            <a href="#" class="nav-link dropdown-toggle px-sm-0 px-1" id="dropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="far fa-handshake"></i>
+                                <span class="ms-1 d-none d-sm-inline"> Partenaires</span>
                             </a>
                             <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdown">
                                 <li>
@@ -131,7 +134,6 @@
                                         <span class="ms-1 d-none d-sm-inline"> Regroupement Partenaires</span>
                                     </a>
                                 </li>
- 
                             </ul>
                         </li>
 {# === #}
@@ -141,27 +143,27 @@
                                 <span class="ms-1 d-none d-sm-inline"> News</span>
                             </a>
                         </li>
-                        <li>
+                        {# <li>
                             <hr class="dropdown-divider">
-                        </li>
+                        </li> #}
                         <li>
                             <a href="{{ path('themes_index') }}" class="nav-link px-sm-0 px-2">
                                  <i class="fab fa-affiliatetheme"></i>
                                 <span class="ms-1 d-none d-sm-inline"> Thèmes</span>
                             </a>
                         </li>
-                        <li>
+                        {# <li>
                             <hr class="dropdown-divider">
-                        </li>
+                        </li> #}
                         <li>
                             <a href="{{ path('actions_assos_index') }}" class="nav-link px-sm-0 px-2">
                                 <i class="fab fa-pagelines"></i>
                                 <span class="ms-1 d-none d-sm-inline"> Actions Associatives</span>
                             </a>
                         </li>
-                        <li>
+                        {# <li>
                             <hr class="dropdown-divider">
-                        </li>
+                        </li> #}
 
                         <li>
                             <a href="#"  data-bs-toggle="collapse" class="nav-link px-sm-0 px-2">
@@ -169,9 +171,9 @@
                                 <span class="ms-1 d-none d-sm-inline"> Projets Masters</span>
                             </a>
                         </li>
-                        <li>
+                        {# <li>
                             <hr class="dropdown-divider">
-                        </li>   
+                        </li>    #}
 
                     </ul>
 

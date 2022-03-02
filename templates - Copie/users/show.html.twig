@@ -1,0 +1,96 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}Adhérent{% endblock %}
+
+{% block body %}
+    <h1>Adhérent</h1>
+
+    <table class="table">
+        <tbody>
+            {# <tr>
+                <th>Id</th>
+                <td>{{ user.id }}</td>
+            </tr> #}
+            <tr>
+                <th>Email</th>
+                <td>{{ user.email }}</td>
+            </tr>
+            <tr>
+                <th>Roles</th>
+                <td>{{ user.roles ? user.roles|json_encode : '' }}</td>
+            </tr>
+            {# <tr>
+                <th>Password</th>
+                <td>{{ user.password }}</td>
+            </tr> #}
+            <tr>
+                <th>Adhérent</th>
+                <td>{{ user.nameUser }}
+                </td>
+            </tr>
+            <tr>
+                <th>Prénom</th>
+                <td>{{ user.firstNameUser }}</td>
+            </tr>
+            <tr>
+                <th>Address1User</th>
+                <td>{{ user.address1User }}</td>
+            </tr>
+            <tr>
+                <th>Address2User</th>
+                <td>{{ user.address2User }}</td>
+            </tr>
+            <tr>
+                <th>CpUser</th>
+                <td>{{ user.cpUser }}</td>
+            </tr>
+            <tr>
+                <th>TownUser</th>
+                <td>{{ user.townUser }}</td>
+            </tr>
+            <tr>
+                <th>PhoneUser</th>
+                <td>{{ user.phoneUser }}</td>
+            </tr>
+            <tr>
+                <th>PhotoUser</th>
+                <td>{{ user.photoUser }}</td>
+            </tr>
+            <tr>
+                <th>StudyUser</th>
+                <td>{{ user.studyUser }}</td>
+            </tr>
+            <tr>
+                <th>YearMenbershipUser</th>
+                <td>{{ user.yearMenbershipUser }}</td>
+            </tr>
+            <tr>
+                <th>NewslettersNewsUser</th>
+                <td>{{ user.newslettersNewsUser ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>NewsletterIntershipUser</th>
+                <td>{{ user.newsletterIntershipUser ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>NewsletterAssosUser</th>
+                <td>{{ user.newsletterAssosUser ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>ContactinfoUser</th>
+                <td>{{ user.contactinfoUser ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+            <th>Photo</th>
+            <td>{{ user.photoUser ? 'Yes' : 'No' }}</td>
+        </tr>            
+        </tbody>
+    </table>
+
+    <a class="btn btn-secondary" href="{{ path('users_index') }}">Retour</a>
+
+    <a class="btn btn-warning" href="{{ path('users_edit', {'id': user.id}) }}">Modifier</a>
+
+    {{ include('users/_delete_form.html.twig') }}
+    
+{% endblock %}

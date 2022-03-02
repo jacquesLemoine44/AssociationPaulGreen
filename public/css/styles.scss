@@ -1,9 +1,43 @@
+* {
+    font-family: 'Trebuchet MS', Helvetica, sans-serif;
+    // background-color: #fff;
+    margin: 0;
+    padding: 0;
+}
+
 .bg-info2 {
     background-color: #65dbf3;
 }
 
 .text-success2 {
     color: #198754;
+}
+
+.blockBody {
+    min-height: 500px;
+    padding-top: 50px;
+}
+
+.sousHeader {
+    // background-image: url(../images/header.jpg);
+    // background-position: center;
+    // background-repeat: no-repeat;
+    // background-size: cover;
+    // background-origin: content-box;
+    // background-attachment: scroll;
+    // opacity: 0.8;
+    // 
+    padding-bottom: 150px;
+    // 
+    padding-top: 200px;
+    // color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    // .fenetreTitre {
+    //     background-color: rgba(151, 168, 179, 0.8);
+    // }
 }
 
 footer {

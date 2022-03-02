@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modification du MdP de
+				{{ app.user.nameUser }}
+				{{ app.user.firstnameUser }}
+{% endblock %}
+
+{% block body %}
+	<div
+		class="grix xs4 container">
+		{# 4 colonne #}
+
+        {% for message in app.flashes('error') %}
+	        <div class="col-xs4">
+                <div class="p-3 my-2 rounded-1 red light-4 txt-red txt-dark-4 bd-solid bd-red bd-1">
+                    <i class="fas fa-exclamation-circle mr-2" aria-hidden="true"></i> {{message}}
+                </div>
+	        </div>
+	    {% endfor %}
+
+		<div class="col-xs4">
+			<h1>Modification du Mot de Passe
+				{{ app.user.nameUser }}
+				{{ app.user.firstnameUser }}
+            </h1>
+
+            <form method="post">
+
+                <div class="form-field">
+                    <label for="passOld">Ancien Mot de Passe</label>
+                    <input type="password" id="passOld"  name ="passOld" class="form-control rounded-1">
+                </div>
+
+                <div class="form-field">
+                    <label for="pass">Nouveau Mot de Passe</label>
+                    <input type="password" id="pass"  name ="pass" class="form-control rounded-1">
+                </div>
+                <div class="form-field">
+                    <label for="pass2">Confirme le mot de Passe</label>
+                    <input type="password" id="pass2" name ="pass2" class="form-control rounded-1">
+                </div>
+                <button class="btn btn-success">Valider</button>
+
+            </form>
+
+		</div>
+
+	</div>
+
+{% endblock %}

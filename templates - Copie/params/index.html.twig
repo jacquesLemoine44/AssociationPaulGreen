@@ -1,0 +1,96 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}Paramètres Principaux{% endblock %}
+
+{% block body %}
+<h1>Paramètres Principaux Applicatifs</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+
+                <th>
+                    Titre<br>
+                    Mail    
+                </th>
+                <th>Présentation</th>
+                <th>Logo</th>
+                <th>Photo de Présentation</th>
+                <th>Adresse complète</th>
+                <th>Mise à Jour</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for param in params %}
+            <tr>
+
+                <td>
+                    {{ param.titleParam }} <br>              
+                    {{ param.emailParam }}
+                </td>
+
+                <td>
+
+                    {{ param.textParam|length > 300 ? param.textParam|slice(0,300)|raw : param.textParam|raw }}
+                    {# {% if param.textParam|length > 300 %}
+                        <a class="" href="{{ path('produits_show', {'id': produit.id}) }}">lire la suite...</a>
+                    {% endif %}   #}
+
+                </td>
+                
+                <td>
+                    <img src="{{ asset('photosParams/' ~ param.logoParam) }}" width="100">
+                </td>
+
+                <td>
+                    <img src="{{ asset('photosParams/' ~ param.photoParam) }}" width="100">
+                </td>                    
+
+                <td>
+                    {{ param.address1Param }} <br>
+                    {% if(param.address2Param) %}
+                        {{ param.address2Param }} <br>
+                    {% else %}
+                        {# rien #}
+                    {% endif %}
+                    {{ param.cpParam }} <br>
+                    {{ param.townParam }}
+                </td>
+
+                {#
+                {{ form_label(form.updateParam) }}
+                    {{ form_widget(form.updateParam, { 'attr': {'class': 'w-25 text-center', 'disabled':true} }) }}
+                #}
+                {# <td>{{ param.updateParam ? param.updateParam|date('Y-m-d H:i:s') : '' }}</td> #}
+
+                <td>
+                    {{ param.updateParam ? param.updateParam|date('d-m-Y H:i:s') : '' }}
+                </td>
+
+                <td>
+                    <a class="btn btn-primary" href="{{ path('params_show', {'id': param.id}) }}">Afficher</a>
+                    <a class="btn btn-warning" href="{{ path('params_edit', {'id': param.id}) }}">Modifier</a>
+                </td>
+                
+            </tr>
+
+        {% else %}
+            <tr>
+                <td colspan="12">Pas de Paramètres</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+{% if params%}
+    {# plus de bouton #}
+{% else %}
+    <div>
+        <a class="btn btn-info" href="{{ path('params_new') }}">Nouveau</a>
+    </div>
+{% endif%}
+
+
+{% endblock %}

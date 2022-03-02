@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+
+		<title>
+			{% block title %}
+				Association Paul Green
+			{% endblock %}
+		</title>
+
+		{# <meta name="description" content={{render(controller('App\\Controller\\MainController::paramRecup'))}} & " || Téléphones d'occasions remis à Neuf, voir plus !!!" <meta="" charset="UTF-8"> #}
+
+		<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+
+		{# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
+		{# {% block stylesheets %}
+				            {{ encore_entry_link_tags('app') }}
+				        {% endblock %}
+				
+				        {% block javascripts %}
+				            {{ encore_entry_script_tags('app') }}
+				        {% endblock %} #}
+
+
+		<!-- Favicon -->
+		<!-- <link rel="shortcut icon" type="image/png" href="public/images/favicon.ico" /> -->
+		<link rel="shortcut icon" type="image/png" href="public/icones/logo.png"/> <!-- Icons-->
+		<script src="https://kit.fontawesome.com/4d2daebcf2.js" crossorigin="anonymous"></script>
+
+		<!-- Fonts-->
+		<!-- <link rel="preconnect" href="https://fonts.googleapis.com">
+				        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+				        <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet"> -->
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link
+		href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,500;0,700;0,900;1,500;1,600;1,900&display=swap" rel="stylesheet">
+
+		<!-- Styles -->
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+		<link rel="stylesheet" href="{{asset('css/styles.css')}}">
+
+		<script src="{{asset('js/photos.js')}}" defer></script>
+		<script src="{{asset('js/app.js')}}" defer></script> 
+
+	</head>
+
+
+	<body>
+
+		<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+			<div class="container-fluid">
+				<a class="navbar-brand" href="#">
+					<img src="{{ asset('icones/logo.png')}}" alt="Association Paul Green" width="30" height="24" class="d-inline-block align-text-top">
+					Association Paul Green
+					{# {{render(controller('App\\Controller\\MainController::paramRecup'))}} #}
+				</a>
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+
+				<div
+					class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+					{# <ul class="navbar-nav me-auto mb-2 mb-lg-0"> #}
+					<ul class="navbar-nav mb-2 mb-lg-0">
+						<li class="nav-item">
+
+							<a class="nav-link active" aria-current="page" href="{{ path('home') }}">
+								Accueil
+
+								{# <span class="sronly"> #}
+								<span
+									class="visually-hidden-focusable">
+									{# visually-hidden #}
+									(current)
+
+								</span>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#APropos">
+								A Propos
+							</a>
+						</li>
+
+						<li class="nav-item">
+							<a class="nav-link" href="#positionContacts">
+								Contacts
+							</a>
+						</li>
+
+						{% if app.user %}
+							{# <li class="nav-item">
+								<a class="nav-link" href="{{ path('app_logout') }}">Se déconnecter</a>
+							</li> #}
+							{% if app.user.roles[0]=="ROLE_ADMIN" %}
+								<li class="nav-item">
+									<a class="nav-link text-danger" href="{{ path('admin') }}">
+										Administration
+									</a>
+								</li>
+							{% endif %}
+
+						{% endif %}
+
+						{% if not app.user %}
+							<li class="nav-item">
+								<a class="nav-link" href="{{ path('app_register') }}">Création d'un compte</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="{{ path('app_login') }}">Se Connecter</a>
+							</li>
+						{% endif %}
+
+						{% if app.user %}
+
+							{# {% if app.user.roles[0]=="ROLE_USER" %} #}
+
+								<li class="nav-item dropdown">
+									<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+										Ma connexion
+									</a>
+									<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+										<li>
+											<a class="dropdown-item" href="{{ path('users_edit', {'id': app.user.id}) }}">Mes Données Personneles</a>
+										</li>
+										<li>
+											<hr class="dropdown-divider">
+										</li>
+										<li>
+											<a class="dropdown-item" href="{{ path('app_logout') }}"> se déconnecter </a>
+										</li>
+										<li>
+											<a class="dropdown-item" href="">Changer mon MdP</a>
+										</li>
+									</ul>
+								</li>
+							{# {% endif %} #}
+
+						{% endif %}
+
+					</ul>
+
+					<form class="d-flex">
+						<input class="form-control me-2" type="search" placeholder="recherche" aria-label="recherche">
+						<button class="btn btn-outline-success" type="submit">Recherche</button>
+					</form>
+
+				</div>
+			</div>
+		</nav>
+
+
+		{% block body %}{% endblock %}
+
+
+		{# ==== FOOTER======================= #}
+
+		<footer id="Footer">
+
+			{# <div class="flecheHaut">
+				<img src="{{asset('icones/sticker_rond_icone_fleche_vers_le_haut_540.jpg')}}" class="icone">
+			</div> #}
+
+
+			<section class="clFooter" id="APropos">
+				<div class="container ">
+					<div class="row">
+
+						<div class="col-xl-4">
+							<h3>{{render(controller('App\\Controller\\MainController::paramRecup'))}}</h3>
+							<p class="mb-0">{{ params[0].address1Param }}</p>
+							<p class="mb-0">{{ params[0].address2Param }}</p>
+						    <p class="mb-0">{{ params[0].cpParam }} {{ params[0].townParam }}</p>
+							<p class="mb-0">{{ params[0].emailParam }}</p>
+							<br>
+								<div class="bg-white d-flex justify-content-center rounded-3">
+									<img src="{{ asset('photosParams/' ~ params[0].logoParam) }}" alt="{{ params[0].titleParam }}" width="250" height="150" class="imgClass2">
+								</div>
+						</div>
+
+						<div class="col-xl-4">
+							<div class="">
+								<h3>Localisation</h3>
+							<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2887.745428244341!2d3.8679210158186113!3d43.6326571791221!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12b6af217be1ff51%3A0x26d70bd15039af4c!2sUniversit%C3%A9%20Paul-Val%C3%A9ry%20Montpellier%203!5e0!3m2!1sfr!2sfr!4v1646144316448!5m2!1sfr!2sfr" width="350" height="250" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+							</div>
+						</div>
+
+						<div class="col-xl-4">
+							<h3>Web</h3>
+
+ 							<div class="clIconeEnLigne">
+								{% for social_network in social_networks %}
+									<a href="{{ social_network.linkSocialnetwork }}" rel="noopener" class="clRond text-decoration-none">
+										<i class="{{ social_network.codeSocialnetwork }}" aria-hidden="true"></i>
+									</a>
+								{% else %}
+   									<p>pas de Réseau ???</p>
+								{% endfor %}
+							</div>
+
+							<hr>
+
+							<div class="d-flex justify-content-center">
+								<img src="{{ asset('photosParams/' ~ params[0].photoParam) }}" alt="{{ params[0].titleParam }}" width="250" height="150" class="imgClass2 rounded-3">
+							</div>								
+							{# <h3>Partenaires</h3>
+							<div class="">
+								<a href="https://www.plusmobile.fr/" class="">Comparateur de Portables et Smartphones - PlusMobile</a>
+							</div>
+							<div class="">
+								<a href="https://www.meilleurmobile.com/" class="">Meilleur Mobile : comparateur de smartphones.</a>
+							</div> #}
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section class="clCopyright text-white text-center">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-12 d-flex justify-content-around align-items-center">
+							<p>
+								<small>Copyright &copy; Your Website 2021</small>
+							</p>
+							<a href="{{ path('politique_index') }}" class="">Politique de confidentialité.</a>
+						</div>
+					</div>
+				</div>
+			</section>
+			{# =========================== #}
+		</footer>	
+
+
+			<!-- Bootstrap  ==================================================== -->
+			<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+			<!-- JQuery  ==================================================== -->
+			<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
+
+			{# <script src="app.js"></script> #}
+		
+	</body>
+</html>

@@ -1,20 +1,38 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello MainController!{% endblock %}
+{% block title %}{{ params[0].titleParam }}!{% endblock %}
 
 {% block body %}
-<style>
+
+{#  <style>
     .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
     .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
 </style>
-
 <div class="example-wrapper">
     <h1>Hello {{ controller_name }}! ✅</h1>
-
     This friendly message is coming from:
+    {% for message in app.flashes('message') %}
+	    <div class="col-xs4">
+		    <div class="p-3 my-2 rounded-1 green light-4 txt-green txt-dark-4 bd-solid bd-green bd-dark-1 bd-1">
+  		        <i class="fas fa-check mr-2" aria-hidden="true"></i> {{message}}
+		    </div>
+	    </div>
+	{% endfor %}
     <ul>
         <li>Your controller at <code><a href="{{ 'C:/Jacques/Projet/AssociationPaulGreen/src/Controller/MainController.php'|file_link(0) }}">src/Controller/MainController.php</a></code></li>
         <li>Your template at <code><a href="{{ 'C:/Jacques/Projet/AssociationPaulGreen/templates/main/index.html.twig'|file_link(0) }}">templates/main/index.html.twig</a></code></li>
     </ul>
-</div>
+</div>  #}
+
+<section class="sousHeader">
+    <div class="border border-2 border-primary rounded-3 p-5 fenetreTitre">
+	    <h1 class="text-success2">{{ params[0].titleParam }}! ✅</h1>
+	    <h2>Sous Titre ! ✅</h2>
+    </div>
+</section>
+
+{# {{random(1,100)}}
+<section class="produit" id="Produits"> #}
+
+
 {% endblock %}

@@ -1,0 +1,12 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}Nouvelle Fonction{% endblock %}
+
+{% block body %}
+    <h1>Nouvelle Fonction</h1>
+
+    {{ include('functions/_form.html.twig') }}
+
+    <a class="btn btn-secondary" href="{{ path('functions_index') }}">Retour</a>
+
+{% endblock %}

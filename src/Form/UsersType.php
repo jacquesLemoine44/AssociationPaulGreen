@@ -2,29 +2,109 @@
 
 namespace App\Form;
 
+use App\Entity\User;
 use App\Entity\Users;
 use App\Entity\Functions;
+use App\Service\Securizer;
 use Webmozart\Assert\Assert;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Security\Core\Security;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Validator\Constraints\File;
 use Symfony\Component\Validator\Constraints\Regex;
-
+use Symfony\Component\Validator\Constraints\NotBlank;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TelType;
+
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Security\Http\Util\TargetPathTrait;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
+use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
+use Symfony\Component\Security\Core\Authorization\Voter\Voter;
+use Symfony\Component\Security\Http\Authenticator\Passport\Passport;
+use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
+use Symfony\Component\Security\Http\Authenticator\Passport\Badge\UserBadge;
+use Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
+use Symfony\Component\Security\Http\Authenticator\Passport\Badge\CsrfTokenBadge;
+use Symfony\Component\Security\Core\Authorization\AccessDecisionManagerInterface;
+use Symfony\Component\Security\Http\Authenticator\AbstractLoginFormAuthenticator;
+use Symfony\Component\Security\Http\Authenticator\Passport\Credentials\PasswordCredentials;
 
 class UsersType extends AbstractType
 {
+
+    private $security;
+
+
+    public function __construct(Security $security) {
+        $this->security = $security;
+    }
+    
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
+
+        // On vérifie si l'utilisateur est admin
+        // if($this->security->isGranted('ROLE_ADMIN')) return true;
+
+        // if ($this->container->get('security.authorization_checker')->isGranted('ROLE_ADMIN')){
+            
+// dump($this->security->isGranted('ROLE_USER'));
+// die;   
+
+
+
+        // if($this->security->isGranted('ROLE_USER')){
+
+
+
+
+        $user = $this->security->getUser()->getRoles();
+        var_dump($user);
+        die;
+        // if ($user->hasRole('ROLE_ADMIN')){
+
+ 
+
         $builder
+
+        // ->add('email', EmailType::class,[
+        //     'constraints' => [
+        //         new NotBlank([
+        //             'message' => 'Merci d\'entrer un e-mail',
+        //         ]),
+        //     ],
+        //     'required' => true,
+        //     'attr' => ['class' =>'form-control'],
+        // ])
             ->add('email', EmailType::class, ['label' => 'Mail : ', 'required'=> true])
             // ->add('roles')
+               //         $builder->add($builder->create('roles','choice',array(
+    //             'multiple'=>true,
+    //            'expanded'=>true,
+    //             'choices' => array( 'ROLE_ADMIN' => 'Administrateur', 'ROLE_CONTRIB'=>'Contributeur)//les index du tableau sont les valeurs qui seront inséré via la méthode setRoles() de l'entité
+    //   ))
+    // $builder->add(' { nom du champ pour le role dans l'objet utilisateur }', 'choice', array(
+    //     'choices' => array('ROLE_ADMIN' => 'ROLE_ADMIN', 'ROLE_CONTRIB' => 'ROLE_CONTRIB')
+    // ));
+    // ->add('roles', ChoiceType::class, [
+    //     'choices' => [
+    //         'Utilisateur' => 'ROLE_USER',
+    //         'Editeur' => 'ROLE_EDITOR',
+    //         'Administrateur' => 'ROLE_ADMIN'
+    //     ],
+    //     'expanded' => true,
+    //     'multiple' => true,
+    //     'label' => 'Rôles' 
+    // ])
+
             // ->add('password')
             ->add('nameUser', TextType::class, ['label' => 'Nom : ', 'required'=> true])
             ->add('firstNameUser', TextType::class, ['label' => 'Prénom : ', 'required'=> true])
@@ -81,10 +161,30 @@ class UsersType extends AbstractType
 
             ->add('studyUser', TextType::class, ['label' => 'Etudiant : ', 'required'=> true])
             ->add('yearMenbershipUser', IntegerType::class, ['label' => 'Année : ', 'required'=> true])
-            ->add('newslettersNewsUser')
-            ->add('newsletterIntershipUser')
-            ->add('newsletterAssosUser')
-            ->add('contactinfoUser')
+
+            // ->add('newslettersNewsUser')
+            ->add('newslettersNewsUser', CheckboxType::class, [
+                'label'    => 'New Letters',
+                'required' => false,
+            ])
+
+            // ->add('newsletterIntershipUser')
+            ->add('newsletterIntershipUser', CheckboxType::class, [
+                'label'    => 'Nouveau stage proposé',
+                'required' => false,
+            ])
+
+            // ->add('newsletterAssosUser')
+            ->add('newsletterAssosUser', CheckboxType::class, [
+                'label'    => 'Newsletter des nouvelles actions Association',
+                'required' => false,
+            ])
+
+            // ->add('contactinfoUser')
+            ->add('contactinfoUser', CheckboxType::class, [
+                'label'    => 'Info nouveau contact',
+                'required' => false,
+            ])
 
             ->add('functionUser', EntityType::class,[
                 'class' => Functions::class,
@@ -92,9 +192,10 @@ class UsersType extends AbstractType
                 'multiple' => True,
                 'expanded' => true,
                 'required'   => false,
-                'is_granted' => 'ROLE_ADMIN',
+                // 'is_granted' => 'ROLE_ADMIN',
                 ]) 
         ;
+
     }
 
     public function configureOptions(OptionsResolver $resolver): void

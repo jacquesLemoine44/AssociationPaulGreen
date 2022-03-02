@@ -1,0 +1,74 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}Paramètres Principaux{% endblock %}
+
+{% block body %}
+    <h1>Paramètres Principaux</h1>
+
+    <table class="table">
+        <tbody>
+
+            <tr>
+                <th>Titre</th>
+                <td>{{ param.titleParam }}</td>
+            </tr>
+            <tr>
+                <th>Texte</th>
+                <td>    
+                    {{ param.textParam|length > 300 ? param.textParam|slice(0,300)|raw : param.textParam|raw }}                    
+                </td>
+            </tr>
+            <tr>
+                <th>Logo</th>
+                <td>    
+                    <img src="{{ asset('photosParams/' ~ param.logoParam) }}" width="100">                  
+                </td>   
+            </tr>
+            <tr>
+            <th>Photo principale</th>                
+                <td>    
+                    <img src="{{ asset('photosParams/' ~ param.photoParam) }}" width="100">                    
+                </td>    
+            </tr>
+            <tr>
+                <th>Mail</th>
+                <td>{{ param.emailParam }}</td>
+            </tr>
+            <tr>
+                <th>Adresse 1</th>
+                <td>{{ param.address1Param }}</td>
+            </tr>
+            <tr>
+                <th>Adresse 2</th>
+                <td>{{ param.address2Param }}</td>
+            </tr>
+            <tr>
+                <th>Cp</th>
+                <td>{{ param.cpParam }}</td>
+            </tr>
+            <tr>
+                <th>Ville</th>
+                <td>{{ param.townParam }}</td>
+            </tr>
+            <tr>
+                <th>Mise à Jour</th>
+                <td>{{ param.updateParam ? param.updateParam|date('d-m-Y H:i:s') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    {#
+    <a class="btn btn-secondary" href="{{ path('params_index') }}">Retour</a>
+    <a class="btn btn-secondary" href="{{ path('params_show', {'id': render(controller('App\\Controller\\MainController::recupParamId')) }) }}" class="nav-link px-sm-0 px-2"> 
+        Retour
+    </a> 
+    {{ include('params/_delete_form.html.twig') }} 
+    #}
+    
+    <div>
+        <a class="btn btn-warning" href="{{ path('params_edit', {'id': param.id}) }}">Modifier</a>
+    </div>
+
+
+
+{% endblock %}

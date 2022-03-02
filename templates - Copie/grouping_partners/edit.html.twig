@@ -1,0 +1,14 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}Modification d'un regroupement{% endblock %}
+
+{% block body %}
+    <h1>Modification d'un regroupement</h1>
+
+    {{ include('grouping_partners/_form.html.twig', {'button_label': 'Valider'}) }}
+
+    <a class="btn btn-secondary" href="{{ path('grouping_partners_index') }}">Retour</a>
+
+    {{ include('grouping_partners/_delete_form.html.twig') }}
+
+{% endblock %}

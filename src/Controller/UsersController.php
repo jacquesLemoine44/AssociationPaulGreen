@@ -14,6 +14,9 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\String\Slugger\SluggerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
+use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
+
+use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * @Route("/users")
@@ -140,4 +143,59 @@ class UsersController extends AbstractController
 
         return $this->redirectToRoute('users_index', [], Response::HTTP_SEE_OTHER);
     }
+
+    /**
+     * @Route("/users/pass/modifier", name="users_pass_modifier")
+     */
+    public function editPass(Request $request, EntityManagerInterface $entityManager, UserPasswordHasherInterface $userPasswordHasher, ParamsRepository $paramsRepository, SocialNetworksRepository $socialNetworksRepository): Response
+    
+    {
+        // UserPasswordEncoderInterface
+
+        if($request->isMethod('POST')){
+
+            $user = $this->getUser();
+
+            $plainPassword=$request->get('passOld');
+            $checkPass=$userPasswordHasher->isPasswordValid($user, $plainPassword);
+
+            if($checkPass===true){
+
+                // vérifier les 2 mdp identiques
+                if($request->request->get('pass') == $request->request->get('pass2')){
+        
+                    // $encodedPassword = $userPasswordHasher->hashPassword(
+                    //     $user,
+                    //     $request->request->get('pass')
+                    // );
+                    // $user->setPassword($encodedPassword);
+            
+                    $user->setPassword(
+                        $userPasswordHasher->hashPassword(
+                        $user,
+                        $request->request->get('pass'))
+                    );
+                
+                    // dump($encodedPassword);
+                    // die;
+                    $entityManager->flush();
+                
+                    $this->addFlash('message','mot de passe mis à jour. reconnecter vous');
+                    return $this->redirectToRoute('home');
+                
+                }else{
+                    $this->addFlash('error','Les 2 mots de passes sont différents !!!!!');
+                }
+
+            }else{
+                $this->addFlash('error','Ancien mot de passe non valide');
+            }
+        }
+
+        return $this->render('users/editpass.html.twig', [
+            'params' => $paramsRepository->findAll(),
+            'social_networks' => $socialNetworksRepository->findAll(),
+        ]);
+    }
+
 }

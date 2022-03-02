@@ -1,0 +1,50 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}Réseaux Sociaux{% endblock %}
+
+{% block body %}
+    <h1>Réseaux Sociaux</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                {# <th>Id</th> #}
+                <th>Réseau Social</th>
+                <th>Logo</th>
+                <th>Code</th>
+                <th>Lien</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for social_network in social_networks %}
+            <tr>
+                {# <td>{{ social_network.id }}</td> #}
+                <td>{{ social_network.socialNetwork }}</td>
+                <td>
+                    {{ social_network.logoSocialnetwork }} <br>
+                    {{ social_network.logoSocialnetwork|raw }}
+                </td>
+                <td>
+                    {{ social_network.codeSocialnetwork }} <br>
+                    <i class="{{ social_network.codeSocialnetwork }}" aria-hidden="true"></i>
+                </td>
+
+                <td>{{ social_network.linkSocialnetwork }}</td>
+                <td>
+                    <a class="btn btn-primary" href="{{ path('social_networks_show', {'id': social_network.id}) }}">Afficher</a>
+                    <a class="btn btn-warning" href="{{ path('social_networks_edit', {'id': social_network.id}) }}">Modifier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">Aucune données</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <div>
+        <a class="btn btn-success" href="{{ path('social_networks_new') }}">Nouveau</a>
+    </div>
+
+{% endblock %}

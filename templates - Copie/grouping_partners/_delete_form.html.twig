@@ -1,0 +1,5 @@
+
+<form method="post" action="{{ path('grouping_partners_delete', {'id': grouping_partner.id}) }}" onsubmit="return confirm('Confirmer la suppression de ce regroupement ?');">
+    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ grouping_partner.id) }}">
+    <button class="btn">Supprimer</button>
+</form>

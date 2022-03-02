@@ -1,0 +1,40 @@
+{{ form_start(form) }}
+    {{ form_widget(form) }}
+
+
+    {# Si la route est "xxxx_edit on affiche les logos #}
+	{% if app.request.attributes.get('_route') == 'partners_edit' %}
+            <div>
+                {% if (partner.logoPartner) %}
+                    {% set xlogo = partner.logoPartner %}
+                    <p>logo :  {{ xlogo | raw }}</p>
+                {# {% else %} #}
+                {% endif %}                
+
+                {% if (partner.codePartner) %}
+                    {% set xlogo = partner.codePartner %}
+                    <p>Code logo :  <i class="{{ xlogo }}"></i> </p>
+                {# {% else %} #}
+                {% endif %}    
+
+                {#
+                {% if (partner.logoPartner) %}
+                    {{ form_label(form.logoPartner) }}
+                    {{ partner.logoPartner|raw }}
+                    <a href="{{ path('produits_delete_photo', {id: photo.id})}}" data-delete data-token="{{ csrf_token('delete' ~ photo.id )}}">
+                      Effacer
+                    </a>                    
+                {% else %}
+                    {{ form_label(form.logoPartner) }}
+                    {{ partner.logoPartner}}
+                {% endif %}
+                #}
+            </div>
+    {% endif %}
+
+
+
+
+
+    <button  class="btn btn-success">{{ button_label|default('Sauver') }}</button>
+{{ form_end(form) }}

@@ -1,0 +1,45 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}Thèmes{% endblock %}
+
+{% block body %}
+    <h1>Thèmes</h1>
+        <br>
+    <h5 class="text-success2">
+        Les Thémes servents aussi bien pour les projets de l'Association que pour les projets Masters
+        <br>
+        Plusieurs thèmes peuvent être associés aux projets.
+    </h5>     
+
+    <table class="table">
+        <thead>
+            <tr>
+                {# <th>Id</th> #}
+                <th>Thème</th>
+                <th>Description</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for theme in themes %}
+            <tr>
+                {# <td>{{ theme.id }}</td> #}
+                <td>{{ theme.nameTheme }}</td>
+                <td>{{ theme.descriptionTheme }}</td>
+                <td>
+                    <a class="btn btn-primary" href="{{ path('themes_show', {'id': theme.id}) }}">Afficher</a>
+                    <a class="btn btn-warning" href="{{ path('themes_edit', {'id': theme.id}) }}">Modifer</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">Aucune données</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <div>
+        <a class="btn btn-info" href="{{ path('themes_new') }}">Nouveau</a>
+    </div>
+    
+{% endblock %}

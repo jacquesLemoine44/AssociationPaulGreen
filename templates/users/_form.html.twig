@@ -66,42 +66,43 @@
 						<td>{{ form_widget(form.yearMenbershipUser) }}</td>
 					</tr>
 
-					{# {% extends (app.user.roles[0]=="ROLE_ADMIN") ? 'admin.html.twig' : 'base.html.twig' %} #}
 
+				    {% if app.user.roles[0]=="ROLE_ADMIN" %} 
+						<tr>
+							<th>Fonction(s) :</th>
+							<td>{{ form_widget(form.functionUser) }}</td>	
+						</tr>
+					{% endif %}
+	
 				{# {% if app.user.roles[0]=="ROLE_ADMIN" %} #}
-
-					<tr class=(app.user.roles[0]=="ROLE_ADMIN") ? '' : 'd-none'>
-
+					{# <tr class=(app.user.roles[0]=="ROLE_ADMIN") ? '' : 'd-none'>
 					{% if app.user.roles[0]=="ROLE_ADMIN" %}
 						<th>Fonction(s) :</th>
 					{% endif %}
-
-                        <td>{{ form_widget(form.functionUser, {"attr": {"class": (app.user.roles[0]=="ROLE_ADMIN") ? '' : 'd-none'}}) }}</td>
-
+                        <td>{{ form_widget(form.functionUser, {"attr": {"class": (app.user.roles[0]=="ROLE_ADMIN") ? '' : 'd-none'}}) }}</td> #}
                         {# <td>{{ form_widget(form.functionUser, {"attr": {"class": "d-none"}}) }}</td>					 #}
 						{# <td>{{ form_widget(form.functionUser) }}</td> #}
-					</tr>
+					{# </tr> #}
 				{# {% endif %} #}
 
-					<tr class=(app.user.roles[0]=="ROLE_ADMIN") ? '' : 'd-none'>
-						{% if app.user.roles[0]=="ROLE_ADMIN" %}
+					{% if app.user.roles[0]=="ROLE_ADMIN" %} 
+						<tr>
 							<th>Newsletter :</th>
-						{% endif %}
-                        <td>
-                        {{ form_widget(form.newslettersNewsUser, {"attr": {"class": (app.user.roles[0]=="ROLE_ADMIN") ? '' : 'd-none'}}) }}
-                        {{ form_widget(form.newsletterIntershipUser, {"attr": {"class": (app.user.roles[0]=="ROLE_ADMIN") ? '' : 'd-none'}}) }}
-                        {{ form_widget(form.newsletterAssosUser, {"attr": {"class": (app.user.roles[0]=="ROLE_ADMIN") ? '' : 'd-none'}}) }}
-                        {{ form_widget(form.contactinfoUser, {"attr": {"class": (app.user.roles[0]=="ROLE_ADMIN") ? '' : 'd-none'}}) }}
-						
+	                        <td>
+    		                    {{ form_widget(form.newslettersNewsUser) }}
+                        		{{ form_widget(form.newsletterIntershipUser) }}
+                        		{{ form_widget(form.newsletterAssosUser) }}
+                       	 		{{ form_widget(form.contactinfoUser) }}
+{# 						
 						{% if app.user.roles[0]=="ROLE_ADMIN" %}
 						{{ form_label(form.newslettersNewsUser) }}
                         {{ form_label(form.newsletterIntershipUser, {"attr": {"class": (app.user.roles[0]=="ROLE_ADMIN") ? '' : 'd-none'}}) }}
                         {{ form_label(form.newsletterAssosUser, {"attr": {"class": (app.user.roles[0]=="ROLE_ADMIN") ? '' : 'd-none'}}) }}
-                        {{ form_label(form.contactinfoUser, {"attr": {"class": (app.user.roles[0]=="ROLE_ADMIN") ? '' : 'd-none'}}) }}
-					
-				{% endif %}
+                        {{ form_label(form.contactinfoUser, {"attr": {"class": (app.user.roles[0]=="ROLE_ADMIN") ? '' : 'd-none'}}) }} #}
+						</td>						
+					{% endif %}
 						
-                        </td>
+
 					</tr>
 				</tbody>
 			</table>

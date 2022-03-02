@@ -93,11 +93,6 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
      */
     private $townUser;
 
-
-    // * @Assert\Regex(
-    //     *     pattern     = "/^\+33\(0\)[0-9]*$"
-    //     * )
-
     /**
      * @ORM\Column(type="string", length=50)
      */

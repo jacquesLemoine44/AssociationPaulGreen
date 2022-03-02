@@ -19,7 +19,8 @@ class MainController extends AbstractController
         return $this->render('main/index.html.twig', [
             'params' => $paramsRepository->findAll(),
             'social_networks' => $socialNetworksRepository->findAll(),
-            'news' => $newsRepository->findAll(),
+            // 'news' => $newsRepository->findAll(),
+            'theNews' => $newsRepository->LastFiveNews(),
             'controller_name' => 'MainController',
         ]);
     }

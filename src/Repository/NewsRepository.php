@@ -19,6 +19,22 @@ class NewsRepository extends ServiceEntityRepository
         parent::__construct($registry, News::class);
     }
 
+    /**
+     * @return News[] Returns an array of News objects
+     */
+    
+    public function LastFiveNews()
+    {
+        return $this->createQueryBuilder('n')
+            ->orderBy('n.id', 'DESC')
+            ->setMaxResults(5)
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+
+
+
     // /**
     //  * @return News[] Returns an array of News objects
     //  */

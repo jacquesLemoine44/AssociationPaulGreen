@@ -27,9 +27,9 @@
     // background-attachment: scroll;
     // opacity: 0.8;
     // 
-    padding-bottom: 150px;
+    padding-bottom: 50px;
     // 
-    padding-top: 200px;
+    padding-top: 0px;
     // color: white;
     display: flex;
     flex-direction: column;
@@ -38,6 +38,12 @@
     // .fenetreTitre {
     //     background-color: rgba(151, 168, 179, 0.8);
     // }
+}
+
+.clNews {
+    background-color: rgb(191, 211, 230);
+    padding-bottom: 50px;
+    padding-top: 50px;
 }
 
 footer {

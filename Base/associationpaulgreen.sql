@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  mer. 02 mars 2022 à 13:09
+-- Généré le :  jeu. 03 mars 2022 à 16:05
 -- Version du serveur :  5.7.26
 -- Version de PHP :  7.2.18
 
@@ -39,16 +39,19 @@ CREATE TABLE IF NOT EXISTS `actions_assos` (
   `endactionsasso` datetime DEFAULT NULL,
   `titlelinkactionsasso` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `actionsassosuser_id` int(11) DEFAULT NULL,
+  `alt_picture_actions_assos` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `IDX_2631A96A9C2D1EA2` (`actionsassosuser_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Déchargement des données de la table `actions_assos`
 --
 
-INSERT INTO `actions_assos` (`id`, `titleactionsasso`, `pictureactionsasso`, `textactionsasso`, `linkactionsasso`, `startactionsasso`, `endactionsasso`, `titlelinkactionsasso`, `actionsassosuser_id`) VALUES
-(1, 'Boite à Insectes', 'applesChamps-770x430-621c8d3a0e78b.jpg', NULL, NULL, '2022-02-01 00:00:00', '2022-02-03 00:00:00', NULL, 4);
+INSERT INTO `actions_assos` (`id`, `titleactionsasso`, `pictureactionsasso`, `textactionsasso`, `linkactionsasso`, `startactionsasso`, `endactionsasso`, `titlelinkactionsasso`, `actionsassosuser_id`, `alt_picture_actions_assos`) VALUES
+(1, 'Boite à Insectes', 'bins2images-4-62207e8e70d5b.jpg', '<p>boite &agrave; insecete</p>', NULL, '2022-02-01 00:00:00', '2022-02-03 00:00:00', NULL, 1, 'Réalisation de boite à insectes'),
+(2, 'Boites à Livre', 'bl3images-4-62207dcb0b58f.jpg', '<p>Constrction de boite &agrave; livres</p>', NULL, '2022-03-10 00:00:00', '2022-03-24 00:00:00', 'titre ????', 1, 'Réalisation de boite à livres'),
+(3, 'jardin Associatif', 'ja1-telechargement-62207f425765d.jpg', '<p>jardin associatif</p>', NULL, '2022-03-04 00:00:00', '2022-03-25 00:00:00', 'photo principal', 1, 'Entretien du Jardins tous les Vendredis');
 
 -- --------------------------------------------------------
 
@@ -71,7 +74,9 @@ CREATE TABLE IF NOT EXISTS `actions_assos_themes` (
 
 INSERT INTO `actions_assos_themes` (`actions_assos_id`, `themes_id`) VALUES
 (1, 1),
-(1, 2);
+(1, 2),
+(2, 1),
+(3, 1);
 
 -- --------------------------------------------------------
 
@@ -89,6 +94,29 @@ CREATE TABLE IF NOT EXISTS `contacts` (
   `email_contact` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `doctrine_migration_versions`
+--
+
+DROP TABLE IF EXISTS `doctrine_migration_versions`;
+CREATE TABLE IF NOT EXISTS `doctrine_migration_versions` (
+  `version` varchar(191) COLLATE utf8_unicode_ci NOT NULL,
+  `executed_at` datetime DEFAULT NULL,
+  `execution_time` int(11) DEFAULT NULL,
+  PRIMARY KEY (`version`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Déchargement des données de la table `doctrine_migration_versions`
+--
+
+INSERT INTO `doctrine_migration_versions` (`version`, `executed_at`, `execution_time`) VALUES
+('DoctrineMigrations\\Version20220303091358', '2022-03-03 09:14:21', 307),
+('DoctrineMigrations\\Version20220303105013', '2022-03-03 10:50:23', 137),
+('DoctrineMigrations\\Version20220303142342', '2022-03-03 14:23:50', 132);
 
 -- --------------------------------------------------------
 
@@ -180,6 +208,7 @@ CREATE TABLE IF NOT EXISTS `news` (
   `picture_new` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `text_new` longtext COLLATE utf8mb4_unicode_ci,
   `newsuser_id` int(11) DEFAULT NULL,
+  `altpicturenew` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `IDX_1DD39950D2F4F762` (`newsuser_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -188,9 +217,9 @@ CREATE TABLE IF NOT EXISTS `news` (
 -- Déchargement des données de la table `news`
 --
 
-INSERT INTO `news` (`id`, `date_new`, `title_new`, `picture_new`, `text_new`, `newsuser_id`) VALUES
-(1, '2022-02-10 00:00:00', 'ghegre', 'applesChamps-770x430-6218fd7d1a364.jpg', '<p style=\"text-align:center\"><span style=\"color:#c0392b\"><span style=\"font-size:20px\"><span style=\"font-family:Comic Sans MS,cursive\"><em><strong>gggg</strong></em></span></span></span></p>\r\n\r\n<p>blabla bla</p>\r\n\r\n<p>patit</p>', 4),
-(2, '2022-02-16 00:00:00', 'fsgqgrger', 'GE-6-parcours-master-gestion-environnement-621ceac082f68.jpg', '<p>dgfbdfbdqfb</p>', 4);
+INSERT INTO `news` (`id`, `date_new`, `title_new`, `picture_new`, `text_new`, `newsuser_id`, `altpicturenew`) VALUES
+(1, '2022-02-10 00:00:00', 'ghegre', 'applesChamps-770x430-6218fd7d1a364.jpg', '<p style=\"text-align:center\"><span style=\"color:#c0392b\"><span style=\"font-size:20px\"><span style=\"font-family:Comic Sans MS,cursive\"><em><strong>gggg</strong></em></span></span></span></p>\r\n\r\n<p>blabla bla</p>\r\n\r\n<p>patit</p>', 4, NULL),
+(2, '2022-02-16 00:00:00', 'fsgqgrger', 'GE-6-parcours-master-gestion-environnement-621ceac082f68.jpg', '<p>dgfbdfbdqfb</p>', 4, NULL);
 
 -- --------------------------------------------------------
 
@@ -235,6 +264,7 @@ CREATE TABLE IF NOT EXISTS `params` (
   `cp_param` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   `town_param` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
   `update_param` datetime NOT NULL,
+  `subtitleparam` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -242,8 +272,8 @@ CREATE TABLE IF NOT EXISTS `params` (
 -- Déchargement des données de la table `params`
 --
 
-INSERT INTO `params` (`id`, `text_param`, `logo_param`, `photo_param`, `email_param`, `title_param`, `address1_param`, `address2_param`, `cp_param`, `town_param`, `update_param`) VALUES
-(1, '<p>xxx</p>', 'logo-logo-6218aad20cb9f.png', 'applesChamps-770x430-6218a6f11a59c.jpg', 'asso.paul.green@univ-montp3.ft', 'Association Paul Green', 'Rte de Mende', NULL, '34090', 'Montpellier', '2017-01-01 00:00:00');
+INSERT INTO `params` (`id`, `text_param`, `logo_param`, `photo_param`, `email_param`, `title_param`, `address1_param`, `address2_param`, `cp_param`, `town_param`, `update_param`, `subtitleparam`) VALUES
+(1, '<p>xxx</p>', 'logo-logo-6218aad20cb9f.png', 'applesChamps-770x430-6218a6f11a59c.jpg', 'asso.paul.green@univ-montp3.ft', 'Association Paul Green', 'Rte de Mende', NULL, '34090', 'Montpellier', '2017-01-01 00:00:00', 'Pour vous mettre au vert !');
 
 -- --------------------------------------------------------
 
@@ -287,14 +317,30 @@ CREATE TABLE IF NOT EXISTS `photos_actions_assos` (
   `altphotoactionsasso` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `IDX_5C62086334798B59` (`photoactasso_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Déchargement des données de la table `photos_actions_assos`
 --
 
 INSERT INTO `photos_actions_assos` (`id`, `photoactasso_id`, `photoactionsasso`, `altphotoactionsasso`) VALUES
-(1, 1, 'c83c0fec3446774d888eff57d04e7e3c.jpg', NULL);
+(2, 1, 'c5a1d98a179fabdc315f17e071d19035.jpg', NULL),
+(3, 1, '7e37aac187fe96a458da3ebd1c77db2b.jpg', NULL),
+(4, 1, '41dd7aa9cf634b78ade0916c94e748d0.jpg', NULL),
+(5, 1, '4f139a742c54d8b424ed0845ab735ee0.jpg', NULL),
+(6, 1, '913c82449b3e6ece7de412433b24275a.jpg', NULL),
+(7, 1, '6bc7bc88e9031509835323ece43ab979.jpg', NULL),
+(8, 3, '3f76c04bedee6c377bccba31527e5942.jpg', NULL),
+(9, 3, 'caf4519ff1486576fdfdb9a87fbda9f7.jpg', NULL),
+(10, 3, 'dee63ef0f5c5cee9f8318038305c89fe.jpg', NULL),
+(11, 3, '99009c928c01a841be0260d5680034a4.jpg', NULL),
+(12, 3, '86413ccd1f01da9783d79c9c8292ef10.jpg', NULL),
+(13, 3, '2305e86d2bbb26c72732aba55765e546.jpg', NULL),
+(18, 2, 'c3693ecdf43067ebfcb72266e9515027.jpg', NULL),
+(19, 2, '3385b88069db69487e903451793c9bf4.jpg', NULL),
+(20, 2, '93259346f0017e25b55a26d272ec7dbf.jpg', NULL),
+(21, 2, '568726e35761797a76b23896a47a8bc3.jpg', NULL),
+(22, 2, '07a3e7da032dc2cbbd2395622c915ba0.jpg', NULL);
 
 -- --------------------------------------------------------
 
@@ -388,7 +434,7 @@ INSERT INTO `users` (`id`, `email`, `roles`, `password`, `name_user`, `first_nam
 (3, '2222222222@ffff.fr', '[\"ROLE_USER\"]', '8888', 'machin', 'Elodie', '1212', '3333', '6666', '33131', '32223323', 'dd429bd538bb996555801baf470c8b24-6218a3622e193.jpg', '1111', 555, 0, 0, 0, 0),
 (4, 'toto@gmail.com', '[\"ROLE_USER\"]', '$2y$13$16wFlmPUlGGrQhxgwgIrlu835Q3oVhLz8/W0WY1AA7iBG5z8AdZt.', 'Machin', 'Micheline', 'adresse 1', 'xxxxxxxxxxxxxx', '44600', 'ssssssssssss', 's22ss3s33s3', 'depositphotos-62275193-stock-photo-young-woman-portrait-621ceef17da7f.jpg', 'sss', 1980, 1, 1, 1, 1),
 (5, 'titi@gmail.com', '[\"ROLE_USER\"]', '$2y$13$DfiN.ryCdJ5qF2.7cVlP0.xsH9LIiHkNMEE3vFx2lc4tlIV82jrP6', 'essai', 'rezgrgggg', 'adresse 1', 'xxxxxxxxxxxxxx', '44600', 'ssssssssssss', 's22ss3s33s3', 'istockphoto-462535397-612x612-621e322dc0c2f.jpg', '1987', 1987, 1, 1, 1, 1),
-(6, 'pierre@gmail.com', '[\"ROLE_USER\"]', '$2y$13$xek0fFhXoO/LlAcjAzNwnulB5PB3fdKaBkiLFQ.6uJ2jV43i3kwo.', 'bidule', 'pierre', 'adresse 1', 'xxxxxxxxxxxxxx', '44600', 'ssssssssssss', 's22ss3s33s3', 'images-621e349a1d1db.jpg', 'sss', 1987, 1, 1, 1, 1);
+(6, 'pierre@gmail.com', '[\"ROLE_USER\"]', '$2y$13$xek0fFhXoO/LlAcjAzNwnulB5PB3fdKaBkiLFQ.6uJ2jV43i3kwo.', 'bidule', 'pierre', 'adresse 1', 'xxxxxxxxxxxxxx', '44600', 'ssssssssssss', '0212121212', 'images-621e349a1d1db.jpg', 'sss', 1987, 1, 1, 1, 1);
 
 -- --------------------------------------------------------
 

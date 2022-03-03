@@ -74,6 +74,11 @@ class Params
      */
     private $paramsocial;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $subtitleparam;
+
     public function __construct()
     {
         $this->paramsocial = new ArrayCollection();
@@ -230,6 +235,18 @@ class Params
                 $paramsocial->setParams(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getSubtitleparam(): ?string
+    {
+        return $this->subtitleparam;
+    }
+
+    public function setSubtitleparam(?string $subtitleparam): self
+    {
+        $this->subtitleparam = $subtitleparam;
 
         return $this;
     }

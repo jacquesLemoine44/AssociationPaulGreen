@@ -5,13 +5,16 @@
 			{{ form_start(form) }}
 			{# {{ form_widget(form) }} #}
 
-			<h2 class="text-center text-decoration-underline">Adhérents</h2>
+			{# <h2 class="text-center text-decoration-underline">Adhérents</h2> #}
+
 			<table class="table">
 				<tbody>
 					<tr>
 						<th>Nom :</th>
 						{# <td><input type="text" class="form-control form-control-lg" id="colFormLabelLg" placeholder="" value="{{ contact.emailContact }}"></td> #}
-						<td>{{ form_widget(form.nameUser) }}</td>
+						<td>
+							{{ form_widget(form.nameUser) }}
+						</td>
 					</tr>
 					<tr>
 						<th>Prénom :</th>
@@ -47,8 +50,8 @@
 						<td>{{ form_widget(form.townUser) }}</td>
 					</tr>
 					<tr>
-						<th>Téléphone :</th>
-						{# <td><input type="text" class="form-control form-control-lg" id="colFormLabelLg" placeholder="" value="{{ contact.emailContact }}"></td> #}
+					<th>Téléphone <i>(commence par 0,sans espace)</i>:</th>
+					{# <td><input type="text" class="form-control form-control-lg" id="colFormLabelLg" placeholder="" value="{{ contact.emailContact }}"></td> #}
 						<td>{{ form_widget(form.phoneUser) }}</td>
 					</tr>
 					<tr>

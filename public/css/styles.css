@@ -17,6 +17,11 @@
   padding-top: 50px;
 }
 
+.clLigne {
+  height: 1px !important;
+  background-color: #25cef0;
+}
+
 .sousHeader {
   padding-bottom: 50px;
   padding-top: 0px;
@@ -39,6 +44,42 @@
   background-color: #bfd3e6;
   padding-bottom: 50px;
   padding-top: 50px;
+}
+
+.clActionsAssos {
+  background-color: #9bf7af;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.clInterships {
+  background-color: #bbe9c5;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.clPaulGreen {
+  background-color: #9bf7af;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.clActionsMasters {
+  background-color: #bbe9c5;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.clOutputs {
+  background-color: #9bf7af;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.clMaster {
+  background-color: #bbe9c5;
+  padding-top: 50px;
+  padding-bottom: 50px;
 }
 
 footer .clIconeEnLigne {

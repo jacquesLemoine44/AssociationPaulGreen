@@ -55,7 +55,7 @@ class ActionsAssos
     private $titlelinkactionsasso;
 
     /**
-     * @ORM\OneToMany(targetEntity=PhotosActionsAssos::class, mappedBy="photoactasso", cascade={"persist"}))
+     * @ORM\OneToMany(targetEntity=PhotosActionsAssos::class, mappedBy="photoactasso", cascade={"persist"}, orphanRemoval=true))
      */
     private $actionsassosphoto;
 
@@ -78,6 +78,11 @@ class ActionsAssos
      * @ORM\ManyToMany(targetEntity=Themes::class, inversedBy="themesactionsasso")
      */
     private $actionsassostheme;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $altPictureActionsAssos;
 
     public function __construct()
     {
@@ -298,6 +303,18 @@ class ActionsAssos
     public function removeActionsassostheme(Themes $actionsassostheme): self
     {
         $this->actionsassostheme->removeElement($actionsassostheme);
+
+        return $this;
+    }
+
+    public function getAltPictureActionsAssos(): ?string
+    {
+        return $this->altPictureActionsAssos;
+    }
+
+    public function setAltPictureActionsAssos(?string $altPictureActionsAssos): self
+    {
+        $this->altPictureActionsAssos = $altPictureActionsAssos;
 
         return $this;
     }

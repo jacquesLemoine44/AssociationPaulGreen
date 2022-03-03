@@ -15,6 +15,8 @@ use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 // use Symfony\Polyfill\Intl\Idn\Resources\unidata\Regex;
 // use Symfony\Component\Validator\Constraints\Regex;
 
+use Symfony\Component\Validator\Constraints as Assert;
+
 /**
  * @ORM\Entity(repositoryClass=UsersRepository::class)
  * @UniqueEntity(fields={"email"}, message="There is already an account with this email")
@@ -93,8 +95,23 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
      */
     private $townUser;
 
+    
+
+    // * @Assert\Regex(
+    //     *     pattern="/\d/",
+    //     *     match=false,
+    //     *     message="Your name cannot contain a number"
+    // *     pattern="'/^\+33\(0\)[0-9]*$'",
+    // \A(?!\+33)\+\d{1,3}\d{4,9}\z
+    //     * )
+
+
     /**
      * @ORM\Column(type="string", length=50)
+     * @Assert\Regex(
+     *     pattern="/0[1-9]\d{8}/",
+     *     message="Your name cannot contain a number"
+     * )
      */
     private $phoneUser;
 

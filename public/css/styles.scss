@@ -18,6 +18,11 @@
     padding-top: 50px;
 }
 
+.clLigne {
+    height: 1px !important;
+    background-color: #25cef0;
+}
+
 .sousHeader {
     // background-image: url(../images/header.jpg);
     // background-position: center;
@@ -44,6 +49,42 @@
     background-color: rgb(191, 211, 230);
     padding-bottom: 50px;
     padding-top: 50px;
+}
+
+.clActionsAssos {
+    background-color: rgb(155, 247, 175);
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.clInterships {
+    background-color: rgb(187, 233, 197);
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.clPaulGreen {
+    background-color: rgb(155, 247, 175);
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.clActionsMasters {
+    background-color: rgb(187, 233, 197);
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.clOutputs {
+    background-color: rgb(155, 247, 175);
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.clMaster {
+    background-color: rgb(187, 233, 197);
+    padding-top: 50px;
+    padding-bottom: 50px;
 }
 
 footer {

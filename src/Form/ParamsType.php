@@ -18,6 +18,8 @@ class ParamsType extends AbstractType
     {
         $builder
             ->add('titleParam', TextType::class, ['label' => 'Titre : ', 'required'=> true])
+            ->add('subtitleparam', TextType::class, ['label' => 'Sous-Titre : ', 'required'=> false])
+
             ->add('emailParam', TextType::class, ['label' => 'Mail : ', 'required'=> true])
             
             ->add('textParam', CKEditorType::class)

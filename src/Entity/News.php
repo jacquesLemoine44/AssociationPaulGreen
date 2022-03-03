@@ -40,7 +40,7 @@ class News
     private $textNew;
 
     /**
-     * @ORM\OneToMany(targetEntity=NewsPhotos::class, mappedBy="newsPhotosnews", cascade={"persist"})
+     * @ORM\OneToMany(targetEntity=NewsPhotos::class, mappedBy="newsPhotosnews", cascade={"persist"}, orphanRemoval="true")
      */
     private $newsPhotosNews;
 
@@ -48,6 +48,11 @@ class News
      * @ORM\ManyToOne(targetEntity=Users::class, inversedBy="usersnew")
      */
     private $newsuser;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $altpicturenew;
 
     
     public function __construct()
@@ -146,6 +151,18 @@ class News
     public function setNewsuser(?Users $newsuser): self
     {
         $this->newsuser = $newsuser;
+
+        return $this;
+    }
+
+    public function getAltpicturenew(): ?string
+    {
+        return $this->altpicturenew;
+    }
+
+    public function setAltpicturenew(?string $altpicturenew): self
+    {
+        $this->altpicturenew = $altpicturenew;
 
         return $this;
     }

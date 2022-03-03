@@ -19,6 +19,22 @@ class ActionsAssosRepository extends ServiceEntityRepository
         parent::__construct($registry, ActionsAssos::class);
     }
 
+
+    /**
+     * @return ActionsAssos[] Returns an array of ActionsAssos objects
+     */
+    
+    public function LastFiveActionsAssos()
+    {
+        return $this->createQueryBuilder('a')
+            ->orderBy('a.id', 'DESC')
+            ->setMaxResults(5)
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+
+
     // /**
     //  * @return ActionsAssos[] Returns an array of ActionsAssos objects
     //  */

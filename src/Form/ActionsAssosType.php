@@ -35,6 +35,7 @@ class ActionsAssosType extends AbstractType
                     ])
                 ],
             ]) 
+            ->add('altPictureActionsAssos', TextType::class, ['label' => 'Texte alternatif Photo / sous-Titre : ', 'required'=> false])
 
             ->add('textactionsasso', CKEditorType::class, [
                 'label' => 'Texte long : ',
@@ -50,10 +51,10 @@ class ActionsAssosType extends AbstractType
                 'label' => 'Dernière mise à jour du site : ',
                 'widget' => 'single_text',
                 'required' => false,
-            ])
-
+                ])
+                
             ->add('titlelinkactionsasso', TextType::class, ['label' => 'titre : ', 'required'=> false])
-
+            ->add('linkactionsasso', TextType::class, ['label' => 'titre : ', 'required'=> false])
 
             ->add('actionsassostheme', EntityType::class,[
                 'label' => "Theme de l'action:",
@@ -72,7 +73,6 @@ class ActionsAssosType extends AbstractType
 
             // ->add('actionsassosuser')
 
-            // ->add('linkactionsasso')
 
         ;
     }

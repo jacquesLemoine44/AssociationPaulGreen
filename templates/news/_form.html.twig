@@ -5,20 +5,25 @@
    {# Si la route est "produits_edit on affiche les photos #}
    {% if app.request.attributes.get('_route') == 'news_edit' %}
         <h2>Photos</h2>
+        <div class="d-flex flex-row">
         {% for photo in news.newsPhotosNews %}
-            <div>
-                <img src="{{ asset('/photosNews/'~photo.photoNewPhoto) }}" alt="" width="150">  
+            <div class="d-flex flex-column justify-cpontent-start me-2">
+                <img src="{{ asset('/photosNews/'~photo.photoNewPhoto) }}" alt="" width="150" height="150">  
                 {# On ajoute un lien permettant de supprimer une photo (sera géré en Ajax) #}
-                <a class="btn btn-dnger" href="{{ path('news_delete_photo', {id: photo.id})}}" data-delete data-token="{{ csrf_token('delete' ~ photo.id )}}"> 
+                <a class="btn btn-danger" href="{{ path('news_delete_photo', {id: photo.id})}}" data-delete data-token="{{ csrf_token('delete' ~ photo.id )}}"> 
                     Supprimer
                 </a> 
             </div>
         {% endfor %}
+    </div>
     {% endif %}
 
     {# {% set form.actionsassosuser=app.user.id %}  #}
 
+    <hr class="mb-3">
 
-    <button class="btn btn-success">{{ button_label|default('Sauver') }}</button>
+    <div class="d-flex flex-row my-2">
+
+    <button class="btn btn-success me-2">{{ button_label|default('Sauver') }}</button>
     
 {{ form_end(form) }}

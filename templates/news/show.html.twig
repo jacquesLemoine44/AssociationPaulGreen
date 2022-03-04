@@ -59,10 +59,15 @@
         </tbody>
     </table>
 
-    <a class="btn btn-secodary" class="btn btn-secondary" href="{{ path('news_index') }}">Retour</a>
 
-    <a class="btn btn-warning" href="{{ path('news_edit', {'id': news.id}) }}">Modifier</a>
+    <hr class="mb-3">
 
-    {{ include('news/_delete_form.html.twig') }}
+    <div class="d-flex flex-row my-2">
+
+        <a class="btn btn-secondary me-2" href="{{ path('news_index') }}">Retour</a>
+
+        <a class="btn btn-warning me-2" href="{{ path('news_edit', {'id': news.id}) }}">Modifier</a>
+
+        {{ include('news/_delete_form.html.twig') }}
     
 {% endblock %}

@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Repository\NewsRepository;
 use App\Repository\ParamsRepository;
+use App\Repository\PartnersRepository;
 use App\Repository\ActionsAssosRepository;
 use App\Repository\SocialNetworksRepository;
 use Symfony\Component\HttpFoundation\Response;
@@ -15,7 +16,7 @@ class MainController extends AbstractController
     /**
      * @Route("/", name="home")
      */
-    public function index(ParamsRepository $paramsRepository, SocialNetworksRepository $socialNetworksRepository, NewsRepository $newsRepository, ActionsAssosRepository $actionsAssosRepository): Response
+    public function index(ParamsRepository $paramsRepository, SocialNetworksRepository $socialNetworksRepository, NewsRepository $newsRepository, ActionsAssosRepository $actionsAssosRepository, PartnersRepository $partnersRepository): Response
     {
         return $this->render('main/index.html.twig', [
             'params' => $paramsRepository->findAll(),
@@ -23,6 +24,7 @@ class MainController extends AbstractController
             // 'news' => $newsRepository->findAll(),
             'theNews' => $newsRepository->LastFiveNews(),
             'theActionsAssos' => $actionsAssosRepository->LastFiveActionsAssos(),
+            'thePartners' => $partnersRepository->findAll(),
             'controller_name' => 'MainController',
         ]);
     }

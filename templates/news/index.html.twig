@@ -32,8 +32,8 @@
 
                 {# <td>{{ news.textNew }}</td> #}
                 <td>
-                    {{ news.textNew |length > 300 ? news.textNew |slice(0,300)|raw : news.textNew|raw }}
-          {# {{ news.textNew|striptags|u.truncate(50, '...') }} #}
+                    {{ news.textNew|striptags|u.truncate(50, '...') }}
+                    {# {{ news.textNew |length > 300 ? news.textNew |slice(0,300)|raw : news.textNew|raw }} #}
                     {# {% if news.textNew |length > 300 %}
                         <a class="" href="{{ path('news_show', {'id': news.id}) }}">lire la suite...</a>
                     {% endif %}   #}                    

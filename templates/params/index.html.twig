@@ -34,8 +34,8 @@
                 </td>
 
                 <td>
-
-                    {{ param.textParam|length > 300 ? param.textParam|slice(0,300)|raw : param.textParam|raw }}
+                    {{ param.textParam|striptags|u.truncate(50, '...') }}
+                    {# {{ param.textParam|length > 300 ? param.textParam|slice(0,300)|raw : param.textParam|raw }} #}
                     {# {% if param.textParam|length > 300 %}
                         <a class="" href="{{ path('produits_show', {'id': produit.id}) }}">lire la suite...</a>
                     {% endif %}   #}

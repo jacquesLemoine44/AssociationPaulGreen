@@ -8,10 +8,9 @@
     <table class="table">
         <thead>
             <tr>
-                {# <th>Id</th> #}
                 <th>Réseau Social</th>
-                <th>Logo</th>
-                <th>Code</th>
+                {# <th>Logo</th> #}
+                <th>Code Logo</th>
                 <th>Lien</th>
                 <th>actions</th>
             </tr>
@@ -19,20 +18,30 @@
         <tbody>
         {% for social_network in social_networks %}
             <tr>
-                {# <td>{{ social_network.id }}</td> #}
                 <td>{{ social_network.socialNetwork }}</td>
-                <td>
+                {# <td>
                     {{ social_network.logoSocialnetwork }} <br>
                     {{ social_network.logoSocialnetwork|raw }}
-                </td>
+                </td> #}
                 <td>
                     {{ social_network.codeSocialnetwork }} <br>
-                    <i class="{{ social_network.codeSocialnetwork }}" aria-hidden="true"></i>
+                    {% if ( social_network.codeSocialnetwork ) %} 
+                        <i class="{{ social_network.codeSocialnetwork }}" aria-hidden="true"></i>
+                    {% else %}
+                        {# ??? #}
+                    {% endif %} 
                 </td>
 
-                <td>{{ social_network.linkSocialnetwork }}</td>
                 <td>
-                    <a class="btn btn-primary" href="{{ path('social_networks_show', {'id': social_network.id}) }}">Afficher</a>
+                    {# {{ social_network.linkSocialnetwork }} #}
+                    {% if ( social_network.linkSocialnetwork ) %} 
+                        <a href="{{ social_network.linkSocialnetwork }}"><i class="fas fa-link"></i></a>                       
+                    {% else %}
+                        <i class="fas fa-unlink"></i>
+                    {% endif %} 
+                </td>
+                <td>
+                    <a class="btn btn-primary me-1" href="{{ path('social_networks_show', {'id': social_network.id}) }}">Afficher</a>
                     <a class="btn btn-warning" href="{{ path('social_networks_edit', {'id': social_network.id}) }}">Modifier</a>
                 </td>
             </tr>
@@ -43,8 +52,10 @@
         {% endfor %}
         </tbody>
     </table>
+
     <div>
-        <a class="btn btn-success" href="{{ path('social_networks_new') }}">Nouveau</a>
+        <a class="btn btn-info" href="{{ path('social_networks_new') }}">Nouveau</a>
     </div>
+    <hr class="mb-3">
 
 {% endblock %}

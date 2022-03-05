@@ -3,16 +3,16 @@
 {% block title %}Nos Partenaires{% endblock %}
 
 {% block body %}
+
     <h1>Nos Partenaires</h1>
 
     <table class="table">
         <thead>
             <tr>
-                {# <th>Id</th> #}
                 <th>Partenaire</th>
                 <th>Description</th>
-                <th>Photo</th>
                 <th>Logo</th>
+                <th>Photo</th>
                 <th>Lien</th>
                 <th>actions</th>
             </tr>
@@ -20,31 +20,33 @@
         <tbody>
         {% for partner in partners %}
             <tr>
-                {# <td>{{ partner.id }}</td> #}
                 <td>{{ partner.namePartner }}</td>
                 <td>{{ partner.textPartner }}</td>
 
                 <td>
-                    {{ partner.logoPartner }}
                     {% if (partner.logoPartner) %}
                         <img src="{{ asset('photosPartners/' ~ partner.logoPartner) }}" width="100">
-                    {# {% else %} #}
+                    {% else %}
+                        <p><i class="fas fa-question"></i></p>    
                     {% endif %}                               
                 </td>
                 <td>
-                    {{ partner.photoPartner }}
-                    <br>
                     {% if (partner.photoPartner) %}                        
                         <img src="{{ asset('photosPartners/' ~ partner.photoPartner) }}" width="100">
-                    {# {% else %} #}
+                    {% else %}
+                        <p><i class="fas fa-image"></i></p> 
                     {% endif %}                               
                 </td> 
 
-                <td>{{ partner.photoPartner }}</td>
-                <td>{{ partner.logoPartner }}</td>
-                <td>{{ partner.linkPartner }}</td>
                 <td>
-                    <a class="btn btn-primary" href="{{ path('partners_show', {'id': partner.id}) }}">Afficher</a>
+                    {% if ( partner.linkPartner ) %} 
+                        <a href="{{ partner.linkPartner }}" target="_blank"><i class="fas fa-link"></i></a>                       
+                    {% else %}
+                        <i class="fas fa-unlink"></i>
+                    {% endif %} 
+                </td>
+                <td>
+                    <a class="btn btn-primary me-1" href="{{ path('partners_show', {'id': partner.id}) }}">Afficher</a>
                     <a class="btn btn-warning" href="{{ path('partners_edit', {'id': partner.id}) }}">Modifier</a>
                 </td>
             </tr>
@@ -55,8 +57,10 @@
         {% endfor %}
         </tbody>
     </table>
+
     <div>
         <a class="btn btn-info" href="{{ path('partners_new') }}">Nouveau</a>
+        <hr class="mb-3">
     </div>
 
 {% endblock %}

@@ -7,9 +7,21 @@
 {% block body %}
 
 	<section class="sousHeader">
-		<div class="border border-2 border-primary rounded-3 p-5 fenetreTitre">
-			<h1 class="text-success2">{{ params[0].titleParam }}! ✅</h1>
-			<h2>{{ params[0].subtitleParam }} ! ✅</h2>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-3 clZIndex">
+					<img src="{{ asset('icones/logo_PaulGreen_1a.jpeg')}}" alt="Association Paul Green" width="auto" height="200" class="d-inline-block align-text-top">
+				</div>
+				<div class="col-md-6">
+					<div class="border border-2 border-primary rounded-3 p-5 fenetreTitre">
+						<h1 class="text-success2">{{ params[0].titleParam }}! ✅</h1>
+						<h2>{{ params[0].subtitleParam }} ! ✅</h2>
+					</div>
+				</div>
+				<div class="col-md-3">
+					<img src="{{ asset('icones/logo_PaulGreen_2a.jpeg')}}" alt="Association Paul Green" width="auto" height="200" class="d-inline-block align-text-top">
+				</div>
+			</div>
 		</div>
 	</section>
 
@@ -94,7 +106,9 @@
 
 			{# == Caroussel== #}
 
-				<div id="carouselExampleCaptions2" class="carousel slide" data-bs-ride="carousel2"> <div class="carousel-indicators">
+			<div id="carouselExampleCaptions2" class="carousel slide carousel-fade" data-bs-ride="carousel2">
+				<div class="carousel-indicators">
+
 					{%  set isFirst = 0 %}
 					{% for xTab in theActionsAssos %}
 						<button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="{{ isFirst }}" aria-label="Slide {{ isFirst+1 }}" class={% if (isFirst==0) %} "active" {% else %} "" {% endif %} aria-current={% if (isFirst==0) %} "true" {% else %} "false" {% endif %}></button>
@@ -248,7 +262,6 @@
 
     	<div class="carousel-inner" role="listbox">
 
-
 			{% set isFirst = 0 %}
 			{% for xPartner in thePartners %}
 
@@ -259,14 +272,25 @@
 				
 						<div class="col-md-4 clearfix d-none d-md-block">
 							<div class="card mb-2">
-							  	<img class="card-img-top" src="{{ asset('photosPartners/' ~ xPartner.photoPartner) }}" alt="{{xPartner.namePartner}}">
+								<div class="clImgPartners">
+									{% if(xPartner.photoPartner) %}
+							  			<img class="card-img-top w-100 h-100"
+									  		src="{{ asset('photosPartners/' ~ xPartner.photoPartner) }}" 
+											alt="{{xPartner.namePartner}}">
+									{% elseif (xPartner.logoPartner) %}
+										<img class="card-img-top w-100 h-100"
+									  		src="{{ asset('photosPartners/' ~ xPartner.logoPartner) }}" 
+											alt="{{xPartner.namePartner}}">
+									{% else %}
+										<p>Pas d'image associée</p>
+									{% endif %}
+								</div>
 							  	<div class="card-body">
 									<h4 class="card-title">{{ xPartner.namePartner }}</h4>
 									<p class="card-text">{{ xPartner.namePartner|striptags|u.truncate(50, '...') }} ...</p>
-									        {# {{ news.textNew|striptags|u.truncate(50, '...') }} #}
-									<div class="d-flex flex-row justify-content-around">
-										<a herf="{{ xPartner.linkPartner }}" class="btn btn-primary">Y Aller</a>
-										<img class="card-img-top" src="{{ asset('photosPartners/' ~ xPartner.logoPartner) }}" alt="{{xPartner.namePartner}}" width="100">
+									<div class="d-flex flex-row justify-content-between align-items-center">
+										<a herf="{{ xPartner.linkPartner }}" target="_blank" class="btn btn-primary"><i class="fas fa-external-link-alt"></i></a>
+										<img class="card-img-top clLogoPartners" src="{{ asset('photosPartners/' ~ xPartner.logoPartner) }}" alt="{{xPartner.namePartner}}" width="100">
 									</div>
 								</div>
 							</div>

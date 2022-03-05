@@ -22,15 +22,19 @@
             <tr>
                 <th>Photo Principale</th>
                 <td>
-                    {{ news.pictureNew }}
-                    {{ news.altpictureNew }}
+                    {% if (news.pictureNew) %}
+                        <img src="{{ asset('photosNews/' ~ news.pictureNew) }}"
+                            alt="{{ news.altpictureNew }}" width="100">
+                    {% endif %}  
+                    {# {{ news.pictureNew }}
+                    {{ news.altpictureNew }} #}
                 </td>
             </tr>
             <tr>
                 <th>Texte</th>
-                {# <td>{{ news.textNew }}</td> #}
                 <td>
-                        {{ news.textNew |length > 300 ? news.textNew |slice(0,300)|raw : news.textNew |raw }}
+                    {{ news.textNew|striptags|u.truncate(300, '...') }}
+                        {# {{ news.textNew |length > 300 ? news.textNew |slice(0,300)|raw : news.textNew |raw }} #}
                         {# {% if news.textNew |length > 300 %}
                             <a class="" href="{{ path('news_show', {'id': news.id}) }}">lire la suite...</a>
                         {% endif %}   #}                    
@@ -44,7 +48,7 @@
                         <div class="d-flex flex-row">
                             {% for photo in news.newsPhotosNews %}
                                 <div class="" >
-                                    <img src="{{ asset('/photosNews/'~photo.photoNewPhoto) }}" alt="" width="150">  
+                                    <img src="{{ asset('/photosNews/'~photo.photoNewPhoto) }}" alt="" width="150" height="150">  
                                     {# On ajoute un lien permettant de supprimer une photo (sera géré en Ajax) #}
                                     {# <a href="{{ path('news_delete_photo', {id: photo.id})}}" data-delete data-token="{{ csrf_token('delete' ~ photo.id )}}"> 
                                     Supprimer
@@ -59,9 +63,7 @@
         </tbody>
     </table>
 
-
     <hr class="mb-3">
-
     <div class="d-flex flex-row my-2">
 
         <a class="btn btn-secondary me-2" href="{{ path('news_index') }}">Retour</a>

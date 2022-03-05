@@ -10,17 +10,11 @@
     <table class="table">
         <thead>
             <tr>
-
                 <th>Adhérent</th>
-
                 <th>Adresse</th>
-
                 <th>Photo</th>
-
                 <th>Etudiant</th>
-
                 <th>Année</th>
-
                 <th>News letters</th>
                 <th>actions</th>
             </tr>
@@ -40,20 +34,12 @@
                     {{ user.address2User }} <br>
                     {{ user.cpUser }}  {{ user.townUser }}</td>
 
-                {# <td></td> #}
-                {# <td><img src="{{ asset('uploads/photos/' ~ licency.photoLicencie) }}" width="100"></td> #}
-  			    <td><img src="{{ asset('photosAdherents/' ~ user.photoUser) }}" width="100" alt="{{ user.nameUser }} {{ user.firstNameUser }}"></td>
-                {# <td>{{ user.photoUser }}</td> #}
-
+   			    <td><img src="{{ asset('photosAdherents/' ~ user.photoUser) }}" width="100" alt="{{ user.nameUser }} {{ user.firstNameUser }}"></td>
+ 
                 <td>{{ user.studyUser }}</td>
                 <td>{{ user.yearMenbershipUser }}</td>
 
                 <td>
-
-                    {# <div class="form-check form-switch">
-                    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked>
-                    <label class="form-check-label" for="flexSwitchCheckChecked">Checked switch checkbox input</label>
-                  </div> #}
                     <div class="form-check form-switch">
                         <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" {{ user.newslettersNewsUser ? 'checked' : '' }} disabled>
                         <label class="form-check-label" for="flexSwitchCheckChecked">News</label>
@@ -82,6 +68,7 @@
                      <a class="btn btn-warning" href="{{ path('users_edit', {'id': user.id}) }}">Modifier</a>
                     </div>
                 </td>
+
             </tr>
         {% else %}
             <tr>
@@ -92,7 +79,7 @@
     </table>
     {#
 <div>
-<a class="btn btn-info" href="{{ path('users_new') }}">Nouveau</a> 
+<a class="btn btn-info me-2" href="{{ path('users_new') }}">Nouveau</a> 
 </div>
 #}
     

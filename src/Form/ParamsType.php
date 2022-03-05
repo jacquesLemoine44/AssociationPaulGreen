@@ -55,7 +55,7 @@ class ParamsType extends AbstractType
             ])
 
             ->add('address1Param', TextType::class, ['label' => 'Adresse : ', 'required'=> true])
-            ->add('address2Param', TextType::class, ['label' => 'Complément : ', 'required'=> false])
+            ->add('address2Param', TextType::class, ['label' => "Complément d'adresse : ", 'required'=> false])
             ->add('cpParam', TextType::class, ['label' => 'Code Postal : ', 'required'=> true])
             ->add('townParam', TextType::class, ['label' => 'Ville : ', 'required'=> true])
 

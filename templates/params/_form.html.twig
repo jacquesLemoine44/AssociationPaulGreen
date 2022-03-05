@@ -1,7 +1,44 @@
-
-
-
 {{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button  class="btn btn-success">{{ button_label|default('Sauver') }}</button>
+    {# {{ form_widget(form) }} #}
+
+    {{ form_row(form.titleParam) }} 
+    {{ form_row(form.subtitleparam) }} 
+    {{ form_row(form.emailParam) }} 
+    
+    {{ form_row(form.textParam|striptags|u.truncate(50, '...')) }} 
+
+    <div class="mb-3">
+        {{ form_label(form.logoParam) }}
+        {% if app.request.attributes.get('_route') == 'params_edit' %}
+            {% if (param.logoParam) %}
+                {% set xlogo = param.logoParam %}
+                <img src="{{ asset('photosParams/' ~ xlogo) }}" width="100">
+            {% endif %} 
+        {% endif %} 
+        {{ form_widget(form.logoParam) }}
+    </div>
+
+    <div class="mb-3">
+        {{ form_label(form.photoParam) }}
+        {% if app.request.attributes.get('_route') == 'params_edit' %}
+            {% if (param.photoParam) %}
+                {% set xlogo = param.photoParam %}
+                <img src="{{ asset('photosParams/' ~ xlogo) }}" width="100">
+            {% endif %} 
+        {% endif %} 
+        {{ form_widget(form.photoParam) }}
+    </div>
+
+    {{ form_row(form.address1Param) }} 
+    {{ form_row(form.address2Param) }} 
+    {{ form_row(form.cpParam) }} 
+    {{ form_row(form.townParam) }}
+    {{ form_row(form.updateParam) }}
+
+    <hr class="mb-3">
+    <div class="d-flex flex-row my-2">
+
+        <button  class="btn btn-success me-2">{{ button_label|default('Sauver') }}</button>
+
+
 {{ form_end(form) }}

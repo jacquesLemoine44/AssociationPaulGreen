@@ -8,10 +8,6 @@
     <table class="table">
         <tbody>
             <tr>
-                {# <th>Id</th> #}
-                <td>{{ theme.id }}</td>
-            </tr>
-            <tr>
                 <th>Thème</th>
                 <td>{{ theme.nameTheme }}</td>
             </tr>
@@ -22,10 +18,14 @@
         </tbody>
     </table>
 
-    <a class="btn btn-secondary" href="{{ path('themes_index') }}">Retour</a>
+    <hr class="mb-3">
 
-    <a class="btn btn-warning" href="{{ path('themes_edit', {'id': theme.id}) }}">Modifier</a>
+    <div class="d-flex flex-row my-2">
 
-    {{ include('themes/_delete_form.html.twig') }}
+        <a class="btn btn-secondary me-2" href="{{ path('themes_index') }}">Retour</a>
+
+        <a class="btn btn-warning me-2" href="{{ path('themes_edit', {'id': theme.id}) }}">Modifier</a>
+
+        {{ include('themes/_delete_form.html.twig') }}
     
 {% endblock %}

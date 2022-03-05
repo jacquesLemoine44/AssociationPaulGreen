@@ -27,27 +27,21 @@
                     </div>
                 {% endif %}
 
-                <h1 class="h3 mb-3 font-weight-normal">Se connecter</h1>
+                <h1 class="h3 mb-3 font-weight-normal">Conecter vous svp ...</h1>
   
 
                 <fieldset class="clfieldset">
 
-                    <legend>
-                        Se Connecter...                                                    
-                    </legend>
+                    <legend>Se Connecter...</legend>
 
                     <div class="form-floating mb-3">
                         <input type="email" value="{{ last_username }}" name="email" id="floatingInput" class="form-control" autocomplete="email" required autofocus placeholder="nom.prenom@exemple.com" autocomplete="email" required autofocus>
-                        <label for="floatingInput">
-                            Adresse Mail  qdsqcf
-                        </label>
+                        <label for="floatingInput">Adresse Mail</label>
                     </div>
 
                     <div class="form-floating">
                         <input type="password" name="password" id="floatingPassword" class="form-control" autocomplete="current-password" placeholder="Mot de Passe">
-                        <label for="floatingPassword">
-                        Mot de Passe
-                        </label>
+                        <label for="floatingPassword">Mot de Passe</label>
                     </div>
 
                     <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">

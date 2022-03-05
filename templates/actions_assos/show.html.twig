@@ -66,10 +66,14 @@
         </tbody>
     </table>
 
-    <a class="btn btn-secondary" href="{{ path('actions_assos_index') }}">Retour</a>
+    <hr class="mb-3">
 
-    <a class="btn btn-warning" href="{{ path('actions_assos_edit', {'id': actions_asso.id}) }}">Modifier</a>
+    <div class="d-flex flex-row my-2">
 
-    {{ include('actions_assos/_delete_form.html.twig') }}
+        <a class="btn btn-secondary" href="{{ path('actions_assos_index') }}">Retour</a>
+
+        <a class="btn btn-warning" href="{{ path('actions_assos_edit', {'id': actions_asso.id}) }}">Modifier</a>
+
+        {{ include('actions_assos/_delete_form.html.twig') }}
     
 {% endblock %}

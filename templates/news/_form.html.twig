@@ -1,15 +1,34 @@
 {{ form_start(form) }}
 
-    {{ form_widget(form) }}
+    {# {{ form_widget(form) }} #}
 
-   {# Si la route est "produits_edit on affiche les photos #}
+    {{ form_row(form.titleNew) }}
+
+    <div class="mb-3">
+        {{ form_label(form.pictureNew) }}
+        {% if app.request.attributes.get('_route') == 'partners_edit' %}
+            {% if (news.pictureNew) %}
+                {% set xlogo = news.pictureNew %}
+                <img src="{{ asset('photosNews/' ~ xlogo) }}" width="100">
+            {% endif %} 
+        {% endif %} 
+        {{ form_widget(form.pictureNew) }}
+    </div>
+
+    {{ form_row(form.altpictureNew) }}
+
+    {{ form_row(form.dateNew) }}
+    
+    {{ form_row(form.textNew) }}
+
+    {{ form_row(form.newsPhotosNews) }} 
+
    {% if app.request.attributes.get('_route') == 'news_edit' %}
         <h2>Photos</h2>
         <div class="d-flex flex-row">
         {% for photo in news.newsPhotosNews %}
             <div class="d-flex flex-column justify-cpontent-start me-2">
                 <img src="{{ asset('/photosNews/'~photo.photoNewPhoto) }}" alt="" width="150" height="150">  
-                {# On ajoute un lien permettant de supprimer une photo (sera géré en Ajax) #}
                 <a class="btn btn-danger" href="{{ path('news_delete_photo', {id: photo.id})}}" data-delete data-token="{{ csrf_token('delete' ~ photo.id )}}"> 
                     Supprimer
                 </a> 
@@ -18,12 +37,9 @@
     </div>
     {% endif %}
 
-    {# {% set form.actionsassosuser=app.user.id %}  #}
-
     <hr class="mb-3">
-
     <div class="d-flex flex-row my-2">
 
-    <button class="btn btn-success me-2">{{ button_label|default('Sauver') }}</button>
+        <button class="btn btn-success me-2">{{ button_label|default('Sauver') }}</button>
     
 {{ form_end(form) }}

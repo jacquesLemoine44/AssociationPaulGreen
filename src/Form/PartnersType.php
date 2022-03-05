@@ -53,7 +53,7 @@ class PartnersType extends AbstractType
 
 
             ->add('linkPartner', TextType::class, ['label' => 'Lien : ', 'required'=> false])
-            ->add('partnerGrouping')
+            
             ->add('partnerGrouping', EntityType::class,[
                 'label' => 'Regroupement des Partenaires',
                 'class' => GroupingPartners::class,

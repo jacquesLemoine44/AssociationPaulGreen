@@ -14,7 +14,7 @@ class SocialNetworksType extends AbstractType
     {
         $builder
             ->add('socialNetwork', TextType::class, ['label' => 'Réseau social : '])
-            ->add('logoSocialnetwork', TextType::class, ['label' => 'Logo : '])
+            // ->add('logoSocialnetwork', TextType::class, ['label' => 'Logo : '])
             ->add('codeSocialnetwork', TextType::class, ['label' => 'Code Logo : '])
             ->add('linkSocialnetwork', TextType::class, ['label' => 'Lien : '])
             // ->add('params')

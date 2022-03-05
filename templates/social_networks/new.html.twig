@@ -3,10 +3,14 @@
 {% block title %}Nouveau réseau social{% endblock %}
 
 {% block body %}
-    <h1>Nouveau réseau</h1>
 
-    {{ include('social_networks/_form.html.twig') }}
+    <h1>Nouveau réseau social</h1>
 
-    <a class="btn btn-secondary" href="{{ path('social_networks_index') }}">Retour</a>
+        {{ include('social_networks/_form.html.twig') }}
+
+        <a class="btn btn-secondary me-2" href="{{ path('social_networks_index') }}">Retour</a>
+
+    </div>
+    <hr class="mb-3">
 
 {% endblock %}

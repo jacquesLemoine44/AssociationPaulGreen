@@ -37,11 +37,19 @@
     padding-top: 0px;
     // color: white;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    flex-direction: row;
+    justify-content: space-around;
     align-items: center;
-    // .fenetreTitre {
-    //     background-color: rgba(151, 168, 179, 0.8);
+    .fenetreTitre {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: rgba(198, 207, 212, 0.5);
+        // opacity: 0.5;
+    }
+    // .clZIndex {
+    //     // z-index: 0;
     // }
 }
 
@@ -91,6 +99,15 @@
     background-color: white;
     padding-top: 50px;
     padding-bottom: 50px;
+}
+
+.clLogoPartners {
+    height: 50px;
+    width: 150px;
+}
+
+.clImgPartners {
+    height: 250px;
 }
 
 // ==============

@@ -1,16 +1,12 @@
 {% extends 'admin.html.twig' %}
 
-{% block title %}Partenaires{% endblock %}
+{% block title %}Notre Partenaire{% endblock %}
 
 {% block body %}
-    <h1>Partenaires</h1>
+    <h1>Notre Partenaire</h1>
 
     <table class="table">
         <tbody>
-            {# <tr>
-                <th>Id</th>
-                <td>{{ partner.id }}</td>
-            </tr> #}
             <tr>
                 <th>Partenaires</th>
                 <td>{{ partner.namePartner }}</td>
@@ -22,35 +18,46 @@
             <tr>
                 <th>Photo</th>
                 <td>
-                    {{ partner.photoPartner }}
+                    {# {{ partner.photoPartner }} #}
                      <br>
                     {% if (partner.photoPartner) %}
                         <img src="{{ asset('photosPartners/' ~ partner.photoPartner) }}" width="100">
-                    {# {% else %} #}
                     {% endif %} 
                 </td>  
             </tr>
             <tr>
                 <th>Logo</th>
                 <td>
-                    {{ partner.logoPartner }}
+                    {# {{ partner.logoPartner }} #}
                     <br>
                     {% if (partner.logoPartner) %}
                         <img src="{{ asset('photosPartners/' ~ partner.logoPartner) }}" width="100">
-                    {# {% else %} #}
                     {% endif %}                         
                 </td>
             </tr>
             <tr>
                 <th>Lien</th>
-                <td>{{ partner.linkPartner }}</td>
+                <td>
+                    {# {{ partner.linkPartner }} #}
+                    {% if ( partner.linkPartner ) %} 
+                        <a href="{{ partner.linkPartner }}"><i class="fas fa-link"></i></a>                       
+                    {% else %}
+                        <i class="fas fa-unlink"></i>
+                    {% endif %} 
+
+
+                </td>
             </tr>
         </tbody>
     </table>
 
-    <a class="btn btn-secondary" href="{{ path('partners_index') }}">Retour</a>
+    <hr class="mb-3">
+    <div class="d-flex flex-row my-2">
 
-    <a class="btn btn-warning" href="{{ path('partners_edit', {'id': partner.id}) }}">Modifier</a>
+        <a class="btn btn-secondary me-2" href="{{ path('partners_index') }}">Retour</a>
 
-    {{ include('partners/_delete_form.html.twig') }}
+        <a class="btn btn-warning me-2" href="{{ path('partners_edit', {'id': partner.id}) }}">Modifier</a>
+
+        {{ include('partners/_delete_form.html.twig') }}
+        
 {% endblock %}

@@ -8,7 +8,6 @@
     <table class="table">
         <thead>
             <tr>
-                {# <th>Id</th> #}
                 <th>Regroupement de Partenaires Sous ...</th>
                 <th>actions</th>
             </tr>
@@ -16,10 +15,9 @@
         <tbody>
         {% for grouping_partner in grouping_partners %}
             <tr>
-                {# <td>{{ grouping_partner.id }}</td> #}
                 <td>{{ grouping_partner.titleGroupingPartner }}</td>
                 <td>
-                    <a class="btn btn-primary" href="{{ path('grouping_partners_show', {'id': grouping_partner.id}) }}">Afficher</a>
+                    <a class="btn btn-primary me-1" href="{{ path('grouping_partners_show', {'id': grouping_partner.id}) }}">Afficher</a>
                     <a class="btn btn-warning" href="{{ path('grouping_partners_edit', {'id': grouping_partner.id}) }}">Modifier</a>
                 </td>
             </tr>
@@ -31,7 +29,8 @@
         </tbody>
     </table>
     <div>
-        <a class="btn btn-info" href="{{ path('grouping_partners_new') }}">Nouveau</a>
+        <a class="btn btn-info me-2" href="{{ path('grouping_partners_new') }}">Nouveau</a>
+        <hr class="mb-3">
     </div>
     
 {% endblock %}

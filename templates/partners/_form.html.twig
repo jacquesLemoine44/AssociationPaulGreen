@@ -1,40 +1,62 @@
 {{ form_start(form) }}
-    {{ form_widget(form) }}
 
+    {{ form_row(form.namePartner) }}
+    {{ form_row(form.textPartner) }}
 
-    {# Si la route est "xxxx_edit on affiche les logos #}
-	{% if app.request.attributes.get('_route') == 'partners_edit' %}
+    <div class="mb-3">
+        {{ form_label(form.photoPartner) }}
+        {% if app.request.attributes.get('_route') == 'partners_edit' %}
+            {% if (partner.photoPartner) %}
+                {% set xlogo = partner.photoPartner %}
+                <img src="{{ asset('photosPartners/' ~ xlogo) }}" width="100">
+            {% endif %} 
+        {% endif %} 
+        {{ form_widget(form.photoPartner) }}
+    </div>
+
+    <div class="mb-3">
+        {{ form_label(form.logoPartner) }}
+        {% if app.request.attributes.get('_route') == 'partners_edit' %}
+            {% if (partner.logoPartner) %}
+                {% set xlogo = partner.logoPartner %}
+                <img src="{{ asset('photosPartners/' ~ xlogo) }}" width="100">
+            {% endif %} 
+        {% endif %} 
+        {{ form_widget(form.logoPartner) }}
+    </div>
+
+    <div class="mb-3">
+        {{ form_label(form.linkPartner) }}
+        {% if ( partner.linkPartner ) %} 
+            <a href="{{ partner.linkPartner }}" target="_blank"><i class="fas fa-link"></i></a>                       
+        {% else %}
+            <i class="fas fa-unlink"></i>
+        {% endif %} 
+        {{ form_widget(form.linkPartner) }}
+    </div>
+
+    {{ form_row(form.partnerGrouping) }}
+
+    {# {{ form_widget(form) }} #}
+                {# <p>logo :  {{ xlogo | raw }}</p> #}
+
+        {# Si la route est "xxxx_edit on affiche les logos #}
+	    {# {% if app.request.attributes.get('_route') == 'partners_edit' %}
             <div>
                 {% if (partner.logoPartner) %}
                     {% set xlogo = partner.logoPartner %}
-                    <p>logo :  {{ xlogo | raw }}</p>
-                {# {% else %} #}
-                {% endif %}                
-
-                {# {% if (partner.codePartner) %}
-                    {% set xlogo = partner.codePartner %}
-                    <p>Code logo :  <i class="{{ xlogo }}"></i> </p>
-
-                {% endif %}     #}
-
-                {#
-                {% if (partner.logoPartner) %}
-                    {{ form_label(form.logoPartner) }}
-                    {{ partner.logoPartner|raw }}
-                    <a href="{{ path('produits_delete_photo', {id: photo.id})}}" data-delete data-token="{{ csrf_token('delete' ~ photo.id )}}">
-                      Effacer
-                    </a>                    
-                {% else %}
-                    {{ form_label(form.logoPartner) }}
-                    {{ partner.logoPartner}}
-                {% endif %}
-                #}
+                    <img src="{{ asset('photosPartners/' ~ xlogo) }}" width="100">
+                {% endif %}    
+                {% if (partner.photoPartner) %}
+                    {% set xlogo = partner.photoPartner %}
+                    <img src="{{ asset('photosPartners/' ~ xlogo) }}" width="100">
+                {% endif %}             
             </div>
-    {% endif %}
+        {% endif %} #}
 
+    <hr class="mb-3">
+    <div class="d-flex flex-row my-2">
 
-
-
-
-    <button  class="btn btn-success">{{ button_label|default('Sauver') }}</button>
+        <button  class="btn btn-success me-2">{{ button_label|default('Sauver') }}</button>
+        
 {{ form_end(form) }}

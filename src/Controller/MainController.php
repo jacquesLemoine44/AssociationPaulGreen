@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\ActionsAssos;
 use App\Repository\NewsRepository;
 use App\Repository\ParamsRepository;
 use App\Repository\PartnersRepository;
@@ -59,7 +60,7 @@ class MainController extends AbstractController
     }
 
 
-// ====== ASSOS  =====================
+// ====== ACTIONS ASSOS  =====================
 
     /**
      * @Route("/postersAssos/indexPostersActionsAssos", name="posters_actions_assos_index", methods={"GET"})
@@ -73,6 +74,23 @@ class MainController extends AbstractController
         ]);
     }
 
+    /**
+     * @Route("/postersAssos/showPostersActionsAssos/{id}", name="posters_actions_assos_show", methods={"GET"})
+     */
+    public function showPostersActionsAssos(ActionsAssos $actionsAsso, ParamsRepository $paramsRepository, SocialNetworksRepository $socialNetworksRepository): Response
+    {
+        return $this->render('postersAssos/showPostersActionsAssos.html.twig', [
+            'params' => $paramsRepository->findAll(),
+            'social_networks' => $socialNetworksRepository->findAll(),
+            'actions_asso' => $actionsAsso,
+        ]);
+    }
+
+// ====== ACTIONS ASSOS  =====================
+
+
+
+// ====== NEWS ASSOS  =====================
     /**
      * @Route("/postersAssos/indexPostersNewsAssos", name="posters_news_assos_index", methods={"GET"})
      */

@@ -6,7 +6,11 @@
 }
 
 .bg-info2 {
-    background-color: #65dbf3;
+    background-color: #a4deea;
+}
+
+.bg-success2 {
+    background-color: #82f7c0;
 }
 
 .text-success2 {
@@ -116,6 +120,41 @@
 
 #cke_1_contents {
     min-height: 400px;
+}
+
+.card {
+    border: 1px solid lightgray;
+    padding: 3px;
+    box-shadow: 2px 2px 2px lightgray;
+    position: relative;
+    // &:hover .overlay {
+    //     transform: scale(1)
+    // }
+    img {
+        vertical-align: middle;
+        width: 100%;
+        height: 350px;
+        object-fit: cover;
+    }
+    // .overlay {
+    //     position: absolute;
+    //     top: 0;
+    //     left: 0;
+    //     background-color: rgba(0, 0, 0, .5);
+    //     color: white;
+    //     font-size: 2.5rem;
+    //     width: 100%;
+    //     height: 100%;
+    //     display: flex;
+    //     justify-content: center;
+    //     align-items: center;
+    //     // transform: scale(0);
+    //     transform: scale(0) rotate(90deg);
+    //     transition: .3s;
+    //     // permet le trsnform en haut à doirte
+    //     // transform-origin: top left;
+    //     transform-origin: 25% 80%;
+    // }
 }
 
 // ==============

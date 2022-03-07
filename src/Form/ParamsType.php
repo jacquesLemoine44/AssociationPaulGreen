@@ -22,10 +22,20 @@ class ParamsType extends AbstractType
 
             ->add('emailParam', TextType::class, ['label' => 'Mail : ', 'required'=> true])
             
-            ->add('textParam', CKEditorType::class)
+            ->add('textParam', CKEditorType::class, [
+                'label' => 'Texte de Présentation : ',
+                'required'=> false,
+                'attr' => [
+                    "class" => 'clCKEditor',
+                    ],
+
+                ])
 
             ->add('logoParam', FileType::class, [
-                'label' => 'Logo : ',
+                'label' => 'Logo :',
+                'label_attr' => [
+                    "class" => 'col-sm-1 col-form-label pe-0',
+                    ],
                 'mapped' => false,
                 'required' => false,
                 'constraints' => [
@@ -40,7 +50,10 @@ class ParamsType extends AbstractType
             ])            
 
             ->add('photoParam', FileType::class, [
-                'label' => 'Photo : ',
+                'label' => 'Photo :',
+                'label_attr' => [
+                    "class" => 'col-sm-1 col-form-label pe-0',
+                    ],                
                 'mapped' => false,
                 'required' => false,
                 'constraints' => [

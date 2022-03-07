@@ -25,14 +25,14 @@
 
                 <td>
                     {% if (partner.logoPartner) %}
-                        <img src="{{ asset('photosPartners/' ~ partner.logoPartner) }}" width="100">
+                        <img src="{{ asset('photosPartners/' ~ partner.logoPartner) }}" width="100" title="{{ partner.photoPartner }}">
                     {% else %}
                         <p><i class="fas fa-question"></i></p>    
                     {% endif %}                               
                 </td>
                 <td>
-                    {% if (partner.photoPartner) %}                        
-                        <img src="{{ asset('photosPartners/' ~ partner.photoPartner) }}" width="100">
+                    {% if (partner.photoPartner) %} 
+                        <img src="{{ asset('photosPartners/' ~ partner.photoPartner) }}" width="100" title="{{ partner.photoPartner }}">
                     {% else %}
                         <p><i class="fas fa-image"></i></p> 
                     {% endif %}                               
@@ -46,8 +46,8 @@
                     {% endif %} 
                 </td>
                 <td>
-                    <a class="btn btn-primary me-1" href="{{ path('partners_show', {'id': partner.id}) }}">Afficher</a>
-                    <a class="btn btn-warning" href="{{ path('partners_edit', {'id': partner.id}) }}">Modifier</a>
+                    <a class="btn btn-primary me-1" href="{{ path('partners_show', {'id': partner.id}) }}" title="Affiche Le partenaire">Afficher</a>
+                    <a class="btn btn-warning" href="{{ path('partners_edit', {'id': partner.id}) }}" title="Modificaton du partenaire">Modifier</a>
                 </td>
             </tr>
         {% else %}
@@ -59,8 +59,31 @@
     </table>
 
     <div>
-        <a class="btn btn-info" href="{{ path('partners_new') }}">Nouveau</a>
+        <a class="btn btn-info" href="{{ path('partners_new') }}" title="Création d'un partenaire">Nouveau</a>
         <hr class="mb-3">
     </div>
 
 {% endblock %}
+
+
+{# <a href="file:///C:/Users/david/Desktop/Kelvin/html CSS  JV/Cours hCJs.html">
+    <div class="bc"></div></a>
+ <a href="file:///C:/Users/david/Desktop/Kelvin/html CSS JV/Cours hCJs2.html">
+    <div class="bc"></div>
+</a>
+/*Les div cote a cote, il y en aura d'autre*/
+
+div.bc{
+    height:20px;
+    width:50px;
+    background-color:#dcdcdc;
+    float:left;
+    border-left:0px solid black;
+    border-top:1px solid black;
+    border-bottom:4px solid #a9a9a9;
+    border-right:1px solid black;
+    cursor:pointer;
+}
+div.bc:hover{
+    background-color:#C9C9C9;
+} #}

@@ -53,8 +53,8 @@ class ActionsAssosType extends AbstractType
                 'required' => false,
                 ])
                 
-            ->add('titlelinkactionsasso', TextType::class, ['label' => 'titre : ', 'required'=> false])
-            ->add('linkactionsasso', TextType::class, ['label' => 'titre : ', 'required'=> false])
+            ->add('titlelinkactionsasso', TextType::class, ['label' => 'titre du lien ci-dessous : ', 'required'=> false])
+            ->add('linkactionsasso', TextType::class, ['label' => 'Lien : ', 'required'=> false])
 
             ->add('actionsassostheme', EntityType::class,[
                 'label' => "Theme de l'action:",

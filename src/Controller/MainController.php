@@ -21,7 +21,6 @@ class MainController extends AbstractController
         return $this->render('main/index.html.twig', [
             'params' => $paramsRepository->findAll(),
             'social_networks' => $socialNetworksRepository->findAll(),
-            // 'news' => $newsRepository->findAll(),
             'theNews' => $newsRepository->LastFiveNews(),
             'theActionsAssos' => $actionsAssosRepository->LastFiveActionsAssos(),
             'thePartners' => $partnersRepository->findAll(),
@@ -43,6 +42,7 @@ class MainController extends AbstractController
         ]);
     }
 
+// ====== Récup. INFO PARAMS  =====================
 
     public function paramRecup(ParamsRepository $paramsRepository): Response
     {
@@ -57,6 +57,39 @@ class MainController extends AbstractController
         'params' => $paramsRepository->findAll(),
     ]);
     }
+
+
+// ====== ASSOS  =====================
+
+    /**
+     * @Route("/postersAssos/indexPostersActionsAssos", name="posters_actions_assos_index", methods={"GET"})
+     */
+    public function indexPostersActionsAssos(ParamsRepository $paramsRepository, SocialNetworksRepository $socialNetworksRepository, ActionsAssosRepository $actionsAssosRepository): Response
+    {
+        return $this->render('postersAssos/indexPostersActionsAssos.html.twig', [
+            'params' => $paramsRepository->findAll(),
+            'social_networks' => $socialNetworksRepository->findAll(),
+            'actions_assos' => $actionsAssosRepository->findAll(),
+        ]);
+    }
+
+    /**
+     * @Route("/postersAssos/indexPostersNewsAssos", name="posters_news_assos_index", methods={"GET"})
+     */
+    public function indexPostersNewsAssos(ParamsRepository $paramsRepository, SocialNetworksRepository $socialNetworksRepository, ActionsAssosRepository $actionsAssosRepository): Response
+    {
+        return $this->render('postersAssos/indexPostersNewsAssos.html.twig', [
+            'params' => $paramsRepository->findAll(),
+            'social_networks' => $socialNetworksRepository->findAll(),
+            'actions_assos' => $actionsAssosRepository->findAll(),
+        ]);
+    }
+
+// ====== MASTER  =====================
+
+
+
+// ====== FIN  =====================
 
 
 }

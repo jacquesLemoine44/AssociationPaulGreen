@@ -113,6 +113,14 @@
   height: 250px;
 }
 
+.clAdresse {
+  width: 200px;
+}
+
+#cke_1_contents {
+  min-height: 400px;
+}
+
 footer .clIconeEnLigne {
   display: -webkit-box;
   display: -ms-flexbox;

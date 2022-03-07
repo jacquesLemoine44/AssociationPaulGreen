@@ -210,27 +210,27 @@ class ActionsAssosController extends AbstractController
  */
     public function deleteImage(Request $request, PhotosActionsAssos $photo, EntityManagerInterface $entityManager){
 
-    $data = json_decode($request->getContent(), true);
+        $data = json_decode($request->getContent(), true);
 
-    // On vérifie si le token est valide
-    if($this->isCsrfTokenValid('delete'.$photo->getId(), $data['_token'])){
-        // On récupère le nom de l'image
-        $nom = $photo->getPhotoactionsasso();
-        // On supprime le fichier
-        unlink($this->getParameter('photos_directoryAssos').'/'.$nom);
+        // On vérifie si le token est valide
+        if($this->isCsrfTokenValid('delete'.$photo->getId(), $data['_token'])){
+            // On récupère le nom de l'image
+            $nom = $photo->getPhotoactionsasso();
+            // On supprime le fichier
+            unlink($this->getParameter('photos_directoryAssos').'/'.$nom);
 
-        // On supprime l'entrée de la base
-        // $em = $this->getDoctrine()->getManager();
-        // $em->remove($photo);
-        // $em->flush();
-        $entityManager->remove($photo);
-        $entityManager->flush();
+            // On supprime l'entrée de la base
+            // $em = $this->getDoctrine()->getManager();
+            // $em->remove($photo);
+            // $em->flush();
+            $entityManager->remove($photo);
+            $entityManager->flush();
 
-        // On répond en json
-        return new JsonResponse(['success' => 1]);
-    }else{
-        return new JsonResponse(['error' => 'Token Invalide'], 400);
-    }
+            // On répond en json
+            return new JsonResponse(['success' => 1]);
+        }else{
+            return new JsonResponse(['error' => 'Token Invalide'], 400);
+        }
     }
 
 }

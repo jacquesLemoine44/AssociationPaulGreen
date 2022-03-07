@@ -1,0 +1,118 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Les Actions de l'association
+{% endblock %}
+
+{% block body %}
+	<h1 class="text-center mb-4">Les Actions de l'association</h1>
+
+	{% set xCpt = 0 %}
+
+	{% for actions_asso in actions_assos %}
+
+		{% set xCpt = xCpt + 1 %}
+
+		{% if ((xCpt % 2) != 0) %}
+
+			<div class="bg-info py-4">
+				<div class="container">
+					<div class="row">
+
+						<div class="col-md-6">
+							<img src="{{ asset('photosActionsAssos/' ~ actions_asso.pictureactionsasso) }}" class="W-auto" height="350px" alt="{{ actions_asso.altPictureActionsAssos }}">
+						</div>
+
+						<div class="col-md-6">
+							<h3>{{ actions_asso.titleactionsasso }}</h3>
+							<br>
+							<b>
+								<i>{{ actions_asso.titleactionsasso }}</i>
+							</b>
+							<br>
+
+							<div>
+								{% if (actions_asso.linkactionsasso) %}
+									{{ actions_asso.titlelinkactionsasso }}
+									{{ actions_asso.linkactionsasso }}
+									<br>
+								{% endif %}
+							</div>
+
+							{{ actions_asso.startactionsasso ? actions_asso.startactionsasso|date('Y-m-d H:i:s') : '' }}
+							{{ actions_asso.endactionsasso ? actions_asso.endactionsasso|date('Y-m-d H:i:s') : '' }}
+						</div>
+
+					</div>
+
+					<div class="row mt-1">
+						<div
+							class="col-md-12 border border-2 border-secondary">
+							{# {{ actions_asso.textactionsasso|striptags|u.truncate(300, '...') }} #}
+							{{ actions_asso.textactionsasso |length > 300 ? actions_asso.textactionsasso |slice(0,300)|raw : actions_asso.textactionsasso|raw }}
+							<br>
+							<a class="" href="{{ path('actions_assos_show', {'id': actions_asso.id}) }}">Lire la suite ...</a>
+						</div>
+					</div>
+
+					<div class="row mt-1">
+						<div
+							class="col-md-12 border border-2 border-secondary">
+							{# {{ actions_asso.textactionsasso|striptags|u.truncate(300, '...') }} #}
+							{{ actions_asso.textactionsasso |length > 300 ? actions_asso.textactionsasso |slice(0,300)|raw : actions_asso.textactionsasso|raw }}
+							<br>
+							<a class="" href="{{ path('actions_assos_show', {'id': actions_asso.id}) }}">Lire la suite ...</a>
+						</div>
+					</div>    
+                    
+				</div>
+
+			</div>
+
+
+			<hr>
+
+		{% else %}
+			<div class="container">
+
+				<div class="row">
+
+					<div class="col-md-6">
+						<h3>{{ actions_asso.titleactionsasso }}</h3>
+						<br>
+						<b>
+							<i>{{ actions_asso.titleactionsasso }}</i>
+						</b>
+						<br>
+						{{ actions_asso.titlelinkactionsasso }}
+						<br>
+						{{ actions_asso.linkactionsasso }}
+						<br>
+						{{ actions_asso.startactionsasso ? actions_asso.startactionsasso|date('Y-m-d H:i:s') : '' }}
+						<br>
+						{{ actions_asso.endactionsasso ? actions_asso.endactionsasso|date('Y-m-d H:i:s') : '' }}
+					</div>
+					<div class="col-md-6">
+						<img src="{{ asset('photosActionsAssos/' ~ actions_asso.pictureactionsasso) }}" class="W-auto" height="350px" alt="{{ actions_asso.altPictureActionsAssos }}">
+					</div>
+
+
+				</div>
+				<div class="row mt-1">
+					<div class="col-md-12 border border-2 border-secondary">
+						{{ actions_asso.textactionsasso|striptags|u.truncate(300, '...') }}
+						<br>
+						<a class="" href="{{ path('actions_assos_show', {'id': actions_asso.id}) }}">Lire la suite ...</a>
+					</div>
+				</div>
+				<hr>
+
+
+			{% endif %}
+
+
+		{% else %}
+			<div>Aucune donnée</div>
+		{% endfor %}
+	</div>
+
+{% endblock %}

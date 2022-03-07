@@ -25,10 +25,10 @@
                 {# <td>{{ actions_asso.id }}</td> #}
                 <td>{{ actions_asso.titleactionsasso }}</td>
                     <td>
-                        <img src="{{ asset('photosActionsAssos/' ~ actions_asso.pictureactionsasso) }}" width="100">
+                        <img src="{{ asset('photosActionsAssos/' ~ actions_asso.pictureactionsasso) }}" width="100" alt="{{ actions_asso.altPictureActionsAssos }}">
                         {{ actions_asso.altPictureActionsAssos }}
                     </td>                    
-                <td>{{ actions_asso.textactionsasso }}</td>
+                <td>{{ actions_asso.textactionsasso|striptags|u.truncate(50, '...') }}</td>
                 <td>
                     {{ actions_asso.titlelinkactionsasso }}
                     {{ actions_asso.linkactionsasso }}
@@ -49,7 +49,7 @@
     </table>
     
     <div>
-        <a class="btn btn-info" href="{{ path('actions_assos_new') }}">Nouveau</a>
+        <a class="btn btn-info me-2" href="{{ path('actions_assos_new') }}">Nouveau</a>
     </div>
     
 {% endblock %}

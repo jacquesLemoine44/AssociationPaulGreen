@@ -14,8 +14,8 @@
 				</div>
 				<div class="col-md-6">
 					<div class="border border-2 border-primary rounded-3 p-5 fenetreTitre">
-						<h1 class="text-success2">{{ params[0].titleParam }}! ✅</h1>
-						<h2>{{ params[0].subtitleParam }} ! ✅</h2>
+						<h1 class="text-success2">{{ params[0].titleParam }}</h1>
+						<h2>{{ params[0].subtitleParam }}</h2>
 					</div>
 				</div>
 				<div class="col-md-3">
@@ -25,7 +25,23 @@
 		</div>
 	</section>
 
-	{# {{random(1,100)}} #}
+	{# =================================================================== Présentation ===== #}
+
+	<section class="PresentationAssos">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12 d-flex flex-row justify-content-center mb-3">
+					<img src="{{ asset('photosParams/' ~ params[0].photoParam )}}" alt="Association Paul Green" width="auto" height="450" class="d-inline-block align-text-top">
+				</div>
+				<div class="col-md-12">
+					{{ params[0].textParam|raw }}
+				</div>
+			</div>
+		</div>
+	</section>
+
+	{# ====================================================================================== #}
+
 
 
 	{# =================================================================== Les News ===== #}

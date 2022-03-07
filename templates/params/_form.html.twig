@@ -5,35 +5,65 @@
     {{ form_row(form.subtitleparam) }} 
     {{ form_row(form.emailParam) }} 
     
-    {{ form_row(form.textParam|striptags|u.truncate(50, '...')) }} 
+    {# {{ form_row(form.textParam|striptags|u.truncate(50, '...')) }}  #}
+    {{ form_row(form.textParam) }} 
 
-    <div class="mb-3">
-        {{ form_label(form.logoParam) }}
-        {% if app.request.attributes.get('_route') == 'params_edit' %}
-            {% if (param.logoParam) %}
-                {% set xlogo = param.logoParam %}
-                <img src="{{ asset('photosParams/' ~ xlogo) }}" width="100">
+    <div class="row mb-3">
+        <div class="col-md-6">    
+            <div class="row mb-3">
+                {{ form_label(form.logoParam) }}
+                <div class="col-sm-11">
+                    {{ form_widget(form.logoParam) }}
+                </div>
+            </div>
+
+            {% if app.request.attributes.get('_route') == 'params_edit' %}
+                {% if (param.logoParam) %}
+                    {% set xlogo = param.logoParam %}
+                    <img src="{{ asset('photosParams/' ~ xlogo) }}" class="w-auto" height="150px">
+                {% endif %} 
             {% endif %} 
-        {% endif %} 
-        {{ form_widget(form.logoParam) }}
+        </div>
+
+        <div class="col-md-6"> 
+            <div class="row mb-3">
+                {{ form_label(form.photoParam) }}
+                <div class="col-sm-11">
+                    {{ form_widget(form.photoParam) }}
+                </div>
+            </div>
+            {% if app.request.attributes.get('_route') == 'params_edit' %}
+                {% if (param.photoParam) %}
+                    {% set xlogo = param.photoParam %}
+                    <img src="{{ asset('photosParams/' ~ xlogo) }}" class="w-auto" height="150px">
+                {% endif %} 
+            {% endif %} 
+        </div>
     </div>
 
-    <div class="mb-3">
-        {{ form_label(form.photoParam) }}
-        {% if app.request.attributes.get('_route') == 'params_edit' %}
-            {% if (param.photoParam) %}
-                {% set xlogo = param.photoParam %}
-                <img src="{{ asset('photosParams/' ~ xlogo) }}" width="100">
-            {% endif %} 
-        {% endif %} 
-        {{ form_widget(form.photoParam) }}
-    </div>
-
-    {{ form_row(form.address1Param) }} 
-    {{ form_row(form.address2Param) }} 
-    {{ form_row(form.cpParam) }} 
-    {{ form_row(form.townParam) }}
-    {{ form_row(form.updateParam) }}
+    <div class="border border-2 border-info px-2 pt-2">
+        <div class="row">
+            <div class="col-md-6">
+                {{ form_row(form.address1Param) }} 
+            </div>
+            <div class="col-md-6">
+                {{ form_row(form.address2Param) }} 
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                {{ form_row(form.cpParam) }} 
+            </div>
+            <div class="col-md-8">
+                {{ form_row(form.townParam) }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+                {{ form_row(form.updateParam) }}
+            </div>
+        </div>
+    </div>    
 
     <hr class="mb-3">
     <div class="d-flex flex-row my-2">

@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\News;
 use App\Entity\ActionsAssos;
 use App\Repository\NewsRepository;
 use App\Repository\ParamsRepository;
@@ -86,20 +87,32 @@ class MainController extends AbstractController
         ]);
     }
 
-// ====== ACTIONS ASSOS  =====================
+// =======================================
 
 
 
-// ====== NEWS ASSOS  =====================
+// ====== NEWS =============================
     /**
-     * @Route("/postersAssos/indexPostersNewsAssos", name="posters_news_assos_index", methods={"GET"})
+     * @Route("/posterNews/indexPostersNews", name="posters_news_index", methods={"GET"})
      */
-    public function indexPostersNewsAssos(ParamsRepository $paramsRepository, SocialNetworksRepository $socialNetworksRepository, ActionsAssosRepository $actionsAssosRepository): Response
+    public function indexPostersNews(ParamsRepository $paramsRepository, SocialNetworksRepository $socialNetworksRepository, NewsRepository $newsRepository): Response
     {
-        return $this->render('postersAssos/indexPostersNewsAssos.html.twig', [
+        return $this->render('postersNews/indexPostersNews.html.twig', [
             'params' => $paramsRepository->findAll(),
             'social_networks' => $socialNetworksRepository->findAll(),
-            'actions_assos' => $actionsAssosRepository->findAll(),
+            'news' => $newsRepository->findAll(),
+        ]);
+    }
+
+        /**
+     * @Route("/postersNews/showPostersNews/{id}", name="posters_news_show", methods={"GET"})
+     */
+    public function showPostersNews(News $news, ParamsRepository $paramsRepository, SocialNetworksRepository $socialNetworksRepository): Response
+    {
+        return $this->render('postersNews/showPostersNews.html.twig', [
+            'params' => $paramsRepository->findAll(),
+            'social_networks' => $socialNetworksRepository->findAll(),
+            'news' => $news,
         ]);
     }
 

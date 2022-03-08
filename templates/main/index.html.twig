@@ -172,23 +172,25 @@
 
 {# =================================================================== Les Stages ===== #}
 
-<section class="clInterships" id="idInterships"> {# Affichage des 5 denières #}
+{# Affichage des 5 denières #}
+{# <section class="clInterships" id="idInterships"> 
 
 		<div class="text-center pb-5">
 			<h3>Les derniers Stages Proposés  (En Construction) ! ✅</h3>
 		</div>
 
-</section>
+</section> #}
 {# ======================================================================== #}
 
 {# =================================================================== L'Association Paul Green ===== #}
 
-<section class="clPaulGreen" id="idPaulGreen"> {# Vitrine #}
+{# Vitrine #}
+{# <section class="clPaulGreen" id="idPaulGreen"> 
 		<div class="text-center pb-5">
 			<h3>Présentation de L'Association Paul Green (En Construction) ! ✅</h3>
 		</div>
 
-</section>
+</section> #}
 {# ======================================================================== #}
 
 
@@ -201,40 +203,39 @@
 
 {# =================================================================== Les Actions du Master ===== #}
 
-<section class="clActionsMasters" id="idActionsMasters"> {# Affichage des 5 denières #}
+{# Affichage des 5 denières #}
+{# <section class="clActionsMasters" id="idActionsMasters"> 
 
 		<div class="text-center pb-5">
 			<h3>Les dernières Actions du Master  (En Construction) ! ✅</h3>
 		</div>
 
-</section>
+</section> #}
 {# ======================================================================== #}
 
 {# =================================================================== Les Sorties ===== #}
 
-<section class="clOutputs" id="idOutputs"> {# Affichage des 5 denières #}
+{# Affichage des 5 denières #}
+{# <section class="clOutputs" id="idOutputs"> 
 
 		<div class="text-center pb-5">
 			<h3>Les dernières Sorties Proposées  (En Construction) ! ✅</h3>
 		</div>
 
-</section>
+</section> #}
 {# ======================================================================== #}
 
 {# =================================================================== Le Master ===== #}
 
-<section class="clMaster" id="idMasters"> {# Vitrine #}
+{# Vitrine #}
+{# <section class="clMaster" id="idMasters"> 
 
 <div class="text-center pb-5">
 <h3>Présentation du Master  (En Construction) ! ✅</h3>
 </div>
 
-</section>
+</section> #}
 {# ======================================================================== #}
-
-
-
-
 
 
 {# =================================================================== Les Partenaires ===== #}
@@ -305,8 +306,12 @@
 									<h4 class="card-title">{{ xPartner.namePartner }}</h4>
 									<p class="card-text">{{ xPartner.namePartner|striptags|u.truncate(50, '...') }} ...</p>
 									<div class="d-flex flex-row justify-content-between align-items-center">
-										<a herf="{{ xPartner.linkPartner }}" target="_blank" class="btn btn-primary"><i class="fas fa-external-link-alt"></i></a>
-										<img class="card-img-top clLogoPartners" src="{{ asset('photosPartners/' ~ xPartner.logoPartner) }}" alt="{{xPartner.namePartner}}" width="100">
+										<a herf="{{ xPartner.linkPartner }}" target="_blank" class="btn btn-primary">
+											<i class="fas fa-external-link-alt"></i>
+										</a>
+										<img class="card-img-top clLogoPartners" 
+											src="{{ asset('photosPartners/' ~ xPartner.logoPartner) }}" 
+											alt="{{xPartner.namePartner}}" width="100">
 									</div>
 								</div>
 							</div>

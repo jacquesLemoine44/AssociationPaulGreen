@@ -2,20 +2,23 @@
 
 namespace App\Controller;
 
+use App\Entity\Users;
 use App\Entity\Photos;
+use App\Entity\Comments;
 use App\Entity\ActionsAssos;
 use App\Form\ActionsAssosType;
+use App\Entity\DocActionsAssos;
+use App\Form\DocActionsAssosType;
 use App\Entity\PhotosActionsAssos;
-use App\Entity\Users;
 use Doctrine\ORM\EntityManagerInterface;
 use App\Repository\ActionsAssosRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\String\Slugger\SluggerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
-use Symfony\Component\HttpFoundation\JsonResponse;
 
 /**
  * @Route("/actions/assos")
@@ -186,9 +189,24 @@ class ActionsAssosController extends AbstractController
             return $this->redirectToRoute('actions_assos_index', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->renderForm('actions_assos/edit.html.twig', [
+// ----------------------
+        // Partie commentaires
+        // On crée le commentaire "vierge"
+        $comment = new DocActionsAssos;
+        // On génère le formulaire
+        $commentForm = $this->createForm(DocActionsAssosType::class, $comment);
+        $commentForm->handleRequest($request);
+// ----------------------
+
+
+// return $this->renderForm('actions_assos/edit.html.twig', [
+//     'actions_asso' => $actionsAsso,
+//     'form' => $form->createView(),
+// ]);
+        return $this->render('actions_assos/edit.html.twig', [
             'actions_asso' => $actionsAsso,
-            'form' => $form,
+            'form' => $form->createView(),
+            'commentForm' => $commentForm->createView()
         ]);
     }
 

@@ -1,0 +1,14 @@
+{# {% extends 'admin.html.twig' %} #}
+
+{% block title %}Edit DocActionsAssos{% endblock %}
+
+{% block body %}
+    {# <h1>Edit DocActionsAssos</h1> #}
+
+    {{ include('doc_actions_assos/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_doc_actions_assos_index') }}">back to list</a>
+
+    {{ include('doc_actions_assos/_delete_form.html.twig') }}
+   
+{% endblock %}

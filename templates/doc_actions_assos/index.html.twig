@@ -1,0 +1,37 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}DocActionsAssos index{% endblock %}
+
+{% block body %}
+    <h1>DocActionsAssos index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Titledocactionsasso</th>
+                <th>Linkdocactionsasso</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for doc_actions_asso in doc_actions_assos %}
+            <tr>
+                <td>{{ doc_actions_asso.id }}</td>
+                <td>{{ doc_actions_asso.titledocactionsasso }}</td>
+                <td>{{ doc_actions_asso.linkdocactionsasso }}</td>
+                <td>
+                    <a href="{{ path('app_doc_actions_assos_show', {'id': doc_actions_asso.id}) }}">show</a>
+                    <a href="{{ path('app_doc_actions_assos_edit', {'id': doc_actions_asso.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_doc_actions_assos_new') }}">Create new</a>
+{% endblock %}

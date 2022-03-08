@@ -1,0 +1,30 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}DocActionsAssos{% endblock %}
+
+{% block body %}
+    <h1>DocActionsAssos</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ doc_actions_asso.id }}</td>
+            </tr>
+            <tr>
+                <th>Titledocactionsasso</th>
+                <td>{{ doc_actions_asso.titledocactionsasso }}</td>
+            </tr>
+            <tr>
+                <th>Linkdocactionsasso</th>
+                <td>{{ doc_actions_asso.linkdocactionsasso }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_doc_actions_assos_index') }}">back to list</a>
+
+    <a href="{{ path('app_doc_actions_assos_edit', {'id': doc_actions_asso.id}) }}">edit</a>
+
+    {{ include('doc_actions_assos/_delete_form.html.twig') }}
+{% endblock %}

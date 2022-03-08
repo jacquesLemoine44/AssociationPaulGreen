@@ -7,6 +7,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 
 class DocActionsAssosType extends AbstractType
@@ -27,10 +28,12 @@ class DocActionsAssosType extends AbstractType
                 ]
             ])
 
-             ->add('docactasso', HiddenType::class, [
+             ->add('docactasso', IntegerType::class, [
                      'mapped' => false
                  ])
-
+        //    ->add('docactasso', HiddenType::class, [
+        //             'mapped' => false
+        //         ])
 
 
         ;

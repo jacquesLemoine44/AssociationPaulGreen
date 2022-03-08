@@ -36,10 +36,14 @@
                     </a>            
                     <p>{{ xDoc.titledocactionsasso }}</p>
                         {# <a class="btn btn-primary me-1" href="{{ path('produits_edit', {'id': produit.id}) }}"> #}
+                        {# {{ path('#', {'id': xDoc.id}) }} #}
+                        <pre>
+                            {{ dump(xDoc) }}
+                        </pre>
                     <a class="btn me-1" href="">
                         <img src="{{ asset('icones/btM.png') }}" alt="Modifier" width="20" height="20" class="" title="Modifier">
                     </a>
-                    <a class="btn me-1" href="">
+                    <a class="btn me-1" href="#">
                         <img src="{{ asset('icones/btS.png') }}" alt="Supprimer" width="20" height="20" class="" title="Supprimer">
                     </a>
                     <hr>
@@ -85,7 +89,7 @@
 </div>
 
 
-
+{# ========================================================================================= #}
 
         <hr>
         {# <div class="container"> #}

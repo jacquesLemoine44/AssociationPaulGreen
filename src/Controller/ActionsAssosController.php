@@ -17,6 +17,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\String\Slugger\SluggerInterface;
+use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
 
@@ -125,7 +126,11 @@ class ActionsAssosController extends AbstractController
     /**
      * @Route("/{id}/edit", name="actions_assos_edit", methods={"GET", "POST"})
      */
-    public function edit(Request $request, ActionsAssos $actionsAsso, EntityManagerInterface $entityManager, SluggerInterface $slugger, Users $users ): Response
+    public function edit(Request $request, 
+                                ActionsAssos $actionsAsso, 
+                                EntityManagerInterface $entityManager, 
+                                SluggerInterface $slugger,                             
+                                Users $users ): Response
     {
 
         // $user = $this->getUser();
@@ -196,6 +201,27 @@ class ActionsAssosController extends AbstractController
         // On génère le formulaire
         $commentForm = $this->createForm(DocActionsAssosType::class, $comment);
         $commentForm->handleRequest($request);
+        // Traitement du formulaire
+        if($commentForm->isSubmitted() && $commentForm->isValid()){
+        //     // $comment->setCreatedAt(new DateTime());
+        //     $comment->setDocactasso($actionsAsso);
+             // On récupère le contenu du champ parentid
+             $parentid = $commentForm->get("docactasso")->getData();
+             // On va chercher le commentaire correspondant
+             // $em = $this->getDoctrine()->getManager();
+             if($parentid != null){
+                 $parent = $entityManager
+                    ->getRepository(DocActionsAssosType::class)
+                    ->find($parentid);
+             }
+        //     // On définit le parent
+        //     $comment->setDocactasso($parent ?? null);
+        //     $entityManager->persist($comment);
+        //     $entityManager->flush();
+        //     $this->addFlash('message', 'Votre commentaire a bien été envoyé');
+        //     return $this->redirectToRoute('annonces_details', ['slug' => $annonce->getSlug()]);
+         }
+        
 // ----------------------
 
 

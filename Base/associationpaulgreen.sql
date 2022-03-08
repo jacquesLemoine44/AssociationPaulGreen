@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  jeu. 03 mars 2022 à 16:05
+-- Généré le :  mar. 08 mars 2022 à 16:02
 -- Version du serveur :  5.7.26
 -- Version de PHP :  7.2.18
 
@@ -49,7 +49,7 @@ CREATE TABLE IF NOT EXISTS `actions_assos` (
 --
 
 INSERT INTO `actions_assos` (`id`, `titleactionsasso`, `pictureactionsasso`, `textactionsasso`, `linkactionsasso`, `startactionsasso`, `endactionsasso`, `titlelinkactionsasso`, `actionsassosuser_id`, `alt_picture_actions_assos`) VALUES
-(1, 'Boite à Insectes', 'bins2images-4-62207e8e70d5b.jpg', '<p>boite &agrave; insecete</p>', NULL, '2022-02-01 00:00:00', '2022-02-03 00:00:00', NULL, 1, 'Réalisation de boite à insectes'),
+(1, 'Boite à Insectes', 'bins2images-4-62207e8e70d5b.jpg', '<h1>Pourquoi vouloir installer un h&ocirc;tel &agrave; insecte ? A quoi cela va-t-il servir ?!?</h1>\r\n\r\n<p>En quantit&eacute;, 80% des insectes ont disparu en 20 ans, construire et installer un h&ocirc;tel &agrave; insecte, c&rsquo;est aujourd&rsquo;hui agir &agrave; son &eacute;chelle pour pr&eacute;server et prot&eacute;ger ces animaux, essentiel pour la biodiversit&eacute;, mais &eacute;galement pour nous m&ecirc;me !</p>\r\n\r\n<p>Pollinisation, pr&eacute;dation d&rsquo;esp&egrave;ces consommatrices des cultures, d&eacute;composition de la mati&egrave;re organique, nourriture pour les oiseaux, etc&hellip; autant de taches r&eacute;alis&eacute;es par les insectes qui logeront dans votre h&ocirc;tel &agrave; insecte. Bien s&ucirc;r, en plus de l&rsquo;h&ocirc;tel, c&rsquo;est tout une r&eacute;flexion qui doit &ecirc;tre r&eacute;aliser dans le jardin : ne pas utiliser de produits toxiques (herbicides, insecticides&hellip;), proposer des plantes nourrici&egrave;res, laisser un espace non tondu, pr&eacute;voir d&rsquo;autres abris (tas de bois, de feuilles mortes, r&eacute;aliser un compost, etc&hellip;).<span style=\"color:#2ecc71\">&nbsp;<strong>Installer un h&ocirc;tel &agrave; insectes sans tenir compte de l&rsquo;&eacute;cosyst&egrave;me local dans son ensemble n&rsquo;aurait aucun sens !</strong></span></p>\r\n\r\n<p>Pour r&eacute;aliser votre h&ocirc;tel, une multitude de plans existent, de toute taille, de formes diff&eacute;rentes, n&rsquo;h&eacute;sitez pas&nbsp; &agrave; laisser parler votre imagination ! Nous vous proposons ici la r&eacute;alisation d&rsquo;un h&ocirc;tel de taille moyenne, facile &agrave; r&eacute;aliser &agrave; partir de planches de 20 cm de large, bien s&ucirc;r non trait&eacute;es ! Pour cela, vous pouvez trouver assez facilement dans les magasins de bricolages des &laquo;&nbsp;planches de coffrage&nbsp;&raquo; non trait&eacute;es. Pour une construction solide, nous vous conseillons une &eacute;paisseur de bois de 25 mm.</p>\r\n\r\n<h2><span style=\"color:#3498db\">La d&eacute;coupe</span></h2>\r\n\r\n<p>Pas de d&eacute;coupe compliqu&eacute;e, il suffit de&nbsp; couper la planche en tron&ccedil;on de diff&eacute;rentes dimensions (il faut environ 8 m de planches) :</p>\r\n\r\n<ul>\r\n	<li>7 planchettes de 60 cm</li>\r\n	<li>4 planchettes de (60-2X&eacute;paisseur), donc pour une planche d&rsquo;&eacute;paisseur 25 mm : 55 cm</li>\r\n	<li>6 planchettes de (60-4X&eacute;paisseur)/3, soit environ 16,5 cm pour une &eacute;paisseur de 25 mm</li>\r\n	<li>1 planchette de 22 cm, perc&eacute;e en son centre d&rsquo;un trou de 12-15 mm</li>\r\n	<li>des clous, ou vis, d&rsquo;une longueur adapt&eacute;e (50-60 mm pour le bois de 25 mm d&rsquo;&eacute;paisseur)</li>\r\n</ul>\r\n\r\n<h2><span style=\"color:#3498db\">Le montage</span></h2>\r\n\r\n<p>Pour cela, suivez le plan ci dessous ! (cliquez sur les images pour le grand format)</p>\r\n\r\n<p><a href=\"http://www.environat.fr/wp-content/uploads/2018/07/mode-emploi-bois-page003.jpg\" rel=\"noopener noreferrer\" target=\"_blank\"><img alt=\"\" src=\"http://www.environat.fr/wp-content/uploads/2018/07/mode-emploi-bois-page003-1024x724.jpg\" style=\"height:321px; width:450px\" /></a><a href=\"http://www.environat.fr/wp-content/uploads/2018/07/mode-emploi-bois-page004-e1530694651941.jpg\" rel=\"noopener noreferrer\" target=\"_blank\"><img alt=\"\" src=\"http://www.environat.fr/wp-content/uploads/2018/07/mode-emploi-bois-page004-e1530694651941-724x1024.jpg\" style=\"height:321px; width:230px\" /></a></p>\r\n\r\n<h2><span style=\"color:#3498db\">Le remplissage</span></h2>\r\n\r\n<p>Pour remplir les &laquo;&nbsp;logements&nbsp;&raquo;, une multitude de mat&eacute;riaux peuvent &ecirc;tre utilis&eacute;s : briques creuses, brindilles, bois creux (sureau, bambou, etc&hellip;), b&ucirc;che de bois perc&eacute;e (avec des trous de 6, 8, 10, 12 mm), tuiles, pot de fleur en terre cuite, etc&hellip; Chaque mat&eacute;riau choisi abritera des insectes diff&eacute;rents, variez les composants !</p>\r\n\r\n<h4>Finition et pose</h4>\r\n\r\n<p><a href=\"http://www.environat.fr/wp-content/uploads/2018/07/install-hotel-%C3%A0-insecte.jpg\" rel=\"noopener noreferrer\" target=\"_blank\"><img alt=\"\" src=\"http://www.environat.fr/wp-content/uploads/2018/07/install-hotel-%C3%A0-insecte-724x1024.jpg\" style=\"height:330px; width:236px\" /></a></p>\r\n\r\n<p>Pour la finition, pas de peinture, elles sont souvent insecticides ! Pour le prot&eacute;ger de la pluie, vous pouvez pr&eacute;voir de poser des tuiles sur le toit, ou un morceau de toile bitumin&eacute;e. Un grillage peut aussi &ecirc;tre n&eacute;cessaire pour maintenir les &eacute;l&eacute;ments et &eacute;viter qu&rsquo;ils soient &laquo;&nbsp;pill&eacute;s&nbsp;&raquo; par les oiseaux pour construire leur nid ! Pour cela, il suffit d&rsquo;un grillage avec des mailles d&rsquo;environ 2-4 cm qui permettront aux insectes de circuler librement et de le fixer en le clouant ou en l&rsquo;agrafant !</p>\r\n\r\n<p>Pour la pose, choisissez une orientation ensoleill&eacute;e (Sud, ou sud-est, sud-ouest), placer 2 briques au sol pour que la planche du dessous ne soit pas au contact de l&rsquo;humidit&eacute; et posez l&rsquo;h&ocirc;tel &agrave; insecte. Pour assurer sa stabilit&eacute;, vous pouvez le fixer &agrave; un mur, ou enfoncer &agrave; l&rsquo;arri&egrave;re des piquets &agrave; solidariser &agrave; l&rsquo;h&ocirc;tel.</p>', 'https://www.jardiner-autrement.fr/construire-hotel-a-insectes/', '2022-02-01 00:00:00', '2022-02-03 00:00:00', 'Voir un autre exemple...', 1, 'Construire et installer un hôtel à insecte'),
 (2, 'Boites à Livre', 'bl3images-4-62207dcb0b58f.jpg', '<p>Constrction de boite &agrave; livres</p>', NULL, '2022-03-10 00:00:00', '2022-03-24 00:00:00', 'titre ????', 1, 'Réalisation de boite à livres'),
 (3, 'jardin Associatif', 'ja1-telechargement-62207f425765d.jpg', '<p>jardin associatif</p>', NULL, '2022-03-04 00:00:00', '2022-03-25 00:00:00', 'photo principal', 1, 'Entretien du Jardins tous les Vendredis');
 
@@ -132,7 +132,17 @@ CREATE TABLE IF NOT EXISTS `doc_actions_assos` (
   `docactasso_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `IDX_7530D4D8C55FE119` (`docactasso_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Déchargement des données de la table `doc_actions_assos`
+--
+
+INSERT INTO `doc_actions_assos` (`id`, `titledocactionsasso`, `linkdocactionsasso`, `docactasso_id`) VALUES
+(1, 'lien 1', 'http', 1),
+(2, 'lien 2', 'http2', 1),
+(3, 'lien 3', 'http', 1),
+(4, 'lien 4', 'http2', 1);
 
 -- --------------------------------------------------------
 
@@ -218,7 +228,7 @@ CREATE TABLE IF NOT EXISTS `news` (
 --
 
 INSERT INTO `news` (`id`, `date_new`, `title_new`, `picture_new`, `text_new`, `newsuser_id`, `altpicturenew`) VALUES
-(1, '2022-02-10 00:00:00', 'ghegre', 'applesChamps-770x430-6218fd7d1a364.jpg', '<p style=\"text-align:center\"><span style=\"color:#c0392b\"><span style=\"font-size:20px\"><span style=\"font-family:Comic Sans MS,cursive\"><em><strong>gggg</strong></em></span></span></span></p>\r\n\r\n<p>blabla bla</p>\r\n\r\n<p>patit</p>', 4, NULL),
+(1, '2022-02-10 00:00:00', 'ghegre', 'applesChamps-770x430-6218fd7d1a364.jpg', '<p style=\"text-align:center\"><span style=\"color:#c0392b\"><span style=\"font-size:20px\"><span style=\"font-family:Comic Sans MS,cursive\"><em><strong>gggg</strong></em></span></span></span></p>\r\n\r\n<p>blabla bla</p>\r\n\r\n<p>patit</p>', 1, 'alternatif'),
 (2, '2022-02-16 00:00:00', 'fsgqgrger', 'GE-6-parcours-master-gestion-environnement-621ceac082f68.jpg', '<p>dgfbdfbdqfb</p>', 4, NULL);
 
 -- --------------------------------------------------------
@@ -235,7 +245,7 @@ CREATE TABLE IF NOT EXISTS `news_photos` (
   `alt_news_photo` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `IDX_84DF23AD7B7E5572` (`news_photosnews_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Déchargement des données de la table `news_photos`
@@ -243,7 +253,9 @@ CREATE TABLE IF NOT EXISTS `news_photos` (
 
 INSERT INTO `news_photos` (`id`, `news_photosnews_id`, `photo_new_photo`, `alt_news_photo`) VALUES
 (2, 1, '946324f3f2fcd6f0c1042741183c6336.jpg', NULL),
-(4, 1, '718775e299582db28e74472f1d62113f.jpg', NULL);
+(4, 1, '718775e299582db28e74472f1d62113f.jpg', NULL),
+(6, 1, 'e5da51c89d49420bc4d7b2d6a43475b8.jpg', NULL),
+(7, 1, '3644919366666479b311826d2cbde259.jpg', NULL);
 
 -- --------------------------------------------------------
 
@@ -273,7 +285,7 @@ CREATE TABLE IF NOT EXISTS `params` (
 --
 
 INSERT INTO `params` (`id`, `text_param`, `logo_param`, `photo_param`, `email_param`, `title_param`, `address1_param`, `address2_param`, `cp_param`, `town_param`, `update_param`, `subtitleparam`) VALUES
-(1, '<p>xxx</p>', 'logo-logo-6218aad20cb9f.png', 'applesChamps-770x430-6218a6f11a59c.jpg', 'asso.paul.green@univ-montp3.ft', 'Association Paul Green', 'Rte de Mende', NULL, '34090', 'Montpellier', '2017-01-01 00:00:00', 'Pour vous mettre au vert !');
+(1, '<h1 style=\"text-align:center\"><span style=\"color:#2ecc71\">L&#39;ASSOCIATION Paul Green</span></h1>\r\n\r\n<p>L&rsquo;association Ga&iuml;a a &eacute;t&eacute; fond&eacute;e il y a pr&egrave;s de 20 ans par des &eacute;tudiants du Master Gestion de l&rsquo;Environnement et du D&eacute;veloppement Durable (GEDD).</p>\r\n\r\n<p>Port&eacute;e aujourd&rsquo;hui par des &eacute;tudiants actuels et dipl&ocirc;m&eacute;s du Master GEDD, l&rsquo;Association a pour <span style=\"color:#3498db\">mission de&nbsp;d&eacute;velopper et animer le r&eacute;seau d&rsquo;alumni</span>&nbsp;du Master et de contribuer ensemble &agrave;&nbsp;des actions en faveur de l&#39;environnement et du d&eacute;veloppement durable.</p>\r\n\r\n<p>Ga&iuml;a a pour ambition de faire rayonner ses actions et ses valeurs aupr&egrave;s d&rsquo;un public plus large que le r&eacute;seau des alumnis GEDD afin de sensibiliser le plus <span style=\"color:#3498db\">grand nombre aux enjeux environnementaux</span>.</p>\r\n\r\n<h2><span style=\"color:#2ecc71\">Nos missions et projets phares :</span></h2>\r\n\r\n<h3 style=\"margin-left:80px\"><span style=\"color:#3498db\">Gestion du r&eacute;seau alumni</span></h3>\r\n\r\n<p>Par ses 30 ann&eacute;es d&rsquo;existence, le Master GEDD a permis de former pr&egrave;s de 700 professionnels sur les th&eacute;matiques vari&eacute;es du d&eacute;veloppement durable&nbsp;: de la gestion de l&rsquo;eau &agrave; la gestion des d&eacute;chets en passant par la gestion de ressources naturelles sans oublier les aspects QHSE. Cet historique fait la force du r&eacute;seau alumni actuel et c&rsquo;est ce que l&rsquo;association GAIA souhaite valoriser.</p>\r\n\r\n<p>Pour cela, plusieurs projets&nbsp;:</p>\r\n\r\n<ul>\r\n	<li>Mise en place et animation d&rsquo;une plateforme d&rsquo;&eacute;changes pour les &eacute;tudiants actuels et dipl&ocirc;m&eacute;s du Master GEDD.</li>\r\n	<li>Organisation d&#39;&eacute;v&eacute;nements types caf&eacute;s-d&eacute;bats</li>\r\n</ul>\r\n\r\n<h3 style=\"margin-left:80px\"><span style=\"color:#3498db\">Sensibilisation et implication dans les projets de d&eacute;veloppement durable</span></h3>\r\n\r\n<h4>Les profils vari&eacute;s des &eacute;tudiants venant de cursus diff&eacute;rents leur conf&egrave;rent des connaissances transverses, par exemple en am&eacute;nagement du territoire, en concertation, en &eacute;nergies renouvelables ou bien en &eacute;cologie.</h4>\r\n\r\n<p>L&rsquo;Association souhaite valoriser ces comp&eacute;tences compl&eacute;mentaires en participant &agrave; des &eacute;v&egrave;nements de sensibilisation ouverts au grand public.</p>\r\n\r\n<p>En 2021, l&rsquo;Association a accompagn&eacute; l&rsquo;organisation du &laquo;&nbsp;One&amp;1 trail&nbsp;&raquo; pour concilier activit&eacute; sportive et sensibilisation / protection de l&rsquo;environnement. Pour cela, un groupe d&rsquo;&eacute;tudiants a fourni une liste d&rsquo;actions que l&rsquo;&eacute;v&egrave;nement peut mettre en place&nbsp;: covoiturage, compost, tri, gestion des plastiques (bouteilles, gourdes), couverts, un goodies remplac&eacute; par la plantation d&rsquo;arbre &hellip; L&rsquo;association a &eacute;galement tenu un stand de sensibilisation lors des 2 jours de trail.</p>\r\n\r\n<p>En 2021, GAIA a &eacute;galement r&eacute;pondu &agrave;&nbsp;l&rsquo;appel &agrave; projet &ldquo;z&eacute;ro d&eacute;chets plastique&rdquo; lanc&eacute; par la M&eacute;tropole.</p>\r\n\r\n<p>Ga&iuml;a a r&eacute;pondu&nbsp; &agrave; l&rsquo;appel &agrave; projet &ldquo;z&eacute;ro d&eacute;chets plastiques&rdquo; de 2021, pour proposer aux vall&eacute;es de la V&eacute;subie (d&eacute;vast&eacute;es par la temp&ecirc;te Alex) une aide quant au ramassage des d&eacute;chets plastiques sur les berges. Ga&iuml;a souhaite organiser 2 grandes campagnes de ramassage des d&eacute;chets plastiques, et profiter de ce projet pour sensibiliser les plus jeunes &agrave; ce sujet. Ce projet propos&eacute; par Ga&iuml;a, permet aux &eacute;tudiants de s&rsquo;impliquer dans un sujet d&rsquo;actualit&eacute; ainsi que d&rsquo;&eacute;laborer des documents techniques aupr&egrave;s de professionnels du secteur, ce qui rajoute une r&eacute;elle valeur ajout&eacute;e dans leur parcours.</p>\r\n\r\n<h3 style=\"margin-left:80px\"><span style=\"color:#3498db\">Animation de la vie &eacute;tudiante&nbsp;</span></h3>\r\n\r\n<p>L&rsquo;animation d&rsquo;un r&eacute;seau alumni commence avant tout par l&rsquo;int&eacute;gration des nouvelles promotions. L&rsquo;Association poss&egrave;de dans ses missions l&rsquo;organisation des &eacute;v&egrave;nements conviviaux&nbsp;: Gala, week-end d&rsquo;int&eacute;gration, autre type de week-end, cr&eacute;ation de pull pour les promotions en cours.</p>', 'logo-logo-6218aad20cb9f.png', 'applesChamps-770x430-6218a6f11a59c.jpg', 'asso.paul.green@univ-montp3.ft', 'Association Paul Green', 'Rte de Mende', NULL, '34090', 'Montpellier', '2017-01-01 00:00:00', 'Pour vous mettre au vert !');
 
 -- --------------------------------------------------------
 
@@ -292,16 +304,17 @@ CREATE TABLE IF NOT EXISTS `partners` (
   `link_partner` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `IDX_EFEB516414AD9430` (`partner_grouping_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Déchargement des données de la table `partners`
 --
 
 INSERT INTO `partners` (`id`, `partner_grouping_id`, `name_partner`, `text_partner`, `photo_partner`, `logo_partner`, `link_partner`) VALUES
-(1, 2, 'La Banque Postal', NULL, 'logo-laposte-0601361222766-web-tete-6218da5c71e17.jpg', 'logo-logolaposte-part-6218da5c724c1.svg', NULL),
+(1, 2, 'La Banque Postal', 'La Banque Postal', 'logo-laposte-0601361222766-web-tete-6218da5c71e17.jpg', 'logo-logolaposte-part-6218da5c724c1.svg', NULL),
 (2, 1, 'Université de Montpellier', NULL, 'logo-GE-6-parcours-master-gestion-environnement-6218db2c3e361.jpg', 'logo-GE-logo-header-6218db2c3ea9a.svg', 'https://formations.umontpellier.fr/fr/formations/master-XB/master-gestion-de-l-environnement-KKICL68U.html'),
-(3, 1, 'Observatoire des Thèses', NULL, NULL, 'logo-Capture-decran-2021-11-03-a-11-39-50-e1635936067554-6218ddd2e79a3.png', 'https://www.observatoiretheses.org/geographie');
+(3, 1, 'Observatoire des Thèses', NULL, 'logo-ja5-telechargement-622219328640a.jpg', 'logo-Capture-decran-2021-11-03-a-11-39-50-e1635936067554-6218ddd2e79a3.png', 'https://www.observatoiretheses.org/geographie'),
+(4, 2, 'BNP', 'BNP Paribas', 'logo-bnp-paribas-62221a0e92fc7.jpg', 'logo-bnp-logo-arton1394-62221a0e9363d.jpg', 'https://mabanque.bnpparibas/');
 
 -- --------------------------------------------------------
 

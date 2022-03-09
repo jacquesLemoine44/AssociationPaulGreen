@@ -26,9 +26,17 @@
         <hr>
         {# <div class="container"> #}
             <h4>Liste des documents à consulter :</h4> 
+            <a class="btn btn-primary me-1 mb-1" href="{{ path('add_doc_actions_assos', {'id': actions_asso.id}) }}">
+                Nouveau Document
+            </a>
+            
+            {# <a class="btn btn-primary me-1" href="" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">
+                Nouveau
+            </a> #}
+    
 		    {% for xDoc in actions_asso.actionsassosdoc %}
                 <div class="d-flex flex-row">
-                    <a class="btn btn-primary mb-3 mr-1 me-1" 
+                    <a class="btn btn-info mb-3 mr-1 me-1 btn-sm" 
                         href="{{ xDoc.linkdocactionsasso }}" 
                         role="button" data-bs-slide="prev">
                         <i class="fas fa-external-link-alt"></i>
@@ -37,10 +45,11 @@
                     <p>{{ xDoc.titledocactionsasso }}</p>
                         {# <a class="btn btn-primary me-1" href="{{ path('produits_edit', {'id': produit.id}) }}"> #}
                         {# {{ path('#', {'id': xDoc.id}) }} #}
-                        <pre>
+                        {# <pre>
                             {{ dump(xDoc) }}
-                        </pre>
-                    <a class="btn me-1" href="">
+                        </pre> #}
+                    <a class="btn me-1" href="{{ path('mod_doc_actions_assos', {'id': xDoc.id}) }}">
+                        {{ xDoc.id }} 
                         <img src="{{ asset('icones/btM.png') }}" alt="Modifier" width="20" height="20" class="" title="Modifier">
                     </a>
                     <a class="btn me-1" href="#">
@@ -51,49 +60,17 @@
             {% else %}    
                 <p>Aucun document</p>
 		    {% endfor %}
-        <a class="btn btn-primary me-1" href="" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">
-            Nouveau
-        </a>
+
            
         {# </div> #}
-
-    {# <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">Open modal for @mdo</button> #}
-{# <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@fat">Open modal for @fat</button>
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap">Open modal for @getbootstrap</button> #}
-
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">New message</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <form>
-          <div class="mb-3">
-            <label for="recipient-name" class="col-form-label">Recipient:</label>
-            <input type="text" class="form-control" id="recipient-name">
-          </div>
-          <div class="mb-3">
-            <label for="message-text" class="col-form-label">Message:</label>
-            <textarea class="form-control" id="message-text"></textarea>
-          </div>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Send message</button>
-      </div>
-    </div>
-  </div>
-</div>
 
 
 {# ========================================================================================= #}
 
         <hr>
         {# <div class="container"> #}
-            <h4>Liste de sites à étudier :</h4> 
+            <h4>Liste de sites à étudier :</h4>          
+            <a class="btn btn-primary me-1" href="">Nouveau Site</a>  
 		    {% for xDoc in actions_asso.actionsassoslink %}
                 <div class="d-flex flex-row">
                     <a class="btn btn-primary mb-3 mr-1 me-1" 
@@ -108,9 +85,7 @@
             {% else %}    
                 <p>Aucun site</p>
 		    {% endfor %}
-         <a class="btn btn-primary me-1" href="">
-            Nouveau
-        </a>            
+          
         {# </div> #}
         
 
@@ -152,7 +127,6 @@
 
     <hr class="mb-3">
     <div class="d-flex flex-row my-2">
-  
         <button class="btn btn-success me-2">{{ button_label|default('Sauver') }}</button>
 
 {{ form_end(form) }}

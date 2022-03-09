@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\ActionsAssos;
 use App\Entity\DocActionsAssos;
 use App\Form\DocActionsAssosType;
 use Doctrine\ORM\EntityManagerInterface;
@@ -26,6 +27,28 @@ class DocActionsAssosController extends AbstractController
         ]);
     }
 
+     /**
+     * @Route("/{idAct}/edit2", name="docactionsassosindex2", methods={"GET", "POST"})
+     */
+    public function index2(DocActionsAssosRepository $docActionsAssosRepository): Response
+    {
+        return $this->render('doc_actions_assos/index.html.twig', [
+            // 'doc_actions_assos' => $docActionsAssosRepository->findOneBySomeField(idAct),
+            //  'doc_actions_assos' => $docActionsAssosRepository->findOneBySomeField(idAct),
+
+        ]);
+    }
+
+    /**
+     * @Route("/{id}", name="app_doc_actions_assos_show", methods={"GET"})
+     */
+    public function show(DocActionsAssos $docActionsAsso): Response
+    {
+        return $this->render('doc_actions_assos/show.html.twig', [
+            'doc_actions_asso' => $docActionsAsso,
+        ]);
+    }
+
     /**
      * @Route("/new", name="app_doc_actions_assos_new", methods={"GET", "POST"})
      */
@@ -40,6 +63,7 @@ class DocActionsAssosController extends AbstractController
             $entityManager->flush();
 
             return $this->redirectToRoute('app_doc_actions_assos_index', [], Response::HTTP_SEE_OTHER);
+
         }
 
         return $this->renderForm('doc_actions_assos/new.html.twig', [
@@ -49,14 +73,30 @@ class DocActionsAssosController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="app_doc_actions_assos_show", methods={"GET"})
+     * @Route("/add/{id}", name="add_doc_actions_assos", methods={"GET", "POST"})
      */
-    public function show(DocActionsAssos $docActionsAsso): Response
+    public function addDoc(Request $request, ActionsAssos $actionsAssos, EntityManagerInterface $entityManager): Response
     {
-        return $this->render('doc_actions_assos/show.html.twig', [
+        $docActionsAsso = new DocActionsAssos();
+        $form = $this->createForm(DocActionsAssosType::class, $docActionsAsso);
+        $form->handleRequest($request);
+        // var_dump($actionsAssos->getId());
+
+        // die;
+        if ($form->isSubmitted() && $form->isValid()) {
+            $docActionsAsso->setDocactasso($actionsAssos);
+            $entityManager->persist($docActionsAsso);
+            $entityManager->flush();
+
+            return $this->redirectToRoute('actions_assos_edit', array('id' => $actionsAssos->getId()));
+        }
+
+        return $this->renderForm('doc_actions_assos/new.html.twig', [
+            'actionsAssos' => $actionsAssos,
             'doc_actions_asso' => $docActionsAsso,
+            'form' => $form,
         ]);
-    }
+    }    
 
     /**
      * @Route("/{id}/edit", name="app_doc_actions_assos_edit", methods={"GET", "POST"})
@@ -77,6 +117,39 @@ class DocActionsAssosController extends AbstractController
             'form' => $form,
         ]);
     }
+    /**
+     * @Route("/mod/{id}", name="mod_doc_actions_assos", methods={"GET", "POST"})
+     */
+    // public function modDoc(Request $request, ActionsAssos $actionsAssos, DocActionsAssos $docActionsAsso, EntityManagerInterface $entityManager): Response
+    public function modDoc(Request $request, DocActionsAssos $docActionsAsso, EntityManagerInterface $entityManager): Response
+    {
+        // $docActionsAsso = new DocActionsAssos();
+
+        $form = $this->createForm(DocActionsAssosType::class, $docActionsAsso);
+        $form->handleRequest($request);
+        // var_dump($actionsAssos->getId());
+
+        // die;
+        if ($form->isSubmitted() && $form->isValid()) {
+            // $docActionsAsso->setDocactasso($actionsAssos);
+            $entityManager->persist($docActionsAsso);
+            $entityManager->flush();
+
+            return $this->redirectToRoute('actions_assos_edit', array('id' => $docActionsAsso->getDocactasso()->getId()));
+        }
+
+        return $this->renderForm('doc_actions_assos/edit.html.twig', [
+            // 'actionsAssos' => $actionsAssos,
+            'doc_actions_asso' => $docActionsAsso,
+            'form' => $form,
+        ]);
+    }    
+
+
+
+
+
+
 
     /**
      * @Route("/{id}", name="app_doc_actions_assos_delete", methods={"POST"})

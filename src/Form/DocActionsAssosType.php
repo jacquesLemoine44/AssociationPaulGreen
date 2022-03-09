@@ -28,9 +28,9 @@ class DocActionsAssosType extends AbstractType
                 ]
             ])
 
-             ->add('docactasso', IntegerType::class, [
-                     'mapped' => false
-                 ])
+            //  ->add('docactasso', IntegerType::class, [
+            //          'mapped' => false
+            //      ])
         //    ->add('docactasso', HiddenType::class, [
         //             'mapped' => false
         //         ])

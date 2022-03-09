@@ -13,6 +13,30 @@
     background-color: #82f7c0;
 }
 
+// <button data-v-766eb970="" class="btn-grad" 
+// style="background-image: linear-gradient(to right, rgb(194, 21, 0) 0%, rgb(255, 197, 0) 51%, rgb(194, 21, 0) 100%);
+// ">HOVER ME</button>
+// .btn-grad {background-image: linear-gradient(to right, #c21500 0%, #ffc500 51%, #c21500 100%)}
+.btn-grad {
+    margin: 10px;
+    padding: 15px 45px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+    box-shadow: 0 0 20px #eee;
+    border-radius: 10px;
+    display: block;
+}
+
+.btn-grad:hover {
+    background-position: right center;
+    /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
+}
+
 .text-success2 {
     color: #198754;
 }

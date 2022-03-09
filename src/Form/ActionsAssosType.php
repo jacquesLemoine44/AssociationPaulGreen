@@ -13,12 +13,15 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\HiddenType;
+use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 
 class ActionsAssosType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
+
             ->add('titleactionsasso', TextType::class, ['label' => 'Titre : ', 'required'=> true])
 
             ->add('pictureactionsasso', FileType::class, [
@@ -42,19 +45,32 @@ class ActionsAssosType extends AbstractType
             ])
 
             ->add('startactionsasso',DateType::class, [
-                'label' => 'Dernière mise à jour du site : ',
+                'label' => 'Date de début : ',
                 'widget' => 'single_text',
                 'required' => false,
             ])
 
             ->add('endactionsasso',DateType::class, [
-                'label' => 'Dernière mise à jour du site : ',
+                'label' => 'Date de Fin : ',
                 'widget' => 'single_text',
                 'required' => false,
                 ])
                 
-            ->add('titlelinkactionsasso', TextType::class, ['label' => 'titre du lien ci-dessous : ', 'required'=> false])
-            ->add('linkactionsasso', TextType::class, ['label' => 'Lien : ', 'required'=> false])
+            ->add('titlelinkactionsasso', TextType::class, [
+                'label' => 'Titre du lien ci-dessous : ',
+                'label_attr' => [
+                    'class' => 'fst-italic text-decoration-underline'
+                ],
+                'required'=> false])
+                // 'attr' => [
+                //     'class' => 'form-control'
+                // ]
+            ->add('linkactionsasso', TextType::class, [
+                'label' => 'Lien : ',
+                'label_attr' => [
+                    'class' => 'fst-italic'
+                ],
+                'required'=> false])
 
             ->add('actionsassostheme', EntityType::class,[
                 'label' => "Theme de l'action:",

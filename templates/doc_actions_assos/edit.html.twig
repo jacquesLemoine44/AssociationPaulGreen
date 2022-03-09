@@ -1,13 +1,23 @@
 {% extends 'admin.html.twig' %}
 
-{% block title %}Edit DocActionsAssos{% endblock %}
+{% block title %}Modification d'un document{% endblock %}
 
 {% block body %}
-    {# <h1>Edit DocActionsAssos</h1> #}
+     <h1>Modification d'un document</h1>
 
-    {{ include('doc_actions_assos/_form.html.twig', {'button_label': 'Update'}) }}
+    {{ include('doc_actions_assos/_form.html.twig', {'button_label': 'Valider'}) }}
+    {# <pre>
+        {{ dump(actionsAssos) }}
+    </pre> #}
 
-    <a href="{{ path('app_doc_actions_assos_index') }}">back to list</a>
+    {% if app.request.attributes.get('_route') == 'mod_doc_actions_assos' %}
+        {# <a class="btn btn-secondary me-2" href="{{ path('actions_assos_edit', {'id': actionsAssos.id}) }}">Retour</a> #}
+        <form>
+            <input class="btn btn-secondary me-2" type="button" value="Retour" onclick="history.back()">
+        </form>
+    {% else %}
+        <a class="bt btn-secondary me-2" href="{{ path('app_doc_actions_assos_index') }}">Retour</a>
+    {% endif %} 
 
     {{ include('doc_actions_assos/_delete_form.html.twig') }}
    

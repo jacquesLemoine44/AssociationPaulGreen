@@ -19,6 +19,18 @@ class DocActionsAssosRepository extends ServiceEntityRepository
         parent::__construct($registry, DocActionsAssos::class);
     }
 
+     
+    public function findOneBySomeField($value): ?DocActionsAssos
+    {
+        return $this->createQueryBuilder('d')
+            ->andWhere('d.docactassoid = :val')
+            ->setParameter('val', $value)
+            ->orderBy('d.id', 'ASC')
+            ->getQuery()
+            ->getOneOrNullResult()
+        ;
+    }
+
     // /**
     //  * @return DocActionsAssos[] Returns an array of DocActionsAssos objects
     //  */

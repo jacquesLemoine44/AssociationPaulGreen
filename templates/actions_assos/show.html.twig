@@ -51,7 +51,8 @@
                     <div class="d-flex flex-row">
                          {% for photo in actions_asso.actionsassosphoto %}
                             <div class="" >                           
-                                  <img src="{{ asset('/photosActionsAssos/'~photo.photoactionsasso) }}" alt="" width="150">  
+                                  <img src="{{ asset('/photosActionsAssos/'~photo.photoactionsasso) }}" 
+                                    alt="" width="150">  
                                 {# On ajoute un lien permettant de supprimer une photo (sera géré en Ajax) #}
                                 {# <a href="{{ path('news_delete_photo', {id: photo.id})}}" data-delete data-token="{{ csrf_token('delete' ~ photo.id )}}"> 
                                 Supprimer

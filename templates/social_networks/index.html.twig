@@ -9,7 +9,6 @@
         <thead>
             <tr>
                 <th>Réseau Social</th>
-                {# <th>Logo</th> #}
                 <th>Code Logo</th>
                 <th>Lien</th>
                 <th>actions</th>
@@ -19,10 +18,6 @@
         {% for social_network in social_networks %}
             <tr>
                 <td>{{ social_network.socialNetwork }}</td>
-                {# <td>
-                    {{ social_network.logoSocialnetwork }} <br>
-                    {{ social_network.logoSocialnetwork|raw }}
-                </td> #}
                 <td>
                     {{ social_network.codeSocialnetwork }} <br>
                     {% if ( social_network.codeSocialnetwork ) %} 
@@ -41,7 +36,7 @@
                     {% endif %} 
                 </td>
                 <td>
-                    <a class="btn btn-primary me-1" href="{{ path('social_networks_show', {'id': social_network.id}) }}">Afficher</a>
+                    <a class="btn btn-primary me-1 mb-1" href="{{ path('social_networks_show', {'id': social_network.id}) }}">Afficher</a>
                     <a class="btn btn-warning" href="{{ path('social_networks_edit', {'id': social_network.id}) }}">Modifier</a>
                 </td>
             </tr>

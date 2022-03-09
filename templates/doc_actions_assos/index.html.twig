@@ -27,13 +27,13 @@
                 <td>{{ doc_actions_asso.titledocactionsasso }}</td>
                 <td>{{ doc_actions_asso.linkdocactionsasso }}</td>
                 <td>
-                    <a class="btn btn-primary" href="{{ path('app_doc_actions_assos_show', {'id': doc_actions_asso.id}) }}">Afficher</a>
+                    <a class="btn btn-primary me-1 mb-1" href="{{ path('app_doc_actions_assos_show', {'id': doc_actions_asso.id}) }}">Afficher</a>
                     <a class="btn btn-warning" href="{{ path('app_doc_actions_assos_edit', {'id': doc_actions_asso.id}) }}">Modifier</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="4">no records found</td>
+                <td colspan="4">Pas d'enregistrement</td>
             </tr>
         {% endfor %}
         </tbody>

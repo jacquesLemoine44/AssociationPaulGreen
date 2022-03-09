@@ -8,7 +8,6 @@
     <table class="table">
         <thead>
             <tr>
-                {# <th>Id</th> #}
                 <th>Titre</th>
                 <th>Date</th>
                 <th>Photo</th>
@@ -19,18 +18,14 @@
         <tbody>
         {% for news in news %}
             <tr>
-                {# <td>{{ news.id }}</td> #}
                 <td>{{ news.titleNew }}</td>
                 <td>{{ news.dateNew ? news.dateNew|date('d-m-Y H:i:s') : '' }}</td>
-
-                {# <td>{{ news.pictureNew }}</td> #}
                 <td>
                     <img src="{{ asset('photosNews/' ~ news.pictureNew) }}" width="100">
                     {{ news.altpicturenew }}
                     {# {{ app.user.id }} #}
                 </td>
 
-                {# <td>{{ news.textNew }}</td> #}
                 <td>
                     {{ news.textNew|striptags|u.truncate(50, '...') }}
                     {# {{ news.textNew |length > 300 ? news.textNew |slice(0,300)|raw : news.textNew|raw }} #}
@@ -39,7 +34,7 @@
                     {% endif %}   #}                    
                 </td>    
                 <td>
-                    <a class="btn btn-primary" href="{{ path('news_show', {'id': news.id}) }}">Afficher</a>
+                    <a class="btn btn-primary me-1 mb-1" href="{{ path('news_show', {'id': news.id}) }}">Afficher</a>
                     <a class="btn btn-warning" href="{{ path('news_edit', {'id': news.id}) }}">Modifier</a>
                 </td>
             </tr>

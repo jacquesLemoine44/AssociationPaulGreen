@@ -71,9 +71,12 @@
 
     <div class="d-flex flex-row my-2">
 
-        <a class="btn btn-secondary" href="{{ path('actions_assos_index') }}">Retour</a>
+        <a class="btn btn-secondary me-2" href="{{ path('actions_assos_index') }}">Retour</a>
 
-        <a class="btn btn-warning" href="{{ path('actions_assos_edit', {'id': actions_asso.id}) }}">Modifier</a>
+        {# <a class="btn btn-warning me-2" href="{{ path('actions_assos_edit', {'id': actions_asso.id}) }}">Modifier</a> #}
+        <a class="btn-warning2" 
+            style="background-image: linear-gradient(to right, rgb(247, 151, 30) 0%, rgb(255, 210, 0) 51%, rgb(247, 151, 30) 100%);"
+            href="{{ path('actions_assos_edit', {'id': actions_asso.id}) }}">Modifier</a>
 
         {{ include('actions_assos/_delete_form.html.twig') }}
     

@@ -146,10 +146,20 @@ class DocActionsAssosController extends AbstractController
     }    
 
 
+    /**
+     * @Route("/del/{id}", name="del_doc_actions_assos", methods={"POST"})
+     */
+    public function deleteDoc(Request $request, DocActionsAssos $docActionsAsso, EntityManagerInterface $entityManager): Response
+    {
+        if ($this->isCsrfTokenValid('delete'.$docActionsAsso->getId(), $request->request->get('_token'))) {
+            $entityManager->remove($docActionsAsso);
+            $entityManager->flush();
+        }
+dump($docActionsAsso);
+die();
+        return $this->redirectToRoute('actions_assos_edit', array('id' => $docActionsAsso->getDocactasso()->getId()), Response::HTTP_SEE_OTHER);
 
-
-
-
+    }
 
     /**
      * @Route("/{id}", name="app_doc_actions_assos_delete", methods={"POST"})

@@ -4,13 +4,12 @@
 
 {% block body %}
     <h1>Les actions de l'association</h1>
-        <div>
+    <div>
         <a class="btn btn-info me-2" href="{{ path('actions_assos_new') }}">Nouveau</a>
     </div>
     <table class="table">
         <thead>
             <tr>
-                {# <th>Id</th> #}
                 <th>Titre</th>
                 <th>Image Principal</th>
                 <th>Texte</th>
@@ -22,7 +21,6 @@
         <tbody>
         {% for actions_asso in actions_assos %}
             <tr>
-                {# <td>{{ actions_asso.id }}</td> #}
                 <td>{{ actions_asso.titleactionsasso }}</td>
                     <td>
                         <img src="{{ asset('photosActionsAssos/' ~ actions_asso.pictureactionsasso) }}" width="100" alt="{{ actions_asso.altPictureActionsAssos }}">
@@ -45,7 +43,7 @@
                     Fin : {{ actions_asso.endactionsasso ? actions_asso.endactionsasso|date('Y-m-d') : '' }}
                 </td>
                 <td>
-                    <a class="btn btn-primary" href="{{ path('actions_assos_show', {'id': actions_asso.id}) }}">Afficher</a>
+                    <a class="btn btn-primary me-1 mb-1" href="{{ path('actions_assos_show', {'id': actions_asso.id}) }}">Afficher</a>
                     <a class="btn btn-warning" href="{{ path('actions_assos_edit', {'id': actions_asso.id}) }}">Modifier</a>
                 </td>
             </tr>
@@ -56,7 +54,5 @@
         {% endfor %}
         </tbody>
     </table>
-    
-
     
 {% endblock %}

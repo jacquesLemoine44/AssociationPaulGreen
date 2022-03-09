@@ -14,7 +14,6 @@
     <table class="table">
         <thead>
             <tr>
-                {# <th>Id</th> #}
                 <th>Thème</th>
                 <th>Description</th>
                 <th>actions</th>
@@ -23,11 +22,10 @@
         <tbody>
         {% for theme in themes %}
             <tr>
-                {# <td>{{ theme.id }}</td> #}
                 <td>{{ theme.nameTheme }}</td>
                 <td>{{ theme.descriptionTheme }}</td>
                 <td>
-                    <a class="btn btn-primary me-1" href="{{ path('themes_show', {'id': theme.id}) }}">Afficher</a>
+                    <a class="btn btn-primary me-1 mb-1" href="{{ path('themes_show', {'id': theme.id}) }}">Afficher</a>
                     <a class="btn btn-warning" href="{{ path('themes_edit', {'id': theme.id}) }}">Modifer</a>
                 </td>
             </tr>

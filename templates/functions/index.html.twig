@@ -9,7 +9,6 @@
     <table class="table">
         <thead>
             <tr>
-                {# <th>Id</th> #}
                 <th>Fonctions </th>
                 <th>Description</th>
                 <th>actions</th>
@@ -18,11 +17,10 @@
         <tbody>
         {% for function in functions %}
             <tr>
-                {# <td>{{ function.id }}</td> #}
                 <td>{{ function.mission }}</td>
                 <td>{{ function.descriptionFunction }}</td>
                 <td>
-                    <a class="btn btn-primary" href="{{ path('functions_show', {'id': function.id}) }}">Afficher</a>
+                    <a class="btn btn-primary me-1 mb-1" href="{{ path('functions_show', {'id': function.id}) }}">Afficher</a>
                     <a class="btn btn-warning" href="{{ path('functions_edit', {'id': function.id}) }}">Modifier</a>
                 </td>
             </tr>

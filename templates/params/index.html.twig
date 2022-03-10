@@ -10,7 +10,6 @@
     <table class="table">
         <thead>
             <tr>
-
                 <th>
                     Titre<br>
                     Mail    
@@ -61,19 +60,13 @@
                     {{ param.townParam }}
                 </td>
 
-                {#
-                {{ form_label(form.updateParam) }}
-                    {{ form_widget(form.updateParam, { 'attr': {'class': 'w-25 text-center', 'disabled':true} }) }}
-                #}
-                {# <td>{{ param.updateParam ? param.updateParam|date('Y-m-d H:i:s') : '' }}</td> #}
-
                 <td>
                     {{ param.updateParam ? param.updateParam|date('d-m-Y H:i:s') : '' }}
                 </td>
 
                 <td>
-                    <a class="btn btn-primary" href="{{ path('params_show', {'id': param.id}) }}">Afficher</a>
-                    <a class="btn btn-warning" href="{{ path('params_edit', {'id': param.id}) }}">Modifier</a>
+                    <a class="btn btn-grad btn-primary2 me-2" href="{{ path('params_show', {'id': param.id}) }}">Afficher</a>
+                    <a class="btn btn-grad btn-warning2" href="{{ path('params_edit', {'id': param.id}) }}">Modifier</a>
                 </td>
                 
             </tr>
@@ -91,7 +84,7 @@
     {# plus de bouton #}
 {% else %}
     <div>
-        <a class="btn btn-info" href="{{ path('params_new') }}">Nouveau</a>
+        <a class="btn btn-grad btn-info2" href="{{ path('params_new') }}">Nouveau</a>
         <hr class="mb-3">
     </div>
 {% endif%}

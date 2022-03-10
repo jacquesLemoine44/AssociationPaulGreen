@@ -7,10 +7,6 @@
 
     <table class="table">
         <tbody>
-            {# <tr>
-                <th>Id</th>
-                <td>{{ news.id }}</td>
-            </tr> #}
             <tr>
                 <th>Titre</th>
                 <td>{{ news.titleNew }}</td>
@@ -26,8 +22,7 @@
                         <img src="{{ asset('photosNews/' ~ news.pictureNew) }}"
                             alt="{{ news.altpictureNew }}" width="100">
                     {% endif %}  
-                    {# {{ news.pictureNew }}
-                    {{ news.altpictureNew }} #}
+
                 </td>
             </tr>
             <tr>
@@ -66,9 +61,9 @@
     <hr class="mb-3">
     <div class="d-flex flex-row my-2">
 
-        <a class="btn btn-secondary me-2" href="{{ path('news_index') }}">Retour</a>
+        <a class="btn btn-grad btn-secondary2 me-2" href="{{ path('news_index') }}">Retour</a>
 
-        <a class="btn btn-warning me-2" href="{{ path('news_edit', {'id': news.id}) }}">Modifier</a>
+        <a class="btn btn-grad btn-warning2 me-2" href="{{ path('news_edit', {'id': news.id}) }}">Modifier</a>
 
         {{ include('news/_delete_form.html.twig') }}
     

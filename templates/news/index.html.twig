@@ -6,7 +6,7 @@
     <h1>Les News</h1>
 
     <div class="">
-        <a class="btn btn-info" href="{{ path('news_new') }}">Nouveau</a>
+        <a class="btn btn-grad btn-info2" href="{{ path('news_new') }}">Nouveau</a>
     </div>
     <hr class="mb-3">     
 
@@ -39,8 +39,8 @@
                     {% endif %}   #}                    
                 </td>    
                 <td>
-                    <a class="btn btn-primary me-1 mb-1" href="{{ path('news_show', {'id': news.id}) }}">Afficher</a>
-                    <a class="btn btn-warning" href="{{ path('news_edit', {'id': news.id}) }}">Modifier</a>
+                    <a class="btn btn-grad btn-primary2 me-1 mb-1" href="{{ path('news_show', {'id': news.id}) }}">Afficher</a>
+                    <a class="btn btn-grad btn-warning2" href="{{ path('news_edit', {'id': news.id}) }}">Modifier</a>
                 </td>
             </tr>
         {% else %}

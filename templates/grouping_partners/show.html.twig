@@ -7,10 +7,6 @@
 
     <table class="table">
         <tbody>
-            {# <tr>
-                <th>Id</th>
-                <td>{{ grouping_partner.id }}</td>
-            </tr> #}
             <tr>
                 <th>Regoupement de Partenaires sous ...</th>
                 <td>{{ grouping_partner.titleGroupingPartner }}</td>
@@ -21,9 +17,9 @@
     <hr class="mb-3">
     <div class="d-flex flex-row my-2">
 
-        <a  class="btn btn-secondary me-2" href="{{ path('grouping_partners_index') }}">Retour</a>
+        <a class="btn btn-grad btn-secondary2 me-2" href="{{ path('grouping_partners_index') }}">Retour</a>
 
-        <a class="btn btn-warning me-2" href="{{ path('grouping_partners_edit', {'id': grouping_partner.id}) }}">Modifier</a>
+        <a class="btn btn-grad btn-warning2 me-2" href="{{ path('grouping_partners_edit', {'id': grouping_partner.id}) }}">Modifier</a>
 
         {{ include('grouping_partners/_delete_form.html.twig') }}
 

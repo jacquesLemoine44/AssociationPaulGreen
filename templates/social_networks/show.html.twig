@@ -7,21 +7,13 @@
 
     <table class="table">
         <tbody>
-            {# <tr>
-                <th>Id</th>
-                <td>{{ social_network.id }}</td>
-            </tr> #}
+
             <tr>
                 <th>Réseau</th>
                 <td>{{ social_network.socialNetwork }}</td>
             </tr>
-            {# <tr>
-                <th>Logo</th>
-                <td>{{ social_network.logoSocialnetwork }}</td>
-            </tr> #}
             <tr>
                 <th>Logo du réseau</th>
-                {# <td>{{ social_network.codeSocialnetwork }}</td> #}
                 <td>
                     {% if (social_network.codeSocialnetwork) %}
                         {% set xlogo = social_network.codeSocialnetwork %}
@@ -43,9 +35,9 @@
     <hr class="mb-3">
     <div class="d-flex flex-row my-2">
 
-        <a class="btn btn-secondary me-2" href="{{ path('social_networks_index') }}">Retour</a>
+        <a class="btn btn-grad btn-secondary2 me-2" href="{{ path('social_networks_index') }}">Retour</a>
 
-        <a class="btn btn-warning me-2" href="{{ path('social_networks_edit', {'id': social_network.id}) }}">Modifier</a>
+        <a class="btn btn-grad btn-warning2 me-2" href="{{ path('social_networks_edit', {'id': social_network.id}) }}">Modifier</a>
 
         {{ include('social_networks/_delete_form.html.twig') }}
     

@@ -23,7 +23,6 @@
         <tbody>
         {% for user in users %}
             <tr>
-                {# <td>{{ user.id }}</td> #}
                 <td>
                     {{ user.nameUser }} {{ user.firstNameUser }} <br>
                     <i class="fas fa-at"></i> {{ user.email }}<br>
@@ -80,7 +79,7 @@
     </table>
     {#
 <div>
-<a class="btn btn-info me-2" href="{{ path('users_new') }}">Nouveau</a> 
+<a class="btn btn-grad btn-info2 me-2" href="{{ path('users_new') }}">Nouveau</a> 
 </div>
 #}
     

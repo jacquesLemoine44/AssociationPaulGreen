@@ -18,7 +18,6 @@
             <tr>
                 <th>Photo</th>
                 <td>
-                    {# {{ partner.photoPartner }} #}
                      <br>
                     {% if (partner.photoPartner) %}
                         <img src="{{ asset('photosPartners/' ~ partner.photoPartner) }}" width="100">
@@ -28,7 +27,6 @@
             <tr>
                 <th>Logo</th>
                 <td>
-                    {# {{ partner.logoPartner }} #}
                     <br>
                     {% if (partner.logoPartner) %}
                         <img src="{{ asset('photosPartners/' ~ partner.logoPartner) }}" width="100">
@@ -38,7 +36,6 @@
             <tr>
                 <th>Lien</th>
                 <td>
-                    {# {{ partner.linkPartner }} #}
                     {% if ( partner.linkPartner ) %} 
                         <a href="{{ partner.linkPartner }}"><i class="fas fa-link"></i></a>                       
                     {% else %}
@@ -54,9 +51,9 @@
     <hr class="mb-3">
     <div class="d-flex flex-row my-2">
 
-        <a class="btn btn-secondary me-2" href="{{ path('partners_index') }}">Retour</a>
+        <a class="btn btn-grad btn-secondary2 me-2" href="{{ path('partners_index') }}">Retour</a>
 
-        <a class="btn btn-warning me-2" href="{{ path('partners_edit', {'id': partner.id}) }}">Modifier</a>
+        <a class="btn btn-grad btn-warning2 me-2" href="{{ path('partners_edit', {'id': partner.id}) }}">Modifier</a>
 
         {{ include('partners/_delete_form.html.twig') }}
         

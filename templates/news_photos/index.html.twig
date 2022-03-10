@@ -1,37 +1,37 @@
-{% extends 'base.html.twig' %}
+{% extends 'admin.html.twig' %}
 
-{% block title %}NewsPhotos index{% endblock %}
+{% block title %}Liste des Photos des News pour la saisie du texte alternatif{% endblock %}
 
 {% block body %}
-    <h1>NewsPhotos index</h1>
+    <h1>Liste des Photos des News pour la saisie du texte alternatif</h1>
+    <div>
+        <a class="btn btn-grad btn-success2" href="{{ path('news_photos_new') }}">Nouveau</a>
+    </div>
 
     <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
-                <th>PhotoNewPhoto</th>
-                <th>AltNewsPhoto</th>
+                <th>Photo</th>
+                <th>Texte Alternatif</th>
                 <th>actions</th>
             </tr>
         </thead>
         <tbody>
         {% for news_photo in news_photos %}
             <tr>
-                <td>{{ news_photo.id }}</td>
                 <td>{{ news_photo.photoNewPhoto }}</td>
                 <td>{{ news_photo.altNewsPhoto }}</td>
                 <td>
-                    <a href="{{ path('news_photos_show', {'id': news_photo.id}) }}">show</a>
-                    <a href="{{ path('news_photos_edit', {'id': news_photo.id}) }}">edit</a>
+                    <a class="btn btn-grad btn-primary2 me-2" href="{{ path('news_photos_show', {'id': news_photo.id}) }}">Afficher</a>
+                    <a class="btn btn-grad btn-warning2" href="{{ path('news_photos_edit', {'id': news_photo.id}) }}">Modifier</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="4">no records found</td>
+                <td colspan="4">Aucun enregistrement</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('news_photos_new') }}">Create new</a>
 {% endblock %}

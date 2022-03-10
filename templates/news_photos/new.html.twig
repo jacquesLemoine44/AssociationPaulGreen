@@ -1,11 +1,12 @@
-{% extends 'base.html.twig' %}
+{% extends 'admin.html.twig' %}
 
-{% block title %}New NewsPhotos{% endblock %}
+{% block title %}Nouvelle Photo{% endblock %}
 
 {% block body %}
-    <h1>Create new NewsPhotos</h1>
+    <h1>Nouvelle Photo</h1>
 
     {{ include('news_photos/_form.html.twig') }}
 
-    <a href="{{ path('news_photos_index') }}">back to list</a>
+    <a class="btn btn-grad btn-secondary2" href="{{ path('news_photos_index') }}">Retour</a>
+
 {% endblock %}

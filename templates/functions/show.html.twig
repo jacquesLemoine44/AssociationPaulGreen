@@ -7,10 +7,6 @@
 
     <table class="table">
         <tbody>
-            {# <tr>
-                <th>Id</th>
-                <td>{{ function.id }}</td>
-            </tr> #}
             <tr>
                 <th>Fonction</th>
                 <td>{{ function.mission }}</td>
@@ -26,8 +22,8 @@
 
     <div class="d-flex flex-row my-2">
     
-        <a class="btn btn-secondary me-1" href="{{ path('functions_index') }}">Retour</a>
-        <a class="btn btn-warning me-1" href="{{ path('functions_edit', {'id': function.id}) }}">Modifier</a>
+        <a class="btn btn-grad btn-secondary2 me-1" href="{{ path('functions_index') }}">Retour</a>
+        <a class="btn btn-grad btn-warning2 me-1" href="{{ path('functions_edit', {'id': function.id}) }}">Modifier</a>
         {{ include('functions/_delete_form.html.twig') }}
 
 {% endblock %}

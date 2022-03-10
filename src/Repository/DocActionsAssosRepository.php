@@ -54,7 +54,7 @@ class DocActionsAssosRepository extends ServiceEntityRepository
         // ON doc_actions_assos.docactasso_id = actions_assos.id 
 
         // ORDER BY actions_assos.titleactionsasso ASC, doc_actions_assos.titledocactionsasso
-
+        // https://zestedesavoir.com/tutoriels/1713/doctrine-2-a-lassaut-de-lorm-phare-de-php/exploiter-une-base-de-donnees-avec-doctrine-2/optimiser-lutilisation-de-doctrine/
     /**
      * @return DocActionsAssos[] Returns an array of DocActionsAssos objects
      */
@@ -62,35 +62,12 @@ class DocActionsAssosRepository extends ServiceEntityRepository
     public function findByTri2createQueryBuilder()
     {
         $query =$this->createQueryBuilder('d')
-           ->innerJoin('d.docactass','a')
-           ->orderBy( 'd.titledocactionsasso','ASC' )            
+            ->select(['d','a'])
+            ->Join('d.docactasso','a')
+            ->orderBy('d.titledocactionsasso','ASC')            
+            ->orderBy('a.titleactionsasso','DESC')  
         ;
-        // dump($query);
-        // var_dump($query);
-        // die();
         return $query->getQuery()->getResult();
-
-        //     ->leftJoin('App\Entity\Resultat',
-        //     'd',
-        //     'WITH',
-        //     'c.name = d.name AND c.score < d.score'
-        // )
-        // ->where( 'd.score IS NULL' )
-        // ->orderBy( 'c.name','DESC' );
-
-        // return $this->createQueryBuilder('d')
-        //     ->select('d')
-        //     // ->from('App\Entity\DocActionsAssos','d')
-        //     // ->innerJoin('App\Entity\ActionsAssos','a','WITH','d.docactasso_id = a.id')
-        //      ->innerJoin('App\Entity\ActionsAssos','a','WITH','d.docactasso_id = a.id')
-
-        //     // ->leftJoin(d.docactasso_id,)
-
-        //     // ->orderBy('a.titleactionsasso','ASC','d.titledocactionsasso', 'ASC')
-        //     ->orderBy('d.titledocactionsasso', 'ASC')
-        //     ->getQuery()
-        //     ->getResult()
-        // ;
     }
 
     // /**

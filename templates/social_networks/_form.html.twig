@@ -1,11 +1,8 @@
 {{ form_start(form) }}
 
-    {# {{ form_widget(form) }} #}
     {{ form_row(form.socialNetwork) }}
 
-    {# {{ form_row(form.logoSocialnetwork) }} #}
-
-    <div class="mb-3">
+     <div class="mb-3">
         {{ form_label(form.codeSocialnetwork) }}
         {% if app.request.attributes.get('_route') == 'social_networks_edit' %}
             {% if (social_network.codeSocialnetwork) %}
@@ -44,6 +41,6 @@
     <hr class="mb-3">
     <div class="d-flex flex-row my-2">
 
-        <button class="btn btn-success me-2">{{ button_label|default('Sauver') }}</button>
+        <button class="btn btn-grad btn-success2 me-2">{{ button_label|default('Sauver') }}</button>
 
 {{ form_end(form) }}

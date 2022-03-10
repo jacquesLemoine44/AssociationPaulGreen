@@ -6,7 +6,7 @@
     <h1>Regroupement de Partenaires</h1>
 
     <div>
-        <a class="btn btn-info me-2" href="{{ path('grouping_partners_new') }}">Nouveau</a>
+        <a class="btn btn-grad btn-info2 me-2" href="{{ path('grouping_partners_new') }}">Nouveau</a>
     </div>
     <hr class="mb-3">    
 
@@ -23,8 +23,8 @@
             <tr>
                 <td>{{ grouping_partner.titleGroupingPartner }}</td>
                 <td>
-                    <a class="btn btn-primary me-1" href="{{ path('grouping_partners_show', {'id': grouping_partner.id}) }}">Afficher</a>
-                    <a class="btn btn-warning" href="{{ path('grouping_partners_edit', {'id': grouping_partner.id}) }}">Modifier</a>
+                    <a class="btn btn-grad btn-primary2 me-1" href="{{ path('grouping_partners_show', {'id': grouping_partner.id}) }}">Afficher</a>
+                    <a class="btn btn-grad btn-warning2" href="{{ path('grouping_partners_edit', {'id': grouping_partner.id}) }}">Modifier</a>
                 </td>
             </tr>
         {% else %}

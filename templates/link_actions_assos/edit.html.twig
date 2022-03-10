@@ -9,7 +9,7 @@
 
     {% if app.request.attributes.get('_route') == 'mod_link_actions_assos' %}
         <form>
-            <input class="btn btn-secondary me-2" type="button" value="Retour" onclick="history.back()">
+            <input class="btn btn-grad btn-secondary2 me-2" type="button" value="Retour" onclick="history.back()">
         </form>
     {% else %}
         <a class="btn btn-grad btn-secondary2 me-2" href="{{ path('app_link_actions_assos_index') }}">Retour</a>

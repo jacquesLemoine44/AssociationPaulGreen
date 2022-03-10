@@ -6,7 +6,7 @@
     <h1>Documents Associés aux actions</h1>
 
     <div>
-        <a class="btn btn-success" href="{{ path('app_doc_actions_assos_new') }}">Nouveau</a>
+        <a class="btn btn-grad btn-info2" href="{{ path('app_doc_actions_assos_new') }}">Nouveau</a>
     </div>        
     <hr class="mb-3">          
 
@@ -14,26 +14,27 @@
         <thead>
             <tr>
                 <th>Action Origine</th>
-                <th>Id</th>
-                <th>Titledocactionsasso</th>
-                <th>Linkdocactionsasso</th>
+                <th>Titre</th>
+                <th>Lien vers le Document</th>
                 <th>actions</th>
             </tr>
         </thead>
         <tbody>
         {% for doc_actions_asso in doc_actions_assos %}
-        {# <pre>
-            {{ dump(doc_actions_asso) }}
-        </pre> #}
             <tr>
-                <td>{{ doc_actions_asso.docactasso.id }} - 
-                    {{ doc_actions_asso.docactasso.titleactionsasso }}</td> 
-                <td>{{ doc_actions_asso.id }}</td>
+                <td>{{ doc_actions_asso.docactasso.titleactionsasso }}</td> 
                 <td>{{ doc_actions_asso.titledocactionsasso }}</td>
-                <td>{{ doc_actions_asso.linkdocactionsasso }}</td>
                 <td>
-                    <a class="btn btn-primary me-1 mb-1" href="{{ path('app_doc_actions_assos_show', {'id': doc_actions_asso.id}) }}">Afficher</a>
-                    <a class="btn btn-warning" href="{{ path('app_doc_actions_assos_edit', {'id': doc_actions_asso.id}) }}">Modifier</a>
+                    {{ doc_actions_asso.linkdocactionsasso }}
+                    <br>
+                    <a class="btn btn-info mb-3 mr-1 me-1 btn-sm" href="{{ doc_actions_asso.linkdocactionsasso }}" role="button" data-bs-slide="prev">
+                        <i class="fas fa-external-link-alt"></i>
+                        Aller Voir ...
+                    </a>
+                </td>
+                <td>
+                    <a class="btn btn-grad btn-primary2 me-1 mb-1" href="{{ path('app_doc_actions_assos_show', {'id': doc_actions_asso.id}) }}">Afficher</a>
+                    <a class="btn btn-grad btn-warning2" href="{{ path('app_doc_actions_assos_edit', {'id': doc_actions_asso.id}) }}">Modifier</a>
                 </td>
             </tr>
         {% else %}

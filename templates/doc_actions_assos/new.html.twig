@@ -7,22 +7,12 @@
 
         {{ include('doc_actions_assos/_form.html.twig') }}
 
-
         {% if app.request.attributes.get('_route') == 'add_doc_actions_assos' %}
-        {# <pre>
-            {{ dump(actionsAssos) }}
-        </pre> #}
-            {# <a class="btn btn-secondary me-2" href="{{ path('actions_assos_edit', {'id': actionsAssos.id}) }}">Retour</a> #}
-            {# return $this->redirectToRoute('actions_assos_edit', array('id' => $actionsAssos->getId())); #}
-
             <form>
-                {# <input type="button" value="Retour!" onclick="history.back()"> #}
                 <input class="btn btn-secondary me-2" type="button" value="Retour" onclick="history.back()">
             </form>
-
         {% else %}
-
-            <a class="btn btn-secondary me-2" href="{{ path('app_doc_actions_assos_index') }}">Retour</a>
+            <a class="btn btn-grad btn-secondary2 me-2" href="{{ path('app_doc_actions_assos_index') }}">Retour</a>
         {% endif %}        
 
     </div>

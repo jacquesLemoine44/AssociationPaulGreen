@@ -1,0 +1,30 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}Lien vers site{% endblock %}
+
+{% block body %}
+    <h1>Lien vers site</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Titre</th>
+                <td>{{ link_actions_asso.titlelinkactionsasso }}</td>
+            </tr>
+            <tr>
+                <th>Lien vers un Site</th>
+                <td>{{ link_actions_asso.linkactionsasso }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <hr class="mb-3">
+    <div class="d-flex flex-row my-2">
+
+        <a class="btn btn-grad btn-secondary2 me-2" href="{{ path('app_link_actions_assos_index') }}">Retour</a>
+
+        <a class="btn btn-grad btn-warning2 me-2" href="{{ path('app_link_actions_assos_edit', {'id': link_actions_asso.id}) }}">Modifier</a>
+
+        {{ include('link_actions_assos/_delete_form.html.twig') }}
+
+{% endblock %}

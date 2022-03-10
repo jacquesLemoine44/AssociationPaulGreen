@@ -23,7 +23,11 @@ class DocActionsAssosController extends AbstractController
     public function index(DocActionsAssosRepository $docActionsAssosRepository): Response
     {
         return $this->render('doc_actions_assos/index.html.twig', [
-            'doc_actions_assos' => $docActionsAssosRepository->findAll(),
+            // 'doc_actions_assos' => $docActionsAssosRepository->FindAll(),
+            // 'doc_actions_assos' => $docActionsAssosRepository->findByTri2createQueryBuilder(),
+            'doc_actions_assos' => $docActionsAssosRepository->findByTri2createQueryBuilder(),
+
+            
         ]);
     }
 

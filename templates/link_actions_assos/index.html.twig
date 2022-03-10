@@ -1,0 +1,48 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}Liste des liens vers sites{% endblock %}
+
+{% block body %}
+    <h1>Liste des liens vers sites</h1>
+
+    <div>
+        <a class="btn btn-grad btn-info2" href="{{ path('app_link_actions_assos_new') }}">Nouveau</a>
+    </div>    
+    <hr class="mb-3">
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Action Origine</th>
+                <th>Titre</th>
+                <th>Lien vers le site</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for link_actions_asso in link_actions_assos %}
+            <tr>
+                <td>{{ link_actions_asso.docactasso.titleactionsasso }}</td> 
+                <td>{{ link_actions_asso.titlelinkactionsasso }}</td>
+                <td>
+                    {{ link_actions_asso.linkactionsasso }}
+                    <br>
+                    <a class="btn btn-info mb-3 mr-1 me-1 btn-sm" href="{{ link_actions_asso.linkactionsasso }}" role="button" data-bs-slide="prev">
+                        <i class="fas fa-external-link-alt"></i>
+                        Aller Voir ...
+                    </a>
+                </td>
+                <td>
+                    <a class="btn btn-grad btn-primary2 me-2" href="{{ path('app_link_actions_assos_show', {'id': link_actions_asso.id}) }}">Afficher</a>
+                    <a class="btn btn-grad btn-warning2" href="{{ path('app_link_actions_assos_edit', {'id': link_actions_asso.id}) }}">Modifier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">Aucun enregistrement</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

@@ -166,18 +166,51 @@
                             <hr class="dropdown-divider">
                         </li> #}
                         <li class="divider w-100 clLigne">
-                        <li>
+                        {# <li>
                             <a href="{{ path('actions_assos_index') }}" class="nav-link px-sm-0 px-2">
                                 <i class="fab fa-pagelines"></i>
                                 <span class="ms-1 d-none d-sm-inline"> Actions Associatives</span>
                             </a>
+                        </li> #}
+                        <li class="dropdown">
+                            <a href="#" class="nav-link dropdown-toggle px-sm-0 px-1" id="dropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="far fa-handshake"></i>
+                                <span class="ms-1 d-none d-sm-inline"> Actions Associatives</span>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdown">
+                                <li>
+                                    <a class="dropdown-item" href="{{ path('partners_index') }}">
+                                        <i class="far fa-handshake"></i>
+                                        <span class="ms-1 d-none d-sm-inline"> Actions Associatives</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li>
+                                    <a class="dropdown-item"  href="{{ path('app_doc_actions_assos_index') }}" class="nav-link px-sm-0 px-2">
+                                        <i class="fab fa-pagelines"></i>
+                                            <span class="ms-1 d-none d-sm-inline"> Liste des Liens de Documents</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item"  href="{{ path('app_link_actions_assos_index') }}" class="nav-link px-sm-0 px-2">
+                                        <i class="fab fa-pagelines"></i>
+                                            <span class="ms-1 d-none d-sm-inline"> Liste des Liens vers des sites</span>
+                                    </a>
+                                </li>
+
+                            </ul>
                         </li>
-                        <li>
+
+
+
+                        {# <li>
                             <a href="{{ path('app_doc_actions_assos_index') }}" class="nav-link px-sm-0 px-2">
                                 <i class="fab fa-pagelines"></i>
                                 <span class="ms-1 d-none d-sm-inline"> TOTO</span>
                             </a>
-                        </li>
+                        </li> #}
                         {# <li>
                             <hr class="dropdown-divider">
                         </li> #}

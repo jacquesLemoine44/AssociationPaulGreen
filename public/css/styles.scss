@@ -16,8 +16,12 @@
 // <button data-v-766eb970="" class="btn-grad" 
 // style="background-image: linear-gradient(to right, rgb(194, 21, 0) 0%, rgb(255, 197, 0) 51%, rgb(194, 21, 0) 100%);
 // ">HOVER ME</button>
-// .btn-grad {background-image: linear-gradient(to right, #c21500 0%, #ffc500 51%, #c21500 100%)}
+// 
 .btn-danger2 {
+    background-image: linear-gradient(to right, #c21500 0%, #ffc500 51%, #c21500 100%)
+}
+
+.btn-grad {
     margin: 5px;
     padding: 5px 10px;
     // margin: 10px;
@@ -28,11 +32,14 @@
     background-size: 200% auto;
     color: white;
     box-shadow: 0 0 20px #eee;
-    border-radius: 10px;
+    border-radius: 4px;
+    // border-radius: 10px;
     display: block;
+    height: 35px;
+    width: 95px;
 }
 
-.btn-danger2:hover {
+.btn-grad:hover {
     background-position: right center;
     /* change the direction of the change here */
     color: #fff;
@@ -41,121 +48,35 @@
 
 // <button data-v-766eb970="" class="btn-grad" 
 // style="background-image: linear-gradient(to right, rgb(247, 151, 30) 0%, rgb(255, 210, 0) 51%, rgb(247, 151, 30) 100%););">HOVER ME</button>
-// .btn-grad {background-image: linear-gradient(to right, #F09819 0%, #EDDE5D  51%, #F09819  100%)}
 .btn-warning2 {
-    margin: 5px;
-    padding: 5px 10px;
-    // margin: 10px;
-    // padding: 15px 45px;
-    text-align: center;
-    // text-transform: uppercase;
-    transition: 0.5s;
-    background-size: 200% auto;
-    color: white;
-    box-shadow: 0 0 20px #eee;
-    border-radius: 10px;
-    display: block;
-}
-
-.btn-warning2:hover {
-    background-position: right center;
-    /* change the direction of the change here */
-    color: #fff;
-    text-decoration: none;
+    background-image: linear-gradient(to right, #F09819 0%, #EDDE5D 51%, #F09819 100%)
 }
 
 // <button data-v-766eb970="" class="btn-grad" 
 // style="background-image: linear-gradient(to right, rgb(33, 95, 0) 0%, rgb(228, 228, 217) 51%, rgb(33, 95, 0) 100%);">HOVER ME</button>
-// .btn-grad {background-image: linear-gradient(to right, #215f00 0%, #e4e4d9  51%, #215f00  100%)}
 .btn-success2 {
-    margin: 10px;
-    padding: 15px 45px;
-    text-align: center;
-    text-transform: uppercase;
-    transition: 0.5s;
-    background-size: 200% auto;
-    color: white;
-    box-shadow: 0 0 20px #eee;
-    border-radius: 10px;
-    display: block;
-}
-
-.btn-success2:hover {
-    background-position: right center;
-    /* change the direction of the change here */
-    color: #fff;
-    text-decoration: none;
+    background-image: linear-gradient(to right, #215f00 0%, #e4e4d9 51%, #215f00 100%)
 }
 
 // <button data-v-766eb970="" class="btn-grad" 
 // style="background-image: linear-gradient(to right, rgb(0, 210, 255) 0%, rgb(58, 123, 213) 51%, rgb(0, 210, 255) 100%);">HOVER ME</button>
-// .btn-info2 {background-image: linear-gradient(to right, #00d2ff 0%, #3a7bd5  51%, #00d2ff  100%)}
 .btn-info2 {
-    margin: 10px;
-    padding: 15px 45px;
-    text-align: center;
-    text-transform: uppercase;
-    transition: 0.5s;
-    background-size: 200% auto;
-    color: white;
-    box-shadow: 0 0 20px #eee;
-    border-radius: 10px;
-    display: block;
-}
-
-.btn-info2:hover {
-    background-position: right center;
-    /* change the direction of the change here */
-    color: #fff;
-    text-decoration: none;
+    background-image: linear-gradient(to right, #00d2ff 0%, #3a7bd5 51%, #00d2ff 100%)
 }
 
 // <button data-v-766eb970="" class="btn-grad" 
 // style="background-image: linear-gradient(to right, rgb(5, 117, 230) 0%, rgb(2, 27, 121) 51%, rgb(5, 117, 230) 100%);">HOVER ME</button>
-// .btn-grad {background-image: linear-gradient(to right, #0575E6 0%, #021B79  51%, #0575E6  100%)}
 .btn-primary2 {
-    margin: 10px;
-    padding: 15px 45px;
-    text-align: center;
-    text-transform: uppercase;
-    transition: 0.5s;
-    background-size: 200% auto;
-    color: white;
-    box-shadow: 0 0 20px #eee;
-    border-radius: 10px;
-    display: block;
-}
-
-.btn-primary2:hover {
-    background-position: right center;
-    /* change the direction of the change here */
-    color: #fff;
-    text-decoration: none;
+    background-image: linear-gradient(to right, #0575E6 0%, #021B79 51%, #0575E6 100%)
 }
 
 // <button data-v-766eb970="" class="btn-grad" 
 // style="background-image: linear-gradient(to right, rgb(48, 67, 82) 0%, rgb(215, 210, 204) 51%, rgb(48, 67, 82) 100%);">HOVER ME</button>
-// .btn-secondary2 {background-image: linear-gradient(to right, #304352 0%, #d7d2cc  51%, #304352  100%)}
 .btn-secondary2 {
-    margin: 10px;
-    padding: 15px 45px;
-    text-align: center;
-    text-transform: uppercase;
-    transition: 0.5s;
-    background-size: 200% auto;
-    color: white;
-    box-shadow: 0 0 20px #eee;
-    border-radius: 10px;
-    display: block;
+    background-image: linear-gradient(to right, #304352 0%, #d7d2cc 51%, #304352 100%)
 }
 
-.btn-secondary2:hover {
-    background-position: right center;
-    /* change the direction of the change here */
-    color: #fff;
-    text-decoration: none;
-}
-
+// Fin des Boutons
 .text-success2 {
     color: #198754;
 }

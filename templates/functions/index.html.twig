@@ -6,6 +6,11 @@
 
     <h1>Gestions des Fonctions</h1>
 
+    <div>
+        <a class="btn btn-info" href="{{ path('functions_new') }}" title="Nouveau">Nouveau</a>
+    </div>
+    <hr class="mb-3">
+
     <table class="table">
         <thead>
             <tr>
@@ -31,14 +36,5 @@
         {% endfor %}
         </tbody>
     </table>
-
-    <div>
-        <a class="btn btn-info" href="{{ path('functions_new') }}" title="Nouveau">Nouveau</a>
-    </div>
-
-
-
-
-
 
 {% endblock %}

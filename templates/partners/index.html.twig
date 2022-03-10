@@ -6,6 +6,11 @@
 
     <h1>Nos Partenaires</h1>
 
+    <div>
+        <a class="btn btn-info" href="{{ path('partners_new') }}" title="Création d'un partenaire">Nouveau</a>
+    </div>        
+    <hr class="mb-3">     
+
     <table class="table">
         <thead>
             <tr>
@@ -57,11 +62,6 @@
         {% endfor %}
         </tbody>
     </table>
-
-    <div>
-        <a class="btn btn-info" href="{{ path('partners_new') }}" title="Création d'un partenaire">Nouveau</a>
-        <hr class="mb-3">
-    </div>
 
 {% endblock %}
 

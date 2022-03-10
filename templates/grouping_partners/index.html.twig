@@ -5,6 +5,12 @@
 {% block body %}
     <h1>Regroupement de Partenaires</h1>
 
+    <div>
+        <a class="btn btn-info me-2" href="{{ path('grouping_partners_new') }}">Nouveau</a>
+    </div>
+    <hr class="mb-3">    
+
+
     <table class="table">
         <thead>
             <tr>
@@ -28,9 +34,5 @@
         {% endfor %}
         </tbody>
     </table>
-    <div>
-        <a class="btn btn-info me-2" href="{{ path('grouping_partners_new') }}">Nouveau</a>
-        <hr class="mb-3">
-    </div>
     
 {% endblock %}

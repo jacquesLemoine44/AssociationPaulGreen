@@ -26,6 +26,8 @@ class ActionsAssosRepository extends ServiceEntityRepository
     
     public function LastFiveActionsAssos()
     {
+        $User=$this->getUser()->getId();
+
         return $this->createQueryBuilder('a')
             ->orderBy('a.id', 'DESC')
             ->setMaxResults(5)

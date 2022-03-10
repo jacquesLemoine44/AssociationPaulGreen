@@ -5,6 +5,11 @@
 {% block body %}
     <h1>Documents Associés aux actions</h1>
 
+    <div>
+        <a class="btn btn-success" href="{{ path('app_doc_actions_assos_new') }}">Nouveau</a>
+    </div>        
+    <hr class="mb-3">          
+
     <table class="table">
         <thead>
             <tr>
@@ -38,9 +43,5 @@
         {% endfor %}
         </tbody>
     </table>
-    <div>
-        <a class="btn btn-success" href="{{ path('app_doc_actions_assos_new') }}">Nouveau</a>
-        <hr class="mb-3">
-    </div>
 
 {% endblock %}

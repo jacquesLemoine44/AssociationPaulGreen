@@ -155,8 +155,8 @@ class DocActionsAssosController extends AbstractController
             $entityManager->remove($docActionsAsso);
             $entityManager->flush();
         }
-dump($docActionsAsso);
-die();
+// dump($docActionsAsso);
+// die();
         return $this->redirectToRoute('actions_assos_edit', array('id' => $docActionsAsso->getDocactasso()->getId()), Response::HTTP_SEE_OTHER);
 
     }

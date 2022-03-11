@@ -79,6 +79,11 @@ class Params
      */
     private $subtitleparam;
 
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $politiqueparams;
+
     public function __construct()
     {
         $this->paramsocial = new ArrayCollection();
@@ -247,6 +252,18 @@ class Params
     public function setSubtitleparam(?string $subtitleparam): self
     {
         $this->subtitleparam = $subtitleparam;
+
+        return $this;
+    }
+
+    public function getPolitiqueparams(): ?string
+    {
+        return $this->politiqueparams;
+    }
+
+    public function setPolitiqueparams(?string $politiqueparams): self
+    {
+        $this->politiqueparams = $politiqueparams;
 
         return $this;
     }

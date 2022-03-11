@@ -10,19 +10,11 @@
 <p>Photos</p>
 <div class="d-flex flex-row">
 	{% for photo in actions_asso.actionsassosphoto %}
-		{#
-         <div class="d-flex flex-column justify-cpontent-start me-2">
-			<img src="{{ asset('/photosActionsAssos/'~photo.photoactionsasso) }}" alt="" width="150" title="{{ photo.photoactionsasso }}">
-			<a href="{{ path('actions_assos_delete_photo', {id: photo.id})}}" data-delete data-token="{{ csrf_token('delete' ~ photo.id )}}" class="btn btn-danger">
-				Supprimer
-			</a>
-		</div>
-         #}
         <div class="card me-2" style="width: 150px;">
             <img class="card-img-top" src="{{ asset('/photosActionsAssos/'~photo.photoactionsasso) }}" alt="{{ photo.altphotoactionsasso }}" width="150" title="{{ photo.photoactionsasso }}">
             <div class="card-body p-0 d-flex flex-column justify-content-between">
                 {# <h5 class="card-title">Card title</h5> #}
-                <p class="card-text">{{ photo.altphotoactionsasso }}</p>
+                <p class="card-text fst-italic">{{ photo.altphotoactionsasso }}</p>
                 <div class="card-footer">
                     <a href="{{ path('actions_assos_delete_photo', {id: photo.id})}}" 
                         data-delete data-token="{{ csrf_token('delete' ~ photo.id )}}" 
@@ -65,18 +57,12 @@
         <a class="btn me-1" href="{{ path('mod_doc_actions_assos', {'id': xDoc.id}) }}">
             <img src="{{ asset('icones/btM.png') }}" alt="Modifier" title="Modifier" width="20" height="20">
         </a>
-
         <form method="post" action="{{ path('del_doc_actions_assos', {'id': xDoc.id}) }}" onsubmit="return confirm('Voulez vous vraiment supprimer cette item ? {{ xDoc.id }} ');">
             <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ xDoc.id) }}">
-            {# <button class="btn btn-danger me-1">SupprimerTOTO -
-                {{ xDoc.id }}
-            </button> #}
             <button class="btn me-1">
                 <img src="{{ asset('icones/btS.png') }}" alt="Supprimer" title="Supprimer" width="20" height="20" class="">
             </button>            
         </form>
-
-        {# <br><hr> #}
     </div>
 {% else %}
     title="Modifier"

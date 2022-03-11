@@ -2,34 +2,34 @@
 
 namespace App\Form;
 
-use App\Entity\NewsPhotos;
+use App\Entity\PhotosActionsAssos;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 
-class NewsPhotosType extends AbstractType
+class PhotosActionsAssosType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('photoNewPhoto', TextType::class, [
+            ->add('photoactionsasso', TextType::class, [
                 'label' => 'Photo : ', 
                 'required'=> false,
                 'disabled'=>true,
             ])
-            ->add('altNewsPhoto', TextType::class, [
+            ->add('altphotoactionsasso', TextType::class, [
                 'label' => 'Description Image : ',
                 'required'=> false
-            ])
-            // ->add('newsPhotosnews')
+                ])
+            // ->add('photoactasso')
         ;
     }
 
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'data_class' => NewsPhotos::class,
+            'data_class' => PhotosActionsAssos::class,
         ]);
     }
 }

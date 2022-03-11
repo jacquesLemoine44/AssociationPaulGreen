@@ -1,0 +1,28 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}Texte Alternatif des photos des actions associatives{% endblock %}
+
+{% block body %}
+    <h1>Texte Alternatif des photos des actions associatives</h1>
+
+    <table class="table">
+        <tbody>
+
+            <tr>
+                <th>Photo</th>
+                <td>{{ photos_actions_asso.photoactionsasso }}</td>
+            </tr>
+            <tr>
+                <th>Texte alternatif</th>
+                <td>{{ photos_actions_asso.altphotoactionsasso }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a class="btn btn-grad btn-secondary2 me-2" href="{{ path('app_photos_actions_assos_index') }}">Retour</a>
+
+    <a class="btn btn-grad btn-warning2 me-2" href="{{ path('app_photos_actions_assos_edit', {'id': photos_actions_asso.id}) }}">Modifier</a>
+
+    {{ include('photos_actions_assos/_delete_form.html.twig') }}
+
+{% endblock %}

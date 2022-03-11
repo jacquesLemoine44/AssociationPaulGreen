@@ -4,13 +4,14 @@
 
 {% block body %}
     <h1>Liste des Photos des News pour la saisie du texte alternatif</h1>
-    <div>
+    {# <div>
         <a class="btn btn-grad btn-success2" href="{{ path('news_photos_new') }}">Nouveau</a>
-    </div>
+    </div> #}
 
     <table class="table">
         <thead>
             <tr>
+                <th>News Origine</th>
                 <th>Photo</th>
                 <th>Texte Alternatif</th>
                 <th>actions</th>
@@ -19,7 +20,11 @@
         <tbody>
         {% for news_photo in news_photos %}
             <tr>
-                <td>{{ news_photo.photoNewPhoto }}</td>
+                <td>{{ news_photo.newsPhotosnews.titleNew }}</td> 
+                <td>
+                    {# {{ news_photo.photoNewPhoto }} #}
+                    <img src="{{ asset('photosNews/' ~ news_photo.photoNewPhoto) }}" width="100" alt=">{{ news_photo.altNewsPhoto }}">
+                </td>
                 <td>{{ news_photo.altNewsPhoto }}</td>
                 <td>
                     <a class="btn btn-grad btn-primary2 me-2" href="{{ path('news_photos_show', {'id': news_photo.id}) }}">Afficher</a>

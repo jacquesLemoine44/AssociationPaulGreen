@@ -1,0 +1,41 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}Photos des Actions Associatives{% endblock %}
+
+{% block body %}
+    <h1>Photos des Actions Associatives</h1>
+
+    {# <a class="btn btn-grad btn-primary2" href="{{ path('app_photos_actions_assos_new') }}">Nouveau</a> #}
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Action Origine</th>
+                <th>Photo</th>
+                <th>Texte Alternatif</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for photos_actions_asso in photos_actions_assos %}
+            <tr>
+                <td>{{ photos_actions_asso.photoactasso.titleactionsasso }}</td> 
+                <td>
+                    {# {% set xPhoto = asset('photosActionsAssos/' ~ photos_actions_asso.photoactionsasso)  %} #}
+                    <img src="{{ asset('photosActionsAssos/' ~ photos_actions_asso.photoactionsasso) }}" width="100" alt=">{{ photos_actions_asso.altphotoactionsasso }}">
+                </td>
+                <td>{{ photos_actions_asso.altphotoactionsasso }}</td>                    
+                <td>
+                    <a class="btn btn-grad btn-primary2 me-1" href="{{ path('app_photos_actions_assos_show', {'id': photos_actions_asso.id}) }}">Afficher</a>
+                    <a class="btn btn-grad btn-warning2" href="{{ path('app_photos_actions_assos_edit', {'id': photos_actions_asso.id}) }}">Modfier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">Aucun renregistrement</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

@@ -1,0 +1,17 @@
+{{ form_start(form) }}
+    {# {{ form_widget(form) }} #}
+
+
+    {{ form_row(form.photoactionsasso) }}
+
+    {% set xPhoto = photos_actions_asso.photoactionsasso %} 
+    
+    <div width="100px" class="border border-1">
+        <img src="{{ asset('photosActionsAssos/' ~ xPhoto) }}" alt="{{ photos_actions_asso.altphotoactionsasso }}" class="h-100"> 
+    </div>
+
+    {{ form_row(form.altphotoactionsasso) }}
+
+    <button class="btn btn-grad btn-success2">{{ button_label|default('Sauver') }}</button>
+
+{{ form_end(form) }}

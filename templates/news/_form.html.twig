@@ -26,13 +26,21 @@
    {% if app.request.attributes.get('_route') == 'news_edit' %}
         <h2>Photos</h2>
         <div class="d-flex flex-row">
-        {% for photo in news.newsPhotosNews %}
-            <div class="d-flex flex-column justify-cpontent-start me-2">
-                <img src="{{ asset('/photosNews/'~photo.photoNewPhoto) }}" alt="" width="150" height="150">  
-                <a class="btn btn-grad btn-danger2" href="{{ path('news_delete_photo', {id: photo.id})}}" data-delete data-token="{{ csrf_token('delete' ~ photo.id )}}"> 
-                    Supprimer
-                </a> 
-            </div>
+            {% for photo in news.newsPhotosNews %}
+                <div class="card me-2" style="width: 150px;">
+                    <img class="card-img-top" src="{{ asset('/photosNews/'~photo.photoNewPhoto) }}" alt="{{ photo.altNewsPhoto }}" width="150" height="150">  
+                    <div class="card-body p-0 d-flex flex-column justify-content-between">
+                        {# <h5 class="card-title">xxxxx</h5> #}
+                        <p class="card-text fst-italic">{{ photo.altNewsPhoto }}</p>
+                        <div class="card-footer">
+                            <a href="{{ path('actions_assos_delete_photo', {id: photo.id})}}" 
+                                data-delete data-token="{{ csrf_token('delete' ~ photo.id )}}" 
+                                class="btn btn-grad btn-danger2">
+                            Supprimer
+                            </a>                
+                        </div>                
+                    </div>
+                </div>
         {% endfor %}
     </div>
     {% endif %}

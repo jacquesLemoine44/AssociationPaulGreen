@@ -1,0 +1,25 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}Paramètres Principaux{% endblock %}
+
+{% block body %}
+
+    <h1>Paramètres Principaux</h1>
+
+    <div>
+        <a class="btn btn-grad btn-warning2" href="{{ path('params_politiqueEdit', {'id': param.id}) }}">Modifier</a>
+        <hr class="mb-3">
+    </div>
+
+    <table class="table">
+        <tbody>
+            
+            <tr>
+                <th>Politique</th>
+                <td>{{ param.politiqueparams | raw }}</td>
+            </tr>
+ 
+        </tbody>
+    </table>
+
+{% endblock %}

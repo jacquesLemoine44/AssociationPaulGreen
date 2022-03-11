@@ -49,7 +49,7 @@
 
         <div class="row vh-100 overflow-auto">
 
-            <div class="col-12 col-sm-3 col-xl-2 px-sm-2 px-0 bg-info2 d-flex sticky-top">
+            <div class="col-12 col-sm-3 col-xl-2 px-sm-2 px-0 bg-infoSuccess2 d-flex sticky-top">
 
                 <div class="d-flex flex-sm-column flex-row flex-grow-1 align-items-center align-items-sm-start px-3 pt-2 text-success2">
 
@@ -72,20 +72,52 @@
                             </a>
                         </li>
                         <li class="divider w-100 clLigne">
+
                         <li>
 							{# {% for param in params %} #}
                                 {# {%  set isFirst = render(controller('App\\Controller\\MainController::recupParamId')) %} #}
-                                <a href="{{ path('params_show', {'id': render(controller('App\\Controller\\MainController::recupParamId')) }) }}" class="nav-link px-sm-0 px-2"> 
+                                {# <a href="{{ path('params_show', {'id': render(controller('App\\Controller\\MainController::recupParamId')) }) }}" class="nav-link px-sm-0 px-2"> 
                                     <i class="fas fa-laptop-house"></i>
-                                    <span class="ms-1 d-none d-sm-inline">Paramètres</span>
-                                </a>
+                                    <span class="ms-1 d-none d-sm-inline">Paramètres du site</span>
+                                </a> #}
 							{# {% else %}
                                 <a href="{{ path('params_index') }}" class="nav-link px-sm-0 px-2"> 
                                     <i class="fas fa-laptop-house"></i>
                                     <span class="ms-1 d-none d-sm-inline">Paramètres</span>
                                 </a>
-							{% endfor %}  #}
+							{% endfor %}  #}                            
                         </li>
+
+{# === Params #}
+                        
+<li class="dropdown">
+<a href="#" class="nav-link dropdown-toggle px-sm-0 px-1" id="dropdown" data-bs-toggle="dropdown" aria-expanded="false">
+<i class="fas fa-laptop-house"></i>
+  <span class="ms-1 d-none d-sm-inline"> Paramètres du site</span>
+  </a>
+  <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdown">
+      <li>
+          <a class="dropdown-item" href="{{ path('params_show', {'id': render(controller('App\\Controller\\MainController::recupParamId')) }) }}">
+        <i class="fas fa-laptop-house"></i>
+              <span class="ms-1 d-none d-sm-inline"> Paramètres principaux</span>
+          </a>
+      </li>
+      <li><hr class="dropdown-divider"></li>
+      <li>
+          <a class="dropdown-item" href="{{ path('params_politiqueShow', {'id': render(controller('App\\Controller\\MainController::recupParamId')) }) }}">
+        <i class="fas fa-laptop-house"></i>
+              <span class="ms-1 d-none d-sm-inline"> Mentions Légales / Politique de confidentialité</span>
+          </a>
+      </li>
+
+  </ul>
+</li>
+{# === #}
+
+
+
+
+
                         <li>
                             <a href="{{ path('social_networks_index') }}" class="nav-link px-sm-0 px-2"> 
                                 <i class="fas fa-network-wired"></i>
@@ -188,6 +220,7 @@
 
 
                         <li class="divider w-100 clLigne"></li>
+
 {# === Actions Associatives =========================================== #}
                         <li class="dropdown">
                             <a href="#" class="nav-link dropdown-toggle px-sm-0 px-1" id="dropdown" data-bs-toggle="dropdown" aria-expanded="false">
@@ -196,7 +229,7 @@
                             </a>
                             <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdown">
                                 <li>
-                                    <a class="dropdown-item" href="{{ path('partners_index') }}">
+                                    <a class="dropdown-item" href="{{ path('actions_assos_index') }}">
                                         <i class="fab fa-pagelines"></i>
                                         <span class="ms-1 d-none d-sm-inline"> Actions Associatives</span>
                                     </a>
@@ -216,7 +249,15 @@
                                             <span class="ms-1 d-none d-sm-inline"> Liste des Liens vers des sites</span>
                                     </a>
                                 </li>
-
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li>
+                                    <a class="dropdown-item"  href="{{ path('app_photos_actions_assos_index') }}" class="nav-link px-sm-0 px-2">
+                                        <i class="fab fa-pagelines"></i>
+                                            <span class="ms-1 d-none d-sm-inline"> Texte Alternatif des photos des Actions Associatives</span>
+                                    </a>
+                                </li>  
                             </ul>
                         </li>
                         <li class="divider w-100 clLigne">

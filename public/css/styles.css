@@ -12,6 +12,11 @@
   background-color: #82f7c0;
 }
 
+.bg-infoSuccess2 {
+  background-image: -webkit-gradient(linear, left bottom, left top, from(#22b549), color-stop(50%), to(cyan));
+  background-image: linear-gradient(to top, #22b549, 50%, cyan);
+}
+
 .btn-danger2 {
   background-image: -webkit-gradient(linear, left top, right top, from(#c21500), color-stop(51%, #ffc500), to(#c21500));
   background-image: linear-gradient(to right, #c21500 0%, #ffc500 51%, #c21500 100%);
@@ -170,7 +175,7 @@
   height: 250px;
 }
 
-.clAdresse {
+www.AssociationPaulGreen.fr .clAdresse {
   width: 200px;
 }
 

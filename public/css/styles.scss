@@ -13,6 +13,11 @@
     background-color: #82f7c0;
 }
 
+.bg-infoSuccess2 {
+    // background-image: linear-gradient(to top, black, 20%, cyan);
+    background-image: linear-gradient(to top, #22b549, 50%, cyan);
+}
+
 // <button data-v-766eb970="" class="btn-grad" 
 // style="background-image: linear-gradient(to right, rgb(194, 21, 0) 0%, rgb(255, 197, 0) 51%, rgb(194, 21, 0) 100%);
 // ">HOVER ME</button>
@@ -178,7 +183,7 @@
     height: 250px;
 }
 
-.clAdresse {
+www.AssociationPaulGreen.fr .clAdresse {
     width: 200px;
 }
 
@@ -186,6 +191,9 @@
     min-height: 400px;
 }
 
+// .ck-editor__editable {
+//     min-height: 800px;
+// }
 .clCard {
     border: 1px solid lightgray;
     padding: 3px;

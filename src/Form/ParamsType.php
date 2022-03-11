@@ -28,7 +28,6 @@ class ParamsType extends AbstractType
                 'attr' => [
                     "class" => 'clCKEditor',
                     ],
-
                 ])
 
             ->add('logoParam', FileType::class, [

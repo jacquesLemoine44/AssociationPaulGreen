@@ -1,4 +1,20 @@
 {{ form_start(form) }}
-    {{ form_widget(form) }}
+
+
+    {# {{ form_widget(form) }} #}
+
+    {{ form_row(form.photoNewPhoto) }}
+
+    {% set xPhoto = news_photo.photoNewPhoto %} 
+    <div width="100px" class="border border-1">
+        {# <img src="{{ asset('photosNews/' ~ xPhoto) }}" alt="{{ news_photo.altNewsPhoto }}" width="150" height="150" class="h-100">  #}
+        <img src="{{ asset('photosNews/' ~ xPhoto) }}" alt="{{ news_photo.altNewsPhoto }}" class="h-100"> 
+
+    </div>
+
+    {{ form_row(form.altNewsPhoto) }} 
+
     <button class="btn btn-grad btn-success2">{{ button_label|default('Sauver') }}</button>
+
+
 {{ form_end(form) }}

@@ -19,6 +19,23 @@ class PhotosActionsAssosRepository extends ServiceEntityRepository
         parent::__construct($registry, PhotosActionsAssos::class);
     }
 
+
+    /**
+    * @return PhotosActionsAssos[] Returns an array of PhotosActionsAssos objects
+    */
+        
+    public function findByTri2createQueryBuilder()
+    {
+        $query =$this->createQueryBuilder('p')
+            ->select(['p','titi'])
+            ->Join('p.photoactasso','titi')
+            ->orderBy('titi.titleactionsasso','ASC')  
+            ->addorderBy('p.altphotoactionsasso','ASC')   
+        ;
+        return $query->getQuery()->getResult();
+    }  
+
+
     // /**
     //  * @return PhotosActionsAssos[] Returns an array of PhotosActionsAssos objects
     //  */

@@ -64,8 +64,8 @@ class DocActionsAssosRepository extends ServiceEntityRepository
         $query =$this->createQueryBuilder('d')
             ->select(['d','a'])
             ->Join('d.docactasso','a')
-            ->orderBy('d.titledocactionsasso','ASC')            
-            ->orderBy('a.titleactionsasso','DESC')  
+            ->orderBy('a.titleactionsasso','ASC')  
+            ->addorderBy('d.titledocactionsasso','ASC')   
         ;
         return $query->getQuery()->getResult();
     }

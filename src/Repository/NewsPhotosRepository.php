@@ -19,6 +19,22 @@ class NewsPhotosRepository extends ServiceEntityRepository
         parent::__construct($registry, NewsPhotos::class);
     }
 
+
+    /**
+     * @return DocActionsAssos[] Returns an array of DocActionsAssos objects
+     */
+    
+    public function findByTri2createQueryBuilder()
+    {
+        $query =$this->createQueryBuilder('n')
+            ->select(['n','toto'])
+            ->Join('n.newsPhotosnews','toto')
+            ->orderBy('toto.titleNew','ASC')  
+            ->addorderBy('n.altNewsPhoto','ASC')   
+        ;
+        return $query->getQuery()->getResult();
+    }    
+
     // /**
     //  * @return NewsPhotos[] Returns an array of NewsPhotos objects
     //  */

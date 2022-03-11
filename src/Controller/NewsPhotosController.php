@@ -13,7 +13,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/news/photos")
+ * @Route("/news-photos")
  */
 class NewsPhotosController extends AbstractController
 {
@@ -23,7 +23,7 @@ class NewsPhotosController extends AbstractController
     public function index(NewsPhotosRepository $newsPhotosRepository): Response
     {
         return $this->render('news_photos/index.html.twig', [
-            'news_photos' => $newsPhotosRepository->findAll(),
+            'news_photos' => $newsPhotosRepository->findByTri2createQueryBuilder(),
         ]);
     }
 

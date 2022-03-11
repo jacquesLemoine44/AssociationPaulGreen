@@ -286,7 +286,11 @@ colorion.co
 							<p>
 								<small>Copyright &copy; Your Website 2021</small>
 							</p>
+							{# <a class="dropdown-item" href="{{ path('params_show', {'id': render(controller('App\\Controller\\MainController::recupParamId')) }) }}"> #}
+ 
 							<a href="{{ path('politique_index') }}" class="">Politique de confidentialité.</a>
+							{# <a href="{{ path('politiques', {'id': render(controller('App\\Controller\\MainController::recupParamId')) }) }}" class="">Politique de confidentialité.</a> #}
+
 						</div>
 					</div>
 				</div>

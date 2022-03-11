@@ -4,14 +4,15 @@ namespace App\Controller;
 
 use App\Entity\Params;
 use App\Form\ParamsType;
+use App\Form\ParamsPolitiqueType;
 use App\Repository\ParamsRepository;
 use Doctrine\ORM\EntityManagerInterface;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\String\Slugger\SluggerInterface;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\File\Exception\FileException;
 
 /**
  * @Route("/params")
@@ -27,6 +28,54 @@ class ParamsController extends AbstractController
             'params' => $paramsRepository->findAll(),
         ]);
     }
+
+    // =========================================================================================  
+
+    /**
+     * @Route("/{id}/politiques", name="politiques", methods={"GET"})
+     */
+    public function politiques(Params $param): Response
+    {
+        return $this->render('politiques/politique.html.twig', [
+            // 'param' => $param,
+            'params' => $param,
+        ]);
+    }
+
+    // =========================================================================================  
+
+    /**
+     * @Route("/{id}/politique", name="params_politiqueShow", methods={"GET"})
+     */
+    public function politiqueShow(Params $param): Response
+    {
+        return $this->render('params/politiqueShow.html.twig', [
+            'param' => $param,
+        ]);
+    }
+
+    /**
+     * @Route("/{id}/politiqueEdit", name="params_politiqueEdit", methods={"GET", "POST"})
+     */
+    public function politiqueEdit(Request $request, Params $param, EntityManagerInterface $entityManager, SluggerInterface $slugger): Response
+    {
+        $form = $this->createForm(ParamsPolitiqueType::class, $param);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $entityManager->flush();
+            return $this->render('params/politiqueShow.html.twig', [
+                'param' => $param,
+            ]);
+        }
+
+        return $this->renderForm('params/politiqueEdit.html.twig', [
+            'param' => $param,
+            'form' => $form,
+        ]);
+    }
+
+    // =========================================================================================  
 
     /**
      * @Route("/new", name="params_new", methods={"GET", "POST"})
@@ -178,4 +227,5 @@ class ParamsController extends AbstractController
 
         return $this->redirectToRoute('params_index', [], Response::HTTP_SEE_OTHER);
     }
+
 }

@@ -79,10 +79,8 @@ colorion.co
 			<div class="container-fluid">
 				<a class="navbar-brand" href="#">
 					<img src="{{ asset('icones/logo.png')}}" alt="Association Paul Green" width="30" height="24" class="d-inline-block align-text-top">
-					Association Paul Green
+						Association Paul Green
 					<img src="{{ asset('up/ukraine-90.png')}}" alt="Association Paul Green" width="30" height="30" class="d-inline-block align-text-top">
-
-					{# {{render(controller('App\\Controller\\MainController::paramRecup'))}} #}
 				</a>
 				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
@@ -90,19 +88,14 @@ colorion.co
 
 				<div
 					class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
-					{# <ul class="navbar-nav me-auto mb-2 mb-lg-0"> #}
 					<ul class="navbar-nav mb-2 mb-lg-0">
 						<li class="nav-item">
 
 							<a class="nav-link active" aria-current="page" href="{{ path('home') }}">
 								Accueil
-
-								{# <span class="sronly"> #}
 								<span
 									class="visually-hidden-focusable">
-									{# visually-hidden #}
 									(current)
-
 								</span>
 							</a>
 						</li>
@@ -151,9 +144,6 @@ colorion.co
 						</li>
 
 						{% if app.user %}
-							{# <li class="nav-item">
-								<a class="nav-link" href="{{ path('app_logout') }}">Se déconnecter</a>
-							</li> #}
 							{% if app.user.roles[0]=="ROLE_ADMIN" %}
 								<li class="nav-item">
 									<a class="nav-link text-danger" href="{{ path('admin') }}">

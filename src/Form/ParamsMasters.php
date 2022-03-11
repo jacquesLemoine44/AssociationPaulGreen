@@ -9,20 +9,19 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 
-class ParamsPolitiqueType extends AbstractType
+class ParamsMastersType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
 
-            ->add('politiqueparams', CKEditorType::class, [
-                'label' => 'Texte de Présentation : ',
+            ->add('masterparam', CKEditorType::class, [
+                'label' => 'Présentation du Master : ',
                 'required'=> false,
                 'attr' => [
                     "class" => 'clCKEditor',
                     ],
                 ]) 
-
         ;
     }
 

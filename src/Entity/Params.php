@@ -84,6 +84,16 @@ class Params
      */
     private $politiqueparams;
 
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $assosparam;
+
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $masterparam;
+
     public function __construct()
     {
         $this->paramsocial = new ArrayCollection();
@@ -264,6 +274,30 @@ class Params
     public function setPolitiqueparams(?string $politiqueparams): self
     {
         $this->politiqueparams = $politiqueparams;
+
+        return $this;
+    }
+
+    public function getAssosparam(): ?string
+    {
+        return $this->assosparam;
+    }
+
+    public function setAssosparam(?string $assosparam): self
+    {
+        $this->assosparam = $assosparam;
+
+        return $this;
+    }
+
+    public function getMasterparam(): ?string
+    {
+        return $this->masterparam;
+    }
+
+    public function setMasterparam(?string $masterparam): self
+    {
+        $this->masterparam = $masterparam;
 
         return $this;
     }

@@ -5,6 +5,8 @@ namespace App\Controller;
 use App\Entity\Params;
 use App\Form\ParamsType;
 use App\Form\ParamsPolitiqueType;
+use App\Form\ParamsAssosType;
+use App\Form\ParamsMastersType;
 use App\Repository\ParamsRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
@@ -29,7 +31,52 @@ class ParamsController extends AbstractController
         ]);
     }
 
-    // =========================================================================================  
+    // === Présentation de l'association ======================================================  
+
+    /**
+     * @Route("/{id}/assos", name="assos", methods={"GET"})
+     */
+    public function assos(Params $param, ParamsRepository $paramsRepository): Response
+    {
+        return $this->render('params/Assos.html.twig', [
+            'params' => $paramsRepository->findAll(),
+            'param' => $param,
+        ]);
+    }
+
+    /**
+     * @Route("/{id}/assosshow", name="params_assosshow", methods={"GET"})
+     */
+    public function assosshow(Params $param): Response
+    {
+        return $this->render('params/assosShow.html.twig', [
+            'param' => $param,
+        ]);
+    }
+ 
+    /**
+     * @Route("/{id}/assosedit", name="params_assosedit", methods={"GET", "POST"})
+     */
+    public function assosedit(Request $request, Params $param, EntityManagerInterface $entityManager, SluggerInterface $slugger): Response
+    {
+        $form = $this->createForm(ParamsAssosType::class, $param);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $entityManager->flush();
+            return $this->render('params/assosShow.html.twig', [
+                'param' => $param,
+            ]);
+        }
+
+        return $this->renderForm('params/assosEdit.html.twig', [
+            'param' => $param,
+            'form' => $form,
+        ]);
+    }
+   
+ 
+    // === Politique de confidentialite =========================================================  
 
     /**
      * @Route("/{id}/politiques", name="politiques", methods={"GET"})
@@ -42,7 +89,7 @@ class ParamsController extends AbstractController
         ]);
     }
 
-    // =========================================================================================  
+    // =========================================================================================
 
     /**
      * @Route("/{id}/politique", name="params_politiqueShow", methods={"GET"})

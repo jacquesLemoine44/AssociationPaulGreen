@@ -24,7 +24,7 @@
         {% for news in news %}
             <tr>
                 <td>{{ news.titleNew }}</td>
-                <td>{{ news.dateNew ? news.dateNew|date('d-m-Y H:i:s') : '' }}</td>
+                <td>{{ news.dateNew ? news.dateNew|date('d/m/y') : '' }}</td>
                 <td>
                     <img src="{{ asset('photosNews/' ~ news.pictureNew) }}" width="100">
                     {{ news.altpicturenew }}

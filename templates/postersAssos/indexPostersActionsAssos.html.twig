@@ -43,8 +43,8 @@
 								{% endif %}
 							</div>
 
-							{{ actions_asso.startactionsasso ? actions_asso.startactionsasso|date('d-m-Y') : '' }}
-							{{ actions_asso.endactionsasso ? actions_asso.endactionsasso|date('d-m-Y') : '' }}
+							{{ actions_asso.startactionsasso ? actions_asso.startactionsasso|date('d/m/y') : '' }}
+							{{ actions_asso.endactionsasso ? actions_asso.endactionsasso|date('d/m/y') : '' }}
 						</div>
 
 						{% if ((xCpt % 2) == 0) %}

@@ -1,0 +1,56 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}Propositions de Stages{% endblock %}
+
+{% block body %}
+    <h1>Propositions de Stages</h1>
+
+    <a class ="btn btn-grad btn-success2" href="{{ path('app_internships_new') }}">Nouveau</a>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Stage</th>
+                <th>L'Offre</th>
+                <th>Emplacement</th>
+                <th>
+                    Début<br>
+                    Fin
+                </th>
+                <th>Annonce Officiel</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for internship in internships %}
+            <tr>
+                <td>{{ internship.titleinternship }}</td>
+                <td>{{ internship.offerinternship|striptags|u.truncate(50, '...') }}</td>
+                {# <td>{{ internship.offerinternship | raw }}</td> #}
+                <td>{{ internship.placeintership }}</td>
+                <td>
+                    {{ internship.startinternship ? internship.startinternship|date('d/m/y') : '' }}<br>
+                    {{ internship.endinternship ? internship.endinternship|date('d/m/y') : '' }}
+                </td>
+                {# <td>{{ internship.linkinternship }}</td> #}
+                <td>
+                    {% if ( internship.linkinternship ) %} 
+                        <a href="{{ internship.linkinternship }}" target="_blank"><i class="fas fa-link"></i></a>                       
+                    {% else %}
+                        <i class="fas fa-unlink"></i>
+                    {% endif %} 
+                </td>
+                <td>
+                    <a class="btn btn-grad btn-primary2 me-1" href="{{ path('app_internships_show', {'id': internship.id}) }}">Afficher</a>
+                    <a class="btn btn-grad btn-warning2" href="{{ path('app_internships_edit', {'id': internship.id}) }}">Modifier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="8">Aucun enregistrement</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

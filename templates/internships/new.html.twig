@@ -1,0 +1,11 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}Nouveau Stage{% endblock %}
+
+{% block body %}
+    <h1>Nouveau Stage</h1>
+
+    {{ include('internships/_form.html.twig') }}
+
+    <a class="btn btn-grad btn-secondary2" href="{{ path('app_internships_index') }}">Retour</a>
+{% endblock %}

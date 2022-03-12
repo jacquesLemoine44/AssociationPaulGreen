@@ -13,13 +13,31 @@
 }
 
 .bg-infoSuccess2 {
-  background-image: -webkit-gradient(linear, left bottom, left top, from(#22b549), color-stop(50%), to(cyan));
-  background-image: linear-gradient(to top, #22b549, 50%, cyan);
+  background-image: -webkit-gradient(linear, left bottom, left top, from(#77b447), color-stop(50%), to(#92d3ff));
+  background-image: linear-gradient(to top, #77b447, 50%, #92d3ff);
 }
 
-.btn-danger2 {
-  background-image: -webkit-gradient(linear, left top, right top, from(#c21500), color-stop(51%, #ffc500), to(#c21500));
-  background-image: linear-gradient(to right, #c21500 0%, #ffc500 51%, #c21500 100%);
+.bg-logoBlue {
+  background-color: #92d3ff;
+}
+
+.bg-logoGreen0 {
+  background-color: #bfcb29;
+}
+
+.bg-logoGreen1 {
+  background-color: #77b447;
+}
+
+.bg-logoGreen2 {
+  background-color: #26671d;
+}
+
+.ff-Parisienne {
+  font-family: "Parisienne";
+  font-size: 350%;
+  font-weight: bold;
+  color: #26671d;
 }
 
 .btn-grad {
@@ -43,6 +61,11 @@
   /* change the direction of the change here */
   color: #fff;
   text-decoration: none;
+}
+
+.btn-danger2 {
+  background-image: -webkit-gradient(linear, left top, right top, from(#c21500), color-stop(51%, #ffc500), to(#c21500));
+  background-image: linear-gradient(to right, #c21500 0%, #ffc500 51%, #c21500 100%);
 }
 
 .btn-warning2 {

@@ -35,7 +35,9 @@ class NewsType extends AbstractType
                     ])
                 ],
             ])  
-            ->add('altpictureNew', TextType::class, ['label' => 'Texte Alternatif Photo / sous-titre : ', 'required'=> true])
+            ->add('altpictureNew', TextType::class, [
+                'label' => 'Texte Alternatif Photo / sous-titre : ',
+                'required'=> true])
 
             ->add('dateNew',DateType::class, [
                 'label' => 'Dernière mise à jour du site : ',

@@ -1,0 +1,78 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    Les Propositions de Stages
+{% endblock %}
+
+{% block body %}
+
+	<h1 class="text-center mb-4">Les Propositions de Stages</h1>
+
+	{% set xCpt = 0 %}
+
+	{% for internship in internships %}
+
+		{% set xCpt = xCpt + 1 %}
+
+		<div class="container">
+
+			<div class="border border-2 {% if ((xCpt % 2) != 0) %}bg-info2{% else %}bg-success2{% endif %} py-4">
+				<div class="container">
+					<div class="row">
+
+						<div class="col-md-12">
+							<h3 class="clh3Internship text-center text-success">{{ internship.titleinternship }}</h3>
+							<br>
+							<b><i>{{ internship.titleinternship }}</i></b>
+							<br>
+
+							<div>
+
+								{% if (internship.linkinternship) %}
+									<p>Lien de l'annonce : 
+										<a class="btn btn-primary mb-3 mr-1 me-1 btn-sm" href="{{ internship.linkinternship }}">
+											<i class="fas fa-external-link-alt"></i>
+											Y aller...
+										</a>
+										<a class="" href="{{ internship.linkinternship }}">
+											{{ internship.linkinternship }}
+										</a>										 
+									</p>
+									<br>
+								{% endif %}
+							</div>
+                			<p>Lieu : <span> {{ internship.placeintership }} </span> </p>
+							<p>Dates : 
+								<span> {{ internship.startinternship ? internship.startinternship|date('d/m/y') : '' }}
+									 au {{ internship.endinternship ? internship.endinternship|date('d/m/y') : '' }}
+								</span> </p>
+						</div>
+
+					</div>
+
+					<div class="row mt-1">
+						<div class="col-md-12 border border-2 border-secondary">
+                        <p>L'Offre</p>
+							{# {{ internship.offerinternship|striptags|u.truncate(300, '...') }} #}
+							{{ internship.offerinternship |length > 500 ? internship.offerinternship |slice(0,500)|raw : internship.offerinternship|raw }}
+							<br>
+							<a class="btn btn-primary btn-sm"
+								href="{{ path('posters_internships_show', {'id': internship.id}) }}"
+								title="Allez lire l'offre de stage...">
+								Lire la suite ...
+							</a>
+						</div>
+					</div>
+                    
+				</div>
+
+			</div>
+
+			<hr class="m-0">
+		</div>
+
+	{% else %}
+		<div>Aucune donnée</div>
+	{% endfor %}
+
+{% endblock %}

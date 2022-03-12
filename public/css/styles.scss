@@ -15,17 +15,40 @@
 
 .bg-infoSuccess2 {
     // background-image: linear-gradient(to top, black, 20%, cyan);
-    background-image: linear-gradient(to top, #22b549, 50%, cyan);
+    background-image: linear-gradient(to top, #77b447, 50%, #92d3ff);
 }
 
-// <button data-v-766eb970="" class="btn-grad" 
-// style="background-image: linear-gradient(to right, rgb(194, 21, 0) 0%, rgb(255, 197, 0) 51%, rgb(194, 21, 0) 100%);
-// ">HOVER ME</button>
+// BG suivant LOGO
+.bg-logoBlue {
+    background-color: #92d3ff;
+}
+
+.bg-logoGreen0 {
+    background-color: #bfcb29;
+}
+
+.bg-logoGreen1 {
+    background-color: #77b447;
+}
+
+.bg-logoGreen2 {
+    background-color: #26671d;
+}
+
+.ff-Parisienne {
+    font-family: "Parisienne";
+    font-size: 350%;
+    font-weight: bold;
+    color: #26671d;
+}
+
+// {# bleu #92d3ff #}
+// {# vert #bfcb29; #}
+// {# vert + #77b447 #}
+// {# vert ++ #26671d #}
+// LES BOUTONS =============================================
+// ===========
 // 
-.btn-danger2 {
-    background-image: linear-gradient(to right, #c21500 0%, #ffc500 51%, #c21500 100%)
-}
-
 .btn-grad {
     margin: 5px;
     padding: 5px 10px;
@@ -51,37 +74,32 @@
     text-decoration: none;
 }
 
-// <button data-v-766eb970="" class="btn-grad" 
-// style="background-image: linear-gradient(to right, rgb(247, 151, 30) 0%, rgb(255, 210, 0) 51%, rgb(247, 151, 30) 100%););">HOVER ME</button>
+.btn-danger2 {
+    background-image: linear-gradient(to right, #c21500 0%, #ffc500 51%, #c21500 100%)
+}
+
 .btn-warning2 {
     background-image: linear-gradient(to right, #F09819 0%, #EDDE5D 51%, #F09819 100%)
 }
 
-// <button data-v-766eb970="" class="btn-grad" 
-// style="background-image: linear-gradient(to right, rgb(33, 95, 0) 0%, rgb(228, 228, 217) 51%, rgb(33, 95, 0) 100%);">HOVER ME</button>
 .btn-success2 {
     background-image: linear-gradient(to right, #215f00 0%, #e4e4d9 51%, #215f00 100%)
 }
 
-// <button data-v-766eb970="" class="btn-grad" 
-// style="background-image: linear-gradient(to right, rgb(0, 210, 255) 0%, rgb(58, 123, 213) 51%, rgb(0, 210, 255) 100%);">HOVER ME</button>
 .btn-info2 {
     background-image: linear-gradient(to right, #00d2ff 0%, #3a7bd5 51%, #00d2ff 100%)
 }
 
-// <button data-v-766eb970="" class="btn-grad" 
-// style="background-image: linear-gradient(to right, rgb(5, 117, 230) 0%, rgb(2, 27, 121) 51%, rgb(5, 117, 230) 100%);">HOVER ME</button>
 .btn-primary2 {
     background-image: linear-gradient(to right, #0575E6 0%, #021B79 51%, #0575E6 100%)
 }
 
-// <button data-v-766eb970="" class="btn-grad" 
-// style="background-image: linear-gradient(to right, rgb(48, 67, 82) 0%, rgb(215, 210, 204) 51%, rgb(48, 67, 82) 100%);">HOVER ME</button>
 .btn-secondary2 {
     background-image: linear-gradient(to right, #304352 0%, #d7d2cc 51%, #304352 100%)
 }
 
-// Fin des Boutons
+// =================================================================
+// =====
 .text-success2 {
     color: #198754;
 }

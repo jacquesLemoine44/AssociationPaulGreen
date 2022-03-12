@@ -8,6 +8,7 @@ use App\Form\ParamsPolitiqueType;
 use App\Form\ParamsAssosType;
 use App\Form\ParamsMastersType;
 use App\Repository\ParamsRepository;
+use App\Repository\SocialNetworksRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -36,10 +37,11 @@ class ParamsController extends AbstractController
     /**
      * @Route("/{id}/assos", name="assos", methods={"GET"})
      */
-    public function assos(Params $param, ParamsRepository $paramsRepository): Response
+    public function assos(Params $param, SocialNetworksRepository $socialNetworksRepository, ParamsRepository $paramsRepository): Response
     {
-        return $this->render('params/Assos.html.twig', [
+        return $this->render('postersAssos/Assos.html.twig', [
             'params' => $paramsRepository->findAll(),
+            'social_networks' => $socialNetworksRepository->findAll(),
             'param' => $param,
         ]);
     }
@@ -57,7 +59,7 @@ class ParamsController extends AbstractController
     /**
      * @Route("/{id}/assosedit", name="params_assosedit", methods={"GET", "POST"})
      */
-    public function assosedit(Request $request, Params $param, EntityManagerInterface $entityManager, SluggerInterface $slugger): Response
+    public function assosedit(Request $request, Params $param, EntityManagerInterface $entityManager): Response
     {
         $form = $this->createForm(ParamsAssosType::class, $param);
         $form->handleRequest($request);
@@ -70,6 +72,50 @@ class ParamsController extends AbstractController
         }
 
         return $this->renderForm('params/assosEdit.html.twig', [
+            'param' => $param,
+            'form' => $form,
+        ]);
+    }
+     // === Présentation du Master ======================================================  
+
+    /**
+     * @Route("/{id}/masters", name="masters", methods={"GET"})
+     */
+    public function masters(Params $param, SocialNetworksRepository $socialNetworksRepository, ParamsRepository $paramsRepository): Response
+    {
+        return $this->render('postersMasters/Masters.html.twig', [
+            'params' => $paramsRepository->findAll(),
+            'social_networks' => $socialNetworksRepository->findAll(),
+            'param' => $param,
+        ]);
+    }
+
+    /**
+     * @Route("/{id}/mastersshow", name="params_mastersshow", methods={"GET"})
+     */
+    public function mastersshow(Params $param): Response
+    {
+        return $this->render('params/mastersShow.html.twig', [
+            'param' => $param,
+        ]);
+    }
+ 
+    /**
+     * @Route("/{id}/mastersedit", name="params_mastersedit", methods={"GET", "POST"})
+     */
+    public function mastersedit(Request $request, Params $param, EntityManagerInterface $entityManager): Response
+    {
+        $form = $this->createForm(ParamsMastersType::class, $param);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $entityManager->flush();
+            return $this->render('params/mastersShow.html.twig', [
+                'param' => $param,
+            ]);
+        }
+
+        return $this->renderForm('params/mastersEdit.html.twig', [
             'param' => $param,
             'form' => $form,
         ]);

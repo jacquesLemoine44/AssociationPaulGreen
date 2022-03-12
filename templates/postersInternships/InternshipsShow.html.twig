@@ -1,0 +1,78 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Action de l'Associaton
+{% endblock %}
+
+{% block body %}
+
+	<section>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<h1 class="text-center text-success">{{ internships.titleinternship }}</h1>
+				</div>
+			</div>
+
+
+	<hr class="mb-3">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<h5>Dates du stage :</h5>
+				<p>
+					du
+					{{ internships.endinternship ? internships.endinternship|date('d/m/y') : '' }}
+					au
+					{{ internships.startinternship ? internships.startinternship|date('d/m/y') : '' }}
+				</p>
+			</div>
+		</div>
+	</div>
+
+	<hr class="mb-3">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<h5>Lieu :</h5>
+				<p>{{ internships.placeintership }}</p>
+			</div>
+		</div>
+	</div>
+
+	<hr class="mb-3">
+
+			<div class="row">
+				<div class="col-md-12">
+					{{ internships.offerinternship|raw }}
+				</div>
+			</div>
+
+	{% if (internships.linkinternship) %}
+		<hr class="mb-3">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<h5>Lien utile</h5>
+					<a class="btn btn-primary mb-3 mr-1" href="{{ internships.linkinternship }}">
+						<i class="fas fa-external-link-alt"></i>
+						{{ internships.linkinternship }}
+					</a>
+				</div>
+			</div>
+		</div>
+	{% endif %}
+
+
+		</div>
+	</section>
+
+	<hr class="mb-3">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<a class="btn btn-grad btn-secondary2" href="{{ path('posters_internships_index') }}">Retour</a>
+			</div>
+		</div>
+	</div>
+
+{% endblock %}

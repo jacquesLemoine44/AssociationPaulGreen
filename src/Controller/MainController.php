@@ -3,10 +3,12 @@
 namespace App\Controller;
 
 use App\Entity\News;
+use App\Entity\Internships;
 use App\Entity\ActionsAssos;
 use App\Repository\NewsRepository;
 use App\Repository\ParamsRepository;
 use App\Repository\PartnersRepository;
+use App\Repository\InternshipsRepository;
 use App\Repository\ActionsAssosRepository;
 use App\Repository\SocialNetworksRepository;
 use Symfony\Component\HttpFoundation\Response;
@@ -104,7 +106,7 @@ class MainController extends AbstractController
         ]);
     }
 
-        /**
+    /**
      * @Route("/postersNews/showPostersNews/{id}", name="posters_news_show", methods={"GET"})
      */
     public function showPostersNews(News $news, ParamsRepository $paramsRepository, SocialNetworksRepository $socialNetworksRepository): Response
@@ -116,6 +118,31 @@ class MainController extends AbstractController
         ]);
     }
 
+ // ====== INTERNSHIP =============================
+    /**
+     * @Route("/postersInternships/indexPostersInternships", name="posters_internships_index", methods={"GET"})
+     */
+    public function indexPostersInterships(ParamsRepository $paramsRepository, SocialNetworksRepository $socialNetworksRepository, InternshipsRepository $internshipsRepository): Response
+    {
+        return $this->render('postersInternships/internshipsIndex.html.twig', [
+            'params' => $paramsRepository->findAll(),
+            'social_networks' => $socialNetworksRepository->findAll(),
+            'internships' => $internshipsRepository->findAll(),
+        ]);
+    }
+
+       /**
+     * @Route("/postersInterships/showPostersInternships/{id}", name="posters_internships_show", methods={"GET"})
+     */
+    public function internshipsShow(Internships $internship, ParamsRepository $paramsRepository, SocialNetworksRepository $socialNetworksRepository): Response
+    {
+        return $this->render('postersInternships/internshipsShow.html.twig', [
+            'params' => $paramsRepository->findAll(),
+            'social_networks' => $socialNetworksRepository->findAll(),
+            'internships' => $internship,
+        ]);
+    }
+   
 // ====== MASTER  =====================
 
 

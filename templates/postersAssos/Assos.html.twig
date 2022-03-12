@@ -1,38 +1,44 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Présentation de l'association{% endblock %}
+{% block title %}Présentation de l'association
+{% endblock %}
 
 {% block body %}
 
-{# <section class="sousHeader">
-    <div class="border border-5 border-primary rounded-3 p-5 fenetreTitre">
-	    <h1 class="text-white">Une telle occasion! ✅</h1>
-	    <h2>Politique de confidentialité</h2>
-    </div>
-</div>   
-</section> #}
+	{# <section class="sousHeader">
+	    <div class="border border-5 border-primary rounded-3 p-5 fenetreTitre">
+		    <h1 class="text-white">Une telle occasion! ✅</h1>
+		    <h2>Politique de confidentialité</h2>
+	    </div>
+	</div>   
+	</section> #}
 
-</section class="pt-2">
-    <div class="container">
-        <div class="text-center pt-5">
+    <hr class="mb-3">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<a class="btn btn-grad btn-secondary2" href="{{ path('home') }}">Retour</a>
+			</div>
+		</div>
+	</div>
+	<hr class="mb-3">
 
-            {{ params[0].assosparam | raw }} 
+	<section class="pt-2">
+		<div class="container">
+			<div class="pt-5">
 
-            {# <hr class="mb-3">
-<           div class="d-flex flex-row my-2">
-            <button  class="btn btn-grad btn-success2 me-2">{{ button_label|default('Sauver') }}</button> #}
+				{{ params[0].assosparam | raw }}
 
-</div>        
-</div>
-</section>
-<hr class="mb-3">
-<div class="container">
-    <div class="row">
-           <div class="col-md-12">
-            <a class="btn btn-grad btn-secondary2" 
-                href="{{ path('posters_actions_assos_index') }}">Retour</a>
-        </div>
-    </div>   
-</div>
-<hr class="mb-3">
+			</div>
+		</div>
+	</section>
+	<hr class="mb-3">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<a class="btn btn-grad btn-secondary2" href="{{ path('home') }}">Retour</a>
+			</div>
+		</div>
+	</div>
+	<hr class="mb-3">
 {% endblock %}

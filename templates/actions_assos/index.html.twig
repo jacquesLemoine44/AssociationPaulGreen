@@ -40,9 +40,9 @@
                     {% endif %} 
                 </td>
                 <td>
-                    Début : {{ actions_asso.startactionsasso ? actions_asso.startactionsasso|date('Y-m-d') : '' }}
+                    Début : {{ actions_asso.startactionsasso ? actions_asso.startactionsasso|date('d/m/y') : '' }}
                     <br>
-                    Fin : {{ actions_asso.endactionsasso ? actions_asso.endactionsasso|date('Y-m-d') : '' }}
+                    Fin : {{ actions_asso.endactionsasso ? actions_asso.endactionsasso|date('d/m/y') : '' }}
                 </td>
                 <td>
                     <a class="btn btn-grad btn-primary2 me-1 mb-1" href="{{ path('actions_assos_show', {'id': actions_asso.id}) }}">Afficher</a>

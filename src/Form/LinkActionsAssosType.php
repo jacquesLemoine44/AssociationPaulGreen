@@ -12,9 +12,18 @@ class LinkActionsAssosType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('titlelinkactionsasso')
-            ->add('linkactionsasso')
-            ->add('linkactasso')
+            ->add('titlelinkactionsasso', TextType::class, [
+                'label' => 'Titre du lien : ',
+                'required'=> true
+            ])
+            ->add('linkactionsasso', TextType::class, [
+                'label' => 'Lien : ',
+                'required'=> true
+            ])
+            ->add('linkactasso', TextType::class, [
+                'label' => 'Lien : ',
+                'required'=> true
+            ])
         ;
     }
 

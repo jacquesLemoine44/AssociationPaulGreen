@@ -1,0 +1,43 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}Proposition de Stage{% endblock %}
+
+{% block body %}
+    <h1>Proposition de Stage</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Stage</th>
+                <td>{{ internship.titleinternship }}</td>
+            </tr>
+            <tr>
+                <th>L'Offre</th>
+                <td>{{ internship.offerinternship }}</td>
+            </tr>
+            <tr>
+                <th>Emplacement</th>
+                <td>{{ internship.placeintership }}</td>
+            </tr>
+            <tr>
+                <th>Début</th>
+                <td>{{ internship.startinternship ? internship.startinternship|date('d/m/y') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Fin</th>
+                <td>{{ internship.endinternship ? internship.endinternship|date('d/m/y') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Site d'origine</th>
+                <td>{{ internship.linkinternship }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a class="btn btn-grad btn-secondary2 me-2" href="{{ path('app_internships_index') }}">Retour</a>
+
+    <a class="btn btn-grad btn-warning2" href="{{ path('app_internships_edit', {'id': internship.id}) }}">Modifier</a>
+
+    {{ include('internships/_delete_form.html.twig') }}
+
+{% endblock %}

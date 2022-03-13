@@ -12,8 +12,6 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
-// use Symfony\Polyfill\Intl\Idn\Resources\unidata\Regex;
-// use Symfony\Component\Validator\Constraints\Regex;
 
 use Symfony\Component\Validator\Constraints as Assert;
 
@@ -35,6 +33,7 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
         $this->functionUser = new ArrayCollection();
         $this->usersactionsasso = new ArrayCollection();
         $this->usersnew = new ArrayCollection();
+        $this->connectUser = new ArrayCollection();
         }
 
     /**
@@ -159,6 +158,11 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
      * @ORM\OneToMany(targetEntity=News::class, mappedBy="newsuser")
      */
     private $usersnew;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Fieldtrips::class, mappedBy="usersorigin")
+     */
+    private $connectUser;
 
     public function getId(): ?int
     {
@@ -495,6 +499,36 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
             // set the owning side to null (unless already changed)
             if ($usersnew->getNewsuser() === $this) {
                 $usersnew->setNewsuser(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Fieldtrips>
+     */
+    public function getConnectUser(): Collection
+    {
+        return $this->connectUser;
+    }
+
+    public function addConnectUser(Fieldtrips $connectUser): self
+    {
+        if (!$this->connectUser->contains($connectUser)) {
+            $this->connectUser[] = $connectUser;
+            $connectUser->setUsersorigin($this);
+        }
+
+        return $this;
+    }
+
+    public function removeConnectUser(Fieldtrips $connectUser): self
+    {
+        if ($this->connectUser->removeElement($connectUser)) {
+            // set the owning side to null (unless already changed)
+            if ($connectUser->getUsersorigin() === $this) {
+                $connectUser->setUsersorigin(null);
             }
         }
 

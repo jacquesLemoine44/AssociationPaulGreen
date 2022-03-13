@@ -1,0 +1,14 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}Modifier le texte Alternatif des photos{% endblock %}
+
+{% block body %}
+    <h1>Modifier le texte Alternatif des photos</h1>
+
+    {{ include('fieldtripphotos/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a class="btn btn-grad btn-secondary2 me-2" href="{{ path('app_fieldtripphotos_index') }}">Retour</a>
+
+    {{ include('fieldtripphotos/_delete_form.html.twig') }}
+
+{% endblock %}

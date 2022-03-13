@@ -1,0 +1,36 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}Sortie Universitaire{% endblock %}
+
+{% block body %}
+    <h1>Sortie Universitaire</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Date</th>
+                <td>{{ fieldtrip.datefieldtrip ? fieldtrip.datefieldtrip|date('d-m-Y') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Titre</th>
+                <td>{{ fieldtrip.titlefieldtrip }}</td>
+            </tr>
+            <tr>
+                <th>Image</th>
+                <td>{{ fieldtrip.picturefieldtrip }}</td>
+            </tr>
+            <tr>
+                <th>Texte</th>
+                <td>{{ fieldtrip.textfieldtrip | raw }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <hr class="mb-3">
+    <div class="d-flex flex-row my-2">
+    
+        <a class="btn btn-grad btn-secondary2 me-2" href="{{ path('app_fieldtrips_index') }}">Retour</a>
+        <a class="btn btn-grad btn-warning2 me-2" href="{{ path('app_fieldtrips_edit', {'id': fieldtrip.id}) }}">Modifier</a>
+        {{ include('fieldtrips/_delete_form.html.twig') }}
+
+{% endblock %}

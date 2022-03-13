@@ -14,7 +14,6 @@
 }
 
 .bg-infoSuccess2 {
-    // background-image: linear-gradient(to top, black, 20%, cyan);
     background-image: linear-gradient(to top, #77b447, 50%, #92d3ff);
 }
 
@@ -35,11 +34,20 @@
     background-color: #26671d;
 }
 
+// font-family: 'Gelasio', serif; 
+// font-family: 'Parisienne', cursive;
 .ff-Parisienne {
-    font-family: "Parisienne";
+    font-family: 'Parisienne', cursive;
     font-size: 350%;
     font-weight: bold;
     color: #26671d;
+}
+
+.ff-Gelasio {
+    font-family: 'Gelasio', serif;
+    // font-size: 250%;
+    // // font-weight: bold;
+    color: black;
 }
 
 // {# bleu #92d3ff #}
@@ -64,14 +72,14 @@
     // border-radius: 10px;
     display: block;
     height: 35px;
-    width: 95px;
-}
-
-.btn-grad:hover {
-    background-position: right center;
-    /* change the direction of the change here */
-    color: #fff;
-    text-decoration: none;
+    min-width: 95px;
+    width: max-content;
+    &:hover {
+        background-position: right center;
+        /* change the direction of the change here */
+        color: #fff;
+        text-decoration: none;
+    }
 }
 
 .btn-danger2 {
@@ -107,6 +115,12 @@
 .blockBody {
     min-height: 500px;
     padding-top: 50px;
+}
+
+.clLogo {
+    z-index: 1;
+    position: relative;
+    top: 30px;
 }
 
 .clLigne {
@@ -201,7 +215,7 @@
     height: 250px;
 }
 
-www.AssociationPaulGreen.fr .clAdresse {
+.clAdresse {
     width: 200px;
 }
 

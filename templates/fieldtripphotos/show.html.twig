@@ -1,0 +1,27 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}Texte Alternatif{% endblock %}
+
+{% block body %}
+    <h1>Texte Alternatif</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Photo</th>
+                <td>{{ fieldtripphoto.filefieldtripphoto }}</td>
+            </tr>
+            <tr>
+                <th>Texte Alternatif</th>
+                <td>{{ fieldtripphoto.altfieldtripphoto }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a class="btn btn-grad btn-secondary2 me-2" href="{{ path('app_fieldtripphotos_index') }}">Retour</a>
+
+    <a class="btn btn-grad btn-warning2 me-2" href="{{ path('app_fieldtripphotos_edit', {'id': fieldtripphoto.id}) }}">Modifier</a>
+
+    {{ include('fieldtripphotos/_delete_form.html.twig') }}
+
+{% endblock %}

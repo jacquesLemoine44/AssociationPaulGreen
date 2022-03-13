@@ -10,7 +10,7 @@ parameters:
     photos_directoryNews: '%kernel.project_dir%/public/photosNews'    
     photos_directoryAssos: '%kernel.project_dir%/public/photosActionsAssos'    
     photos_directoryMasters: '%kernel.project_dir%/public/photosActionsMasters'    
-    photos_directoryOutings: '%kernel.project_dir%/public/photosOutings' 
+    photos_directoryFieldtrips: '%kernel.project_dir%/public/photosFieldtrips' 
 
 services:
     # default configuration for services in *this* file

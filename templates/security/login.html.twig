@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Log in!{% endblock %}
+{% block title %}Connection !{% endblock %}
 
 {% block body %}
 
@@ -27,7 +27,7 @@
                     </div>
                 {% endif %}
 
-                <h1 class="h3 mb-3 font-weight-normal">Conectez vous svp ...</h1>
+                <h1 class="h3 mb-3 font-weight-normal">Connectez vous svp ...</h1>
   
 
                 <fieldset class="clfieldset">
@@ -35,12 +35,15 @@
                     <legend>Se Connecter...</legend>
 
                     <div class="form-floating mb-3">
-                        <input type="email" value="{{ last_username }}" name="email" id="floatingInput" class="form-control" autocomplete="email" required autofocus placeholder="nom.prenom@exemple.com" autocomplete="email" required autofocus>
+                        <input type="email" value="{{ last_username }}" name="email" id="floatingInput" 
+                            class="form-control" autocomplete="email" required autofocus 
+                            placeholder="nom.prenom@exemple.com" autocomplete="email" required autofocus>
                         <label for="floatingInput">Adresse Mail</label>
                     </div>
 
                     <div class="form-floating">
-                        <input type="password" name="password" id="floatingPassword" class="form-control" autocomplete="current-password" placeholder="Mot de Passe">
+                        <input type="password" name="password" id="floatingPassword" class="form-control" 
+                            autocomplete="current-password" placeholder="Mot de Passe">
                         <label for="floatingPassword">Mot de Passe</label>
                     </div>
 

@@ -34,10 +34,15 @@
 }
 
 .ff-Parisienne {
-  font-family: "Parisienne";
+  font-family: 'Parisienne', cursive;
   font-size: 350%;
   font-weight: bold;
   color: #26671d;
+}
+
+.ff-Gelasio {
+  font-family: 'Gelasio', serif;
+  color: black;
 }
 
 .btn-grad {
@@ -53,7 +58,10 @@
   border-radius: 4px;
   display: block;
   height: 35px;
-  width: 95px;
+  min-width: 95px;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
 }
 
 .btn-grad:hover {
@@ -100,6 +108,12 @@
 .blockBody {
   min-height: 500px;
   padding-top: 50px;
+}
+
+.clLogo {
+  z-index: 1;
+  position: relative;
+  top: 30px;
 }
 
 .clLigne {
@@ -198,7 +212,7 @@
   height: 250px;
 }
 
-www.AssociationPaulGreen.fr .clAdresse {
+.clAdresse {
   width: 200px;
 }
 

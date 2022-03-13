@@ -1,0 +1,36 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}Textes Alternatifs des Photos{% endblock %}
+
+{% block body %}
+    <h1>Textes Alternatifs des Photos</h1>
+    {# 
+    <a class="btn btn-grad btn-success2" href="{{ path('app_fieldtripphotos_new') }}">Nouveau</a>
+    #}
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Photo</th>
+                <th>Texte Alternatif</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for fieldtripphoto in fieldtripphotos %}
+            <tr>
+                <td>{{ fieldtripphoto.filefieldtripphoto }}</td>
+                <td>{{ fieldtripphoto.altfieldtripphoto }}</td>
+                <td>
+                    <a class="btn btn-grd btn-primary2 me-1" href="{{ path('app_fieldtripphotos_show', {'id': fieldtripphoto.id}) }}">Afficher</a>
+                    <a class="btn btn-grd btn-warning2" href="{{ path('app_fieldtripphotos_edit', {'id': fieldtripphoto.id}) }}">Modifier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">Aucune Saisie</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

@@ -10,16 +10,19 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-3 clZIndex">
-					<img src="{{ asset('icones/logo_PaulGreen_1a.jpeg')}}" alt="Association Paul Green" width="auto" height="200" class="d-inline-block align-text-top">
+					<img src="{{ asset('icones/logo_PaulGreen_1a.jpeg')}}" 
+						alt="{{ params[0].titleParam }}" width="auto" height="200" 
+						class="d-inline-block align-text-top">
 				</div>
 				<div class="col-md-6">
 					<div class="border border-2 border-primary rounded-3 p-5 fenetreTitre">
 						<h1 class="ff-Parisienne">{{ params[0].titleParam }}</h1>
-						<h2>{{ params[0].subtitleParam }}</h2>
+						<h2 class="ff-Gelasio fs-1">{{ params[0].subtitleParam }}</h2>
 					</div>
 				</div>
 				<div class="col-md-3">
-					<img src="{{ asset('icones/logo_PaulGreen_2a.jpeg')}}" alt="Association Paul Green" width="auto" height="200" class="d-inline-block align-text-top">
+					<img src="{{ asset('icones/logo_PaulGreen_2a.jpeg')}}" 
+						alt="{{ params[0].titleParam }}" width="auto" height="200" class="d-inline-block align-text-top">
 				</div>
 			</div>
 		</div>
@@ -31,7 +34,9 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12 d-flex flex-row justify-content-center mb-3">
-					<img src="{{ asset('photosParams/' ~ params[0].photoParam )}}" alt="Association Paul Green" width="auto" height="450" class="d-inline-block align-text-top">
+					<img src="{{ asset('photosParams/' ~ params[0].photoParam )}}" 
+						alt="{{ params[0].titleParam }}" width="auto" height="450" 
+						class="d-inline-block align-text-top">
 				</div>
 				<div class="col-md-12">
 					{{ params[0].textParam|raw }}
@@ -65,8 +70,10 @@
 				{% for new in theNews %}
 					<button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="{{ isFirst }}" aria-label="Slide {{ isFirst+1 }}" class={% if (isFirst==0) %} "active" {% else %} "" {% endif %} aria-current={% if (isFirst==0) %} "true" {% else %} "false" {% endif %}></button>
 					{% set isFirst = isFirst+1 %}
-					{# {% else %}
-					                        <p>aucune News ???</p> #}
+				{# 
+				{% else %}
+					<p>aucune News ???</p> 
+				#}
 				{% endfor %}
 			</div>
 
@@ -84,8 +91,10 @@
 							<p>{{ new.altpicturenew }}</p>
 						</div>
 					</div>
-					{# {% else %}
-					                        <p>aucune News ???</p> #}
+				{#
+				{% else %}
+					<p>aucune News ???</p>
+				#}
 				{% endfor %}
 
 			</div>

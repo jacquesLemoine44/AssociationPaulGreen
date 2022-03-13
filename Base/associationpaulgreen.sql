@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : sam. 12 mars 2022 à 19:10
+-- Généré le : dim. 13 mars 2022 à 21:24
 -- Version du serveur : 5.7.36
 -- Version de PHP : 7.4.26
 
@@ -118,7 +118,9 @@ INSERT INTO `doctrine_migration_versions` (`version`, `executed_at`, `execution_
 ('DoctrineMigrations\\Version20220303142342', '2022-03-03 14:23:50', 132),
 ('DoctrineMigrations\\Version20220311132346', '2022-03-11 13:24:09', 297),
 ('DoctrineMigrations\\Version20220311175108', '2022-03-11 17:52:30', 3411),
-('DoctrineMigrations\\Version20220312110100', '2022-03-12 11:02:01', 648);
+('DoctrineMigrations\\Version20220312110100', '2022-03-12 11:02:01', 648),
+('DoctrineMigrations\\Version20220313112124', '2022-03-13 11:21:42', 4698),
+('DoctrineMigrations\\Version20220313121552', '2022-03-13 12:16:04', 1004);
 
 -- --------------------------------------------------------
 
@@ -154,6 +156,48 @@ INSERT INTO `doc_actions_assos` (`id`, `titledocactionsasso`, `linkdocactionsass
 (12, 'lien C', 'htttp C', 2),
 (13, 'lien D', 'ddddd', 2),
 (14, 'BDFBDFBAAAAAAAAAAAAA', 'DFBDFBSSQDVQSD', 3);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `fieldtripphotos`
+--
+
+DROP TABLE IF EXISTS `fieldtripphotos`;
+CREATE TABLE IF NOT EXISTS `fieldtripphotos` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `fieldstripsorigin_id` int(11) DEFAULT NULL,
+  `filefieldtripphoto` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `altfieldtripphoto` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `IDX_F09AAB91C1C7BE9B` (`fieldstripsorigin_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `fieldtrips`
+--
+
+DROP TABLE IF EXISTS `fieldtrips`;
+CREATE TABLE IF NOT EXISTS `fieldtrips` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `usersorigin_id` int(11) DEFAULT NULL,
+  `datefieldtrip` date DEFAULT NULL,
+  `titlefieldtrip` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `picturefieldtrip` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `textfieldtrip` longtext COLLATE utf8mb4_unicode_ci,
+  `altpicturefieldtrip` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `IDX_E49A697B3231D76` (`usersorigin_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Déchargement des données de la table `fieldtrips`
+--
+
+INSERT INTO `fieldtrips` (`id`, `usersorigin_id`, `datefieldtrip`, `titlefieldtrip`, `picturefieldtrip`, `textfieldtrip`, `altpicturefieldtrip`) VALUES
+(1, NULL, '2022-04-20', 'Visite sur le Pic Saint Loup', 'imageMontagneMontpellier-622e33469280d.jpg', '<h2>Une randonn&eacute;e sur le Pic Saint Loup</h2>\r\n\r\n<p>Avis aux sportifs et aux amoureux de la nature ! Notre premi&egrave;re id&eacute;e de balade aux alentours de Montpellier prend la direction du&nbsp;<strong>Pic Saint Loup</strong>. Cet endroit est bien connu des Montpelli&eacute;rains et pour cause : le Pic Saint Loup peut &ecirc;tre aper&ccedil;u &agrave; peu pr&egrave;s partout lorsque l&#39;on sillonne les routes de la r&eacute;gion. Le Pic Saint Loup est m&ecirc;me visible de la mer ce qui lui vaut une comparaison avec la montagne Sainte Victoire.</p>\r\n\r\n<p>Le Pic Saint Loup est en effet&nbsp;<strong>une montagne entre les C&eacute;vennes et l&#39;H&eacute;rault qui culmine &agrave; 658 m d&#39;altitude.</strong>&nbsp;Situ&eacute; &agrave; 20 km au nord de Montpellier, le Pic Saint Loup est un endroit privil&eacute;gi&eacute; pour les personnes souhaitant gravir la montagne et atteindre son sommet. En haut du Pic Saint Loup, les courageux randonneurs pourront retrouver une grande croix de fer, un poste d&#39;observation ainsi que la chapelle d&#39;un ancien ermitage. Mais c&#39;est surtout pour&nbsp;<strong>l&#39;impressionnante vue sur toute la r&eacute;gion ainsi que sur la mer M&eacute;diterran&eacute;e</strong>&nbsp;que les habitants de la r&eacute;gion et les touristes se pressent &agrave; son sommet.</p>\r\n\r\n<p>Avec la montagne de l&#39;Hortus qui lui fait face au Nord tel un double miniature, le Pic Saint Loup est le site naturel prot&eacute;g&eacute; le plus beau de la r&eacute;gion des Garrigues.</p>\r\n\r\n<p>O&ugrave; aller : le Pic Saint Loup se trouve &agrave; environ&nbsp;<strong>45 minutes de route&nbsp;</strong>de Montpellier pr&egrave;s des villages de Valflaun&egrave;s et Cazevieille.</p>\r\n\r\n<p>Le meilleur moment pour d&eacute;couvrir le site : nous vous conseillons de privil&eacute;gier cette randonn&eacute;e&nbsp;<strong>au printemps ou en automne.</strong>&nbsp;L&#39;ascension du Pic demande d&eacute;j&agrave; un effort physique, inutile de vous compliquer la t&acirc;che en faisant cette randonn&eacute;e en plein soleil. Pensez d&#39;ailleurs &agrave; pr&eacute;voir une bouteille d&#39;eau et &eacute;ventuellement un encas.</p>\r\n\r\n<p>Bon &agrave; savoir : pour profiter encore un peu plus du lieu, nous vous conseillons de vous y rentre &agrave; l&#39;occasion des&nbsp;<strong>M&eacute;di&eacute;vales du Grand Pic Saint Loup</strong>&nbsp;qui se d&eacute;roule chaque ann&eacute;e et qui propose des animations autour des chevaliers.</p>', NULL);
 
 -- --------------------------------------------------------
 
@@ -532,6 +576,18 @@ ALTER TABLE `actions_assos_themes`
 --
 ALTER TABLE `doc_actions_assos`
   ADD CONSTRAINT `FK_7530D4D8C55FE119` FOREIGN KEY (`docactasso_id`) REFERENCES `actions_assos` (`id`);
+
+--
+-- Contraintes pour la table `fieldtripphotos`
+--
+ALTER TABLE `fieldtripphotos`
+  ADD CONSTRAINT `FK_F09AAB91C1C7BE9B` FOREIGN KEY (`fieldstripsorigin_id`) REFERENCES `fieldtrips` (`id`);
+
+--
+-- Contraintes pour la table `fieldtrips`
+--
+ALTER TABLE `fieldtrips`
+  ADD CONSTRAINT `FK_E49A697B3231D76` FOREIGN KEY (`usersorigin_id`) REFERENCES `users` (`id`);
 
 --
 -- Contraintes pour la table `link_actions_assos`

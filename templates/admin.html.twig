@@ -172,12 +172,7 @@
                         <li class="divider w-100 clLigne">
                         </li>
 {# === News ================================================= #}
-                        {# <li>
-                            <a href="{{ path('news_index') }}" class="nav-link px-sm-0 px-2">
-                                <i class="far fa-newspaper"></i>
-                                <span class="ms-1 d-none d-sm-inline"> News</span>
-                            </a>
-                        </li> #}
+
                         <li class="dropdown">
                             <a href="#" class="nav-link dropdown-toggle px-sm-0 px-1" id="dropdown" data-bs-toggle="dropdown" aria-expanded="false">
                                 <i class="far fa-newspaper"></i>
@@ -211,7 +206,6 @@
                             </a>
                         </li>
 
-
                         <li class="divider w-100 clLigne"></li>
 
 {# === Actions Associatives =========================================== #}
@@ -232,14 +226,14 @@
                                 </li>
                                 <li>
                                     <a class="dropdown-item"  href="{{ path('app_doc_actions_assos_index') }}" class="nav-link px-sm-0 px-2">
-                                        <i class="fab fa-pagelines"></i>
-                                            <span class="ms-1 d-none d-sm-inline"> Liste des Liens de Documents</span>
+                                        <i class="fas fa-paperclip"></i>
+                                        <span class="ms-1 d-none d-sm-inline"> Liste des Liens de Documents</span>
                                     </a>
                                 </li>
                                 <li>
                                     <a class="dropdown-item"  href="{{ path('app_link_actions_assos_index') }}" class="nav-link px-sm-0 px-2">
-                                        <i class="fab fa-pagelines"></i>
-                                            <span class="ms-1 d-none d-sm-inline"> Liste des Liens vers des sites</span>
+                                        <i class="fas fa-link"></i>
+                                        <span class="ms-1 d-none d-sm-inline"> Liste des Liens vers des sites</span>
                                     </a>
                                 </li>
                                 <li>
@@ -247,8 +241,8 @@
                                 </li>
                                 <li>
                                     <a class="dropdown-item"  href="{{ path('app_photos_actions_assos_index') }}" class="nav-link px-sm-0 px-2">
-                                        <i class="fab fa-pagelines"></i>
-                                            <span class="ms-1 d-none d-sm-inline"> Texte Alternatif des photos des Actions Associatives</span>
+                                        <i class="fas fa-images"></i>
+                                        <span class="ms-1 d-none d-sm-inline"> Texte Alternatif des photos des Actions Associatives</span>
                                     </a>
                                 </li>  
                             </ul>
@@ -267,7 +261,32 @@
                                 <span class="ms-1 d-none d-sm-inline"> Projets Masters</span>
                             </a>
                         </li>
+{# === FIELD TRIPS ================================================= #}
 
+                        <li class="dropdown">
+                            <a href="#" class="nav-link dropdown-toggle px-sm-0 px-1" id="dropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fas fa-hiking"></i>
+                                <span class="ms-1 d-none d-sm-inline"> Sorties Universitaires</span>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdown">
+                                <li>
+                                    <a class="dropdown-item" href="{{ path('app_fieldtrips_index') }}">
+                                        <i class="fas fa-hiking"></i>
+                                        <span class="ms-1 d-none d-sm-inline"> Sorties Universitaires</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="{{ path('app_fieldtripphotos_index') }}" class="nav-link px-sm-0 px-2">
+                                        <i class="fas fa-photo-video"></i>
+                                        <span class="ms-1 d-none d-sm-inline"> Texte Alternatif des photos</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+{# === #}
                     </ul>
 
                     {# <div class="dropdown py-sm-4 mt-sm-auto ms-auto ms-sm-0 flex-shrink-1">

@@ -5,11 +5,13 @@ namespace App\Controller;
 use App\Entity\News;
 use App\Entity\Internships;
 use App\Entity\ActionsAssos;
+use App\Entity\Fieldtrips;
 use App\Repository\NewsRepository;
 use App\Repository\ParamsRepository;
 use App\Repository\PartnersRepository;
 use App\Repository\InternshipsRepository;
 use App\Repository\ActionsAssosRepository;
+use App\Repository\FieldtripsRepository;
 use App\Repository\SocialNetworksRepository;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -115,6 +117,30 @@ class MainController extends AbstractController
             'params' => $paramsRepository->findAll(),
             'social_networks' => $socialNetworksRepository->findAll(),
             'news' => $news,
+        ]);
+    }
+// ====== FIELD TRIPS =============================
+    /**
+     * @Route("/posterFieldtrips/indexPostersFieldtrips", name="posters_fieldtrips_index", methods={"GET"})
+     */
+    public function indexPostersFiledtrips(ParamsRepository $paramsRepository, SocialNetworksRepository $socialNetworksRepository, FieldtripsRepository $fieldtripsRepository): Response
+    {
+        return $this->render('postersFieldtrips/indexPostersFieldtrips.html.twig', [
+            'params' => $paramsRepository->findAll(),
+            'social_networks' => $socialNetworksRepository->findAll(),
+            'fieldtrips' => $fieldtripsRepository->findAll(),
+        ]);
+    }
+
+    /**
+     * @Route("/postersFiedltrips/showPostersFiedltrips/{id}", name="posters_fieldtrips_show", methods={"GET"})
+     */
+    public function showPostersFieldtrips(Fieldtrips $fieldtrips, ParamsRepository $paramsRepository, SocialNetworksRepository $socialNetworksRepository): Response
+    {
+        return $this->render('postersNews/showPostersNews.html.twig', [
+            'params' => $paramsRepository->findAll(),
+            'social_networks' => $socialNetworksRepository->findAll(),
+            'fieldtrips' => $fieldtrips,
         ]);
     }
 

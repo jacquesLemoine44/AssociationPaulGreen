@@ -1,0 +1,12 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}Nouvelle Photo{% endblock %}
+
+{% block body %}
+    <h1>Nouvelle Photo</h1>
+
+    {{ include('fieldtripphotos/_form.html.twig') }}
+
+    <a class="btn btn-grad btn-secondary2" href="{{ path('app_fieldtripphotos_index') }}">Retour</a>
+
+{% endblock %}

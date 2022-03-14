@@ -23,6 +23,25 @@
                 <th>Texte</th>
                 <td>{{ fieldtrip.textfieldtrip | raw }}</td>
             </tr>
+
+
+            <tr>
+                <th>Photos</th>
+                <td>   
+                    {% if app.request.attributes.get('_route') == 'app_fieldtrips_show' %}
+                        <div class="d-flex flex-row">
+                            {% for photo in fieldtrip.connectfieldtrip %}
+                                <div class="card me-2" style="width: 150px;">
+                                    <img src="{{ asset('/photosFieldtrips/'~photo.filefieldtripphoto) }}"
+                                        class="border border-2 rounded-3"
+                                        alt="{{ photo.altfieldtripphoto }}" width="150" height="150">  
+                                </div>
+                            {% endfor %}
+                        </div>
+                    {% endif %}        
+                </td> 
+            </tr>
+
         </tbody>
     </table>
 

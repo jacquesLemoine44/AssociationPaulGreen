@@ -1,14 +1,15 @@
-{% extends 'base.html.twig' %}
+{% extends 'admin.html.twig' %}
 
-{% block title %}Contacts index{% endblock %}
+{% block title %}Message de Contacts{% endblock %}
 
 {% block body %}
-    <h1>Contacts index</h1>
+    <h1>Messages Contacts</h1>
+
+    <a class="btn btn-grad btn-info2" href="{{ path('contacts_new') }}">Nouveau</a>
 
     <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
                 <th>SubjetContact</th>
                 <th>ContentContact</th>
                 <th>DateContact</th>
@@ -20,24 +21,22 @@
         <tbody>
         {% for contact in contacts %}
             <tr>
-                <td>{{ contact.id }}</td>
                 <td>{{ contact.subjetContact }}</td>
                 <td>{{ contact.contentContact }}</td>
                 <td>{{ contact.dateContact ? contact.dateContact|date('d/m/y H:i:s') : '' }}</td>
                 <td>{{ contact.nameContact }}</td>
                 <td>{{ contact.emailContact }}</td>
                 <td>
-                    <a href="{{ path('contacts_show', {'id': contact.id}) }}">show</a>
-                    <a href="{{ path('contacts_edit', {'id': contact.id}) }}">edit</a>
+                    <a class="btn btn-gard btn-primary2 me-1" href="{{ path('contacts_show', {'id': contact.id}) }}">Afficher</a>
+                    <a class="btn btn-grad btn-warnind2" href="{{ path('contacts_edit', {'id': contact.id}) }}">Modifier</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="7">no records found</td>
+                <td colspan="7">Aucune saisie</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('contacts_new') }}">Create new</a>
 {% endblock %}

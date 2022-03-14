@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{% extends 'admin.html.twig' %}
 
 {% block title %}Contacts{% endblock %}
 
@@ -8,35 +8,32 @@
     <table class="table">
         <tbody>
             <tr>
-                <th>Id</th>
-                <td>{{ contact.id }}</td>
-            </tr>
-            <tr>
-                <th>SubjetContact</th>
+                <th>Subjet</th>
                 <td>{{ contact.subjetContact }}</td>
             </tr>
             <tr>
-                <th>ContentContact</th>
+                <th>Contenu</th>
                 <td>{{ contact.contentContact }}</td>
             </tr>
             <tr>
-                <th>DateContact</th>
+                <th>Date</th>
                 <td>{{ contact.dateContact ? contact.dateContact|date('d/m/y H:i:s') : '' }}</td>
             </tr>
             <tr>
-                <th>NameContact</th>
+                <th>Nom</th>
                 <td>{{ contact.nameContact }}</td>
             </tr>
             <tr>
-                <th>EmailContact</th>
+                <th>Mail</th>
                 <td>{{ contact.emailContact }}</td>
             </tr>
         </tbody>
     </table>
 
-    <a href="{{ path('contacts_index') }}">back to list</a>
+    <a class="btn btn-gard btn-secondary2 me-2" href="{{ path('contacts_index') }}">Retour</a>
 
-    <a href="{{ path('contacts_edit', {'id': contact.id}) }}">edit</a>
+    <a class="btn btn-gard btn-warning2 me-2" href="{{ path('contacts_edit', {'id': contact.id}) }}">Modifier</a>
 
     {{ include('contacts/_delete_form.html.twig') }}
+
 {% endblock %}

@@ -40,7 +40,7 @@ class Fieldtrips
     private $textfieldtrip;
 
     /**
-     * @ORM\OneToMany(targetEntity=Fieldtripphotos::class, mappedBy="fieldstripsorigin")
+     * @ORM\OneToMany(targetEntity=Fieldtripphotos::class, mappedBy="fieldstripsorigin", cascade={"persist"}, orphanRemoval="true")
      */
     private $connectfieldtrip;
 

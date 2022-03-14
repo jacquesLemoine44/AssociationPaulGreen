@@ -4,11 +4,13 @@ namespace App\Controller;
 
 use App\Entity\Fieldtripphotos;
 use App\Form\FieldtripphotosType;
+use Doctrine\ORM\EntityManagerInterface;
 use App\Repository\FieldtripphotosRepository;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 /**
  * @Route("/fieldtripphotos")
@@ -21,29 +23,29 @@ class FieldtripphotosController extends AbstractController
     public function index(FieldtripphotosRepository $fieldtripphotosRepository): Response
     {
         return $this->render('fieldtripphotos/index.html.twig', [
-            'fieldtripphotos' => $fieldtripphotosRepository->findAll(),
+            'fieldtripphotos' => $fieldtripphotosRepository->findByTri2createQueryBuilder(),
         ]);
     }
 
-    /**
-     * @Route("/new", name="app_fieldtripphotos_new", methods={"GET", "POST"})
-     */
-    public function new(Request $request, FieldtripphotosRepository $fieldtripphotosRepository): Response
-    {
-        $fieldtripphoto = new Fieldtripphotos();
-        $form = $this->createForm(FieldtripphotosType::class, $fieldtripphoto);
-        $form->handleRequest($request);
+    // /**
+    //  * @Route("/new", name="app_fieldtripphotos_new", methods={"GET", "POST"})
+    //  */
+    // public function new(Request $request, FieldtripphotosRepository $fieldtripphotosRepository): Response
+    // {
+    //     $fieldtripphoto = new Fieldtripphotos();
+    //     $form = $this->createForm(FieldtripphotosType::class, $fieldtripphoto);
+    //     $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            $fieldtripphotosRepository->add($fieldtripphoto);
-            return $this->redirectToRoute('app_fieldtripphotos_index', [], Response::HTTP_SEE_OTHER);
-        }
+    //     if ($form->isSubmitted() && $form->isValid()) {
+    //         $fieldtripphotosRepository->add($fieldtripphoto);
+    //         return $this->redirectToRoute('app_fieldtripphotos_index', [], Response::HTTP_SEE_OTHER);
+    //     }
 
-        return $this->renderForm('fieldtripphotos/new.html.twig', [
-            'fieldtripphoto' => $fieldtripphoto,
-            'form' => $form,
-        ]);
-    }
+    //     return $this->renderForm('fieldtripphotos/new.html.twig', [
+    //         'fieldtripphoto' => $fieldtripphoto,
+    //         'form' => $form,
+    //     ]);
+    // }
 
     /**
      * @Route("/{id}", name="app_fieldtripphotos_show", methods={"GET"})
@@ -85,4 +87,8 @@ class FieldtripphotosController extends AbstractController
 
         return $this->redirectToRoute('app_fieldtripphotos_index', [], Response::HTTP_SEE_OTHER);
     }
+
+
+
+
 }

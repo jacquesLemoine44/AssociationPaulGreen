@@ -137,7 +137,7 @@ class MainController extends AbstractController
      */
     public function showPostersFieldtrips(Fieldtrips $fieldtrips, ParamsRepository $paramsRepository, SocialNetworksRepository $socialNetworksRepository): Response
     {
-        return $this->render('postersNews/showPostersNews.html.twig', [
+        return $this->render('postersFieldtrips/showPostersFieldtrips.html.twig', [
             'params' => $paramsRepository->findAll(),
             'social_networks' => $socialNetworksRepository->findAll(),
             'fieldtrips' => $fieldtrips,

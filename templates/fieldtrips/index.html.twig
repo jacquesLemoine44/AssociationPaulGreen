@@ -26,7 +26,17 @@
             <tr>
                 <td>{{ fieldtrip.datefieldtrip ? fieldtrip.datefieldtrip|date('d/m/y') : '' }}</td>
                 <td>{{ fieldtrip.titlefieldtrip }}</td>
-                <td>{{ fieldtrip.picturefieldtrip }}</td>
+
+                {# <td>{{ fieldtrip.picturefieldtrip }}</td> #}
+                <td>
+                    {% if (fieldtrip.picturefieldtrip) %} 
+                        <img src="{{ asset('photosFieldtrips/' ~ fieldtrip.picturefieldtrip) }}" width="100" 
+                            title="{{ fieldtrip.picturefieldtrip }}"
+                            alt="{{ fieldtrip.altpicturefieldtrip }}" >
+                    {% else %}
+                        <p><i class="fas fa-image"></i></p> 
+                    {% endif %}                     
+                </td>    
                 <td>
                     {# {{ fieldtrip.textfieldtrip | raw }} #}
                     {{ fieldtrip.textfieldtrip|striptags|u.truncate(50, '...') }}

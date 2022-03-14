@@ -40,13 +40,18 @@ class FieldtripsType extends AbstractType
                         'mimeTypesMessage' => 'Veuillez entrer un format de document valide',
                     ])
                 ],
-            ]) 
+            ])
+
+            ->add('altpicturefieldtrip', TextType::class, [
+                'label' => 'Texte alternatif de la Photo : ',
+                'required'=> true
+            ])
 
             ->add('textfieldtrip', CKEditorType::class, [
                 'label' => 'Texte long : ',
             ])
 
-            ->add('usersorigin', FileType::class,[
+            ->add('connectfieldtrip', FileType::class,[
                 'label' => false,
                 'multiple' => true,
                 'mapped' => false,

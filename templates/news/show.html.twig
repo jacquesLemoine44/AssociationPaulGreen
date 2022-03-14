@@ -35,19 +35,17 @@
                         {% endif %}   #}                    
                 </td>                      
             </tr>
+            
             <tr>
                 <th>Photos</th>
                 <td>   
-                    {# Si la route est "produits_edit on affiche les photos #}
                     {% if app.request.attributes.get('_route') == 'news_show' %}
                         <div class="d-flex flex-row">
                             {% for photo in news.newsPhotosNews %}
-                                <div class="" >
-                                    <img src="{{ asset('/photosNews/'~photo.photoNewPhoto) }}" alt="" width="150" height="150">  
-                                    {# On ajoute un lien permettant de supprimer une photo (sera géré en Ajax) #}
-                                    {# <a href="{{ path('news_delete_photo', {id: photo.id})}}" data-delete data-token="{{ csrf_token('delete' ~ photo.id )}}"> 
-                                    Supprimer
-                                    </a>  #}
+                                <div class="card me-2" style="width: 150px;">
+                                    <img src="{{ asset('/photosNews/'~photo.photoNewPhoto) }}"
+                                        class="border border-2 rounded-3"
+                                        alt="{{ photo.altNewsPhoto }}" width="150" height="150">  
                                 </div>
                             {% endfor %}
                         </div>

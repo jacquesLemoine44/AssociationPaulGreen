@@ -13,33 +13,34 @@
 				</div>
 			</div>
 
+			<hr class="mb-3">
 
-	<hr class="mb-3">
-	<div class="container">
-		<div class="row">
-			<div class="col-md-12">
-				<h5>Dates du stage :</h5>
-				<p>
-					du
-					{{ internships.endinternship ? internships.endinternship|date('d/m/y') : '' }}
-					au
-					{{ internships.startinternship ? internships.startinternship|date('d/m/y') : '' }}
-				</p>
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<h5>Dates du stage :</h5>
+						<p>
+							du
+							{{ internships.endinternship ? internships.endinternship|date('d/m/y') : '' }}
+							au
+							{{ internships.startinternship ? internships.startinternship|date('d/m/y') : '' }}
+						</p>
+					</div>
+				</div>
 			</div>
-		</div>
-	</div>
 
-	<hr class="mb-3">
-	<div class="container">
-		<div class="row">
-			<div class="col-md-12">
-				<h5>Lieu :</h5>
-				<p>{{ internships.placeintership }}</p>
+			<hr class="mb-3">
+
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<h5>Lieu :</h5>
+						<p>{{ internships.placeintership }}</p>
+					</div>
+				</div>
 			</div>
-		</div>
-	</div>
 
-	<hr class="mb-3">
+			<hr class="mb-3">
 
 			<div class="row">
 				<div class="col-md-12">
@@ -47,20 +48,20 @@
 				</div>
 			</div>
 
-	{% if (internships.linkinternship) %}
-		<hr class="mb-3">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-12">
-					<h5>Lien utile</h5>
-					<a class="btn btn-primary mb-3 mr-1" href="{{ internships.linkinternship }}">
-						<i class="fas fa-external-link-alt"></i>
-						{{ internships.linkinternship }}
-					</a>
+			{% if (internships.linkinternship) %}
+				<hr class="mb-3">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-12">
+							<h5>Lien utile</h5>
+							<a class="btn btn-grad btn-primary2 btn-sm mb-3 mr-1" href="{{ internships.linkinternship }}" target="_blank">
+								<i class="fas fa-external-link-alt"></i>
+								{{ internships.linkinternship }}
+							</a>
+						</div>
+					</div>
 				</div>
-			</div>
-		</div>
-	{% endif %}
+			{% endif %}
 
 
 		</div>

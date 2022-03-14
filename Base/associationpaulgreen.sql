@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 4.8.5
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : dim. 13 mars 2022 à 21:24
--- Version du serveur : 5.7.36
--- Version de PHP : 7.4.26
+-- Généré le :  lun. 14 mars 2022 à 15:59
+-- Version du serveur :  5.7.26
+-- Version de PHP :  7.2.18
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -18,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données : `associationpaulgreen`
+-- Base de données :  `associationpaulgreen`
 --
 
 -- --------------------------------------------------------
@@ -171,7 +172,26 @@ CREATE TABLE IF NOT EXISTS `fieldtripphotos` (
   `altfieldtripphoto` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `IDX_F09AAB91C1C7BE9B` (`fieldstripsorigin_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Déchargement des données de la table `fieldtripphotos`
+--
+
+INSERT INTO `fieldtripphotos` (`id`, `fieldstripsorigin_id`, `filefieldtripphoto`, `altfieldtripphoto`) VALUES
+(15, 1, '158b03c5df5bdc93959230d97ee4fc3a.jpg', 'Le pic aux loups'),
+(16, 1, 'ad868bd22c511ddfd3117b6496b2a401.jpg', NULL),
+(17, 1, '4951f78d432b8a707eddbcc7570917fb.webp', NULL),
+(18, 1, '39dffd32d7dbdcd443f84c7abd214d99.jpg', NULL),
+(19, 2, '96fb4df8f79214c918bbb21b927309cb.jpg', 'Les Grands Causses table'),
+(20, 2, 'd89319322b00a8a0961dbdb017a65e84.jpg', NULL),
+(21, 2, 'b263fb167bc727ca0c1db3cf7752c350.png', 'Le pic'),
+(22, 2, '44dcdf3cc9eae88ea91af5fc00c0cf49.jpg', NULL),
+(23, 3, '1b7693dbe6dbcc9641426099c178ce69.jpg', NULL),
+(24, 3, 'c1f811b070be42b64d53190e18df6265.jpg', NULL),
+(25, 3, 'b845ba2b88884483d13b548bba51e6fb.jpg', NULL),
+(26, 3, '73970bf672b341b616d6d2b21b598887.jpg', NULL),
+(27, 3, 'e0e3319aeb4afdb0af16e08173f4354f.jpg', NULL);
 
 -- --------------------------------------------------------
 
@@ -190,14 +210,16 @@ CREATE TABLE IF NOT EXISTS `fieldtrips` (
   `altpicturefieldtrip` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `IDX_E49A697B3231D76` (`usersorigin_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Déchargement des données de la table `fieldtrips`
 --
 
 INSERT INTO `fieldtrips` (`id`, `usersorigin_id`, `datefieldtrip`, `titlefieldtrip`, `picturefieldtrip`, `textfieldtrip`, `altpicturefieldtrip`) VALUES
-(1, NULL, '2022-04-20', 'Visite sur le Pic Saint Loup', 'imageMontagneMontpellier-622e33469280d.jpg', '<h2>Une randonn&eacute;e sur le Pic Saint Loup</h2>\r\n\r\n<p>Avis aux sportifs et aux amoureux de la nature ! Notre premi&egrave;re id&eacute;e de balade aux alentours de Montpellier prend la direction du&nbsp;<strong>Pic Saint Loup</strong>. Cet endroit est bien connu des Montpelli&eacute;rains et pour cause : le Pic Saint Loup peut &ecirc;tre aper&ccedil;u &agrave; peu pr&egrave;s partout lorsque l&#39;on sillonne les routes de la r&eacute;gion. Le Pic Saint Loup est m&ecirc;me visible de la mer ce qui lui vaut une comparaison avec la montagne Sainte Victoire.</p>\r\n\r\n<p>Le Pic Saint Loup est en effet&nbsp;<strong>une montagne entre les C&eacute;vennes et l&#39;H&eacute;rault qui culmine &agrave; 658 m d&#39;altitude.</strong>&nbsp;Situ&eacute; &agrave; 20 km au nord de Montpellier, le Pic Saint Loup est un endroit privil&eacute;gi&eacute; pour les personnes souhaitant gravir la montagne et atteindre son sommet. En haut du Pic Saint Loup, les courageux randonneurs pourront retrouver une grande croix de fer, un poste d&#39;observation ainsi que la chapelle d&#39;un ancien ermitage. Mais c&#39;est surtout pour&nbsp;<strong>l&#39;impressionnante vue sur toute la r&eacute;gion ainsi que sur la mer M&eacute;diterran&eacute;e</strong>&nbsp;que les habitants de la r&eacute;gion et les touristes se pressent &agrave; son sommet.</p>\r\n\r\n<p>Avec la montagne de l&#39;Hortus qui lui fait face au Nord tel un double miniature, le Pic Saint Loup est le site naturel prot&eacute;g&eacute; le plus beau de la r&eacute;gion des Garrigues.</p>\r\n\r\n<p>O&ugrave; aller : le Pic Saint Loup se trouve &agrave; environ&nbsp;<strong>45 minutes de route&nbsp;</strong>de Montpellier pr&egrave;s des villages de Valflaun&egrave;s et Cazevieille.</p>\r\n\r\n<p>Le meilleur moment pour d&eacute;couvrir le site : nous vous conseillons de privil&eacute;gier cette randonn&eacute;e&nbsp;<strong>au printemps ou en automne.</strong>&nbsp;L&#39;ascension du Pic demande d&eacute;j&agrave; un effort physique, inutile de vous compliquer la t&acirc;che en faisant cette randonn&eacute;e en plein soleil. Pensez d&#39;ailleurs &agrave; pr&eacute;voir une bouteille d&#39;eau et &eacute;ventuellement un encas.</p>\r\n\r\n<p>Bon &agrave; savoir : pour profiter encore un peu plus du lieu, nous vous conseillons de vous y rentre &agrave; l&#39;occasion des&nbsp;<strong>M&eacute;di&eacute;vales du Grand Pic Saint Loup</strong>&nbsp;qui se d&eacute;roule chaque ann&eacute;e et qui propose des animations autour des chevaliers.</p>', NULL);
+(1, NULL, '2022-04-20', 'Visite sur le Pic Saint Loup', 'imageMontagneMontpellier-622e33469280d.jpg', '<h2>Une randonn&eacute;e sur le Pic Saint Loup</h2>\r\n\r\n<p>Avis aux sportifs et aux amoureux de la nature ! Notre premi&egrave;re id&eacute;e de balade aux alentours de Montpellier prend la direction du&nbsp;<strong>Pic Saint Loup</strong>. Cet endroit est bien connu des Montpelli&eacute;rains et pour cause : le Pic Saint Loup peut &ecirc;tre aper&ccedil;u &agrave; peu pr&egrave;s partout lorsque l&#39;on sillonne les routes de la r&eacute;gion. Le Pic Saint Loup est m&ecirc;me visible de la mer ce qui lui vaut une comparaison avec la montagne Sainte Victoire.</p>\r\n\r\n<p>Le Pic Saint Loup est en effet&nbsp;<strong>une montagne entre les C&eacute;vennes et l&#39;H&eacute;rault qui culmine &agrave; 658 m d&#39;altitude.</strong>&nbsp;Situ&eacute; &agrave; 20 km au nord de Montpellier, le Pic Saint Loup est un endroit privil&eacute;gi&eacute; pour les personnes souhaitant gravir la montagne et atteindre son sommet. En haut du Pic Saint Loup, les courageux randonneurs pourront retrouver une grande croix de fer, un poste d&#39;observation ainsi que la chapelle d&#39;un ancien ermitage. Mais c&#39;est surtout pour&nbsp;<strong>l&#39;impressionnante vue sur toute la r&eacute;gion ainsi que sur la mer M&eacute;diterran&eacute;e</strong>&nbsp;que les habitants de la r&eacute;gion et les touristes se pressent &agrave; son sommet.</p>\r\n\r\n<p>Avec la montagne de l&#39;Hortus qui lui fait face au Nord tel un double miniature, le Pic Saint Loup est le site naturel prot&eacute;g&eacute; le plus beau de la r&eacute;gion des Garrigues.</p>\r\n\r\n<p>O&ugrave; aller : le Pic Saint Loup se trouve &agrave; environ&nbsp;<strong>45 minutes de route&nbsp;</strong>de Montpellier pr&egrave;s des villages de Valflaun&egrave;s et Cazevieille.</p>\r\n\r\n<p>Le meilleur moment pour d&eacute;couvrir le site : nous vous conseillons de privil&eacute;gier cette randonn&eacute;e&nbsp;<strong>au printemps ou en automne.</strong>&nbsp;L&#39;ascension du Pic demande d&eacute;j&agrave; un effort physique, inutile de vous compliquer la t&acirc;che en faisant cette randonn&eacute;e en plein soleil. Pensez d&#39;ailleurs &agrave; pr&eacute;voir une bouteille d&#39;eau et &eacute;ventuellement un encas.</p>\r\n\r\n<p>Bon &agrave; savoir : pour profiter encore un peu plus du lieu, nous vous conseillons de vous y rentre &agrave; l&#39;occasion des&nbsp;<strong>M&eacute;di&eacute;vales du Grand Pic Saint Loup</strong>&nbsp;qui se d&eacute;roule chaque ann&eacute;e et qui propose des animations autour des chevaliers.</p>', 'Pic Saint Loup'),
+(2, NULL, '2022-06-12', 'Les Grands Causses', 'causse-table-d-orientation-du-calyar-e-brendle-622f3e7cd4b15.jpg', '<h2>Arides, aust&egrave;res et fascinants</h2>\r\n\r\n<p><span style=\"font-size:18px\"><span style=\"font-family:Calibri,sans-serif\">On a l&rsquo;impression que derri&egrave;re cette muraille c&eacute;venole s&rsquo;&eacute;l&egrave;vent d&rsquo;autres monts semblables.</span></span></p>\r\n\r\n<p><span style=\"font-size:18px\"><span style=\"font-family:Calibri,sans-serif\">Mais c&rsquo;est compter sans la diversit&eacute; de nos paysages !</span></span></p>\r\n\r\n<p><span style=\"font-size:18px\"><span style=\"font-family:Calibri,sans-serif\">Derri&egrave;re S&eacute;ranne et C&eacute;vennes se dressent les Grands Causses, et notamment ceux du Larzac et de Blandas. Un autre univers, fait d&rsquo;herbages, de murets de pierres s&egrave;ches, o&ugrave; depuis toujours, l&rsquo;eau est un tr&eacute;sor jalousement gard&eacute;.</span></span></p>\r\n\r\n<p><span style=\"font-size:18px\"><span style=\"font-family:Calibri,sans-serif\">C&rsquo;est aussi le pays des grands espaces aux roches ruiniformes, et des gorges sauvages. Sous les plateaux karstiques, on ne compte plus les grottes et autres cavit&eacute;s souterraines. Ici, c&#39;est le paradis des milans, vautours, faucons et autres circa&egrave;tes. Certaines esp&egrave;ces sont tr&egrave;s rares et menac&eacute;es. Mais il n&rsquo;est pas rare d&rsquo;observer ces majestueux rapaces dans les cieux des Grands Causses.</span></span></p>', 'Arides, austères et fascinants'),
+(3, NULL, '2022-05-11', 'Tour du pic et de la grotte d’Anjeau', 'anjeau-adret-46cd8-622f4dc327fe1.jpg', '<h3><u><strong>Aller&nbsp;:</strong></u></h3>\r\n\r\n<p>Au parking de l&rsquo;<strong>accrobranche&nbsp;</strong>prendre la piste de l&rsquo;autre c&ocirc;t&eacute; de la route.</p>\r\n\r\n<p>Suivre le chemin direction la&nbsp;<strong>grotte d&rsquo;Anjeau</strong>&nbsp;et le&nbsp;<strong>pied d&rsquo;Anjeau</strong>&nbsp;(panneau indicateur).</p>\r\n\r\n<p>Apr&egrave;s une demi-heure de marche au lieu dit la&nbsp;<strong>Baraquette&nbsp;</strong>prendre le sentier de droite et passer la barri&egrave;re marqu&eacute;e d&rsquo;un balisage jaune. On suit alors la piste par l&rsquo;adret de la montagne dans les&nbsp;<strong>buis et ch&ecirc;nes</strong>. La flore est de type m&eacute;diterran&eacute;enne.</p>\r\n\r\n<p>Suivre le sentier et le balisage direction le&nbsp;<strong>pied d&rsquo;Anjeau</strong>.</p>\r\n\r\n<p>Au pied d&rsquo;Anjeau prendre soit&nbsp;:</p>\r\n\r\n<ul>\r\n	<li>Direction la grotte d&rsquo;Anjeau, puis faire demi-tour,</li>\r\n	<li>Direction Montdardier pour faire la boucle (&agrave; l&rsquo;ubac de la montagne).</li>\r\n</ul>\r\n\r\n<p><em><strong>PS</strong>&nbsp;: pour aller au&nbsp;<strong>Roc Castel</strong>&nbsp;de la Baraquette, continuer tout droit. Un sentier&nbsp;<strong>escarp&eacute;</strong>&nbsp;vous attend. Arriv&eacute; au sommet, belle vue sur les Causses et le pic d&rsquo;Anjeau. C&rsquo;est un cul de sac, redescendre par le m&ecirc;me c&ocirc;t&eacute;.</em></p>\r\n\r\n<h3><u><strong>Retour&nbsp;:</strong></u></h3>\r\n\r\n<p><strong>Au pied d&rsquo;Anjeau</strong>&nbsp;prendre la direction&nbsp;<strong>Montdardier</strong>. Le sentier est bois&eacute; de&nbsp;<strong>pins noirs d&rsquo;Autriche</strong>&nbsp;et les&nbsp;<strong>coucous&nbsp;</strong>(primev&egrave;res &agrave; longues tiges) sont l&eacute;gions.</p>\r\n\r\n<p>Arriv&eacute; de nouveau &agrave; la Baraquette, redescendre la piste direction l&rsquo;accrobranche et le parking.</p>', 'Pic Anjeau');
 
 -- --------------------------------------------------------
 
@@ -335,7 +357,6 @@ CREATE TABLE IF NOT EXISTS `news_photos` (
 --
 
 INSERT INTO `news_photos` (`id`, `news_photosnews_id`, `photo_new_photo`, `alt_news_photo`) VALUES
-(2, 1, '946324f3f2fcd6f0c1042741183c6336.jpg', NULL),
 (4, 1, '718775e299582db28e74472f1d62113f.jpg', NULL),
 (6, 1, 'e5da51c89d49420bc4d7b2d6a43475b8.jpg', 'Jardin de Fleurs'),
 (7, 1, '3644919366666479b311826d2cbde259.jpg', 'Jardin de légumes'),
@@ -420,14 +441,13 @@ CREATE TABLE IF NOT EXISTS `photos_actions_assos` (
   `altphotoactionsasso` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `IDX_5C62086334798B59` (`photoactasso_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Déchargement des données de la table `photos_actions_assos`
 --
 
 INSERT INTO `photos_actions_assos` (`id`, `photoactasso_id`, `photoactionsasso`, `altphotoactionsasso`) VALUES
-(2, 1, 'c5a1d98a179fabdc315f17e071d19035.jpg', NULL),
 (3, 1, '7e37aac187fe96a458da3ebd1c77db2b.jpg', 'installé dans le quartier buffet'),
 (4, 1, '41dd7aa9cf634b78ade0916c94e748d0.jpg', NULL),
 (5, 1, '4f139a742c54d8b424ed0845ab735ee0.jpg', 'Boite dans le quartier 22'),
@@ -443,7 +463,8 @@ INSERT INTO `photos_actions_assos` (`id`, `photoactasso_id`, `photoactionsasso`,
 (19, 2, '3385b88069db69487e903451793c9bf4.jpg', NULL),
 (20, 2, '93259346f0017e25b55a26d272ec7dbf.jpg', NULL),
 (21, 2, '568726e35761797a76b23896a47a8bc3.jpg', NULL),
-(22, 2, '07a3e7da032dc2cbbd2395622c915ba0.jpg', NULL);
+(22, 2, '07a3e7da032dc2cbbd2395622c915ba0.jpg', NULL),
+(23, 1, '11993ec500cbe755e0e1acac78bc4db5.jpg', NULL);
 
 -- --------------------------------------------------------
 

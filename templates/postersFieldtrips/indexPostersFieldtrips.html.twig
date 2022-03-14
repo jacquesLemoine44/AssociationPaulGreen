@@ -20,42 +20,49 @@
 
 						{% if ((xCpt % 2) != 0) %}
 							<div class="col-md-6 clCard">
+								<p>{{ xCpt }}</p>
 								<img src="{{ asset('photosFieldtrips/' ~ fieldtrip.picturefieldtrip) }}" 
 									class="W-100" 
 									height="350px" 	
 									alt="{{ fieldtrip.altpicturefieldtrip }}"
 									title="{{ fieldtrip.picturefieldtrip }}">
+								<div class="fw-light fst-italic">
+									{{ fieldtrip.altpicturefieldtrip }}
+								</div>	
 							</div>
 						{% endif %}
 
 						<div class="col-md-6">
 							<h3>{{ fieldtrip.titlefieldtrip }}</h3>
-							<br>
-							{{ fieldtrip.datefieldtrip ? fieldtrip.datefieldtrip|date('d/m/y') : '' }}
+							<p><i>Sortie du <span>{{ fieldtrip.datefieldtrip ? fieldtrip.datefieldtrip|date('d/m/y') : '' }}</span><i></p>
+							<div class="row mt-1">
+								<div class="col-md-12 border border-2 border-secondary rounded-2">
+									{{ fieldtrip.textfieldtrip|striptags|u.truncate(600, '...') }}
+									{# {{ fieldtrip.textfieldtrip |length > 500 ? fieldtrip.textfieldtrip |slice(0,500)|raw : fieldtrip.textfieldtrip|raw }} ... #}
+									<br>
+									<a class="btn btn-grad btn-primary2 btn-sm" 
+										href="{{ path('posters_fieldtrips_show', {'id': fieldtrip.id}) }}"
+										title="Allez lire la totalité de l'article...">
+										Lire la suite et voir plus de photos ...
+									</a>
+								</div>
+							</div>
 						</div>
 
 						{% if ((xCpt % 2) == 0) %}
-							<div class="col-md-6 clCcard">
+							<div class="col-md-6 clCard">
+								<p>{{ xCpt }}</p>
 								<img src="{{ asset('photosFieldtrips/' ~ fieldtrip.picturefieldtrip) }}" 
-									class="W-100" 
-									height="350px" 
-									alt="{{ fieldtrip.altpicturefieldtrip }}"
-									title="{{ fieldtrip.pictureFieldtrip }}">
+										class="W-100" 
+										height="350px" 	
+										alt="{{ fieldtrip.altpicturefieldtrip }}"
+										title="{{ fieldtrip.picturefieldtrip }}">
+								<div class="fw-light fst-italic">
+									{{ fieldtrip.altpicturefieldtrip }}
+								</div>	
 							</div>
 						{% endif %}
 
-					</div>
-
-					<div class="row mt-1">
-						<div class="col-md-12 border border-2 border-secondary">
-							{{ fieldtrip.textfieldtrip |length > 300 ? fieldtrip.textfieldtrip |slice(0,300)|raw : fieldtrip.textfieldtrip|raw }}
-							<br>
-							<a class="btn btn-primary btn-sm" 
-								href="{{ path('posters_fieldtrips_show', {'id': fieldtrip.id}) }}"
-								title="Allez lire la totalité de l'article...">
-								Lire la suite et voir plus de photos ...
-							</a>
-						</div>
 					</div>
                     
 				</div>

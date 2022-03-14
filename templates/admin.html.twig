@@ -58,7 +58,6 @@
                             <p>Bonjour {{ app.user.firstNameUser }}</p>
                     </div>
 
-
                     <a href="/" class="d-flex align-items-center pb-sm-3 mb-md-0 me-md-auto text-black text-decoration-none">
                         <span class="fs-5">A<span class="d-none d-sm-inline">dministration</span></span>
                     </a>
@@ -72,6 +71,7 @@
                             </a>
                         </li>
                         <li class="divider w-100 clLigne"></li>
+{# === #}
 
 {# === Params #}
                         
@@ -88,36 +88,53 @@
                                     </a>
                                 </li>
                                 <li><hr class="dropdown-divider"></li>
-      <li>
-          <a class="dropdown-item" href="{{ path('params_politiqueShow', {'id': render(controller('App\\Controller\\MainController::recupParamId')) }) }}">
-        <i class="fas fa-laptop-house"></i>
-              <span class="ms-1 d-none d-sm-inline"> Mentions Légales / Politique de confidentialité</span>
-          </a>
-      </li>
-      <li><hr class="dropdown-divider"></li>
-      <li>
-          <a class="dropdown-item" href="{{ path('params_assosshow', {'id': render(controller('App\\Controller\\MainController::recupParamId')) }) }}">
-        <i class="fab fa-pagelines"></i>
-              <span class="ms-1 d-none d-sm-inline"> Présentation de l'association</span>
-          </a>
-      </li>
-        <li><hr class="dropdown-divider"></li>
-      <li>
-          <a class="dropdown-item" href="{{ path('params_mastersshow', {'id': render(controller('App\\Controller\\MainController::recupParamId')) }) }}">
-            <i class="fas fa-spa"></i>
-              <span class="ms-1 d-none d-sm-inline"> Présentation du Master</span>
-          </a>
-      </li>
-    </ul>
-</li>
+                                <li>
+                                    <a class="dropdown-item" href="{{ path('params_politiqueShow', {'id': render(controller('App\\Controller\\MainController::recupParamId')) }) }}">
+                                        <i class="fas fa-laptop-house"></i>
+                                        <span class="ms-1 d-none d-sm-inline"> Mentions Légales / Politique de confidentialité</span>
+                                    </a>
+                                </li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li>
+                                    <a class="dropdown-item" href="{{ path('params_assosshow', {'id': render(controller('App\\Controller\\MainController::recupParamId')) }) }}">
+                                        <i class="fab fa-pagelines"></i>
+                                        <span class="ms-1 d-none d-sm-inline"> Présentation de l'association</span>
+                                    </a>
+                                </li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li>
+                                    <a class="dropdown-item" href="{{ path('params_mastersshow', {'id': render(controller('App\\Controller\\MainController::recupParamId')) }) }}">
+                                        <i class="fas fa-spa"></i>
+                                        <span class="ms-1 d-none d-sm-inline"> Présentation du Master</span>
+                                    </a>
+                                </li>
+                                <li><hr class="dropdown-divider"></li>
+                                {# === Réseaux Sociaux === #}
+                                <li>
+                                    <a class="dropdown-item" href="{{ path('social_networks_index') }}" class="nav-link px-sm-0 px-2"> 
+                                        <i class="fas fa-network-wired"></i>
+                                        <span class="ms-1 d-none d-sm-inline">Réseaux Sociaux</span>
+                                    </a>
+                                </li>
+                                {# === #}
+
+
+
+                            </ul>
+                        </li>
 {# === #}
+
+{# === Contacts === #}
+
                         <li>
-                            <a href="{{ path('social_networks_index') }}" class="nav-link px-sm-0 px-2"> 
-                                <i class="fas fa-network-wired"></i>
-                                <span class="ms-1 d-none d-sm-inline">Réseaux Sociaux</span>
+                            <a href="{{ path('contacts_index') }}" class="nav-link px-sm-0 px-2"> 
+                                <i class="fas fa-mail-bulk"></i>
+                                <span class="ms-1 d-none d-sm-inline">Contacts</span>
                             </a>
-                        </li>                        
-{# === Adhérents #}
+                        </li>
+{# === #}
+
+{# === Adhérents === #}
                         
                         <li class="dropdown">
                           <a href="#" class="nav-link dropdown-toggle px-sm-0 px-1" id="dropdown" data-bs-toggle="dropdown" aria-expanded="false">
@@ -169,8 +186,8 @@
                             </ul>
                         </li>
 {# === #}
-                        <li class="divider w-100 clLigne">
-                        </li>
+                        <li class="divider w-100 clLigne"></li>
+
 {# === News ================================================= #}
 
                         <li class="dropdown">
@@ -201,7 +218,7 @@
                         <li class="divider w-100 clLigne"></li>
                         <li>
                             <a href="{{ path('themes_index') }}" class="nav-link px-sm-0 px-2">
-                                 <i class="fab fa-affiliatetheme"></i>
+                                <i class="fab fa-affiliatetheme"></i>
                                 <span class="ms-1 d-none d-sm-inline"> Thèmes</span>
                             </a>
                         </li>

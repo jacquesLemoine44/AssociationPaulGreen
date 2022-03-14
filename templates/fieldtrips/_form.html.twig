@@ -1,5 +1,53 @@
 {{ form_start(form) }}
-    {{ form_widget(form) }}
+
+
+    {# {{ form_widget(form) }} #}
+
+    {{ form_row(form.titlefieldtrip) }}
+    {{ form_row(form.datefieldtrip) }}
+
+    <div class="mb-3">
+        {{ form_label(form.picturefieldtrip) }}
+        {% if app.request.attributes.get('_route') == 'app_fieldtrips_edit' %}
+            {% if (fieldtrip.picturefieldtrip) %}
+                {% set xlogo = fieldtrip.picturefieldtrip %}
+                <img src="{{ asset('photosFieldtrips/' ~ xlogo) }}" width="100" alt="{{ fieldtrip.altpicturefieldtrip }}">
+            {% endif %} 
+        {% endif %} 
+        {{ form_widget(form.picturefieldtrip) }}
+    </div>    
+    {{ form_row(form.altpicturefieldtrip) }}
+    {{ form_row(form.textfieldtrip) }}
+
+    {{ form_row(form.connectfieldtrip) }}
+
+    {% if app.request.attributes.get('_route') == 'app_fieldtrips_edit' %}
+        <h2>Photos</h2>
+        <div class="d-flex flex-row">
+            {% for photo in fieldtrip.connectfieldtrip %}
+                <div class="card me-2" style="width: 150px;" id="titi{{photo.id}}">
+                    <img class="card-img-top" 
+                        src="{{ asset('/photosFieldtrips/'~photo.filefieldtripphoto) }}" 
+                        alt="{{ photo.altfieldtripphoto }}" width="150" height="150">                    
+                    <a href="{{ path('app_fieldtrips_delete_photo', {id: photo.id})}}" 
+                            data-delete data-token="{{ csrf_token('delete' ~ photo.id )}}" 
+                            class="btn btn-grad btn-danger2">
+                        Supprimer
+                    </a>                          
+                    {# <div class="card-body p-0 d-flex flex-column justify-content-between">
+                        <p class="card-text fst-italic">{{ photo.altfieldtripphoto }}</p>
+                        <div class="card-footer">
+                            <a href="{{ path('app_fieldtrips_delete_photo', {id: photo.id})}}" 
+                                    data-delete data-token="{{ csrf_token('delete' ~ photo.id )}}" 
+                                    class="btn btn-grad btn-danger2">
+                                Supprimer
+                            </a>                
+                        </div>                
+                    </div> #}
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
 
     <hr class="mb-3">
     <div class="d-flex flex-row my-2">

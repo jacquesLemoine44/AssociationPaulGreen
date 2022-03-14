@@ -10,11 +10,85 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
+// use App\Entity\Images;
+// use App\Form\EditProfileType;
+// use App\Service\ManagePicturesService;
+// use Symfony\Component\HttpFoundation\JsonResponse;
+// use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+use Dompdf\Dompdf;
+use Dompdf\Options;
+
 /**
  * @Route("/internships")
  */
 class InternshipsController extends AbstractController
 {
+
+
+    // /**
+    //  * @Route("/internships/data", name="interships_data")
+    //  */
+    // public function internshipsData()
+    // {
+    //     return $this->render('internships/data.html.twig');
+    // }
+
+    // /**
+    //  * @Route("/{id}", name="app_internships_show", methods={"GET"})
+    //  */
+    // public function show(Internships $internship): Response
+    // {
+    //     return $this->render('internships/show.html.twig', [
+    //         'internship' => $internship,
+    //     ]);
+    // }
+
+
+    /**
+     * @Route("/internships/data/download/{id}", name="internships_data_download", methods={"GET"})
+     */
+    public function internshipsDataDownload(Internships $internship)
+    {
+        // On définit les options du PDF
+        $pdfOptions = new Options();
+        // Police par défaut
+        $pdfOptions->set('defaultFont', 'Arial');
+        $pdfOptions->setIsRemoteEnabled(true);
+
+        // On instancie Dompdf
+        $dompdf = new Dompdf($pdfOptions);
+        $context = stream_context_create([
+            'ssl' => [
+                'verify_peer' => FALSE,
+                'verify_peer_name' => FALSE,
+                'allow_self_signed' => TRUE
+            ]
+        ]);
+        $dompdf->setHttpContext($context);
+
+        // On génère le html
+        $html = $this->renderView('postersInternships/download.html.twig',[
+            'internships' => $internship,
+        ]);
+
+        $dompdf->loadHtml($html);
+        $dompdf->setPaper('A4', 'portrait');
+        $dompdf->render();
+
+        // On génère un nom de fichier
+        // $fichier = 'user-data-'. $this->getUser()->getId() .'.pdf';
+ 
+        $fichier = 'stage.pdf';
+
+        // On envoie le PDF au navigateur
+        $dompdf->stream($fichier, [
+            'Attachment' => true
+        ]);
+
+        return new Response();
+    }
+
+
     /**
      * @Route("/", name="app_internships_index", methods={"GET"})
      */

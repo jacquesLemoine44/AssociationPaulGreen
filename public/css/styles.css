@@ -105,11 +105,6 @@
   color: #198754;
 }
 
-.blockBody {
-  min-height: 500px;
-  padding-top: 50px;
-}
-
 .clLogo {
   z-index: 1;
   position: relative;
@@ -121,7 +116,38 @@
   background-color: #25cef0;
 }
 
-.sousHeader {
+.flecheHaut {
+  height: 60px;
+  width: 60px;
+  background: #77b447;
+  color: white;
+  border-radius: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  cursor: pointer;
+}
+
+.icone {
+  width: 50px;
+  border-radius: 50%;
+}
+
+.blockBody {
+  min-height: 500px;
+  padding-top: 120px;
+}
+
+.blockBody .sousHeader {
   padding-bottom: 50px;
   padding-top: 0px;
   display: -webkit-box;
@@ -138,7 +164,7 @@
           align-items: center;
 }
 
-.sousHeader .fenetreTitre {
+.blockBody .sousHeader .fenetreTitre {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

@@ -112,11 +112,6 @@
     color: #198754;
 }
 
-.blockBody {
-    min-height: 500px;
-    padding-top: 50px;
-}
-
 .clLogo {
     z-index: 1;
     position: relative;
@@ -128,34 +123,58 @@
     background-color: #25cef0;
 }
 
-.sousHeader {
-    // background-image: url(../images/header.jpg);
-    // background-position: center;
-    // background-repeat: no-repeat;
-    // background-size: cover;
-    // background-origin: content-box;
-    // background-attachment: scroll;
-    // opacity: 0.8;
-    // 
-    padding-bottom: 50px;
-    // 
-    padding-top: 0px;
-    // color: white;
+.flecheHaut {
+    height: 60px;
+    width: 60px;
+    background: #77b447;
+    color: white;
+    border-radius: 50%;
     display: flex;
-    flex-direction: row;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
-    .fenetreTitre {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    cursor: pointer;
+}
+
+.icone {
+    width: 50px;
+    border-radius: 50%;
+}
+
+.blockBody {
+    min-height: 500px;
+    padding-top: 120px;
+    .sousHeader {
+        // background-image: url(../images/header.jpg);
+        // background-position: center;
+        // background-repeat: no-repeat;
+        // background-size: cover;
+        // background-origin: content-box;
+        // background-attachment: scroll;
+        // opacity: 0.8;
+        // 
+        padding-bottom: 50px;
+        // 
+        padding-top: 0px;
+        // color: white;
         display: flex;
-        flex-direction: column;
-        justify-content: center;
+        flex-direction: row;
+        justify-content: space-around;
         align-items: center;
-        background-color: rgba(198, 207, 212, 0.5);
-        // opacity: 0.5;
+        .fenetreTitre {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: rgba(198, 207, 212, 0.5);
+            // opacity: 0.5;
+        }
+        // .clZIndex {
+        //     // z-index: 0;
+        // }
     }
-    // .clZIndex {
-    //     // z-index: 0;
-    // }
 }
 
 .clNews {

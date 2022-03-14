@@ -19,15 +19,15 @@ myModal.addEventListener('shown.bs.modal', function() {
     myInput.focus()
 })
 
-// // ================================
+// ================================
 
-// // ============= Bouton Remonter
-// const btn = document.querySelector('.flecheHaut');
-// btn.addEventListener('click', () => {
-//     window.scrollTo({
-//         top: 0,
-//         left: 0,
-//         behavior: "smooth"
-//     })
-// })
-// // ================================
+// ============= Bouton Remonter
+const btn = document.querySelector('.flecheHaut');
+btn.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            left: 0,
+            behavior: "smooth"
+        })
+    })
+    // ================================

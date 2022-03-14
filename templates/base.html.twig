@@ -61,7 +61,6 @@
 
 	</head>
 
-
 {# 
 	Bundles
 
@@ -83,12 +82,13 @@ colorion.co
 
 	<body>
 
-		<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+		<nav class="navbar navbar-expand-lg navbar-light bg-logoBlue fixed-top">
 			<div class="container-fluid">
 				<a class="navbar-brand ff-Gelasio fs-4" href="{{ path('home') }}">
-					<img src="{{ asset('icones/logo_PaulGreen_2a.jpeg')}}" 
-						alt="{{ params[0].titleParam }}" width="80" height="100" 
-						class="d-inline-block align-text-top clLogo border">
+				{# clLogo border bg-light #}
+					<img src="{{ asset('icones/logo.png')}}" 
+						alt="{{ params[0].titleParam }}" width="60" height="40" 
+						class="d-inline-block align-text-top ">
 					{{ params[0].titleParam }}
 					<img src="{{ asset('up/ukraine-90.png')}}" alt="Association Paul Green" width="30" height="30" 
 						class="d-inline-block align-text-top">
@@ -245,10 +245,9 @@ colorion.co
 
 		<footer id="Footer">
 
-			{# <div class="flecheHaut">
+			<div class="flecheHaut">
 				<img src="{{asset('icones/sticker_rond_icone_fleche_vers_le_haut_540.jpg')}}" class="icone">
-			</div> #}
-
+			</div>
 
 			<section class="clFooter" id="APropos">
 				<div class="container ">
@@ -261,9 +260,9 @@ colorion.co
 						    <p class="mb-0">{{ params[0].cpParam }} {{ params[0].townParam }}</p>
 							<p class="mb-0">{{ params[0].emailParam }}</p>
 							<br>
-								<div class="bg-white d-flex justify-content-center rounded-3">
-									<img src="{{ asset('photosParams/' ~ params[0].logoParam) }}" alt="{{ params[0].titleParam }}" width="250" height="150" class="imgClass2">
-								</div>
+							<div class="bg-white d-flex justify-content-center rounded-3">
+								<img src="{{ asset('photosParams/' ~ params[0].logoParam) }}" alt="{{ params[0].titleParam }}" width="250" height="150" class="imgClass2">
+							</div>
 						</div>
 
 						<div class="col-xl-4">

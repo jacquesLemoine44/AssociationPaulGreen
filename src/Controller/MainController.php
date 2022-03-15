@@ -22,8 +22,9 @@ use App\Entity\Contacts;
 use App\Form\ContactsType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
-
-
+// ==== Mail
+use Symfony\Component\Mime\Email;
+use Symfony\Component\Mailer\MailerInterface;
 
 
 class MainController extends AbstractController
@@ -38,7 +39,8 @@ class MainController extends AbstractController
         ActionsAssosRepository $actionsAssosRepository, 
         PartnersRepository $partnersRepository,
         Request $request, 
-        EntityManagerInterface $entityManager
+        EntityManagerInterface $entityManager,
+        MailerInterface $mailer
         ): Response
     {
 
@@ -53,6 +55,26 @@ class MainController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
+            $contactFormData = $form->getData();
+            // dump($contactFormData);
+            // die();
+
+            $Email=$contactFormData->getEmailContact();
+            $SubjetContact=$contactFormData->getSubjetContact();
+            $ContentContact=$contactFormData->getContentContact();
+
+            $message = (new Email())
+                ->from($Email)
+                ->to('MonMail@gmail.com')
+                ->subject($SubjetContact)
+                ->text('Sender : '.$Email.\PHP_EOL.$ContentContact,'text/plain');
+
+            $mailer->send($message);
+
+            $this->addFlash('message', 'Votre message a été envoyé avec succès.');
+            // =====
+
             $contact->setDateContact($date);  
             $entityManager->persist($contact);
             $entityManager->flush();

@@ -4,30 +4,37 @@
 {{ form_end(form) }} #}
 
 {# <h2 class="text-center text-decoration-underline">Nous Contactez ...</h2> #}
-<h2 class="">Nous Contactez ...</h2>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <h2 class="">Nous Contactez ...</h2>
+        </div>
+    </div>
+</div>
 
 <hr class="mb-3">
 {# <div class="d-flex flex-row my-2"> #}
 
-
-{% for message in app.flashes('message') %}
-    <div class="p-3 my-2 rounded-2 success">{{ message }}</div>
-{% endfor %}
-
-
 <div class="container">
+
     <div class="row">
-        <div class="col-md-6">
-        {{ form_start(form) }}
+
+            <div class="col-md-6">
+
+                {{ form_start(form) }}
 {# <pre>
     {{ dump(form) }}
     var_dump(form)
 </pre> #}
-        <h2 class="text-center text-decoration-underline">Formulaire de Contact</h2>
+
+{# {{ form_row(our_form.fullName, {'attr': {'class': 'form-control'}}) }} #}
+
+               {# <h2 class="text-center text-decoration-underline">Formulaire de Contact</h2> #}
+               
         <table class="table"> 
             <tbody>
                 <tr>
-                    <th>Contact :</th>
+                    <th>Nom et Prénom :</th>
                     {# <td><input type="text" class="form-control form-control-lg" id="colFormLabelLg" placeholder="" value="{{ contact.emailContact }}"></td> #}
                         <td>{{ form_widget(form.nameContact) }}  <td>
                 </tr>
@@ -60,13 +67,23 @@
             </tbody>
         </table>
 
-        <button class="btn btn-grad btn-success2">{{ button_label|default('Sauver') }}</button>
+            <button class="btn btn-grad btn-success2">{{ button_label|default('Sauver') }}</button>
 
-        {{ form_end(form) }}    
+            {{ form_end(form) }}    
+
+            {% for message in app.flashes('message') %}
+                <div class="alert alert-success alert-dismissible fade show">
+                        {{ message }}
+                    <button class="btn-close" type="button" data-bs-dismiss="alert" aria-label="close"></button>
+                </div>
+    	    {% endfor %}
 
         </div>
+
     </div>
+
 </div>
+
 
 
 

@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\Contacts;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -22,7 +23,7 @@ class ContactsType extends AbstractType
                 'label' => 'Votre Nom : ', 
                 'required'=> true 
             ])
-            ->add('emailContact', TextType::class, [
+            ->add('emailContact', EmailType::class, [
                 'label' => 'Mail : ', 
                 'required'=> true
             ])        
@@ -34,6 +35,7 @@ class ContactsType extends AbstractType
                 'label' => 'Contenu : ',
                 'required'   => true,
                 'empty_data' => 'Contenu vide',
+                'attr' => ['rows' => 6],
             ])
 
             // ->add('dateContact')            

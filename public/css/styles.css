@@ -292,7 +292,8 @@ footer .clIconeEnLigne .clRond {
       -ms-flex-align: center;
           align-items: center;
   border-radius: 50%;
-  border: 2px solid white;
+  border: 2px solid #77b447;
+  color: #bfcb29;
   padding: 5px;
   margin: 5px;
   height: 40px;

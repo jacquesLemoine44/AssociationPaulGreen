@@ -16,20 +16,61 @@ use App\Repository\SocialNetworksRepository;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+// ==== Contacts
+use DateTime;
+use App\Entity\Contacts;
+use App\Form\ContactsType;
+use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\HttpFoundation\Request;
+
+
+
 
 class MainController extends AbstractController
 {
     /**
      * @Route("/", name="home")
      */
-    public function index(ParamsRepository $paramsRepository, SocialNetworksRepository $socialNetworksRepository, NewsRepository $newsRepository, ActionsAssosRepository $actionsAssosRepository, PartnersRepository $partnersRepository): Response
+    public function index(
+        ParamsRepository $paramsRepository, 
+        SocialNetworksRepository $socialNetworksRepository, 
+        NewsRepository $newsRepository, 
+        ActionsAssosRepository $actionsAssosRepository, 
+        PartnersRepository $partnersRepository,
+        Request $request, 
+        EntityManagerInterface $entityManager
+        ): Response
     {
-        return $this->render('main/index.html.twig', [
+
+// =============================
+// venu du new Contact
+// +++ , Request $request, EntityManagerInterface $entityManager): Response
+
+        $contact = new Contacts();
+        $form = $this->createForm(ContactsType::class, $contact);
+        $date = new DateTime();
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $contact->setDateContact($date);  
+            $entityManager->persist($contact);
+            $entityManager->flush();
+
+            return $this->redirectToRoute('home', [], Response::HTTP_SEE_OTHER);
+        }
+
+        // return $this->render('main/index.html.twig', [
+        return $this->renderForm('main/index.html.twig', [
+            'form' => $form,
+            'contact' => $contact,
+            // =====
             'params' => $paramsRepository->findAll(),
             'social_networks' => $socialNetworksRepository->findAll(),
             'theNews' => $newsRepository->LastFiveNews(),
             'theActionsAssos' => $actionsAssosRepository->LastFiveActionsAssos(),
             'thePartners' => $partnersRepository->findAll(),
+            'serveur' => $_SERVER,
             'controller_name' => 'MainController',
         ]);
     }

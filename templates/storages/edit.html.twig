@@ -1,0 +1,14 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}Modification d'un Stockage{% endblock %}
+
+{% block body %}
+    <h1>Modification d'un Stockage</h1>
+
+    {{ include('storages/_form.html.twig', {'button_label': 'Valider'}) }}
+
+    <a class="btn btn-grad btn-secondary2 me-2" href="{{ path('app_storages_index') }}">Retour</a>
+
+    {{ include('storages/_delete_form.html.twig') }}
+
+{% endblock %}

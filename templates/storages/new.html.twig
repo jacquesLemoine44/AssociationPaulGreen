@@ -1,0 +1,12 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}Nouveau Stockage{% endblock %}
+
+{% block body %}
+    <h1>Nouveau Stockage</h1>
+
+    {{ include('storages/_form.html.twig') }}
+
+    <a class="btn btn-grad btn-secondary2" href="{{ path('app_storages_index') }}">Retour</a>
+
+{% endblock %}

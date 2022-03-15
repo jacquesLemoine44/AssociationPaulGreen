@@ -242,6 +242,12 @@
   width: 200px;
 }
 
+.contacts {
+  background-color: #597692;
+  padding-top: 50px;
+  padding-bottom: 50px !important;
+}
+
 #cke_1_contents {
   min-height: 400px;
 }

@@ -34,6 +34,7 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
         $this->usersactionsasso = new ArrayCollection();
         $this->usersnew = new ArrayCollection();
         $this->connectUser = new ArrayCollection();
+        $this->usersequipments = new ArrayCollection();
         }
 
     /**
@@ -163,6 +164,11 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
      * @ORM\OneToMany(targetEntity=Fieldtrips::class, mappedBy="usersorigin")
      */
     private $connectUser;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Equipments::class, mappedBy="equipmentsusers")
+     */
+    private $usersequipments;
 
     public function getId(): ?int
     {
@@ -529,6 +535,36 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
             // set the owning side to null (unless already changed)
             if ($connectUser->getUsersorigin() === $this) {
                 $connectUser->setUsersorigin(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Equipments>
+     */
+    public function getUsersequipments(): Collection
+    {
+        return $this->usersequipments;
+    }
+
+    public function addUsersequipment(Equipments $usersequipment): self
+    {
+        if (!$this->usersequipments->contains($usersequipment)) {
+            $this->usersequipments[] = $usersequipment;
+            $usersequipment->setEquipmentsusers($this);
+        }
+
+        return $this;
+    }
+
+    public function removeUsersequipment(Equipments $usersequipment): self
+    {
+        if ($this->usersequipments->removeElement($usersequipment)) {
+            // set the owning side to null (unless already changed)
+            if ($usersequipment->getEquipmentsusers() === $this) {
+                $usersequipment->setEquipmentsusers(null);
             }
         }
 

@@ -1,0 +1,47 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}Le Matérirel / Les Equipements{% endblock %}
+
+{% block body %}
+    <h1>Le Matérirel / Les Equipements</h1>
+
+    <div>
+        <a class="btn btn-grad btn-info2" href="{{ path('app_equipments_new') }}">Nouveau</a>
+    </div>
+    <hr class="mb-3">
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Equipement</th>
+                <th>Quantité</th>
+                <th>Quantité mini</th>
+                <th>Date du rebus</th>
+                <th>Date du Prêt</th>
+                <th>Emprunteur</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for equipment in equipments %}
+            <tr>
+                <td>{{ equipment.nameequipement }}</td>
+                <td>{{ equipment.quantityequipment }}</td>
+                <td>{{ equipment.quantityminiequipment }}</td>
+                <td>{{ equipment.daterebusequipment ? equipment.daterebusequipment|date('Y-m-d') : '' }}</td>
+                <td>{{ equipment.loanequipment ? equipment.loanequipment|date('Y-m-d') : '' }}</td>
+                <td>{{ equipment.borrowerequipment }}</td>
+                <td>
+                    <a class="btn btn-grad btn-primary2 me-1" href="{{ path('app_equipments_show', {'id': equipment.id}) }}">Afficher</a>
+                    <a class="btn btn-grad btn-warning2" href="{{ path('app_equipments_edit', {'id': equipment.id}) }}">Modifier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="8">Aucune Saisie</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

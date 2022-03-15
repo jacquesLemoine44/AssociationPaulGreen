@@ -1,0 +1,39 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}Le Stockage{% endblock %}
+
+{% block body %}
+    <h1>Le Stockage</h1>
+
+    <div>
+        <a class="btn btn-grad btn-info2" href="{{ path('app_storages_new') }}">Nouveau</a>
+    </div>
+    <hr class="mb-3">
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Le Stockage</th>
+                <th>Description</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for storage in storages %}
+            <tr>
+                <td>{{ storage.namestorage }}</td>
+                <td>{{ storage.descriptionstorage }}</td>
+                <td>
+                    <a class="btn btn-grad btn-primary2 me-1" href="{{ path('app_storages_show', {'id': storage.id}) }}">Afficher</a>
+                    <a class="btn btn-grad btn-warning2" href="{{ path('app_storages_edit', {'id': storage.id}) }}">Modifier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">Aucune Saisie</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

@@ -1,4 +1,80 @@
-{{ form_start(form) }}
+{# {{ form_start(form) }}
     {{ form_widget(form) }}
     <button class="btn btn-grad btn-success2">{{ button_label|default('Sauver') }}</button>
-{{ form_end(form) }}
+{{ form_end(form) }} #}
+
+{# <h2 class="text-center text-decoration-underline">Nous Contactez ...</h2> #}
+<h2 class="">Nous Contactez ...</h2>
+
+<hr class="mb-3">
+{# <div class="d-flex flex-row my-2"> #}
+
+
+{% for message in app.flashes('message') %}
+    <div class="p-3 my-2 rounded-2 success">{{ message }}</div>
+{% endfor %}
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+        {{ form_start(form) }}
+{# <pre>
+    {{ dump(form) }}
+    var_dump(form)
+</pre> #}
+        <h2 class="text-center text-decoration-underline">Formulaire de Contact</h2>
+        <table class="table"> 
+            <tbody>
+                <tr>
+                    <th>Contact :</th>
+                    {# <td><input type="text" class="form-control form-control-lg" id="colFormLabelLg" placeholder="" value="{{ contact.emailContact }}"></td> #}
+                        <td>{{ form_widget(form.nameContact) }}  <td>
+                </tr>
+                <tr>
+                <tr>
+                    <th>Mail :</th>
+                    <td>{{ form_widget(form.emailContact) }} </td>
+                    {# <input type="email" class="form-control form-control-lg" id="colFormLabelLg" placeholder="" value="{{ contact.emailContact }}"> #}
+                </td>
+                </tr>
+                <tr>
+                    <th>Sujet :</th>
+                    <td> {{ form_widget(form.subjetContact) }} </td>
+                    {# <td><input type="text" class="form-control form-control-lg" id="colFormLabelLg" placeholder="" value="{{ contact.sujetContact }}"></td> #}
+                </tr>
+                <tr>
+                    <th>Contenu :</th>
+                    <td>{{ form_widget(form.contentContact) }} </td>
+                    {# <td><input type="text" class="form-control form-control-lg" id="colFormLabelLg" placeholder="" value="{{ contact.contenuContact }}"></td> #}
+                    {# <textarea name="contenuContact" class="form-control" id="exampleFormControlTextarea1" rows="3">"{{ contact.contenuContact }}"</textarea> #}
+                </tr>
+                {# <tr> #}
+                    {# <th>Date :</th> #}
+                    {# <td>{{ form_widget(form.dateContact, { 'attr': {'class': 'w-25 text-center', 'disabled':true} }) }} </td> #}
+                 {# </tr>                  #}
+
+                   {# <td>{{ form_widget(form.dateContact|format_datetime('full', 'full', locale='fr'), { 'attr': {'class': 'w-25 text-center', 'disabled':true} }) }} </td> #}
+                    {# {{ form_widget(form.updateParam, { 'attr': {'class': 'w-25 text-center', 'disabled':true} }) }}  #}
+            
+            </tbody>
+        </table>
+
+        <button class="btn btn-grad btn-success2">{{ button_label|default('Sauver') }}</button>
+
+        {{ form_end(form) }}    
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+    
+
+
+
+
+

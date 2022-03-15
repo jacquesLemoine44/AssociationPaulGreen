@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  lun. 14 mars 2022 à 15:59
+-- Généré le :  mar. 15 mars 2022 à 16:03
 -- Version du serveur :  5.7.26
 -- Version de PHP :  7.2.18
 
@@ -81,6 +81,30 @@ INSERT INTO `actions_assos_themes` (`actions_assos_id`, `themes_id`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `affectations`
+--
+
+DROP TABLE IF EXISTS `affectations`;
+CREATE TABLE IF NOT EXISTS `affectations` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nameaffectation` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `descriptionaffectation` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Déchargement des données de la table `affectations`
+--
+
+INSERT INTO `affectations` (`id`, `nameaffectation`, `descriptionaffectation`) VALUES
+(1, 'Jardin', 'Jardinnage'),
+(2, 'Hôtel à Insectes', 'Rue du bourdon'),
+(3, 'Bibliothèque de rue', 'Rue du Bouc inquiet'),
+(4, 'Locaux de l\'association', 'nos locaux');
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `contacts`
 --
 
@@ -93,7 +117,14 @@ CREATE TABLE IF NOT EXISTS `contacts` (
   `name_contact` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `email_contact` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Déchargement des données de la table `contacts`
+--
+
+INSERT INTO `contacts` (`id`, `subjet_contact`, `content_contact`, `date_contact`, `name_contact`, `email_contact`) VALUES
+(1, 'fnkefnaf', 'avfarezvgfraeg', '2022-03-15 15:45:12', 'machin bidule', 'jsdada@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -121,7 +152,8 @@ INSERT INTO `doctrine_migration_versions` (`version`, `executed_at`, `execution_
 ('DoctrineMigrations\\Version20220311175108', '2022-03-11 17:52:30', 3411),
 ('DoctrineMigrations\\Version20220312110100', '2022-03-12 11:02:01', 648),
 ('DoctrineMigrations\\Version20220313112124', '2022-03-13 11:21:42', 4698),
-('DoctrineMigrations\\Version20220313121552', '2022-03-13 12:16:04', 1004);
+('DoctrineMigrations\\Version20220313121552', '2022-03-13 12:16:04', 1004),
+('DoctrineMigrations\\Version20220315100438', '2022-03-15 10:04:58', 392);
 
 -- --------------------------------------------------------
 
@@ -157,6 +189,38 @@ INSERT INTO `doc_actions_assos` (`id`, `titledocactionsasso`, `linkdocactionsass
 (12, 'lien C', 'htttp C', 2),
 (13, 'lien D', 'ddddd', 2),
 (14, 'BDFBDFBAAAAAAAAAAAAA', 'DFBDFBSSQDVQSD', 3);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `equipments`
+--
+
+DROP TABLE IF EXISTS `equipments`;
+CREATE TABLE IF NOT EXISTS `equipments` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `equipementsstorages_id` int(11) DEFAULT NULL,
+  `equipmentsaffectations_id` int(11) DEFAULT NULL,
+  `equipmentsusers_id` int(11) DEFAULT NULL,
+  `nameequipement` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `quantityequipment` double DEFAULT NULL,
+  `quantityminiequipment` double DEFAULT NULL,
+  `daterebusequipment` date DEFAULT NULL,
+  `loanequipment` date DEFAULT NULL,
+  `borrowerequipment` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `IDX_6F6C25445A0A5C2C` (`equipementsstorages_id`),
+  KEY `IDX_6F6C2544F5B36E0C` (`equipmentsaffectations_id`),
+  KEY `IDX_6F6C254433B541AC` (`equipmentsusers_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Déchargement des données de la table `equipments`
+--
+
+INSERT INTO `equipments` (`id`, `equipementsstorages_id`, `equipmentsaffectations_id`, `equipmentsusers_id`, `nameequipement`, `quantityequipment`, `quantityminiequipment`, `daterebusequipment`, `loanequipment`, `borrowerequipment`) VALUES
+(1, 1, 4, NULL, 'Video Projecteur', 1, 1, NULL, NULL, NULL),
+(2, NULL, 1, NULL, 'Pelle', 1, 1, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -498,6 +562,28 @@ INSERT INTO `social_networks` (`id`, `params_id`, `social_network`, `logo_social
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `storages`
+--
+
+DROP TABLE IF EXISTS `storages`;
+CREATE TABLE IF NOT EXISTS `storages` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `namestorage` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `descriptionstorage` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Déchargement des données de la table `storages`
+--
+
+INSERT INTO `storages` (`id`, `namestorage`, `descriptionstorage`) VALUES
+(1, 'Armoire N°2 Local Assos', NULL),
+(2, 'Armoire N°1 Local Assos', 'Armoire du fond');
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `themes`
 --
 
@@ -597,6 +683,14 @@ ALTER TABLE `actions_assos_themes`
 --
 ALTER TABLE `doc_actions_assos`
   ADD CONSTRAINT `FK_7530D4D8C55FE119` FOREIGN KEY (`docactasso_id`) REFERENCES `actions_assos` (`id`);
+
+--
+-- Contraintes pour la table `equipments`
+--
+ALTER TABLE `equipments`
+  ADD CONSTRAINT `FK_6F6C254433B541AC` FOREIGN KEY (`equipmentsusers_id`) REFERENCES `users` (`id`),
+  ADD CONSTRAINT `FK_6F6C25445A0A5C2C` FOREIGN KEY (`equipementsstorages_id`) REFERENCES `storages` (`id`),
+  ADD CONSTRAINT `FK_6F6C2544F5B36E0C` FOREIGN KEY (`equipmentsaffectations_id`) REFERENCES `affectations` (`id`);
 
 --
 -- Contraintes pour la table `fieldtripphotos`

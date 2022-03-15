@@ -1,0 +1,28 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}Storages{% endblock %}
+
+{% block body %}
+    <h1>Storages</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Stockage</th>
+                <td>{{ storage.namestorage }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ storage.descriptionstorage }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <hr class="mb-3">
+    <div class="d-flex flex-row my-2">
+    
+        <a class="btn btn-grad btn-secondary2 me-2" href="{{ path('app_storages_index') }}">Retour</a>
+        <a class="btn btn-grad btn-warning2 me-2" href="{{ path('app_storages_edit', {'id': storage.id}) }}">Modifier</a>
+        {{ include('storages/_delete_form.html.twig') }}
+
+{% endblock %}

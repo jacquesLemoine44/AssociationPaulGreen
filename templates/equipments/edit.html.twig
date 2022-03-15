@@ -1,0 +1,14 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}Modification de Matériel/Equipement{% endblock %}
+
+{% block body %}
+    <h1>Modification de Matériel/Equipement</h1>
+
+    {{ include('equipments/_form.html.twig', {'button_label': 'Valider'}) }}
+
+    <a class="btn btn-grad btn-secondary2 me-2" href="{{ path('app_equipments_index') }}">Retour</a>
+
+    {{ include('equipments/_delete_form.html.twig') }}
+
+{% endblock %}

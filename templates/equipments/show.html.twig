@@ -1,0 +1,44 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}Equipments{% endblock %}
+
+{% block body %}
+    <h1>Equipments</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Equipement / Matériel</th>
+                <td>{{ equipment.nameequipement }}</td>
+            </tr>
+            <tr>
+                <th>Quantité</th>
+                <td>{{ equipment.quantityequipment }}</td>
+            </tr>
+            <tr>
+                <th>Quantité mini</th>
+                <td>{{ equipment.quantityminiequipment }}</td>
+            </tr>
+            <tr>
+                <th>Date rebus</th>
+                <td>{{ equipment.daterebusequipment ? equipment.daterebusequipment|date('d-m-Y') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Date du prêt</th>
+                <td>{{ equipment.loanequipment ? equipment.loanequipment|date('d-m-Y') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Emprunteur</th>
+                <td>{{ equipment.borrowerequipment }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <hr class="mb-3">
+    <div class="d-flex flex-row my-2">
+    
+        <a class="btn btn-grad btn-secondary2 me-2" href="{{ path('app_equipments_index') }}">Retour</a>
+        <a class="btn btn-grad btn-warning2 me-2" href="{{ path('app_equipments_edit', {'id': equipment.id}) }}">Modifier</a>
+        {{ include('equipments/_delete_form.html.twig') }}
+
+{% endblock %}

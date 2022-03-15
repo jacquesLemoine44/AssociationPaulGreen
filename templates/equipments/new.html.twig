@@ -1,0 +1,12 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}Nouveau Matériel / Nouveau Equipement{% endblock %}
+
+{% block body %}
+    <h1>Nouveau Matériel / Nouveau Equipement</h1>
+
+    {{ include('equipments/_form.html.twig') }}
+
+    <a class="btn btn-grad btn-secondary2" href="{{ path('app_equipments_index') }}">Retour</a>
+
+{% endblock %}

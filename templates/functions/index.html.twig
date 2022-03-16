@@ -16,6 +16,7 @@
             <tr>
                 <th>Fonctions </th>
                 <th>Description</th>
+                <th>Niveau Hiérarchie</th>                    
                 <th>actions</th>
             </tr>
         </thead>
@@ -24,6 +25,7 @@
             <tr>
                 <td>{{ function.mission }}</td>
                 <td>{{ function.descriptionFunction }}</td>
+                <td>{{ function.levelFunction }}</td>
                 <td>
                     <a class="btn btn-grad btn-primary2 me-1 mb-1" href="{{ path('functions_show', {'id': function.id}) }}">Afficher</a>
                     <a class="btn btn-grad btn-warning2" href="{{ path('functions_edit', {'id': function.id}) }}">Modifier</a>

@@ -105,6 +105,11 @@
   color: #198754;
 }
 
+.clBureau img {
+  width: 150px !important;
+  height: 150px !important;
+}
+
 .clLogo {
   z-index: 1;
   position: relative;

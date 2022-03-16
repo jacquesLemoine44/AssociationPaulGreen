@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  mer. 16 mars 2022 à 16:04
+-- Généré le :  mar. 15 mars 2022 à 16:03
 -- Version du serveur :  5.7.26
 -- Version de PHP :  7.2.18
 
@@ -153,11 +153,7 @@ INSERT INTO `doctrine_migration_versions` (`version`, `executed_at`, `execution_
 ('DoctrineMigrations\\Version20220312110100', '2022-03-12 11:02:01', 648),
 ('DoctrineMigrations\\Version20220313112124', '2022-03-13 11:21:42', 4698),
 ('DoctrineMigrations\\Version20220313121552', '2022-03-13 12:16:04', 1004),
-('DoctrineMigrations\\Version20220315100438', '2022-03-15 10:04:58', 392),
-('DoctrineMigrations\\Version20220316090600', '2022-03-16 09:06:06', 346),
-('DoctrineMigrations\\Version20220316091426', '2022-03-16 09:14:30', 273),
-('DoctrineMigrations\\Version20220316093154', '2022-03-16 09:32:01', 156),
-('DoctrineMigrations\\Version20220316102813', '2022-03-16 10:28:31', 136);
+('DoctrineMigrations\\Version20220315100438', '2022-03-15 10:04:58', 392);
 
 -- --------------------------------------------------------
 
@@ -300,20 +296,17 @@ CREATE TABLE IF NOT EXISTS `functions` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `mission` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `description_function` longtext COLLATE utf8mb4_unicode_ci,
-  `level_function` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Déchargement des données de la table `functions`
 --
 
-INSERT INTO `functions` (`id`, `mission`, `description_function`, `level_function`) VALUES
-(1, 'Président', 'Dirige l\'association', 1),
-(2, 'Trésorier', 'Trésorier de l\'association.\r\nGère les comptes', 4),
-(3, 'Secrétaire', 'S\'occupe de l\'ensemble du courrier,\r\nDoit être capable de gérer le site', 2),
-(4, 'Trésorier Adjoint', 'Contenu vide', 5),
-(5, 'Secrétaire Adjoint', 'Contenu vide', 3);
+INSERT INTO `functions` (`id`, `mission`, `description_function`) VALUES
+(1, 'Président', 'Dirige l\'association'),
+(2, 'Trésorier', 'Trésorier de l\'association.\r\nGère les comptes'),
+(3, 'Secrétaire', 'S\'occupe de l\'ensemble du courrier,\r\nDoit être capable de gérer le site');
 
 -- --------------------------------------------------------
 
@@ -540,24 +533,6 @@ INSERT INTO `photos_actions_assos` (`id`, `photoactasso_id`, `photoactionsasso`,
 -- --------------------------------------------------------
 
 --
--- Structure de la table `reset_password_request`
---
-
-DROP TABLE IF EXISTS `reset_password_request`;
-CREATE TABLE IF NOT EXISTS `reset_password_request` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `user_id` int(11) NOT NULL,
-  `selector` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `hashed_token` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `requested_at` datetime NOT NULL COMMENT '(DC2Type:datetime_immutable)',
-  `expires_at` datetime NOT NULL COMMENT '(DC2Type:datetime_immutable)',
-  PRIMARY KEY (`id`),
-  KEY `IDX_7CE748AA76ED395` (`user_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
 -- Structure de la table `social_networks`
 --
 
@@ -664,12 +639,12 @@ CREATE TABLE IF NOT EXISTS `users` (
 --
 
 INSERT INTO `users` (`id`, `email`, `roles`, `password`, `name_user`, `first_name_user`, `address1_user`, `address2_user`, `cp_user`, `town_user`, `phone_user`, `photo_user`, `study_user`, `year_menbership_user`, `newsletters_news_user`, `newsletter_intership_user`, `newsletter_assos_user`, `contactinfo_user`) VALUES
-(1, 'jacques.lemoine44@gmail.com', '[\"ROLE_ADMIN\"]', '$2y$13$J0SuX.xFvuo4lMEXWL95y.LVJ/37KEv1qBFGbpICydxmJ478DbiWO', 'Lemoine Président', 'Jacques', 'adresse 1', 'xxxxxxxxxxxxxx', '44600', 'ssssssssssss', '0202020202', 'images-1-621c9f28dd97c.jpg', 'sss', 1990, 1, 1, 1, 1),
-(2, '11111@gmail.fr', '[\"ROLE_USER\"]', '123456', 'TITI Secrétaire', 'Justine', '1131111', '11111', '2222', '311', '0203040506', 'images-2-6218a357a2759.jpg', '454', 1980, 0, 0, 0, 0),
+(1, 'jacques.lemoine44@gmail.com', '[\"ROLE_ADMIN\"]', '$2y$13$J0SuX.xFvuo4lMEXWL95y.LVJ/37KEv1qBFGbpICydxmJ478DbiWO', 'Lemoine', 'Jacques', 'adresse 1', 'xxxxxxxxxxxxxx', '44600', 'ssssssssssss', '1225544dd', 'images-1-621c9f28dd97c.jpg', 'sss', 1990, 1, 1, 1, 1),
+(2, '11111@gmail.fr', '[\"ROLE_USER\"]', '123456', 'tiit', 'Justine', '1131111', '11111', '2222', '311', '02', 'images-2-6218a357a2759.jpg', '454', 1980, 0, 0, 0, 0),
 (3, '2222222222@ffff.fr', '[\"ROLE_USER\"]', '8888', 'machin', 'Elodie', '1212', '3333', '6666', '33131', '32223323', 'dd429bd538bb996555801baf470c8b24-6218a3622e193.jpg', '1111', 555, 0, 0, 0, 0),
 (4, 'toto@gmail.com', '[\"ROLE_USER\"]', '$2y$13$16wFlmPUlGGrQhxgwgIrlu835Q3oVhLz8/W0WY1AA7iBG5z8AdZt.', 'Machin', 'Micheline', 'adresse 1', 'xxxxxxxxxxxxxx', '44600', 'ssssssssssss', 's22ss3s33s3', 'depositphotos-62275193-stock-photo-young-woman-portrait-621ceef17da7f.jpg', 'sss', 1980, 1, 1, 1, 1),
-(5, 'quentin.barnard@gmail.com', '[\"ROLE_USER\"]', '$2y$13$DfiN.ryCdJ5qF2.7cVlP0.xsH9LIiHkNMEE3vFx2lc4tlIV82jrP6', 'Barnard', 'Quentin', 'adresse 1', 'xxxxxxxxxxxxxx', '44600', 'ssssssssssss', '0102030405', 'istockphoto-462535397-612x612-621e322dc0c2f.jpg', '1987', 1987, 1, 1, 1, 1),
-(6, 'pierre@gmail.com', '[\"ROLE_USER\"]', '$2y$13$xek0fFhXoO/LlAcjAzNwnulB5PB3fdKaBkiLFQ.6uJ2jV43i3kwo.', 'Bidule Trésorier et Trésorier Adjoint', 'pierre', 'adresse 1', 'xxxxxxxxxxxxxx', '44600', 'ssssssssssss', '0212121212', 'images-621e349a1d1db.jpg', 'sss', 1987, 1, 1, 1, 1);
+(5, 'titi@gmail.com', '[\"ROLE_USER\"]', '$2y$13$DfiN.ryCdJ5qF2.7cVlP0.xsH9LIiHkNMEE3vFx2lc4tlIV82jrP6', 'essai', 'rezgrgggg', 'adresse 1', 'xxxxxxxxxxxxxx', '44600', 'ssssssssssss', 's22ss3s33s3', 'istockphoto-462535397-612x612-621e322dc0c2f.jpg', '1987', 1987, 1, 1, 1, 1),
+(6, 'pierre@gmail.com', '[\"ROLE_USER\"]', '$2y$13$xek0fFhXoO/LlAcjAzNwnulB5PB3fdKaBkiLFQ.6uJ2jV43i3kwo.', 'bidule', 'pierre', 'adresse 1', 'xxxxxxxxxxxxxx', '44600', 'ssssssssssss', '0212121212', 'images-621e349a1d1db.jpg', 'sss', 1987, 1, 1, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -685,17 +660,6 @@ CREATE TABLE IF NOT EXISTS `users_functions` (
   KEY `IDX_25D157ED67B3B43D` (`users_id`),
   KEY `IDX_25D157ED9011893B` (`functions_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Déchargement des données de la table `users_functions`
---
-
-INSERT INTO `users_functions` (`users_id`, `functions_id`) VALUES
-(1, 1),
-(2, 3),
-(5, 2),
-(6, 2),
-(6, 4);
 
 --
 -- Contraintes pour les tables déchargées
@@ -769,12 +733,6 @@ ALTER TABLE `partners`
 --
 ALTER TABLE `photos_actions_assos`
   ADD CONSTRAINT `FK_5C62086334798B59` FOREIGN KEY (`photoactasso_id`) REFERENCES `actions_assos` (`id`);
-
---
--- Contraintes pour la table `reset_password_request`
---
-ALTER TABLE `reset_password_request`
-  ADD CONSTRAINT `FK_7CE748AA76ED395` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
 
 --
 -- Contraintes pour la table `social_networks`

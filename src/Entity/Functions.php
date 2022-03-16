@@ -34,6 +34,11 @@ class Functions
      */
     private $users;
 
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $levelFunction;
+
     public function __construct()
     {
         $this->users = new ArrayCollection();
@@ -91,6 +96,18 @@ class Functions
         if ($this->users->removeElement($user)) {
             $user->removeFunctionUser($this);
         }
+
+        return $this;
+    }
+
+    public function getLevelFunction(): ?int
+    {
+        return $this->levelFunction;
+    }
+
+    public function setLevelFunction(?int $levelFunction): self
+    {
+        $this->levelFunction = $levelFunction;
 
         return $this;
     }

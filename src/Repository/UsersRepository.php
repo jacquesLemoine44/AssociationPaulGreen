@@ -51,6 +51,42 @@ class UsersRepository extends ServiceEntityRepository implements PasswordUpgrade
         ;
     }
 
+
+// SELECT users.name_user, users.first_name_user, users.email, functions.*
+// FROM users INNER JOIN (functions RIGHT JOIN users_functions ON functions.id = users_functions.functions_id) ON users.id = users_functions.users_id
+// ORDER BY functions.level_function, users.name_user, users.first_name_user
+
+public function findOffice()
+    {
+            $entityManager = $this->getEntityManager();
+            $query = $entityManager->createQuery(
+                    'SELECT u, f
+                    FROM App\Entity\Users u
+                    INNER JOIN u.functionUser f
+                    ORDER BY f.levelFunction, u.nameUser, u.firstNameUser'
+            );
+
+            return $query->getResult();
+}    
+
+
+    // // src/AppBundle/Entity/ProductRepository.php
+    // //...
+    //   public function findOneByIdJoinedToCategory(int $productId): ?Product
+    //     {
+    //         $entityManager = $this->getEntityManager();
+    
+    //         $query = $entityManager->createQuery(
+    //             'SELECT p, c
+    //             FROM App\Entity\Product p
+    //             INNER JOIN p.category c
+    //             WHERE p.id = :id'
+    //         )->setParameter('id', $productId);
+    
+    //         return $query->getOneOrNullResult();
+    //     }
+
+
     // /**
     //  * @return Users[] Returns an array of Users objects
     //  */

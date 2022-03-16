@@ -5,6 +5,15 @@
     padding: 0;
 }
 
+// {# bleu #92d3ff #}
+// {# vert #bfcb29; #}
+// {# vert + #77b447 #}
+// {# vert ++ #26671d #}
+$logoBlue: #92d3ff;
+$logoGreen0: #bfcb29;
+$logoGreen1: #77b447;
+$logoGreen2: #26671d;
+// 
 .bg-info2 {
     background-color: #a4deea;
 }
@@ -14,24 +23,24 @@
 }
 
 .bg-infoSuccess2 {
-    background-image: linear-gradient(to top, #77b447, 50%, #92d3ff);
+    background-image: linear-gradient(to top, $logoGreen1, 50%, $logoBlue);
 }
 
 // BG suivant LOGO
 .bg-logoBlue {
-    background-color: #92d3ff;
+    background-color: $logoBlue;
 }
 
 .bg-logoGreen0 {
-    background-color: #bfcb29;
+    background-color: $logoGreen0;
 }
 
 .bg-logoGreen1 {
-    background-color: #77b447;
+    background-color: $logoGreen1;
 }
 
 .bg-logoGreen2 {
-    background-color: #26671d;
+    background-color: $logoGreen2;
 }
 
 // font-family: 'Gelasio', serif; 
@@ -40,7 +49,7 @@
     font-family: 'Parisienne', cursive;
     font-size: 350%;
     font-weight: bold;
-    color: #26671d;
+    color: $logoGreen2;
 }
 
 .ff-Gelasio {
@@ -50,10 +59,6 @@
     color: black;
 }
 
-// {# bleu #92d3ff #}
-// {# vert #bfcb29; #}
-// {# vert + #77b447 #}
-// {# vert ++ #26671d #}
 // LES BOUTONS =============================================
 // ===========
 // 
@@ -112,6 +117,13 @@
     color: #198754;
 }
 
+.clBureau {
+    img {
+        width: 150px!important;
+        height: 150px!important;
+    }
+}
+
 .clLogo {
     z-index: 1;
     position: relative;
@@ -126,7 +138,7 @@
 .flecheHaut {
     height: 60px;
     width: 60px;
-    background: #77b447;
+    background: $logoGreen1;
     color: white;
     border-radius: 50%;
     display: flex;
@@ -313,8 +325,8 @@ footer {
             justify-content: center;
             align-items: center;
             border-radius: 50%;
-            border: 2px solid #77b447;
-            color: #bfcb29;
+            border: 2px solid $logoGreen1;
+            color: $logoGreen0;
             padding: 5px;
             margin: 5px;
             height: 40px;

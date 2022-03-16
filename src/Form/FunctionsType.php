@@ -4,10 +4,12 @@ namespace App\Form;
 
 use App\Entity\Functions;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\TextareaType;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\IntegerType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+
 
 class FunctionsType extends AbstractType
 {
@@ -23,7 +25,14 @@ class FunctionsType extends AbstractType
                 'required'   => false,
                 'empty_data' => 'Contenu vide',
             ])
+            ->add('levelFunction', IntegerType::class, [
+                'label' => 'Niveau Hiérachie : ',
+                'required'=> false,
+                'attr' => array('style' => 'width: 100px')
+            ])  
+            // {'attr': {'size': '50'}}) }}          
             // ->add('users')
+            // ->add('nom', 'text', array('attr' => array('size' => '10')))
         ;
     }
 

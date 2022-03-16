@@ -24,7 +24,7 @@
         {% for user in users %}
             <tr>
                 <td>
-                    {{ user.nameUser }} {{ user.firstNameUser }} <br>
+                    <b>{{ user.nameUser }} {{ user.firstNameUser }} </b> <br>
                     <i class="fas fa-at"></i> {{ user.email }}<br>
                     <i class="fas fa-phone-square-alt"></i>  {{ user.phoneUser }} <br>
                     {{ user.roles ? user.roles|json_encode : '' }}</td>

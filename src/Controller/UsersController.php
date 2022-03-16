@@ -34,6 +34,21 @@ class UsersController extends AbstractController
     }
 
     /**
+     * @Route("/Office", name="office_index", methods={"GET"})
+     */
+    public function office(UsersRepository $usersRepository,
+                            ParamsRepository $paramsRepository, 
+                            SocialNetworksRepository $socialNetworksRepository ): Response
+    {
+        return $this->render('users/office.html.twig', [
+            'office' => $usersRepository->findOffice(),
+            'params' => $paramsRepository->findAll(),
+            'social_networks' => $socialNetworksRepository->findAll(),
+        ]);
+    }
+
+
+    /**
      * @Route("/new", name="users_new", methods={"GET", "POST"})
      */
     public function new(Request $request, EntityManagerInterface $entityManager, SluggerInterface $slugger): Response

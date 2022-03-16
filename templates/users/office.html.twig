@@ -1,0 +1,65 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Bureau{% endblock %}
+
+{% block body %}
+
+<div class="container clBureau">
+    <h1>Bureau</h1>
+
+        <hr class="mb-3"> 
+        
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+
+            {% for user in office %}
+                <div class="col">
+                    {# <div class="card h-100"> #}
+                    <div class="card text-center">
+                        <div class="d-flex justify-content-center">
+                            <img  class="border-end border-bottom border-5 rounded-circle" 
+                                src="{{ asset('photosAdherents/' ~ user.photoUser) }}"
+                                alt="{{ user.nameUser }} {{ user.firstNameUser }}">                    
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">{{ user.nameUser }} {{ user.firstNameUser }}</h5>
+                            {# <p class="card-text"><i class="fas fa-at"></i> {{ user.email }}</p> #}
+                            <a class="card-text" 
+                                    href="mailto:{{ user.email }}
+                                    ?subject=Sujet du mail...
+                                    &cc={{ params[0].emailParam}}
+                                    &body=Bonjour {{ user.nameUser }} {{ user.firstNameUser }} ...
+                                    "
+                                    rel="" title="">
+                                    {# &bcc=avocat@antonio.net #}
+                                <i class="fas fa-at"></i> {{ user.email }}
+                            </a>
+                            {# <p class="card-text"><i class="fas fa-phone-square-alt"></i>  {{ user.phoneUser }} </p> #}
+                        <a href="tel:+33102030405"> Appeler la société xxx </a> 
+
+                        </div>
+                        <div class="card-footer">
+                            {% set xFonction = null %}
+                            {% for xFct in user.functionUser %}
+                                {% if xFonction is null %}
+                                    {% set xFonction = xFct.mission %}
+                                {% else %}
+                                    {% set xFonction = xFonction ~ ' / ' ~ xFct.mission %}
+                                {% endif %}    
+                            {% endfor %}
+                            <small class="text-muted">{{ xFonction }}</small> 
+                        </div>
+                    </div>
+                </div>
+            {% else %}
+                <p>Aucun membre du Bureau</p>
+            {% endfor %}
+      
+        </div>
+
+        <hr class="mb-3"> 
+                        
+        <a class="btn btn-grad btn-secondary2 me-2" href="{{ path('users_index') }}">Retour</a>        
+    
+    </div>
+
+{% endblock %}

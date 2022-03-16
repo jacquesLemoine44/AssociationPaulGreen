@@ -30,7 +30,7 @@ use Symfony\Component\Mailer\MailerInterface;
 class MainController extends AbstractController
 {
     /**
-     * @Route("/", name="home")
+     * @Route("/", name="home") 
      */
     public function index(
         ParamsRepository $paramsRepository, 
@@ -56,6 +56,7 @@ class MainController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
 
+            // =====
             $contactFormData = $form->getData();
             // dump($contactFormData);
             // die();

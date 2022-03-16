@@ -5,7 +5,7 @@
 {% block body %}
 
 <div class="container clBureau">
-    <h1>Bureau</h1>
+    <h1>Membres du Bureau</h1>
 
         <hr class="mb-3"> 
         
@@ -20,10 +20,10 @@
                                 src="{{ asset('photosAdherents/' ~ user.photoUser) }}"
                                 alt="{{ user.nameUser }} {{ user.firstNameUser }}">                    
                         </div>
-                        <div class="card-body">
-                            <h5 class="card-title">{{ user.nameUser }} {{ user.firstNameUser }}</h5>
+                        <div class="card-body d-flex flex-column align-items-center">
+                            <h5 class="card-title">{{ user.nameUser }} {{ user.firstNameUser }}</h5> 
                             {# <p class="card-text"><i class="fas fa-at"></i> {{ user.email }}</p> #}
-                            <a class="card-text" 
+                            <a class="clRond" 
                                     href="mailto:{{ user.email }}
                                     ?subject=Sujet du mail...
                                     &cc={{ params[0].emailParam}}
@@ -31,10 +31,23 @@
                                     "
                                     rel="" title="">
                                     {# &bcc=avocat@antonio.net #}
-                                <i class="fas fa-at"></i> {{ user.email }}
+                                <i class="fas fa-envelope"></i>
                             </a>
+                            <a class="card-text text-decoration-none" 
+                                    href="mailto:{{ user.email }}
+                                    ?subject=Sujet du mail...
+                                    &cc={{ params[0].emailParam}}
+                                    &body=Bonjour {{ user.nameUser }} {{ user.firstNameUser }} ...
+                                    "
+                                    rel="" title="">
+                                    {# &bcc=avocat@antonio.net #}
+                                <i class="fas fa-envelope"></i> {{ user.email }}
+                            </a>
+                            <br>
                             {# <p class="card-text"><i class="fas fa-phone-square-alt"></i>  {{ user.phoneUser }} </p> #}
-                        <a href="tel:+33102030405"> Appeler la société xxx </a> 
+                            <a href="tel:+{{ user.phoneUser }}" class="card-text text-decoration-none">
+                                <i class="fas fa-phone-square-alt"></i> {{ user.phoneUser }} 
+                            </a> 
 
                         </div>
                         <div class="card-footer">

@@ -33,6 +33,22 @@
   background-color: #26671d;
 }
 
+.text-logoBlue {
+  color: #92d3ff;
+}
+
+.text-logoGreen0 {
+  color: #bfcb29;
+}
+
+.text-logoGreen1 {
+  color: #77b447;
+}
+
+.text-logoGreen2 {
+  color: #26671d;
+}
+
 .ff-Parisienne {
   font-family: 'Parisienne', cursive;
   font-size: 350%;
@@ -108,6 +124,28 @@
 .clBureau img {
   width: 200px !important;
   height: 200px !important;
+}
+
+.imgClass {
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+
+.imgClass:hover {
+  -webkit-transform: scale(1.15);
+          transform: scale(1.15);
+}
+
+.imgClass2 {
+  -webkit-transition: width 2s, height 2s, -webkit-transform 2s;
+  transition: width 2s, height 2s, -webkit-transform 2s;
+  transition: width 2s, height 2s, transform 2s;
+  transition: width 2s, height 2s, transform 2s, -webkit-transform 2s;
+}
+
+.imgClass2:hover {
+  -webkit-transform: rotate(360deg) scale(1.5);
+          transform: rotate(360deg) scale(1.5);
 }
 
 .clLogo {
@@ -329,13 +367,6 @@ footer .clCopyright p {
   padding: .5rem;
   background-color: white;
   position: relative;
-}
-
-.ombre p {
-  top: 0;
-  left: 0;
-  color: black;
-  position: absolute;
 }
 
 .ombre::before,

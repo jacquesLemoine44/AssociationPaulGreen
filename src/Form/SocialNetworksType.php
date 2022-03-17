@@ -13,10 +13,19 @@ class SocialNetworksType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('socialNetwork', TextType::class, ['label' => 'Réseau social : '])
+            ->add('socialNetwork', TextType::class, [
+                'label' => 'Réseau social : ',
+                'required' => true,
+            ])
+            ->add('codeSocialnetwork', TextType::class, [
+                'label' => 'Code Logo : ',
+                'required' => false,
+            ])
+            ->add('linkSocialnetwork', TextType::class, [
+                'label' => 'Lien : ',
+                'required' => false,
+            ])
             // ->add('logoSocialnetwork', TextType::class, ['label' => 'Logo : '])
-            ->add('codeSocialnetwork', TextType::class, ['label' => 'Code Logo : '])
-            ->add('linkSocialnetwork', TextType::class, ['label' => 'Lien : '])
             // ->add('params')
         ;
     }

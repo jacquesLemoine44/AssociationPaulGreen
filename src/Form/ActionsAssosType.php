@@ -13,8 +13,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
-use Symfony\Component\Form\Extension\Core\Type\HiddenType;
-use Symfony\Component\Form\Extension\Core\Type\IntegerType;
+
 
 class ActionsAssosType extends AbstractType
 {
@@ -22,7 +21,10 @@ class ActionsAssosType extends AbstractType
     {
         $builder
 
-            ->add('titleactionsasso', TextType::class, ['label' => 'Titre : ', 'required'=> true])
+            ->add('titleactionsasso', TextType::class, [
+                'label' => 'Titre : ', 
+                'required'=> true
+            ])
 
             ->add('pictureactionsasso', FileType::class, [
                 'label' => 'Photo : ',
@@ -38,7 +40,10 @@ class ActionsAssosType extends AbstractType
                     ])
                 ],
             ]) 
-            ->add('altPictureActionsAssos', TextType::class, ['label' => 'Texte alternatif Photo / sous-Titre : ', 'required'=> false])
+            ->add('altPictureActionsAssos', TextType::class, [
+                'label' => 'Texte alternatif Photo / sous-Titre : ', 
+                'required'=> false
+            ])
 
             ->add('textactionsasso', CKEditorType::class, [
                 'label' => 'Texte long : ',
@@ -88,8 +93,6 @@ class ActionsAssosType extends AbstractType
                 ]) 
 
             // ->add('actionsassosuser')
-
-
         ;
     }
 

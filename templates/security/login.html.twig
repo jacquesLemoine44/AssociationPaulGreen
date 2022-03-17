@@ -9,7 +9,7 @@
 <section class="" id="Login">
 
 <div class="container">
-    <div class="row">
+    <div class="row justify-content-center">
         <div class="col-md-6">
 
             <form class="row g-3" method="post">
@@ -48,6 +48,8 @@
                     </div>
 
                     <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+                    
+            <p><a href="{{ path('app_forgot_password_request') }}">Mot de passe oublié ?</a></p>
 
                     <div class="col-12 mt-3 d-flex justify-content-evenly">
                         <button class="btn btn-grad btn-primary2" type="submit">
@@ -61,8 +63,6 @@
                 </fieldset>
 
                 </form>
-
-            <p><a href="{{ path('app_forgot_password_request') }}">Mot de passe oublié</a></p>
 
             </div>
         </div>

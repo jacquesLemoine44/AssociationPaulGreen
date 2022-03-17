@@ -15,18 +15,21 @@
     {{ form_end(registrationForm) }} #}
 
 
-    <section class="" id="Login">
+    <section class="clSenregistrer" id="Login">
         <div class="container">
-            <div class="row">
+            <div class="row justify-content-center">
                 <div class="col-md-6">
-                    <h1 class="text-center">Enregistrement</h1>
+                    <h1 class="text-center">Enregistrement d'un compte</h1>
                     <form class="row g-3" method="post">
+
                         {{ form_start(registrationForm) }}
+
                         {{ form_row(registrationForm.nameUser) }}                        
                         {{ form_row(registrationForm.firstnameUser) }}                        
                         {# {{ form_row(registrationForm.pseudo) }} #}
                         {{ form_row(registrationForm.email) }}
                         {# {{ form_row(registrationForm.plainPassword, {label: 'Mot de Passe :'}) }} #}
+
                         <div>
                             <label>Mot de passe: </label>
                             <br>
@@ -37,16 +40,65 @@
                             <br>
                             {{ form_widget(registrationForm.password.second) }}
                         </div>
-                        <div class="form-check form-switch">
+
+                        {{ form_row(registrationForm.agreeTerms) }}
+
+                            {# <div class="form-check form-switch"> #}
                             {# <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked>
                             <label class="form-check-label" for="flexSwitchCheckChecked">Checked switch checkbox input</label> #}
                             {# <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" {% if ({{registration.contactinfoUser}}==true) ? 'checked' : '' %}> #}
-                            <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" > 
-                        <label class="form-check-label" for="flexSwitchCheckChecked">News Letter xxx</label>
-                        </div>
+                                {# <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" > 
+                                <label class="form-check-label" for="flexSwitchCheckChecked">News Letter xxx</label>
+                            </div> #}
+                            {# {{ form_widget(form.email, {'attr': {'pattern': '[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,63}$'}}) } #}
 
-                        {{ form_row(registrationForm.agreeTerms) }}
+                        {# {{ form_row(registrationForm.address1User, {'attr': {'class': 'mb-1'}},{'label_attr': {'class': 'mb-2'}} ) }}                             #}
+                        {# {{ form_row(registrationForm.address2User) }}  #}
+                        <div>
+                            <label>Adresse : </label>
+                            <br>
+                            {{ form_widget(registrationForm.address1User) }}
+                        </div>                         
+                        <div>
+                            {# {{ form_label(registrationForm.address2User) }} #}
+                            <label>Complément d'adresse : </label>
+                            <br>
+                            {{ form_widget(registrationForm.address2User) }}
+                        </div> 
+                        <div>
+                            <label>Code Postal: </label>
+                            <br>
+                            {{ form_widget(registrationForm.cpUser) }}
+                        </div>  
+                        <div>
+                            <label>Ville : </label>
+                            <br>
+                            {{ form_widget(registrationForm.townUser) }}
+                        </div>  
+                        <div>
+                            <label>Téléphone : </label>
+                            <br>
+                            {{ form_widget(registrationForm.phoneUser) }}
+                        </div>
+                        {# <div>
+                            <label>Photo : </label>
+                            <br>
+                            {{ form_widget(registrationForm.photoUser) }}
+                        </div> #}
+                        <div>
+                            <label>Etudiant : </label>
+                            <br>
+                            {{ form_widget(registrationForm.studyUser) }}
+                        </div>    
+                        <div>
+                            <label>Année : </label>
+                            <br>
+                            {{ form_widget(registrationForm.yearmenbershipUser) }}
+                        </div>                                                                                                    
+                         
+
                         <button class="btn btn-grad btn-success2" type="submit"> s'enregistrer</button>
+
                         {{ form_end(registrationForm) }}
                     </form>
                 </div>

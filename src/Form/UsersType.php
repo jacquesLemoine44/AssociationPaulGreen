@@ -81,18 +81,20 @@ class UsersType extends AbstractType
     // $builder->add(' { nom du champ pour le role dans l'objet utilisateur }', 'choice', array(
     //     'choices' => array('ROLE_ADMIN' => 'ROLE_ADMIN', 'ROLE_CONTRIB' => 'ROLE_CONTRIB')
     // ));
-    // ->add('roles', ChoiceType::class, [
-    //     'choices' => [
-    //         'Utilisateur' => 'ROLE_USER',
-    //         'Editeur' => 'ROLE_EDITOR',
-    //         'Administrateur' => 'ROLE_ADMIN'
-    //     ],
-    //     'expanded' => true,
-    //     'multiple' => true,
-    //     'label' => 'Rôles' 
-    // ])
 
-            // ->add('password')
+            ->add('roles', ChoiceType::class, [
+                'choices' => [
+                    'Utilisateur' => 'ROLE_USER',
+                    'Autre Master' => 'ROLE_OTHER',
+                    'Master GE' => 'ROLE_GE',                    
+                    'Administrateur' => 'ROLE_ADMIN'
+                ],
+                'expanded' => false,
+                'multiple' => false,
+                'required' => true,
+                'label' => 'Rôles' 
+            ])
+
             ->add('nameUser', TextType::class, ['label' => 'Nom : ', 'required'=> true])
             ->add('firstNameUser', TextType::class, ['label' => 'Prénom : ', 'required'=> true])
             ->add('address1User', TextType::class, ['label' => 'Adresse 1 : ', 'required'=> true])

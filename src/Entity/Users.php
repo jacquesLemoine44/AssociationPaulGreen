@@ -17,7 +17,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=UsersRepository::class)
- * @UniqueEntity(fields={"email"}, message="There is already an account with this email")
+ * @UniqueEntity(fields={"email"}, message="Il existe déjà un compte avec cet email !")
  */
 class Users implements UserInterface, PasswordAuthenticatedUserInterface
 {
@@ -46,6 +46,9 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
 
     /**
      * @ORM\Column(type="string", length=180, unique=true)
+     * @Assert\Email(
+     *     message = "l'email '{{ value }}' n'est pas un email valide."
+     * )
      */
     private $email;
 
@@ -100,7 +103,7 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
     // * @Assert\Regex(
     //     *     pattern="/\d/",
     //     *     match=false,
-    //     *     message="Your name cannot contain a number"
+    //     *     message="Votre nom ne peut pas contenir de chiffre !"
     // *     pattern="'/^\+33\(0\)[0-9]*$'",
     // \A(?!\+33)\+\d{1,3}\d{4,9}\z
     //     * )
@@ -110,7 +113,7 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
      * @ORM\Column(type="string", length=50)
      * @Assert\Regex(
      *     pattern="/0[1-9]\d{8}/",
-     *     message="Your name cannot contain a number"
+     *     message="Votre nom ne peut pas contenir de chiffre !"
      * )
      */
     private $phoneUser;
@@ -405,7 +408,11 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
 
     public function getNewslettersNewsUser(): ?bool
     {
+        // $newslettersNewsUser = $this->newslettersNewsUser;
+        // $newslettersNewsUser = false;
+
         return $this->newslettersNewsUser;
+
     }
 
     public function setNewslettersNewsUser(bool $newslettersNewsUser): self

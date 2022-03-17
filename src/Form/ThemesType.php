@@ -14,7 +14,10 @@ class ThemesType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('nameTheme', TextType::class, ['label' => 'Thème : ', 'required'=> true])
+            ->add('nameTheme', TextType::class, [
+                'label' => 'Thème : ',
+                'required'=> true
+            ])
             ->add('descriptionTheme', TextareaType::class, [
                 'label' => 'Description : ',
                 'required'   => false,

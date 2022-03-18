@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  ven. 18 mars 2022 à 15:09
+-- Généré le :  mer. 16 mars 2022 à 16:04
 -- Version du serveur :  5.7.26
 -- Version de PHP :  7.2.18
 
@@ -657,7 +657,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `contactinfo_user` tinyint(1) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `UNIQ_1483A5E9E7927C74` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Déchargement des données de la table `users`
@@ -669,9 +669,7 @@ INSERT INTO `users` (`id`, `email`, `roles`, `password`, `name_user`, `first_nam
 (3, '2222222222@ffff.fr', '[\"ROLE_USER\"]', '8888', 'machin', 'Elodie', '1212', '3333', '6666', '33131', '32223323', 'dd429bd538bb996555801baf470c8b24-6218a3622e193.jpg', '1111', 555, 0, 0, 0, 0),
 (4, 'toto@gmail.com', '[\"ROLE_USER\"]', '$2y$13$16wFlmPUlGGrQhxgwgIrlu835Q3oVhLz8/W0WY1AA7iBG5z8AdZt.', 'Machin', 'Micheline', 'adresse 1', 'xxxxxxxxxxxxxx', '44600', 'ssssssssssss', 's22ss3s33s3', 'depositphotos-62275193-stock-photo-young-woman-portrait-621ceef17da7f.jpg', 'sss', 1980, 1, 1, 1, 1),
 (5, 'quentin.barnard@gmail.com', '[\"ROLE_USER\"]', '$2y$13$DfiN.ryCdJ5qF2.7cVlP0.xsH9LIiHkNMEE3vFx2lc4tlIV82jrP6', 'Barnard', 'Quentin', 'adresse 1', 'xxxxxxxxxxxxxx', '44600', 'ssssssssssss', '0102030405', 'istockphoto-462535397-612x612-621e322dc0c2f.jpg', '1987', 1987, 1, 1, 1, 1),
-(6, 'pierre@gmail.com', '[\"ROLE_OTHER\"]', '$2y$13$xek0fFhXoO/LlAcjAzNwnulB5PB3fdKaBkiLFQ.6uJ2jV43i3kwo.', 'Bidule Trésorier et Trésorier Adjoint', 'pierre', 'adresse 1', 'xxxxxxxxxxxxxx', '44600', 'ssssssssssss', '0212121212', 'images-621e349a1d1db.jpg', 'sss', 1987, 1, 1, 1, 1),
-(7, 'marcel.barbier@gmail.com', '[\"ROLE_GE\"]', '$2y$13$8FX4spKsC6de4OsbkDqGlOcmulOXk/lvHxBP/3ngltVHVLrJZGw/G', 'Barbier', 'Marcel', 'adresse 1', 'xxxxxxxxxxxxxx', '44600', 'Saint-Nazaire', '0205060708', '', 'sss', 1999, 1, 1, 1, 1),
-(8, 'antoine-mahe@gmail.com', '[\"ROLE_USER\"]', '$2y$13$J4gJ.mPO9066DHpGQZh0VOPIWa9aEpR7Y2oNewj5HXOO69Mk0eEem', 'Mahé', 'Antoine', '122 route barrée', 'xxxxxxxxxxxxxx', '44600', 'Saint-Nazaire', '0102030405', NULL, 'master', 1980, 0, 0, 0, 0);
+(6, 'pierre@gmail.com', '[\"ROLE_USER\"]', '$2y$13$xek0fFhXoO/LlAcjAzNwnulB5PB3fdKaBkiLFQ.6uJ2jV43i3kwo.', 'Bidule Trésorier et Trésorier Adjoint', 'pierre', 'adresse 1', 'xxxxxxxxxxxxxx', '44600', 'ssssssssssss', '0212121212', 'images-621e349a1d1db.jpg', 'sss', 1987, 1, 1, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -697,8 +695,7 @@ INSERT INTO `users_functions` (`users_id`, `functions_id`) VALUES
 (2, 3),
 (5, 2),
 (6, 2),
-(6, 4),
-(7, 5);
+(6, 4);
 
 --
 -- Contraintes pour les tables déchargées

@@ -38,13 +38,17 @@
                     {# <td><input type="text" class="form-control form-control-lg" id="colFormLabelLg" placeholder="" value="{{ contact.emailContact }}"></td> #}
                         <td>{{ form_widget(form.nameContact) }}  <td>
                 </tr>
-                <tr>
+                {# <tr>
+                    <th>Rôle :</th>
+                    <td>{{ form_widget(form.roles) }} </td>
+                </td> #}
                 <tr>
                     <th>Mail :</th>
                     <td>{{ form_widget(form.emailContact) }} </td>
                     {# <input type="email" class="form-control form-control-lg" id="colFormLabelLg" placeholder="" value="{{ contact.emailContact }}"> #}
                 </td>
                 </tr>
+
                 <tr>
                     <th>Sujet :</th>
                     <td> {{ form_widget(form.subjetContact) }} </td>
@@ -63,11 +67,19 @@
 
                    {# <td>{{ form_widget(form.dateContact|format_datetime('full', 'full', locale='fr'), { 'attr': {'class': 'w-25 text-center', 'disabled':true} }) }} </td> #}
                     {# {{ form_widget(form.updateParam, { 'attr': {'class': 'w-25 text-center', 'disabled':true} }) }}  #}
-            
             </tbody>
         </table>
 
-            <button class="btn btn-grad btn-success2">{{ button_label|default('Sauver') }}</button>
+        <div class="d-flex flex-row">
+            {{ form_widget(form.agreeTerms) }}
+            <span>Accepter nos conditions ! 
+                <a href="{{ path('politique_index') }}" class="text-logoGreen0">
+                    ( Mentions légales et Politique de confidentialité.)
+                </a>
+            </span>
+        </div>
+
+                <button class="btn btn-grad btn-success2">{{ button_label|default('Sauver') }}</button>
 
             {{ form_end(form) }}    
 

@@ -27,14 +27,60 @@
                     <b>{{ user.nameUser }} {{ user.firstNameUser }} </b> <br>
                     <i class="fas fa-at"></i> {{ user.email }}<br>
                     <i class="fas fa-phone-square-alt"></i>  {{ user.phoneUser }} <br>
-                    {{ user.roles ? user.roles|json_encode : '' }}</td>
+
+                    {# {{ user.roles ? user.roles|json_encode : '' }} #}
+
+                    {% set role = user.roles[0] %}
+                    {% if role=="ROLE_ADMIN" %}
+                        <span class="text-danger bg-dark py-1 px-5">Administrateur</span>
+                    {% elseif role=="ROLE_GE"%}
+                        <span class="text-logoGreen0 bg-dark py-1 px-5">Adhérent GE</span>
+                    {% elseif role=="ROLE_OTHER" %}
+                        <span class="text-logoGreen1 bg-secondary py-1 px-3">Adhérent Autre Master</span>                        
+                    {% else %}
+                        <span class="text-logoGreen2 bg-light py-1 px-4">Adhérent Autre</span>   
+                    {% endif %}
+
+                    {# {% set break = false %}
+                    {% for role in user.roles if not break %}
+                        {% if role=="ROLE_ADMIN" %}
+                            Administrateur
+                            {% set break = true %}
+                        {% elseif role=="ROLE_GE"%}
+                            Adhérent GE
+                            {% set break = true %}
+                        {% elseif role=="ROLE_OTHER" %}
+                            Adhérent Autre Master
+                            {% set break = true %}
+                        {% else %}
+                            Adhérent Autre
+                            {% set break = true %}
+                        {% endif %}
+                    {% endfor %} #}
+
                 </td>
 
-                <td>{{ user.address1User }} <br>
+                <td>
+                    {{ user.address1User }} <br>
                     {{ user.address2User }} <br>
-                    {{ user.cpUser }}  {{ user.townUser }}</td>
+                    {{ user.cpUser }}  {{ user.townUser }}
+                </td>
 
-   			    <td><img src="{{ asset('photosAdherents/' ~ user.photoUser) }}" width="100" alt="{{ user.nameUser }} {{ user.firstNameUser }}"></td>
+   			    {# <td><img src="{{ asset('photosAdherents/' ~ user.photoUser) }}" width="100" alt="{{ user.nameUser }} {{ user.firstNameUser }}"></td> #}
+                <td>
+                    {% if user.photoUser %}
+                        <img  class="border-end border-bottom border-5 rounded-circle" 
+                            width="100px" height="100px"
+                            src="{{ asset('photosAdherents/' ~ user.photoUser) }}"
+                            alt="{{ user.nameUser }} {{ user.firstNameUser }}">                    
+                    {% else %}   
+                        <img  class="border-end border-bottom border-5 rounded-circle" 
+                            width="100px" height="100px"
+                            src="{{ asset('icones/PasDeTete.png') }}"
+                            alt="{{ user.nameUser }} {{ user.firstNameUser }}">  
+                    {% endif %}                 
+                </td>
+
  
                 <td>{{ user.studyUser }}</td>
                 <td>{{ user.yearMenbershipUser }}</td>

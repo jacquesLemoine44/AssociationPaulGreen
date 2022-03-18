@@ -47,6 +47,15 @@
             <tr>
                 <th>Photo</th>
                 <td>{{ user.photoUser }}</td>
+                {# {% if user.photoUser %}
+                    <img  class="border-end border-bottom border-5 rounded-circle" 
+                        src="{{ asset('photosAdherents/' ~ user.photoUser) }}"
+                        alt="{{ user.nameUser }} {{ user.firstNameUser }}">                    
+                {% else %}   
+                    <img  class="border-end border-bottom border-5 rounded-circle" 
+                        src="{{ asset('icones/PasDeTete.png') }}"
+                        alt="{{ user.nameUser }} {{ user.firstNameUser }}">  
+                {% endif %}                     #}
             </tr>
             <tr>
                 <th>Etudiant</th>

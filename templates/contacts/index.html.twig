@@ -10,22 +10,22 @@
     <table class="table">
         <thead>
             <tr>
-                <th>SubjetContact</th>
-                <th>ContentContact</th>
-                <th>DateContact</th>
-                <th>NameContact</th>
-                <th>EmailContact</th>
+                <th>Nom</th>
+                <th>Email</th>
+                <th>Subjet</th>
+                <th>Contentu</th>
+                <th>Date</th>
                 <th>actions</th>
             </tr>
         </thead>
         <tbody>
         {% for contact in contacts %}
             <tr>
+                <td>{{ contact.nameContact }}</td>
+                <td>{{ contact.emailContact }}</td>
                 <td>{{ contact.subjetContact }}</td>
                 <td>{{ contact.contentContact }}</td>
                 <td>{{ contact.dateContact ? contact.dateContact|date('d/m/y H:i:s') : '' }}</td>
-                <td>{{ contact.nameContact }}</td>
-                <td>{{ contact.emailContact }}</td>
                 <td>
                     <a class="btn btn-grad btn-primary2 me-1" href="{{ path('contacts_show', {'id': contact.id}) }}">Afficher</a>
                     <a class="btn btn-grad btn-warning2" href="{{ path('contacts_edit', {'id': contact.id}) }}">Modifier</a>

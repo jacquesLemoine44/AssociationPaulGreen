@@ -3,65 +3,69 @@
 		<div class="col-md-8">
 
 			{{ form_start(form) }}
-			{# {{ form_widget(form) }} #}
-
-			{# <h2 class="text-center text-decoration-underline">Adhérents</h2> #}
 
 			<table class="table">
 				<tbody>
 					<tr>
 						<th>Nom :</th>
-						{# <td><input type="text" class="form-control form-control-lg" id="colFormLabelLg" placeholder="" value="{{ contact.emailContact }}"></td> #}
 						<td>
 							{{ form_widget(form.nameUser) }}
 						</td>
 					</tr>
 					<tr>
 						<th>Prénom :</th>
-						{# <td><input type="text" class="form-control form-control-lg" id="colFormLabelLg" placeholder="" value="{{ contact.emailContact }}"></td> #}
 						<td>{{ form_widget(form.firstNameUser) }}</td>
 					</tr>
+						
+					<tr>
+	                    <th>Role :</th>
+                    	<td>{{ form_widget(form.roles) }} </td>
+					</tr>
+
 					<tr>
 						<th>Photo :</th>
 						<td>
 							{{ form_widget(form.photoUser) }}
 							<hr>
-							<img src="{{ asset('photosAdherents/' ~ user.photoUser) }}" width="100" alt="{{ user.nameUser }} {{ user.firstNameUser }}">
+								{% if user.photoUser %}
+                                <img  class="border-end border-bottom border-5 rounded-circle" 
+                                    src="{{ asset('photosAdherents/' ~ user.photoUser) }}"
+                                    alt="{{ user.nameUser }} {{ user.firstNameUser }}">                    
+                            {% else %}   
+                                <img  class="border-end border-bottom border-5 rounded-circle" 
+                                    src="{{ asset('icones/PasDeTete.png') }}"
+                                    alt="{{ user.nameUser }} {{ user.firstNameUser }}">  
+                            {% endif %}								
+							{# <img src="{{ asset('photosAdherents/' ~ user.photoUser) }}" width="100" alt="{{ user.nameUser }} {{ user.firstNameUser }}"> #}
 						</td>
-					</tr>					
+					</tr>
+
 					<tr>
 						<th>Adresse 1:</th>
-						{# <td><input type="text" class="form-control form-control-lg" id="colFormLabelLg" placeholder="" value="{{ contact.emailContact }}"></td> #}
 						<td>{{ form_widget(form.address1User) }}</td>
 					</tr>
 					<tr>
 						<th>Adresse 2 :</th>
-						{# <td><input type="text" class="form-control form-control-lg" id="colFormLabelLg" placeholder="" value="{{ contact.emailContact }}"></td> #}
 						<td>{{ form_widget(form.address2User) }}</td>
 					</tr>
 					<tr>
 						<th>Code Postal :</th>
-						{# <td><input type="text" class="form-control form-control-lg" id="colFormLabelLg" placeholder="" value="{{ contact.emailContact }}"></td> #}
 						<td>{{ form_widget(form.cpUser) }}</td>
 					</tr>
 					<tr>
 						<th>Ville :</th>
-						{# <td><input type="text" class="form-control form-control-lg" id="colFormLabelLg" placeholder="" value="{{ contact.emailContact }}"></td> #}
 						<td>{{ form_widget(form.townUser) }}</td>
 					</tr>
 					<tr>
 					<th>Téléphone <i>(commence par 0,sans espace)</i>:</th>
-					{# <td><input type="text" class="form-control form-control-lg" id="colFormLabelLg" placeholder="" value="{{ contact.emailContact }}"></td> #}
 						<td>{{ form_widget(form.phoneUser) }}</td>
 					</tr>
 					<tr>
 						<th>Mail :</th>
-						{# <td><input type="text" class="form-control form-control-lg" id="colFormLabelLg" placeholder="" value="{{ contact.emailContact }}"></td> #}
 						<td>{{ form_widget(form.email) }}</td>
 					</tr>
 					<tr>
 						<th>Etudiant en :</th>
-						{# <td><input type="text" class="form-control form-control-lg" id="colFormLabelLg" placeholder="" value="{{ contact.emailContact }}"></td> #}
 						<td>{{ form_widget(form.studyUser) }}</td>
 					</tr>
 					<tr>

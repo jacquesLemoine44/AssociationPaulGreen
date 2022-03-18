@@ -4,16 +4,21 @@ namespace App\Form;
 
 use App\Entity\Users;
 use App\Entity\Functions;
+use PHPUnit\Framework\Assert;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Security\Core\Security;
+use Symfony\Component\Form\CallbackTransformer;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Validator\Constraints\File;
+use Symfony\Component\Validator\Constraints\Regex;
+use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TelType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 
@@ -63,7 +68,13 @@ class UsersType extends AbstractType
         //     'required' => true,
         //     'attr' => ['class' =>'form-control'],
         // ])
-            ->add('email', EmailType::class, ['label' => 'Mail : ', 'required'=> true])
+
+            ->add('email', EmailType::class, [
+                'label' => 'Mail : ',
+                'required'=> true,
+            ])
+
+
             // ->add('roles')
                //         $builder->add($builder->create('roles','choice',array(
     //             'multiple'=>true,
@@ -74,20 +85,24 @@ class UsersType extends AbstractType
     //     'choices' => array('ROLE_ADMIN' => 'ROLE_ADMIN', 'ROLE_CONTRIB' => 'ROLE_CONTRIB')
     // ));
 
+              
             ->add('roles', ChoiceType::class, [
-                'choices' => [
-                    'Utilisateur' => 'ROLE_USER',
-                    'Autre Master' => 'ROLE_OTHER',
-                    'Master GE' => 'ROLE_GE',                    
-                    'Administrateur' => 'ROLE_ADMIN'
-                ],
                 'expanded' => false,
                 'multiple' => false,
                 'required' => true,
-                'label' => 'Rôles' 
+                'label' => 'Rôles : ',
+                'choices' => [
+                    'Utilisateur' => 'ROLE_USER',
+                    'Autre Master' => 'ROLE_OTHER',
+                    'Master GE' => 'ROLE_GE',       
+                    'Administrateur' => 'ROLE_ADMIN'
+                ],
             ])
 
-            ->add('nameUser', TextType::class, ['label' => 'Nom : ', 'required'=> true])
+            ->add('nameUser', TextType::class, [
+                'label' => 'Nom : ', 
+                'required'=> true
+            ])
             ->add('firstNameUser', TextType::class, ['label' => 'Prénom : ', 'required'=> true])
             ->add('address1User', TextType::class, ['label' => 'Adresse 1 : ', 'required'=> true])
             ->add('address2User', TextType::class, ['label' => 'Adressse 2 : ', 'required'=> false])
@@ -139,28 +154,30 @@ class UsersType extends AbstractType
                 ],
             ])
 
-            ->add('studyUser', TextType::class, ['label' => 'Etudiant : ', 'required'=> true])
-            ->add('yearMenbershipUser', IntegerType::class, ['label' => 'Année : ', 'required'=> true])
+            ->add('studyUser', TextType::class, [
+                'label' => 'Etudiant : ', 
+                'required'=> true
+            ])
+            ->add('yearMenbershipUser', IntegerType::class, [
+                'label' => 'Année : ', 
+                'required'=> true
+            ])
 
-            // ->add('newslettersNewsUser')
             ->add('newslettersNewsUser', CheckboxType::class, [
                 'label'    => 'New Letters',
                 'required' => false,
             ])
 
-            // ->add('newsletterIntershipUser')
             ->add('newsletterIntershipUser', CheckboxType::class, [
                 'label'    => 'Nouveau stage proposé',
                 'required' => false,
             ])
 
-            // ->add('newsletterAssosUser')
             ->add('newsletterAssosUser', CheckboxType::class, [
                 'label'    => 'Newsletter des nouvelles actions Association',
                 'required' => false,
             ])
 
-            // ->add('contactinfoUser')
             ->add('contactinfoUser', CheckboxType::class, [
                 'label'    => 'Info nouveau contact',
                 'required' => false,
@@ -174,9 +191,25 @@ class UsersType extends AbstractType
                 'required'   => false,
                 // 'is_granted' => 'ROLE_ADMIN',
                 ]) 
-        ;
+            ;
+
+            // Data transformer
+            $builder->get('roles')
+                ->addModelTransformer(new CallbackTransformer(
+                    function ($rolesArray) {
+                        // transform the array to a string
+                        return count($rolesArray)? $rolesArray[0]: null;
+                    },
+                    function ($rolesString) {
+                        // transform the string back to an array
+                        return [$rolesString];
+                    }
+            ));
+
             }
+            // =====================================
             else
+            // =====================================
             {
 
                 $builder
@@ -210,37 +243,16 @@ class UsersType extends AbstractType
                         ],
                     ])
         
-                    ->add('studyUser', TextType::class, ['label' => 'Etudiant : ', 'required'=> true])
-                    ->add('yearMenbershipUser', IntegerType::class, ['label' => 'Année : ', 'required'=> true])
+                    ->add('studyUser', TextType::class, [
+                        'label' => 'Etudiant : ', 
+                        'required'=> true
+                    ])
+                    ->add('yearMenbershipUser', IntegerType::class, [
+                        'label' => 'Année : ', 
+                        'required'=> true
+                    ])
         
-                    // ->add('newslettersNewsUser', CheckboxType::class, [
-                    //     'label'    => 'New Letters',
-                    //     'required' => false,
-                    // ])
-        
-                    // ->add('newsletterIntershipUser', CheckboxType::class, [
-                    //     'label'    => 'Nouveau stage proposé',
-                    //     'required' => false,
-                    // ])
-        
-                    // ->add('newsletterAssosUser', CheckboxType::class, [
-                    //     'label'    => 'Newsletter des nouvelles actions Association',
-                    //     'required' => false,
-                    // ])
-        
-                    // ->add('contactinfoUser', CheckboxType::class, [
-                    //     'label'    => 'Info nouveau contact',
-                    //     'required' => false,
-                    // ])
-        
-                    // ->add('functionUser', EntityType::class,[
-                    //     'class' => Functions::class,
-                    //     'choice_label' => 'mission',
-                    //     'multiple' => True,
-                    //     'expanded' => true,
-                    //     'required'   => false,
-                    //     ]) 
-            ;
+                ;
 
             };
 

@@ -1,0 +1,23 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}Nouveau Lien vers un site{% endblock %}
+
+{% block body %}
+    <h1>Nouveau Lien vers un site</h1>
+
+    {{ include('link_actions_masters/_form.html.twig') }}
+ 
+    {% if app.request.attributes.get('_route') == 'add_doc_actions_masters' %}
+        <form>
+            <input class="btn btn-grad btn-secondary2 me-2" type="button" value="Retour" onclick="history.back()">
+        </form>
+    {% else %}
+        <a class="btn btn-grad btn-secondary2 me-2" href="{{ path('app_link_actions_masters_index') }}">Retour</a>
+    {% endif %}        
+
+</div>
+<hr class="mb-3">
+
+
+
+{% endblock %}

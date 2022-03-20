@@ -179,7 +179,7 @@ colorion.co
 						</li>
 
 						<li class="nav-item">
-							<a class="nav-link" href="#idContacts" id="idContact">
+							<a class="nav-link" href="{{ path('home') }}#idContacts" id="idContact">
 								Contacts
 							</a>
 						</li>
@@ -225,7 +225,8 @@ colorion.co
 									<hr class="dropdown-divider">
 								</li>
 								<li>
-									<a class="dropdown-item  disabled" href="">
+									<a class="dropdown-item" 
+											href="{{ path('posters_actions_masters_index') }}">
 										<i class="fas fa-spa"></i>
 										Actions Masters
 									</a>

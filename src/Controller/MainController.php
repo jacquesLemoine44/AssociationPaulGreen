@@ -2,20 +2,29 @@
 
 namespace App\Controller;
 
-use App\Entity\News;
-use App\Entity\Internships;
-use App\Entity\ActionsAssos;
-use App\Entity\Fieldtrips;
-use App\Repository\NewsRepository;
-use App\Repository\ParamsRepository;
-use App\Repository\PartnersRepository;
-use App\Repository\InternshipsRepository;
-use App\Repository\ActionsAssosRepository;
-use App\Repository\FieldtripsRepository;
-use App\Repository\SocialNetworksRepository;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+// ==== Partners
+use App\Repository\PartnersRepository;
+// ==== Params
+use App\Repository\SocialNetworksRepository;
+use App\Repository\ParamsRepository;
+// ==== Internships = Stages
+use App\Entity\Internships;
+use App\Repository\InternshipsRepository;
+// ==== Fieldtrips = Sorties
+use App\Entity\Fieldtrips;
+use App\Repository\FieldtripsRepository;
+// ==== News
+use App\Entity\News;
+use App\Repository\NewsRepository;
+// ==== Assos
+use App\Entity\ActionsAssos;
+use App\Repository\ActionsAssosRepository;
+// ==== Masters
+use App\Entity\ActionsMasters;
+use App\Repository\ActionsMastersRepository;
 // ==== Contacts
 use DateTime;
 use App\Entity\Contacts;
@@ -152,6 +161,41 @@ class MainController extends AbstractController
             'params' => $paramsRepository->findAll(),
             'social_networks' => $socialNetworksRepository->findAll(),
             'actions_asso' => $actionsAsso,
+        ]);
+    }
+
+// =============================================
+
+
+// ====== ACTIONS MASTERS  =====================
+
+    /**
+     * @Route("/postersMasters/indexPostersActionsMasters", name="posters_actions_masters_index", methods={"GET"})
+     */
+    public function indexPostersActionsMasters(ParamsRepository $paramsRepository, 
+                        SocialNetworksRepository $socialNetworksRepository, 
+                        ActionsMastersRepository $actionsMastersRepository
+                        ): Response
+    {
+        return $this->render('postersMasters/indexPostersActionsMasters.html.twig', [
+            'params' => $paramsRepository->findAll(),
+            'social_networks' => $socialNetworksRepository->findAll(),
+            'actions_masters' => $actionsMastersRepository->findAll(),
+        ]);
+    }
+
+    /**
+     * @Route("/postersMasters/showPostersActionsMasters/{id}", name="posters_actions_masters_show", methods={"GET"})
+     */
+    public function showPostersActionsMasters(ActionsMasters $actionsMaster, 
+                        ParamsRepository $paramsRepository, 
+                        SocialNetworksRepository $socialNetworksRepository
+                        ): Response
+    {
+        return $this->render('postersMasters/showPostersActionsMasters.html.twig', [
+            'params' => $paramsRepository->findAll(),
+            'social_networks' => $socialNetworksRepository->findAll(),
+            'actions_master' => $actionsMaster,
         ]);
     }
 

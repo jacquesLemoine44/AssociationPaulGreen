@@ -1,0 +1,12 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}Nouvelle action de Master{% endblock %}
+
+{% block body %}
+    <h1 class="text-center bg-logoGreen0">Nouvelle action du Master</h1>
+
+    {{ include('actions_masters/_form.html.twig') }}
+
+    <a class="btn btn-grad btn-secondary2" href="{{ path('app_actions_masters_index') }}">Retour</a>
+
+{% endblock %}

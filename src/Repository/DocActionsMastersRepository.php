@@ -45,6 +45,44 @@ class DocActionsMastersRepository extends ServiceEntityRepository
         }
     }
 
+
+    public function findOneBySomeField($value): ?DocActionsMasters
+    {
+        return $this->createQueryBuilder('d')
+            ->andWhere('d.DocActassoid = :val')
+            ->setParameter('val', $value)
+            ->orderBy('d.id', 'ASC')
+            ->getQuery()
+            ->getOneOrNullResult()
+        ;
+
+    }
+
+    /**
+     * @return DocActionsAssos[] Returns an array of DocActionsAssos objects
+     */
+    public function FindTri1createBuider(){
+        $query = $this->getEntityManager()->createQuery("
+         SELECT d
+         FROM App\Entity\doc_actions_masters d
+         INNER JOIN App\Entity\actions_masters a
+         ON d.DocActions_id = a.id 
+         ORDER BY a.titleactionsmaster ASC, d.titledocactionsmaster ASC
+        ");
+        return $query->getResult();
+    }  
+
+    public function findByTri2createQueryBuilder()
+    {
+        $query =$this->createQueryBuilder('d')
+            ->select(['d','a'])
+            ->Join('d.DocActions','a')
+            ->orderBy('a.titleactionsmaster','ASC')  
+            ->addorderBy('d.titledocactionsmaster','ASC')   
+        ;
+        return $query->getQuery()->getResult();
+    }
+
     // /**
     //  * @return DocActionsMasters[] Returns an array of DocActionsMasters objects
     //  */

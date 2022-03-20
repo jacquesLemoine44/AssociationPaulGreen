@@ -39,7 +39,9 @@ class ActionsAssosController extends AbstractController
     /**
      * @Route("/new", name="actions_assos_new", methods={"GET", "POST"})
      */
-    public function new(Request $request, EntityManagerInterface $entityManager, SluggerInterface $slugger): Response
+    public function new(Request $request, 
+            EntityManagerInterface $entityManager, 
+            SluggerInterface $slugger): Response
     {
         $actionsAsso = new ActionsAssos();
         $form = $this->createForm(ActionsAssosType::class, $actionsAsso);

@@ -1,0 +1,21 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}Modification d'un document{% endblock %}
+
+{% block body %}
+     <h1>Modification d'un document</h1>
+
+    {{ include('doc_actions_masters/_form.html.twig', {'button_label': 'Valider'}) }}
+
+    {% if app.request.attributes.get('_route') == 'mod_doc_actions_masters' %}
+        <form>
+            <input class="btn btn-grad btn-secondary2 me-2" type="button" value="Retour" onclick="history.back()">
+        </form>
+    {% else %}
+        <a class="btn btn-grad btn-secondary2 me-2" href="{{ path('app_doc_actions_masters_index') }}">Retour</a>
+    {% endif %} 
+
+    {{ include('doc_actions_masters/_delete_form.html.twig') }}
+   
+{% endblock %}
+

@@ -34,9 +34,15 @@ class Themes
      */
     private $themesactionsasso;
 
+    /**
+     * @ORM\ManyToMany(targetEntity=ActionsMasters::class, mappedBy="ActionsThemes")
+     */
+    private $ThemesActions;
+
     public function __construct()
     {
         $this->themesactionsasso = new ArrayCollection();
+        $this->ThemesActions = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -90,6 +96,33 @@ class Themes
     {
         if ($this->themesactionsasso->removeElement($themesactionsasso)) {
             $themesactionsasso->removeActionsassostheme($this);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, ActionsMasters>
+     */
+    public function getThemesActions(): Collection
+    {
+        return $this->ThemesActions;
+    }
+
+    public function addThemesAction(ActionsMasters $themesAction): self
+    {
+        if (!$this->ThemesActions->contains($themesAction)) {
+            $this->ThemesActions[] = $themesAction;
+            $themesAction->addActionsTheme($this);
+        }
+
+        return $this;
+    }
+
+    public function removeThemesAction(ActionsMasters $themesAction): self
+    {
+        if ($this->ThemesActions->removeElement($themesAction)) {
+            $themesAction->removeActionsTheme($this);
         }
 
         return $this;

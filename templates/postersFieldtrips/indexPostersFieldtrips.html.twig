@@ -6,7 +6,7 @@
 
 {% block body %}
 
-	<h1 class="text-center mb-4">Les Sorties Universitaires</h1>
+	<h1 class="h-grad bg-secondary2 mb-4">Les Sorties Universitaires</h1>
 
 	{% set xCpt = 0 %}
 
@@ -34,7 +34,7 @@
 
 						<div class="col-md-6">
 							<h3>{{ fieldtrip.titlefieldtrip }}</h3>
-							<p><i>Sortie du <span>{{ fieldtrip.datefieldtrip ? fieldtrip.datefieldtrip|date('d/m/y') : '' }}</span><i></p>
+							<p><i>Sortie du <span>{{ fieldtrip.datefieldtrip ? fieldtrip.datefieldtrip|date('d/m/y') : '' }}</span></i></p>
 							<div class="row mt-1">
 								<div class="col-md-12 border border-2 border-secondary rounded-2">
 									{{ fieldtrip.textfieldtrip|striptags|u.truncate(600, '...') }}

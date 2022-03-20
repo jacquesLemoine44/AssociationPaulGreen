@@ -1,0 +1,85 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	Les Actions du Master
+{% endblock %}
+
+{% block body %}
+
+	<h1 class="h-grad bg-green0 mb-4">Les Actions du Master</h1>
+
+	{% set xCpt = 0 %}
+
+	{% for actions_master in actions_masters %}
+
+		{% set xCpt = xCpt + 1 %}
+
+			<div class="{% if ((xCpt % 2) != 0) %}bg-info2{% else %}bg-success2{% endif %} py-4">
+				<div class="container">
+					<div class="row">
+
+						{% if ((xCpt % 2) != 0) %}
+							<div class="col-md-6 clCard">
+								<img src="{{ asset('photosActionsMasters/' ~ actions_master.pictureactionsmaster) }}" 
+										class="W-100" height="350px" 	
+										alt="{{ actions_master.altpictureactionsmaster }}"
+										title="{{ actions_master.pictureactionsmaster }}">
+							</div>
+						{% endif %}
+
+						<div class="col-md-6">
+							<h3>{{ actions_master.titleactionsmaster }}</h3>
+							<br>
+							<b>
+								<i>{{ actions_master.titleactionsmaster }}</i>
+							</b>
+							<br>
+
+							<div>
+								{% if (actions_master.linkactionsmaster) %}
+									<p>lien utile :</p>
+									{{ actions_master.titlelinkactionsmaster }}
+									{{ actions_master.linkactionsmaster }}
+									<br>
+								{% endif %}
+							</div>
+
+							{{ actions_master.startactionsmaster ? actions_master.startactionsmaster|date('d/m/y') : '' }}
+							{{ actions_master.endactionsmaster ? actions_master.endactionsmaster|date('d/m/y') : '' }}
+						</div>
+
+						{% if ((xCpt % 2) == 0) %}
+							<div class="col-md-6 clCard">
+								<img src="{{ asset('photosActionsMasters/' ~ actions_master.pictureactionsmaster) }}" 
+									class="W-100" height="350px" 
+									alt="{{ actions_master.altpictureactionsmaster }}"
+									title="{{ actions_master.pictureactionsmaster }}">
+							</div>
+						{% endif %}
+
+					</div>
+
+					<div class="row mt-1">
+						<div class="col-md-12 border border-2 border-secondary">
+							{# {{ actions_master.textactionsmaster|striptags|u.truncate(300, '...') }} #}
+							{{ actions_master.textactionsmaster |length > 300 ? actions_master.textactionsmaster |slice(0,300)|raw : actions_master.textactionsmaster|raw }}
+							<br>
+							<a class="" 
+								href="{{ path('posters_actions_masters_show', {'id': actions_master.id}) }}"
+								title="Allez lire la totalité de l'article...">
+								Lire la suite ...
+							</a>
+						</div>
+					</div>
+                    
+				</div>
+
+			</div>
+
+			<hr class="m-0">
+
+	{% else %}
+				<div>Aucune donnée</div>
+	{% endfor %}
+
+{% endblock %}

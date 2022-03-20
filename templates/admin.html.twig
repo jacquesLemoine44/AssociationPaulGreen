@@ -260,6 +260,7 @@
                                 </li>  
                             </ul>
                         </li>
+{# ===== #}
                         <li class="divider w-100 clLigne">
                         <li>
                             <a href="{{ path('app_internships_index') }}" class="nav-link px-sm-0 px-2">
@@ -268,12 +269,51 @@
                             </a>
                         </li>
                         <li class="divider w-100 clLigne">
-                        <li>
+                        {# <li>
                             <a href="#" data-bs-toggle="collapse" class="disabled nav-link px-sm-0 px-2">
                                 <i class="fas fa-spa"></i>
                                 <span class="ms-1 d-none d-sm-inline"> Projets Masters</span>
                             </a>
-                        </li>
+                        </li> #}
+{# === Actions Masters =========================================== #}
+<li class="dropdown">
+<a href="#" class="nav-link dropdown-toggle px-sm-0 px-1" id="dropdown" data-bs-toggle="dropdown" aria-expanded="false">
+<i class="fas fa-spa"></i>
+    <span class="ms-1 d-none d-sm-inline"> Actions Masters</span>
+</a>
+<ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdown">
+    <li>
+        <a class="dropdown-item" href="{{ path('app_actions_masters_index') }}">
+    <i class="fas fa-spa"></i>
+            <span class="ms-1 d-none d-sm-inline"> Actions Masters</span>
+        </a>
+    </li>
+    <li>
+        <hr class="dropdown-divider">
+    </li>
+    <li>
+        <a class="dropdown-item"  href="{{ path('app_doc_actions_masters_index') }}" class="nav-link px-sm-0 px-2">
+            <i class="fas fa-paperclip"></i>
+            <span class="ms-1 d-none d-sm-inline"> Liste des Liens de Documents</span>
+        </a>
+    </li>
+    <li>
+        <a class="dropdown-item"  href="{{ path('app_link_actions_masters_index') }}" class="nav-link px-sm-0 px-2">
+            <i class="fas fa-link"></i>
+            <span class="ms-1 d-none d-sm-inline"> Liste des Liens vers des sites</span>
+        </a>
+    </li>
+    <li>
+        <hr class="dropdown-divider">
+    </li>
+    <li>
+        <a class="dropdown-item"  href="{{ path('app_photos_actions_masters_index') }}" class="nav-link px-sm-0 px-2">
+            <i class="fas fa-images"></i>
+            <span class="ms-1 d-none d-sm-inline"> Texte Alternatif des photos des Actions Associatives</span>
+        </a>
+    </li>  
+</ul>
+</li>                        
 {# === FIELD TRIPS ================================================= #}
 
                         <li class="dropdown">
@@ -305,13 +345,13 @@
 
 <li class="dropdown">
 <a href="#" class="nav-link dropdown-toggle px-sm-0 px-1" id="dropdown" data-bs-toggle="dropdown" aria-expanded="false">
-    <i class="fas fa-hiking"></i>
+<i class="fas fa-seedling"></i>
     <span class="ms-1 d-none d-sm-inline"> Matériel de l'association</span>
 </a>
 <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdown">
     <li>
         <a class="dropdown-item" href="{{ path('app_equipments_index') }}">
-            <i class="fas fa-hiking"></i>
+    <i class="fas fa-seedling"></i>
             <span class="ms-1 d-none d-sm-inline"> Le matériel</span>
         </a>
     </li>
@@ -320,13 +360,13 @@
     </li>
     <li>
         <a class="dropdown-item" href="{{ path('app_storages_index') }}" class="nav-link px-sm-0 px-2">
-            <i class="fas fa-photo-video"></i>
+            <i class="fas fa-archive"></i>
             <span class="ms-1 d-none d-sm-inline"> Stockage</span>
         </a>
     </li>
     <li>
         <a class="dropdown-item" href="{{ path('app_affectations_index') }}" class="nav-link px-sm-0 px-2">
-            <i class="fas fa-photo-video"></i>
+            <i class="fas fa-map-marked"></i>
             <span class="ms-1 d-none d-sm-inline"> Affectation</span>
         </a>
     </li>

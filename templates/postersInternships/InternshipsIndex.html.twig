@@ -6,7 +6,7 @@
 
 {% block body %}
 
-	<h1 class="text-center mb-4">Les Propositions de Stages</h1>
+	<h1 class="h-grad bg-secondary2 mb-4">Les Propositions de Stages</h1>
 
 	{% set xCpt = 0 %}
 
@@ -30,7 +30,9 @@
 
 								{% if (internship.linkinternship) %}
 									<p>Lien de l'annonce : 
-										<a class="btn btn-primary mb-3 mr-1 me-1 btn-sm" href="{{ internship.linkinternship }}" target="_blank">
+										<a class="btn btn-primary mb-3 mr-1 me-1 btn-sm" 
+												href="{{ internship.linkinternship }}" 
+												target="_blank">
 											<i class="fas fa-external-link-alt"></i>
 											Y aller...
 										</a>
@@ -43,7 +45,8 @@
 							</div>
                 			<p>Lieu : <span> {{ internship.placeintership }} </span> </p>
 							<p>Dates : 
-								<span> {{ internship.startinternship ? internship.startinternship|date('d/m/y') : '' }}
+								<span> 
+										{{ internship.startinternship ? internship.startinternship|date('d/m/y') : '' }}
 									 au {{ internship.endinternship ? internship.endinternship|date('d/m/y') : '' }}
 								</span> </p>
 						</div>

@@ -33,7 +33,6 @@ class DocActionsAssosRepository extends ServiceEntityRepository
 
     }
 
-
     /**
      * @return DocActionsAssos[] Returns an array of DocActionsAssos objects
      */

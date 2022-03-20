@@ -45,6 +45,21 @@ class PhotosActionsMastersRepository extends ServiceEntityRepository
         }
     }
 
+    /**
+    * @return PhotosActionsMasters[] Returns an array of PhotosActionsMasters objects
+    */
+        
+    public function findByTri2createQueryBuilder()
+    {
+        $query =$this->createQueryBuilder('p')
+            ->select(['p','titi'])
+            ->Join('p.PhotosActions','titi')
+            ->orderBy('titi.titleactionsmaster','ASC')  
+            ->addorderBy('p.altphotoactionsmaster','ASC')   
+        ;
+        return $query->getQuery()->getResult();
+    }  
+
     // /**
     //  * @return PhotosActionsMasters[] Returns an array of PhotosActionsMasters objects
     //  */

@@ -1,0 +1,79 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}Projet Master{% endblock %}
+
+{% block body %}
+    <h1 class="text-center bg-logoGreen0">Projet Master</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Titre</th>
+                <td>{{ actions_master.titleactionsmaster }}</td>
+            </tr>
+            <tr>
+                <th>Image Principal</th>
+                <td>
+                    {% if actions_master.pictureactionsmaster %}
+                        <img  class="border border-2" 
+                            src="{{ asset('photosActionsMasters/' ~ actions_master.pictureactionsmaster) }}"
+                            alt="{{ actions_master.altpictureactionsmaster }}"
+                            width="150" title="{{ actions_master.pictureactionsmaster }}">
+                        <div class="fw-light fst-italic">
+                            {{ actions_master.altpictureactionsmaster }}
+                        </div>                       
+                    {% else %}   
+                        <p>Pas de Photo</p>
+                    {% endif %}	                    
+                </td>
+            </tr>
+            <tr>
+                <th>Texte</th>
+                <td>{{ actions_master.textactionsmaster|raw }}</td>
+                </tr>
+            <tr>
+                <th>Titre de Lien</th>
+                <td>{{ actions_master.titlelinkactionsmaster }}</td>
+            </tr>
+            <tr>
+                <th>Lien</th>
+                <td>{{ actions_master.linkactionsmaster }}</td>
+            </tr>
+            <tr>
+                <th>Date de Début</th>
+                <td>{{ actions_master.startactionsmaster ? actions_master.startactionsmaster|date('d/m/y') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Date de Fin</th>
+                <td>{{ actions_master.endactionsmaster ? actions_master.endactionsmaster|date('d/m/y') : '' }}</td>
+            </tr>
+
+            <tr>
+            <th>Photos</th>
+                <td>   
+                {# Si la route est "produits_edit on affiche les photos #}
+                {% if app.request.attributes.get('_route') == 'app_actions_masters_show' %}
+                    <div class="d-flex flex-row">
+                         {% for photo in actions_master.PhotosActions %}
+                            <div class="" >                           
+                                  <img src="{{ asset('/photosActionsMasters/'~photo.photoactionsmaster) }}" 
+                                        alt="{{ photo.altphotoactionsmaster }}" width="150">  
+                            </div>
+                        {% endfor %}
+                    </div>
+                {% endif %}        
+                </td> 
+            </tr>
+
+        </tbody>
+    </table>
+
+    <hr class="mb-3">
+
+    <div class="d-flex flex-row my-2">
+
+        <a class="btn btn-grad btn-secondary2 me-2" href="{{ path('app_actions_masters_index') }}">Retour</a>
+        <a class="btn btn-grad btn-warning2" href="{{ path('app_actions_masters_edit', {'id': actions_master.id}) }}">Modifier</a>
+        {{ include('actions_masters/_delete_form.html.twig') }}
+    
+{% endblock %}

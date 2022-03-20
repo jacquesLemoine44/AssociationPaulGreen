@@ -27,6 +27,11 @@ class DocActionsMasters
      */
     private $linkdocactionsmaster;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=ActionsMasters::class, inversedBy="ActionsDocs")
+     */
+    private $DocActions;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -52,6 +57,18 @@ class DocActionsMasters
     public function setLinkdocactionsmaster(string $linkdocactionsmaster): self
     {
         $this->linkdocactionsmaster = $linkdocactionsmaster;
+
+        return $this;
+    }
+
+    public function getDocActions(): ?ActionsMasters
+    {
+        return $this->DocActions;
+    }
+
+    public function setDocActions(?ActionsMasters $DocActions): self
+    {
+        $this->DocActions = $DocActions;
 
         return $this;
     }

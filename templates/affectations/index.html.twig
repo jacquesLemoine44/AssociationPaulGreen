@@ -3,7 +3,9 @@
 {% block title %}Les Affectations{% endblock %}
 
 {% block body %}
-    <h1>Les Affectations</h1>
+    {# <div class="btn-grad btn-secondary2 text-center">
+</div> #}
+    <h1 class="h-grad btn-secondary2">Les Affectations</h1>
 
     <div>
         <a class="btn btn-grad btn-info2"  href="{{ path('app_affectations_new') }}">Nouveau</a>
@@ -24,7 +26,7 @@
                 <td>{{ affectation.nameaffectation }}</td>
                 <td>{{ affectation.descriptionaffectation }}</td>
                 <td>
-                    <a class="btn btn-grad btn-primary2 me-1"  href="{{ path('app_affectations_show', {'id': affectation.id}) }}">Affciher</a>
+                    <a class="btn btn-grad btn-primary2 me-1"  href="{{ path('app_affectations_show', {'id': affectation.id}) }}">Afficher</a>
                     <a  class="btn btn-grad btn-warning2" href="{{ path('app_affectations_edit', {'id': affectation.id}) }}">Modifier</a>
                 </td>
             </tr>

@@ -1,0 +1,134 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	Action du Master
+{% endblock %}
+
+{% block body %}
+
+	<section>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<h1 class="h-grad bg-green0">{{ actions_master.titleactionsmaster }}</h1>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12 clCard">
+					<img src="{{ asset('photosActionsMasters/' ~ actions_master.pictureactionsmaster) }}" 
+							class="W-100" height="350px" 
+							alt="{{ actions_master.altPictureactionsmaster }}" 
+							title="{{ actions_master.pictureactionsmaster }}">
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					{{ actions_master.textactionsmaster|raw }}
+				</div>
+			</div>
+		</div>
+	</section>
+
+	{% if (actions_master.linkactionsmaster) %}
+		<hr class="mb-3">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<h5>Lien utile</h5>
+					<a class="btn btn-primary mb-3 mr-1" href="{{ actions_master.linkactionsmaster }}" role="button" data-bs-slide="prev">
+						<i class="fas fa-external-link-alt"></i>
+						{{ actions_master.titlelinkactionsmaster }}
+					</a>
+				</div>
+			</div>
+		</div>
+	{% endif %}
+
+	<hr class="mb-3">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<h5>Dates du Projet :</h5>
+				<p>
+					du
+					{{ actions_master.endactionsmaster ? actions_master.endactionsmaster|date('d/m/y') : '' }}
+				</p>
+				<p>
+					au
+					{{ actions_master.startactionsmaster ? actions_master.startactionsmaster|date('d/m/y') : '' }}
+				</p>
+			</div>
+		</div>
+	</div>
+
+
+	<hr class="mb-3">
+	<div class="container bg-dark py-3">
+		<div class="row">
+			<div class="col-md-12">
+
+
+				<div id="carouselExampleCaptions2" class="carousel slide carousel-fade" data-bs-ride="carousel2">
+
+					<div class="carousel-indicators">
+
+						{%  set isFirst = 0 %}
+						{% for xTab in actions_master.PhotosActions %}
+							<button type="button" data-bs-target="#carouselExampleCaptions" 
+								data-bs-slide-to="{{ isFirst }}" 
+								aria-label="Slide {{ isFirst+1 }}" 
+								class={% if (isFirst==0) %} "active" {% else %} "" {% endif %} 
+								aria-current={% if (isFirst==0) %} "true" {% else %} "false" {% endif %}>
+							</button>
+							{% set isFirst = isFirst+1 %}
+						{% endfor %}
+					</div>
+
+					<div
+						class="carousel-inner">
+
+						<!--/.Controls-->
+						{%  set isFirst = true %}
+						{% for xTab in actions_master.PhotosActions %}
+							<div class="carousel-item {% if isFirst == true %}active{% endif %}">
+								<div class="d-flex flex-row justify-content-center">
+									<img src="{{ asset('photosActionsMasters/' ~ xTab.photoactionsmaster) }}" 
+											class="d-block imgClass" w-100 width="800" height="400" 
+											alt="{{ xTab.altphotoactionsmaster }}"
+											title="{{ xTab.photoactionsmaster }}">
+								</div>
+								{% set isFirst = false %}
+							</div>
+						{% endfor %}
+
+					</div>
+
+					<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions2" data-bs-slide="prev">
+						<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+						<span class="visually-hidden">Previous</span>
+					</button>
+					<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions2" data-bs-slide="next">
+						<span class="carousel-control-next-icon" aria-hidden="true"></span>
+						<span class="visually-hidden">Next</span>
+					</button>
+
+					{# <div class="col-6 text-center">
+					<a class="btn btn-primary mb-3 mr-1" href="#myCarouselPartners" role="button" data-bs-slide="prev"><i class="fas fa-arrow-left"></i></a>
+					<a class="btn btn-primary mb-3 " href="#myCarouselPartners" role="button" data-bs-slide="next"><i class="fas fa-arrow-right"></i></a>
+					</div> #}
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+	<hr class="mb-3">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<a class="btn btn-grad btn-secondary2" href="{{ path('posters_actions_masters_index') }}">Retour</a>
+			</div>
+		</div>
+	</div>
+
+{% endblock %}

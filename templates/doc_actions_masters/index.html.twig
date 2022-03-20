@@ -1,0 +1,48 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}Documents Associés aux actions du Master{% endblock %}
+
+{% block body %}
+    <h1>Documents Associés aux actions du Master</h1>
+
+    <div>
+        <a class="btn btn-grad btn-info2" href="{{ path('app_doc_actions_masters_new') }}">Nouveau</a>
+    </div>        
+    <hr class="mb-3">          
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Action Origine</th>
+                <th>Titre</th>
+                <th>Lien vers le Document</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for doc_actions_master in doc_actions_masters %}
+            <tr>
+                <td>{{ doc_actions_master.docactmaster.titleactionsmaster }}</td> 
+                <td>{{ doc_actions_master.titledocactionsmaster }}</td>
+                <td>
+                    {{ doc_actions_master.linkdocactionsmaster }}
+                    <br>
+                    <a class="btn btn-info mb-3 mr-1 me-1 btn-sm" href="{{ doc_actions_master.linkdocactionsmaster }}" role="button" data-bs-slide="prev">
+                        <i class="fas fa-external-link-alt"></i>
+                        Aller Voir ...
+                    </a>
+                </td>
+                <td>
+                    <a class="btn btn-grad btn-primary2 me-1 mb-1" href="{{ path('app_doc_actions_masters_show', {'id': doc_actions_master.id}) }}">Afficher</a>
+                    <a class="btn btn-grad btn-warning2" href="{{ path('app_doc_actions_masters_edit', {'id': doc_actions_master.id}) }}">Modifier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">Pas d'enregistrement</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

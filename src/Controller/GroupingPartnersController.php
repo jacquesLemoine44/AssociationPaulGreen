@@ -22,7 +22,7 @@ class GroupingPartnersController extends AbstractController
     public function index(GroupingPartnersRepository $groupingPartnersRepository): Response
     {
         return $this->render('grouping_partners/index.html.twig', [
-            'grouping_partners' => $groupingPartnersRepository->findAll(),
+            'grouping_partners' => $groupingPartnersRepository->findByTri2createQueryBuilder(),
         ]);
     }
 

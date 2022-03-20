@@ -27,7 +27,7 @@ class ActionsAssosType extends AbstractType
             ])
 
             ->add('pictureactionsasso', FileType::class, [
-                'label' => 'Photo : ',
+                'label' => 'Photo de présentation: ',
                 'mapped' => false,
                 'required' => false,
                 'constraints' => [

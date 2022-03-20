@@ -5,12 +5,10 @@
 {% block body %}
 
 <div class="container clBureau">
-    <h1>Membres du Bureau</h1>
+    <h1 class="h-grad bg-blueGreen">Les membres du Bureau</h1>
 
         <hr class="mb-3"> 
 
-
-        
         <div class="row row-cols-1 row-cols-md-3 g-4">
 
             {% for user in office %}
@@ -35,7 +33,7 @@
                             <h5 class="card-title">{{ user.nameUser }} {{ user.firstNameUser }}</h5> 
                             {# <p class="card-text"><i class="fas fa-at"></i> {{ user.email }}</p> #}
                             <a class="clRond" 
-                                    href="mailto:{{ user.email }}
+                                href="mailto:{{ user.email }}
                                     ?subject=Sujet du mail...
                                     &cc={{ params[0].emailParam}}
                                     &body=Bonjour {{ user.nameUser }} {{ user.firstNameUser }} ...
@@ -45,7 +43,7 @@
                                 <i class="fas fa-envelope"></i>
                             </a>
                             <a class="card-text text-decoration-none" 
-                                    href="mailto:{{ user.email }}
+                                href="mailto:{{ user.email }}
                                     ?subject=Sujet du mail...
                                     &cc={{ params[0].emailParam}}
                                     &body=Bonjour {{ user.nameUser }} {{ user.firstNameUser }} ...

@@ -19,6 +19,18 @@ class GroupingPartnersRepository extends ServiceEntityRepository
         parent::__construct($registry, GroupingPartners::class);
     }
 
+    /**
+    * @return GroupingPartners[] Returns an array of GroupingPartners objects
+    */
+        
+    public function findByTri2createQueryBuilder()
+    {
+        $query =$this->createQueryBuilder('g')
+            ->select(['g'])
+            ->orderBy('g.titleGroupingPartner','ASC')    
+        ;
+        return $query->getQuery()->getResult();
+    } 
     // /**
     //  * @return GroupingPartners[] Returns an array of GroupingPartners objects
     //  */

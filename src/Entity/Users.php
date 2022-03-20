@@ -35,6 +35,7 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
         $this->usersnew = new ArrayCollection();
         $this->connectUser = new ArrayCollection();
         $this->usersequipments = new ArrayCollection();
+        $this->UsersMasters = new ArrayCollection();
         }
 
     /**
@@ -172,6 +173,11 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
      * @ORM\OneToMany(targetEntity=Equipments::class, mappedBy="equipmentsusers")
      */
     private $usersequipments;
+
+    /**
+     * @ORM\OneToMany(targetEntity=ActionsMasters::class, mappedBy="ActionsUsers")
+     */
+    private $UsersMasters;
 
     public function getId(): ?int
     {
@@ -572,6 +578,36 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
             // set the owning side to null (unless already changed)
             if ($usersequipment->getEquipmentsusers() === $this) {
                 $usersequipment->setEquipmentsusers(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, ActionsMasters>
+     */
+    public function getUsersMasters(): Collection
+    {
+        return $this->UsersMasters;
+    }
+
+    public function addUsersMaster(ActionsMasters $usersMaster): self
+    {
+        if (!$this->UsersMasters->contains($usersMaster)) {
+            $this->UsersMasters[] = $usersMaster;
+            $usersMaster->setActionsUsers($this);
+        }
+
+        return $this;
+    }
+
+    public function removeUsersMaster(ActionsMasters $usersMaster): self
+    {
+        if ($this->UsersMasters->removeElement($usersMaster)) {
+            // set the owning side to null (unless already changed)
+            if ($usersMaster->getActionsUsers() === $this) {
+                $usersMaster->setActionsUsers(null);
             }
         }
 

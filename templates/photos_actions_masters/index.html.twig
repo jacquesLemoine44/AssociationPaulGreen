@@ -1,0 +1,40 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}Photos des Actions du Master{% endblock %}
+
+{% block body %}
+    <h1>Photos des Actions du Master</h1>
+
+    {# <a class="btn btn-grad btn-primary2" href="{{ path('app_photos_actions_masters_new') }}">Nouveau</a> #}
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Action Origine</th>
+                <th>Photo</th>
+                <th>Texte Alternatif</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for photos_actions_master in photos_actions_masters %}
+            <tr>
+                <td>{{ photos_actions_master.photoactmaster.titleactionsmaster }}</td> 
+                <td>
+                    <img src="{{ asset('photosActionsAssos/' ~ photos_actions_master.photoactionsmaster) }}" width="100" alt=">{{ photos_actions_master.altphotoactionsmaster }}">
+                </td>
+                <td>{{ photos_actions_master.altphotoactionsmaster }}</td>                    
+                <td>
+                    <a class="btn btn-grad btn-primary2 me-1" href="{{ path('app_photos_actions_masters_show', {'id': photos_actions_master.id}) }}">Afficher</a>
+                    <a class="btn btn-grad btn-warning2" href="{{ path('app_photos_actions_masters_edit', {'id': photos_actions_master.id}) }}">Modfier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">Aucun renregistrement</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

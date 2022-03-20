@@ -1,0 +1,66 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}Les Actions du Master{% endblock %}
+
+{% block body %}
+    <h1 class="text-center bg-logoGreen0">Les Actions du Master</h1>
+
+    <a class="btn btn-grad btn-info2" href="{{ path('app_actions_masters_new') }}">Nouveau</a>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Titre</th>
+                <th>Image Principal</th>
+                <th>Texte</th>
+                <th>Lien</th>
+                <th>Dates</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for actions_master in actions_masters %}
+            <tr>
+                {# <td>{{ actions_master.titleactionsmaster }}</td>
+                <td>{{ actions_master.pictureactionsmaster }}</td>
+                <td>{{ actions_master.altpictureactionsmaster }}</td>
+                <td>{{ actions_master.textactionsmaster }}</td>
+                <td>{{ actions_master.titlelinkactionsmaster }}</td>
+                <td>{{ actions_master.startactionsmaster ? actions_master.startactionsmaster|date('Y-m-d') : '' }}</td>
+                <td>{{ actions_master.endactionsmaster ? actions_master.endactionsmaster|date('Y-m-d') : '' }}</td> #}
+                <td>{{ actions_master.titleactionsmaster }}</td>
+                    <td>
+                        <img src="{{ asset('photosActionsMasters/' ~ actions_master.pictureactionsmaster) }}" 
+                                width="100" alt="{{ actions_master.altpictureactionsmaster }}">
+                        <br>
+                        {{ actions_master.altpictureactionsmaster }}
+                    </td>                    
+                <td>{{ actions_master.textactionsmaster|striptags|u.truncate(50, '...') }}</td>
+                <td>
+                    {{ actions_master.titlelinkactionsmaster }}
+                    <br>
+                    {% if ( actions_master.linkactionsmaster ) %} 
+                        <a href="{{ actions_master.linkactionsmaster }}" target="_blank"><i class="fas fa-link"></i></a>                       
+                    {% else %}
+                        <i class="fas fa-unlink"></i>
+                    {% endif %} 
+                </td>
+                <td>
+                    Début : {{ actions_master.startactionsmaster ? actions_master.startactionsmaster|date('d/m/y') : '' }}
+                    <br>
+                    Fin : {{ actions_master.endactionsmaster ? actions_master.endactionsmaster|date('d/m/y') : '' }}
+                </td>
+                <td>
+                    <a class="btn btn-grad btn-primary2 me-1" href="{{ path('app_actions_masters_show', {'id': actions_master.id}) }}">Afficher</a>
+                    <a class="btn btn-grad btn-warning2" href="{{ path('app_actions_masters_edit', {'id': actions_master.id}) }}">Modifier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="9">Aucune donnée</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}Modification d'une action du Master{% endblock %}
+
+{% block body %}
+    <h1 class="text-center bg-logoGreen0">Modification d'une action du Master</h1>
+
+    {{ include('actions_masters/_form.html.twig', {'button_label': 'Valider'}) }}
+
+    {# <a class="btn btn-grad btn-secondary2 me-2" href="{{ path('app_actions_masters_index') }}">Retour</a>
+    {{ include('actions_masters/_delete_form.html.twig') }} #}
+    
+{% endblock %}

@@ -23,9 +23,14 @@ class PhotosActionsMasters
     private $photoactionsmaster;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $altphotoactionsmaster;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=ActionsMasters::class, inversedBy="PhotosActions")
+     */
+    private $PhotosActions;
 
     public function getId(): ?int
     {
@@ -52,6 +57,18 @@ class PhotosActionsMasters
     public function setAltphotoactionsmaster(string $altphotoactionsmaster): self
     {
         $this->altphotoactionsmaster = $altphotoactionsmaster;
+
+        return $this;
+    }
+
+    public function getPhotosActions(): ?ActionsMasters
+    {
+        return $this->PhotosActions;
+    }
+
+    public function setPhotosActions(?ActionsMasters $PhotosActions): self
+    {
+        $this->PhotosActions = $PhotosActions;
 
         return $this;
     }

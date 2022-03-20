@@ -1,0 +1,7 @@
+<form method="post" action="{{ path('del_doc_actions_masters', {'id': doc_actions_master.id}) }}" 
+    onsubmit="return confirm('Êtes-vous sûr de bien vouloir supprimer cet élément?');">
+
+    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ doc_actions_master.id) }}">
+    <button class="btn btn-grad btn-danger2 me-2">Supprimer</button>
+    
+</form>

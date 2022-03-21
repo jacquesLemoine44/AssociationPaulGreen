@@ -18,7 +18,7 @@
 					</tr>
 						
 					<tr>
-	                    <th>Role :</th>
+	                    <th>Rôle :</th>
                     	<td>{{ form_widget(form.roles) }} </td>
 					</tr>
 
@@ -27,7 +27,7 @@
 						<td>
 							{{ form_widget(form.photoUser) }}
 							<hr>
-								{% if user.photoUser %}
+							{% if user.photoUser %}
                                 <img  class="border-end border-bottom border-5 rounded-circle" 
                                     src="{{ asset('photosAdherents/' ~ user.photoUser) }}"
                                     alt="{{ user.nameUser }} {{ user.firstNameUser }}">                    
@@ -41,11 +41,11 @@
 					</tr>
 
 					<tr>
-						<th>Adresse 1:</th>
+						<th>Adresse :</th>
 						<td>{{ form_widget(form.address1User) }}</td>
 					</tr>
 					<tr>
-						<th>Adresse 2 :</th>
+						<th>Complément d'adresse :</th>
 						<td>{{ form_widget(form.address2User) }}</td>
 					</tr>
 					<tr>
@@ -100,12 +100,13 @@
                         		{{ form_widget(form.newsletterIntershipUser) }}
                         		{{ form_widget(form.newsletterAssosUser) }}
                        	 		{{ form_widget(form.contactinfoUser) }}
-{# 						
+						{# 						
 						{% if app.user.roles[0]=="ROLE_ADMIN" %}
 						{{ form_label(form.newslettersNewsUser) }}
                         {{ form_label(form.newsletterIntershipUser, {"attr": {"class": (app.user.roles[0]=="ROLE_ADMIN") ? '' : 'd-none'}}) }}
                         {{ form_label(form.newsletterAssosUser, {"attr": {"class": (app.user.roles[0]=="ROLE_ADMIN") ? '' : 'd-none'}}) }}
-                        {{ form_label(form.contactinfoUser, {"attr": {"class": (app.user.roles[0]=="ROLE_ADMIN") ? '' : 'd-none'}}) }} #}
+                        {{ form_label(form.contactinfoUser, {"attr": {"class": (app.user.roles[0]=="ROLE_ADMIN") ? '' : 'd-none'}}) }}
+						 #}
 						</td>						
 					{% endif %}
 						

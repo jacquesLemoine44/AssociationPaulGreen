@@ -15,11 +15,17 @@ class AffectationsType extends AbstractType
         $builder
             ->add('nameaffectation', TextType::class, [
                 'label' => 'Affectation : ', 
-                'required'=> true
+                'required'=> true,
+                'attr' => [
+                    'maxlength' => '100'
+                ],
             ])
             ->add('descriptionaffectation', TextType::class, [
                 'label' => 'Description : ', 
-                'required'=> false
+                'required'=> false,
+                'attr' => [
+                    'maxlength' => '250'
+                ],
             ])
         ;
     }

@@ -13,6 +13,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
 
 class ActionsAssosType extends AbstractType
@@ -23,7 +24,18 @@ class ActionsAssosType extends AbstractType
 
             ->add('titleactionsasso', TextType::class, [
                 'label' => 'Titre : ', 
-                'required'=> true
+                'required'=> true,
+                'attr' => [
+                    'maxlenght' =>'250',
+                ]
+            ])
+            ->add('shorttextactionsasso', TextareaType::class, [
+                'label' => 'Texte de présentation court : ',
+                'required'=> false,
+                'attr' => [
+                    'rows' => '10',
+                    'maxlength' => '1000'
+                ],
             ])
 
             ->add('pictureactionsasso', FileType::class, [
@@ -42,7 +54,10 @@ class ActionsAssosType extends AbstractType
             ]) 
             ->add('altPictureActionsAssos', TextType::class, [
                 'label' => 'Texte alternatif Photo / sous-Titre : ', 
-                'required'=> false
+                'required'=> false,
+                'attr' => [
+                    'maxlenght' =>'250',
+                ]
             ])
 
             ->add('textactionsasso', CKEditorType::class, [
@@ -66,7 +81,11 @@ class ActionsAssosType extends AbstractType
                 'label_attr' => [
                     'class' => 'fst-italic text-decoration-underline'
                 ],
-                'required'=> false])
+                'required'=> false,
+                'attr' => [
+                    'maxlenght' =>'250',
+                ]
+            ])
                 // 'attr' => [
                 //     'class' => 'form-control'
                 // ]
@@ -75,7 +94,11 @@ class ActionsAssosType extends AbstractType
                 'label_attr' => [
                     'class' => 'fst-italic'
                 ],
-                'required'=> false])
+                'required'=> false,
+                'attr' => [
+                    'maxlenght' =>'250',
+                ]
+            ])
 
             ->add('actionsassostheme', EntityType::class,[
                 'label' => "Theme de l'action:",

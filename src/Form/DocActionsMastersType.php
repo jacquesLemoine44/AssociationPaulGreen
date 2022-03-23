@@ -12,9 +12,24 @@ class DocActionsMastersType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('titledocactionsmaster')
-            ->add('linkdocactionsmaster')
-            ->add('DocActions')
+
+            // ->add('DocActions')
+
+            ->add('titledocactionsmaster', TextType::class, [
+                'label' => 'Titre du Lien : ',
+                'attr' => [
+                    'class' => 'form-control',
+                    'maxlength' => '250'
+                ]
+            ])
+            ->add('linkdocactionsmaster', TextType::class, [
+                'label' => 'Lien :',
+                'attr' => [
+                    'class' => 'form-control',
+                    'maxlength' => '250'
+                    ],
+            ])
+
         ;
     }
 

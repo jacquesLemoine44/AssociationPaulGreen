@@ -18,46 +18,69 @@
 
 			<div class="border border-2 {% if ((xCpt % 2) != 0) %}bg-info2{% else %}bg-success2{% endif %} py-4">
 				<div class="container">
+
+					<div class="row">
+						<div class="col-md-12 text-center">
+							<h3 class="mb-0">{{ internship.titleinternship }}</h3>
+							<span class="textAlt">
+								<i class="fas fa-history"></i>  
+								{{ internship.startinternship ? ' du ' ~ internship.startinternship|date('d/m/y') : '' }}
+								{{ internship.endinternship ? ' au ' ~ internship.endinternship|date('d/m/y') : '' }}
+							</span>  
+						</div>
+					</div>
+
 					<div class="row">
 
 						<div class="col-md-12">
-							<h3 class="clh3Internship text-center text-success">{{ internship.titleinternship }}</h3>
+							{# <h3 class="clh3Internship text-center text-success">{{ internship.titleinternship }}</h3>
 							<br>
 							<b><i>{{ internship.titleinternship }}</i></b>
+							<br> #}
+							{{ internship.shorttextinternship }}
 							<br>
+							<a class="btn btn-primary btn-sm"
+								href="{{ path('posters_internships_show', {'id': internship.id}) }}"
+								title="Allez lire l'offre de stage...">
+								Lire la suite ...
+							</a>
+							<br>
+							<p>Lieu : <span> {{ internship.placeintership }} </span> </p>
+							<p>Dates : 
+								<span> 
+									{{ internship.startinternship ? ' du ' ~ internship.startinternship|date('d/m/y') : '' }}
+									{{ internship.endinternship ? ' au ' ~ internship.endinternship|date('d/m/y') : '' }}
+								</span> 
+							</p>
 
 							<div>
-
 								{% if (internship.linkinternship) %}
-									<p>Lien de l'annonce : 
+									<p>Annonce officielle : 
 										<a class="btn btn-primary mb-3 mr-1 me-1 btn-sm" 
 												href="{{ internship.linkinternship }}" 
 												target="_blank">
 											<i class="fas fa-external-link-alt"></i>
 											Y aller...
 										</a>
-										<a class="" href="{{ internship.linkinternship }}">
+										{# <a class="" href="{{ internship.linkinternship }}">
 											{{ internship.linkinternship }}
-										</a>										 
+										</a> #}
 									</p>
 									<br>
 								{% endif %}
 							</div>
-                			<p>Lieu : <span> {{ internship.placeintership }} </span> </p>
-							<p>Dates : 
-								<span> 
-										{{ internship.startinternship ? internship.startinternship|date('d/m/y') : '' }}
-									 au {{ internship.endinternship ? internship.endinternship|date('d/m/y') : '' }}
-								</span> </p>
+
+
 						</div>
 
 					</div>
 
-					<div class="row mt-1">
+					{# {{ internship.offerinternship|striptags|u.truncate(300, '...') }} #}
+					{# {{ internship.offerinternship |length > 500 ? internship.offerinternship |slice(0,500)|raw : internship.offerinternship|raw }} #}
+					{# <div class="row mt-1">
 						<div class="col-md-12 border border-2 border-secondary">
                         <p>L'Offre</p>
-							{# {{ internship.offerinternship|striptags|u.truncate(300, '...') }} #}
-							{{ internship.offerinternship |length > 500 ? internship.offerinternship |slice(0,500)|raw : internship.offerinternship|raw }}
+							{{ internship.shorttextinternship }}
 							<br>
 							<a class="btn btn-primary btn-sm"
 								href="{{ path('posters_internships_show', {'id': internship.id}) }}"
@@ -65,7 +88,7 @@
 								Lire la suite ...
 							</a>
 						</div>
-					</div>
+					</div> #}
                     
 				</div>
 

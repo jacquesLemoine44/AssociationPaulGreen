@@ -84,6 +84,11 @@ class ActionsMasters
      */
     private $linkactionsmaster;
 
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $shorttextactionsmaster;
+
     public function __construct()
     {
         $this->ActionsLinks = new ArrayCollection();
@@ -315,6 +320,18 @@ class ActionsMasters
     public function setLinkactionsmaster(?string $linkactionsmaster): self
     {
         $this->linkactionsmaster = $linkactionsmaster;
+
+        return $this;
+    }
+
+    public function getShorttextactionsmaster(): ?string
+    {
+        return $this->shorttextactionsmaster;
+    }
+
+    public function setShorttextactionsmaster(?string $shorttextactionsmaster): self
+    {
+        $this->shorttextactionsmaster = $shorttextactionsmaster;
 
         return $this;
     }

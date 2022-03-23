@@ -4,7 +4,6 @@
 
 {% block body %}
 
-
     <h1 class="text-center bg-logoGreen1">Paramètres Principaux Applicatifs</h1>
 
     <table class="table">
@@ -79,15 +78,13 @@
         </tbody>
     </table>
 
-
-{% if params%}
-    {# plus de bouton #}
-{% else %}
-    <div>
-        <a class="btn btn-grad btn-info2" href="{{ path('params_new') }}">Nouveau</a>
-        <hr class="mb-3">
-    </div>
-{% endif%}
-
+    {% if params%}
+        {# plus de bouton #}
+    {% else %}
+        <div>
+            <a class="btn btn-grad btn-info2" href="{{ path('params_new') }}">Nouveau</a>
+            <hr class="mb-3">
+        </div>
+    {% endif %}
 
 {% endblock %}

@@ -17,10 +17,16 @@ class FieldtripphotosType extends AbstractType
                 'label' => 'Photo : ', 
                 'required'=> false,
                 'disabled'=>true,
+                'attr' => [
+                    'maxlength' => '250'
+                ]
             ])
             ->add('altfieldtripphoto', TextType::class, [
                 'label' => 'Texte Alternatif : ',
-                'required'=> true
+                'required'=> true,
+                'attr' => [
+                    'maxlength' => '250'
+                ]
             ])
             // ->add('fieldstripsorigin')
         ;

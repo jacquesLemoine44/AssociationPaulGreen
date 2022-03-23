@@ -16,14 +16,23 @@ class SocialNetworksType extends AbstractType
             ->add('socialNetwork', TextType::class, [
                 'label' => 'Réseau social : ',
                 'required' => true,
+                'attr' => [
+                    'maxlength' => '50'
+                ]
             ])
             ->add('codeSocialnetwork', TextType::class, [
                 'label' => 'Code Logo : ',
                 'required' => false,
+                'attr' => [
+                    'maxlength' => '250'
+                ]
             ])
             ->add('linkSocialnetwork', TextType::class, [
                 'label' => 'Lien : ',
                 'required' => false,
+                'attr' => [
+                    'maxlength' => '250'
+                ]
             ])
             // ->add('logoSocialnetwork', TextType::class, ['label' => 'Logo : '])
             // ->add('params')

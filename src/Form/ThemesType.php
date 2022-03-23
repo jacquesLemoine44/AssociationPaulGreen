@@ -16,7 +16,10 @@ class ThemesType extends AbstractType
         $builder
             ->add('nameTheme', TextType::class, [
                 'label' => 'Thème : ',
-                'required'=> true
+                'required'=> true,
+                'attr' => [
+                    'maxlength' => '250'
+                ]
             ])
             ->add('descriptionTheme', TextareaType::class, [
                 'label' => 'Description : ',

@@ -12,9 +12,24 @@ class PhotosActionsMastersType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('photoactionsmaster')
-            ->add('altphotoactionsmaster')
-            ->add('PhotosActions')
+
+            // ->add('PhotosActions')
+
+            ->add('photoactionsmaster', TextType::class, [
+                'label' => 'Photo : ', 
+                'required'=> false,
+                'disabled'=>true,
+                'attr' => [
+                    'maxlength' => '250'
+                ]
+            ])
+            ->add('altphotoactionsmaster', TextType::class, [
+                'label' => 'Description Image : ',
+                'required'=> false,
+                'attr' => [
+                    'maxlength' => '250'
+                ]
+            ])
         ;
     }
 

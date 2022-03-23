@@ -17,11 +17,17 @@ class PhotosActionsAssosType extends AbstractType
                 'label' => 'Photo : ', 
                 'required'=> false,
                 'disabled'=>true,
+                'attr' => [
+                    'maxlength' => '250'
+                ]
             ])
             ->add('altphotoactionsasso', TextType::class, [
                 'label' => 'Description Image : ',
-                'required'=> false
-                ])
+                'required'=> false,
+                'attr' => [
+                    'maxlength' => '250'
+                ]
+            ])
             // ->add('photoactasso')
         ;
     }

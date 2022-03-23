@@ -2,19 +2,20 @@
 
 namespace App\Form;
 
+use App\Entity\Themes;
 use App\Entity\ActionsMasters;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\OptionsResolver\OptionsResolver;
+use FOS\CKEditorBundle\Form\Type\CKEditorType;
 // ====
 
-use App\Entity\Themes;
-use FOS\CKEditorBundle\Form\Type\CKEditorType;
+use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Validator\Constraints\File;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
 
 class ActionsMastersType extends AbstractType
@@ -22,19 +23,23 @@ class ActionsMastersType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            // ->add('titleactionsmaster')
-            // ->add('pictureactionsmaster')
-            // ->add('altpictureactionsmaster')
-            // ->add('textactionsmaster')
-            // ->add('titlelinkactionsmaster')
-            // ->add('startactionsmaster')
-            // ->add('endactionsmaster')
-            // ->add('ActionsThemes')
+
             // ->add('ActionsUsers')
 
             ->add('titleactionsmaster', TextType::class, [
                 'label' => 'Titre : ', 
-                'required'=> true
+                'required'=> true,
+                'attr' => [
+                    'maxlength' => '250'
+                ],
+            ])
+            ->add('shorttextactionsmaster', TextareaType::class, [
+                'label' => 'Texte de présentation court : ',
+                'required'=> false,
+                'attr' => [
+                    'rows' => '10',
+                    'maxlength' => '1000'
+                ],
             ])
 
             ->add('pictureactionsmaster', FileType::class, [
@@ -53,7 +58,10 @@ class ActionsMastersType extends AbstractType
             ]) 
             ->add('altpictureactionsmaster', TextType::class, [
                 'label' => 'Texte alternatif Photo / sous-Titre : ', 
-                'required'=> false
+                'required'=> false,
+                'attr' => [
+                    'maxlength' => '250'
+                ],
             ])
 
             ->add('textactionsmaster', CKEditorType::class, [
@@ -77,7 +85,11 @@ class ActionsMastersType extends AbstractType
                 'label_attr' => [
                     'class' => 'fst-italic text-decoration-underline'
                 ],
-                'required'=> false])
+                'required'=> false,
+                'attr' => [
+                    'maxlength' => '250'
+                ],
+            ])
                 // 'attr' => [
                 //     'class' => 'form-control'
                 // ]
@@ -86,7 +98,8 @@ class ActionsMastersType extends AbstractType
                 'label_attr' => [
                     'class' => 'fst-italic'
                 ],
-                'required'=> false])
+                'required'=> false
+            ])
 
             ->add('ActionsThemes', EntityType::class,[
                 'label' => "Theme de l'action:",
@@ -94,7 +107,7 @@ class ActionsMastersType extends AbstractType
                 'choice_label' => 'nameTheme',
                 'multiple' => True,
                 'expanded' => true,
-                ])            
+            ])            
 
             ->add('PhotosActions', FileType::class,[
                 'label' => false,

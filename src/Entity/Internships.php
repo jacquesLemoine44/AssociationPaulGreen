@@ -47,6 +47,11 @@ class Internships
      */
     private $linkinternship;
 
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $shorttextinternship;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -120,6 +125,18 @@ class Internships
     public function setLinkinternship(?string $linkinternship): self
     {
         $this->linkinternship = $linkinternship;
+
+        return $this;
+    }
+
+    public function getShorttextinternship(): ?string
+    {
+        return $this->shorttextinternship;
+    }
+
+    public function setShorttextinternship(?string $shorttextinternship): self
+    {
+        $this->shorttextinternship = $shorttextinternship;
 
         return $this;
     }

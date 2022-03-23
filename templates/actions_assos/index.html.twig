@@ -15,7 +15,7 @@
             <tr>
                 <th>Titre</th>
                 <th>Image Principal</th>
-                <th>Texte</th>
+                <th>Texte de présentation</th>
                 <th>Lien</th>
                 <th>Dates</th>
                 <th>actions</th>
@@ -26,11 +26,14 @@
             <tr>
                 <td>{{ actions_asso.titleactionsasso }}</td>
                     <td>
-                        <img src="{{ asset('photosActionsAssos/' ~ actions_asso.pictureactionsasso) }}" width="100" alt="{{ actions_asso.altPictureActionsAssos }}">
+                        <img src="{{ asset('photosActionsAssos/' ~ actions_asso.pictureactionsasso) }}" 
+                            width="100" 
+                            alt="{{ actions_asso.altPictureActionsAssos }}">
                         <br>
-                        {{ actions_asso.altPictureActionsAssos }}
+                        <span class="textAlt">{{ actions_asso.altPictureActionsAssos }}</span> 
                     </td>                    
-                <td>{{ actions_asso.textactionsasso|striptags|u.truncate(50, '...') }}</td>
+                {# <td>{{ actions_asso.textactionsasso|striptags|u.truncate(50, '...') }}</td> #}
+                <td>{{ actions_asso.shorttextactionsasso }}</td>
                 <td>
                     {{ actions_asso.titlelinkactionsasso }}
                     <br>

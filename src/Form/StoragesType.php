@@ -15,11 +15,17 @@ class StoragesType extends AbstractType
         $builder
             ->add('namestorage', TextType::class, [
                 'label' => 'Stockage : ', 
-                'required'=> true
+                'required'=> true,
+                'attr' => [
+                    'maxlength' => '100'
+                ]
             ])
             ->add('descriptionstorage', TextType::class, [
                 'label' => 'Description : ', 
-                'required'=> false
+                'required'=> false,
+                'attr' => [
+                    'maxlength' => '250'
+                ]
             ])
         ;
     }

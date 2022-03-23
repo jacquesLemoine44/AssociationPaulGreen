@@ -21,14 +21,16 @@
                     {% if (news.pictureNew) %}
                         <img src="{{ asset('photosNews/' ~ news.pictureNew) }}"
                             alt="{{ news.altpictureNew }}" width="100">
+                        <span class="textAlt">{{ news.altpictureNew }}</span> 
                     {% endif %}  
 
                 </td>
             </tr>
             <tr>
-                <th>Texte</th>
+                <th>Texte de présentation court</th>
                 <td>
-                    {{ news.textNew|striptags|u.truncate(300, '...') }}
+                    {{ news.shorttextnew }}
+                    {# {{ news.textNew|striptags|u.truncate(300, '...') }} #}
                         {# {{ news.textNew |length > 300 ? news.textNew |slice(0,300)|raw : news.textNew |raw }} #}
                         {# {% if news.textNew |length > 300 %}
                             <a class="" href="{{ path('news_show', {'id': news.id}) }}">lire la suite...</a>
@@ -58,11 +60,8 @@
 
     <hr class="mb-3">
     <div class="d-flex flex-row my-2">
-
         <a class="btn btn-grad btn-secondary2 me-2" href="{{ path('news_index') }}">Retour</a>
-
         <a class="btn btn-grad btn-warning2 me-2" href="{{ path('news_edit', {'id': news.id}) }}">Modifier</a>
-
         {{ include('news/_delete_form.html.twig') }}
     
 {% endblock %}

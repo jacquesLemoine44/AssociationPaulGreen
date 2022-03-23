@@ -13,7 +13,13 @@ class GroupingPartnersType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('titleGroupingPartner', TextType::class, ['label' => 'Regroupement : ', 'required'=> true])
+            ->add('titleGroupingPartner', TextType::class, [
+                'label' => 'Regroupement : ',
+                'required'=> true,
+                'attr' => [
+                    'maxlength' => '250'
+                ]
+        ])
         ;
     }
 

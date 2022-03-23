@@ -17,10 +17,16 @@ class NewsPhotosType extends AbstractType
                 'label' => 'Photo : ', 
                 'required'=> false,
                 'disabled'=>true,
+                'attr' => [
+                    'maxlength' => '250'
+                ]
             ])
             ->add('altNewsPhoto', TextType::class, [
                 'label' => 'Description Image : ',
-                'required'=> false
+                'required'=> false,
+                'attr' => [
+                    'maxlength' => '250'
+                ]
             ])
             // ->add('newsPhotosnews')
         ;

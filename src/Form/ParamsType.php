@@ -17,10 +17,28 @@ class ParamsType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('titleParam', TextType::class, ['label' => 'Titre : ', 'required'=> true])
-            ->add('subtitleparam', TextType::class, ['label' => 'Sous-Titre : ', 'required'=> false])
+            ->add('titleParam', TextType::class, [
+                'label' => 'Titre : ',
+                'required'=> true,
+                'attr' => [
+                    'maxlength' => '250'
+                ]
+            ])
+            ->add('subtitleparam', TextType::class, [
+                'label' => 'Sous-Titre : ', 
+                'required'=> false,
+                'attr' => [
+                    'maxlength' => '250'
+                ]
+            ])
 
-            ->add('emailParam', TextType::class, ['label' => 'Mail : ', 'required'=> true])
+            ->add('emailParam', TextType::class, [
+                'label' => 'Mail : ', 
+                'required'=> true,
+                'attr' => [
+                    'maxlength' => '250'
+                ]
+            ])
             
             ->add('textParam', CKEditorType::class, [
                 'label' => 'Texte de Présentation : ',
@@ -66,10 +84,34 @@ class ParamsType extends AbstractType
                 ],
             ])
 
-            ->add('address1Param', TextType::class, ['label' => 'Adresse : ', 'required'=> true])
-            ->add('address2Param', TextType::class, ['label' => "Complément d'adresse : ", 'required'=> false])
-            ->add('cpParam', TextType::class, ['label' => 'Code Postal : ', 'required'=> true])
-            ->add('townParam', TextType::class, ['label' => 'Ville : ', 'required'=> true])
+            ->add('address1Param', TextType::class, [
+                'label' => 'Adresse : ', 
+                'required'=> true,
+                'attr' => [
+                    'maxlength' => '250'
+                ]
+            ])
+            ->add('address2Param', TextType::class, [
+                'label' => "Complément d'adresse : ", 
+                'required'=> false,
+                'attr' => [
+                    'maxlength' => '250'
+                ]
+            ])
+            ->add('cpParam', TextType::class, [
+                'label' => 'Code Postal : ', 
+                'required'=> true,
+                'attr' => [
+                    'maxlength' => '50'
+                ]
+            ])
+            ->add('townParam', TextType::class, [
+                'label' => 'Ville : ', 
+                'required'=> true,
+                'attr' => [
+                    'maxlength' => '100'
+                ]
+            ])
 
             ->add('updateParam',DateType::class, [
                 'label' => 'Dernière mise à jour du site : ',

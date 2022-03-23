@@ -101,13 +101,43 @@ class UsersType extends AbstractType
 
             ->add('nameUser', TextType::class, [
                 'label' => 'Nom : ', 
+                'required'=> true,
+                'attr' => [
+                    'maxlength' => '250'
+                ]
+            ])
+            ->add('firstNameUser', TextType::class, [
+                'label' => 'Prénom : ', 
                 'required'=> true
             ])
-            ->add('firstNameUser', TextType::class, ['label' => 'Prénom : ', 'required'=> true])
-            ->add('address1User', TextType::class, ['label' => 'Adresse 1 : ', 'required'=> true])
-            ->add('address2User', TextType::class, ['label' => 'Adressse 2 : ', 'required'=> false])
-            ->add('cpUser', TextType::class, ['label' => 'Code Postal : ', 'required'=> true])
-            ->add('townUser', TextType::class, ['label' => 'Ville : ', 'required'=> true])
+            ->add('address1User', TextType::class, [
+                'label' => 'Adresse 1 : ', 
+                'required'=> true,
+                'attr' => [
+                    'maxlength' => '250'
+                ]
+            ])
+            ->add('address2User', TextType::class, [
+                'label' => 'Adressse 2 : ', 
+                'required'=> false,
+                'attr' => [
+                    'maxlength' => '250'
+                ]
+            ])
+            ->add('cpUser', TextType::class, [
+                'label' => 'Code Postal : ', 
+                'required'=> true,
+                'attr' => [
+                    'maxlength' => '250'
+                ]
+            ])
+            ->add('townUser', TextType::class, [
+                'label' => 'Ville : ', 
+                'required'=> true,
+                'attr' => [
+                    'maxlength' => '250'
+                ]
+            ])
 
             ->add('phoneUser', TelType::class, [
                 'label' => 'Téléphone : ',
@@ -156,7 +186,10 @@ class UsersType extends AbstractType
 
             ->add('studyUser', TextType::class, [
                 'label' => 'Etudiant : ', 
-                'required'=> true
+                'required'=> true,
+                'attr' => [
+                    'maxlength' => '250'
+                ]
             ])
             ->add('yearMenbershipUser', IntegerType::class, [
                 'label' => 'Année : ', 
@@ -214,18 +247,63 @@ class UsersType extends AbstractType
 
                 $builder
 
-                    ->add('email', EmailType::class, ['label' => 'Mail : ', 'required'=> true])
+                    ->add('email', EmailType::class, [
+                        'label' => 'Mail : ', 
+                        'required'=> true,
+                        'attr' => [
+                            'maxlength' => '180'
+                        ]
+                    ])
         
-                    ->add('nameUser', TextType::class, ['label' => 'Nom : ', 'required'=> true])
-                    ->add('firstNameUser', TextType::class, ['label' => 'Prénom : ', 'required'=> true])
-                    ->add('address1User', TextType::class, ['label' => 'Adresse 1 : ', 'required'=> true])
-                    ->add('address2User', TextType::class, ['label' => 'Adressse 2 : ', 'required'=> false])
-                    ->add('cpUser', TextType::class, ['label' => 'Code Postal : ', 'required'=> true])
-                    ->add('townUser', TextType::class, ['label' => 'Ville : ', 'required'=> true])
+                    ->add('nameUser', TextType::class, [
+                        'label' => 'Nom : ', 
+                        'required'=> true,
+                        'attr' => [
+                            'maxlength' => '250'
+                        ]
+                    ])
+                    ->add('firstNameUser', TextType::class, [
+                        'label' => 'Prénom : ', 
+                        'required'=> true,
+                        'attr' => [
+                            'maxlength' => '250'
+                        ]
+                    ])
+                    ->add('address1User', TextType::class, [
+                        'label' => 'Adresse : ', 
+                        'required'=> true,
+                        'attr' => [
+                            'maxlength' => '250'
+                        ]
+                    ])
+                    ->add('address2User', TextType::class, [
+                        'label' => 'Complément d\'adresse : ', 
+                        'required'=> false,
+                        'attr' => [
+                            'maxlength' => '250'
+                        ]
+                    ])
+                    ->add('cpUser', TextType::class, [
+                        'label' => 'Code Postal : ', 
+                        'required'=> true,
+                        'attr' => [
+                            'maxlength' => '100'
+                        ]
+                    ])
+                    ->add('townUser', TextType::class, [
+                        'label' => 'Ville : ', 
+                        'required'=> true,
+                        'attr' => [
+                            'maxlength' => '250'
+                        ]
+                    ])
                 
                     ->add('phoneUser', TelType::class, [
                         'label' => 'Téléphone : ',
-                         'required'=> true,
+                        'required'=> true,
+                        'attr' => [
+                            'maxlength' => '50'
+                        ]
                     ])
                     
                     ->add('photoUser', FileType::class, [
@@ -245,7 +323,10 @@ class UsersType extends AbstractType
         
                     ->add('studyUser', TextType::class, [
                         'label' => 'Etudiant : ', 
-                        'required'=> true
+                        'required'=> true,
+                        'attr' => [
+                            'maxlength' => '250'
+                        ]
                     ])
                     ->add('yearMenbershipUser', IntegerType::class, [
                         'label' => 'Année : ', 

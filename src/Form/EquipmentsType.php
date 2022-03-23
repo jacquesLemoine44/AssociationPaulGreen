@@ -21,7 +21,10 @@ class EquipmentsType extends AbstractType
         $builder
             ->add('nameequipement', TextType::class, [
                 'label' => 'Equipement /  Matériel : ', 
-                'required'=> true
+                'required'=> true,
+                'attr' => [
+                    'maxlength' => '250'
+                ]
             ])
             ->add('quantityequipment', NumberType::class, [
                 'label' => 'Quantité : ', 
@@ -43,7 +46,10 @@ class EquipmentsType extends AbstractType
             ])
             ->add('borrowerequipment', TextType::class, [
                 'label' => 'Emprunteur : ', 
-                'required'=> false
+                'required'=> false,
+                'attr' => [
+                    'maxlength' => '250'
+                ]
             ])
             ->add('equipementsstorages', EntityType::class,[
                 'label' => 'Stockage',

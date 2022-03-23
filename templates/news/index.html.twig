@@ -16,7 +16,7 @@
                 <th>Titre</th>
                 <th>Date</th>
                 <th>Photo</th>
-                <th>Contenu</th>
+                <th>Contenu court</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -25,14 +25,19 @@
             <tr>
                 <td>{{ news.titleNew }}</td>
                 <td>{{ news.dateNew ? news.dateNew|date('d/m/y') : '' }}</td>
-                <td>
-                    <img src="{{ asset('photosNews/' ~ news.pictureNew) }}" width="100">
-                    {{ news.altpicturenew }}
-                    {# {{ app.user.id }} #}
-                </td>
+
+                    <td>
+                        <img src="{{ asset('photosNews/' ~ news.pictureNew) }}" width="100" 
+                            alt="{{ news.altpicturenew }}">
+                        <br>
+                        <span class="textAlt">
+                            {{ news.altpicturenew }}
+                        </span>
+                    </td>   
 
                 <td>
-                    {{ news.textNew|striptags|u.truncate(50, '...') }}
+                    {{ news.shorttextnew }}
+                    {# {{ news.textNew|striptags|u.truncate(50, '...') }} #}
                     {# {{ news.textNew |length > 300 ? news.textNew |slice(0,300)|raw : news.textNew|raw }} #}
                     {# {% if news.textNew |length > 300 %}
                         <a class="" href="{{ path('news_show', {'id': news.id}) }}">lire la suite...</a>

@@ -49,6 +49,7 @@ class RegistrationFormType extends AbstractType
                 'label' => 'Votre Nom* : ',
                 'attr' => [
                     'placeholder' => 'Votre nom...',
+                    'maxlength' => '250'
                 ],
                 'constraints' => [
                     new NotBlank(array("message" => "Entrez votre nom !")),
@@ -59,6 +60,7 @@ class RegistrationFormType extends AbstractType
                 'label' => 'Prénom* : ',
                 'attr' => [
                     'placeholder' => 'Votre prénom...',
+                    'maxlength' => '250'
                 ],
                 'constraints' => [
                     new NotBlank(array("message" => "Entrez votre prénom !")),
@@ -131,18 +133,30 @@ class RegistrationFormType extends AbstractType
             ->add('address1User', TextType::class, [
                 'label' => 'Adresse : ',
                 'required' => false,
+                'attr' => [
+                    'maxlength' => '250'
+                ]
             ])
             ->add('address2User', TextType::class, [
                 'label' => "Complément d'adresse : ",
                 'required' => false,
+                'attr' => [
+                    'maxlength' => '250'
+                ]
             ])
             ->add('cpUser', TextType::class, [
                 'label' => 'Code Postal : ',
                 'required' => false,
+                'attr' => [
+                    'maxlength' => '250'
+                ]
             ])
             ->add('townUser', TextType::class, [
                 'label' => 'Ville : ',
                 'required' => false,
+                'attr' => [
+                    'maxlength' => '250'
+                ]
             ])
             ->add('phoneUser', TelType::class, [
                 'label' => 'Téléphone : ',
@@ -154,6 +168,9 @@ class RegistrationFormType extends AbstractType
             ->add('studyUser', TextType::class, [
                 'label' => 'Etudiant : ',
                 'required' => false,
+                'attr' => [
+                    'maxlength' => '250'
+                ]
             ])
             ->add('yearmenbershipUser', IntegerType::class, [
                 'label' => '1ère année : ',

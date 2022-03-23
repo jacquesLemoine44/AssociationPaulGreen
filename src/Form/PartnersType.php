@@ -18,8 +18,17 @@ class PartnersType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('namePartner', TextType::class, ['label' => 'Regroupement : ', 'required'=> true])
-            ->add('textPartner', TextareaType::class, ['label' => 'Description : ', 'required'=> false])
+            ->add('namePartner', TextType::class, [
+                'label' => 'Regroupement : ', 
+                'required'=> true,
+                'attr' => [
+                    'maxlength' => '250'
+                ]
+            ])
+            ->add('textPartner', TextareaType::class, [
+                'label' => 'Description : ', 
+                'required'=> false,
+            ])
 
             ->add('photoPartner', FileType::class, [
                 'label' => 'Photo : ',
@@ -54,7 +63,10 @@ class PartnersType extends AbstractType
 
             ->add('linkPartner', TextType::class, [
                 'label' => 'Lien : ',
-                'required'=> false
+                'required'=> false,
+                'attr' => [
+                    'maxlength' => '250'
+                ]
             ])
             
             ->add('partnerGrouping', EntityType::class,[

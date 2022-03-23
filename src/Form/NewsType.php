@@ -10,6 +10,7 @@ use Symfony\Component\Validator\Constraints\File;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 
 class NewsType extends AbstractType
@@ -18,8 +19,21 @@ class NewsType extends AbstractType
     {
         $builder
 
-            ->add('titleNew', TextType::class, ['label' => 'Titre : ', 'required'=> true])
-
+            ->add('titleNew', TextType::class, [
+                'label' => 'Titre : ',
+                'required'=> true,
+                'attr' => [
+                    'maxlength' => '250'
+                ],
+            ])
+            ->add('shorttextnew', TextareaType::class, [
+                'label' => 'Texte de présentation court : ',
+                'required'=> false,
+                'attr' => [
+                    'rows' => '10',
+                    'maxlength' => '1000'
+                ],
+            ])
             ->add('pictureNew', FileType::class, [
                 'label' => 'Photo : ',
                 'mapped' => false,
@@ -30,13 +44,17 @@ class NewsType extends AbstractType
                         'mimeTypes' => [
                             'image/*',
                         ],
-                        'mimeTypesMessage' => 'Veuillez entrer un format de document valide',
+                        'mimeTypesMessage' => 'Veuillez entrer un format de document valide !',
                     ])
                 ],
             ])  
             ->add('altpictureNew', TextType::class, [
                 'label' => 'Texte Alternatif Photo / sous-titre : ',
-                'required'=> true])
+                'required'=> true,
+                'attr' => [
+                    'maxlength' => '250'
+                ],
+            ])
 
             ->add('dateNew',DateType::class, [
                 'label' => 'Dernière mise à jour du site : ',

@@ -4,13 +4,14 @@ namespace App\Form;
 
 use App\Entity\Fieldtrips;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\OptionsResolver\OptionsResolver;
 use FOS\CKEditorBundle\Form\Type\CKEditorType;
+use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Validator\Constraints\File;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
 class FieldtripsType extends AbstractType
 {
@@ -19,7 +20,18 @@ class FieldtripsType extends AbstractType
         $builder
             ->add('titlefieldtrip', TextType::class, [
                 'label' => 'Titre : ',
-                'required'=> true
+                'required'=> true,
+                'attr' => [
+                    'maxlength' => '250'
+                ]
+            ])
+            ->add('shorttextfieldtrip', TextareaType::class, [
+                'label' => 'Texte de présentation court : ',
+                'required'=> false,
+                'attr' => [
+                    'rows' => '10',
+                    'maxlength' => '1000'
+                ],
             ])
 
             ->add('datefieldtrip',DateType::class, [
@@ -44,7 +56,10 @@ class FieldtripsType extends AbstractType
 
             ->add('altpicturefieldtrip', TextType::class, [
                 'label' => 'Texte alternatif de la Photo : ',
-                'required'=> true
+                'required'=> true,
+                'attr' => [
+                    'maxlength' => '250'
+                ]
             ])
 
             ->add('textfieldtrip', CKEditorType::class, [

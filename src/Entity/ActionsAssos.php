@@ -84,6 +84,11 @@ class ActionsAssos
      */
     private $altPictureActionsAssos;
 
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $shorttextactionsasso;
+
     public function __construct()
     {
         $this->actionsassosphoto = new ArrayCollection();
@@ -315,6 +320,18 @@ class ActionsAssos
     public function setAltPictureActionsAssos(?string $altPictureActionsAssos): self
     {
         $this->altPictureActionsAssos = $altPictureActionsAssos;
+
+        return $this;
+    }
+
+    public function getShorttextactionsasso(): ?string
+    {
+        return $this->shorttextactionsasso;
+    }
+
+    public function setShorttextactionsasso(?string $shorttextactionsasso): self
+    {
+        $this->shorttextactionsasso = $shorttextactionsasso;
 
         return $this;
     }

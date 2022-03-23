@@ -54,6 +54,13 @@ class News
      */
     private $altpicturenew;
 
+    // * @ORM\Column(type="string", length=255, nullable=true)
+
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $shorttextnew;
+
     
     public function __construct()
     {
@@ -163,6 +170,18 @@ class News
     public function setAltpicturenew(?string $altpicturenew): self
     {
         $this->altpicturenew = $altpicturenew;
+
+        return $this;
+    }
+
+    public function getShorttextnew(): ?string
+    {
+        return $this->shorttextnew;
+    }
+
+    public function setShorttextnew(?string $shorttextnew): self
+    {
+        $this->shorttextnew = $shorttextnew;
 
         return $this;
     }

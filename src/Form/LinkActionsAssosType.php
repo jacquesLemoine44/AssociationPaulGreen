@@ -14,15 +14,24 @@ class LinkActionsAssosType extends AbstractType
         $builder
             ->add('titlelinkactionsasso', TextType::class, [
                 'label' => 'Titre du lien : ',
-                'required'=> true
+                'required'=> true,
+                'attr' => [
+                    'maxlength' => '250'
+                ]
             ])
             ->add('linkactionsasso', TextType::class, [
                 'label' => 'Lien : ',
-                'required'=> true
+                'required'=> true,
+                'attr' => [
+                    'maxlength' => '250'
+                ]
             ])
             ->add('linkactasso', TextType::class, [
                 'label' => 'Lien : ',
-                'required'=> true
+                'required'=> true,
+                'attr' => [
+                    'maxlength' => '250'
+                ]
             ])
         ;
     }

@@ -117,7 +117,7 @@ class NewsController extends AbstractController
 
         $form = $this->createForm(NewsType::class, $news);
         $form->handleRequest($request);
-
+        
         if ($form->isSubmitted() && $form->isValid()) {
 
             // ================================= Photo
@@ -162,11 +162,6 @@ class NewsController extends AbstractController
             // $entityManager = $this->getDoctrine()->getManager(); ne marche plus
 
             // =====
-
-
-            // use Symfony\Component\Security\Core\User\UserInterface;
-            // , UserInterface $user
-            // ($user->getId())
 
             $news->setNewsuser($this->getUser());
 

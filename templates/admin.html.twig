@@ -6,22 +6,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>{% block title %}{{render(controller('App\\Controller\\MainController::paramRecup'))}}{% endblock %}</title>
+    <title>
+        {% block title %}
+            {{render(controller('App\\Controller\\MainController::paramRecup'))}}
+        {% endblock %}
+    </title>
 
-	<meta name="description" content={{render(controller('App\\Controller\\MainController::paramRecup'))}} & " || Campus BIODIV+  ||  Faire de l’Université Paul Valéry un campus à biodiversité positive" <meta="" charset="UTF-8"> 
+	<meta name="description" content={{render(controller('App\\Controller\\MainController::paramRecup'))}} & 
+            " || Campus BIODIV+  ||  Faire de l’Université Paul Valéry un campus à biodiversité positive">
 
     <!-- Favicon -->
-    <!-- <link rel="shortcut icon" type="image/png" href="public/images/favicon.ico" /> -->
-    <link rel="shortcut icon" type="image/png" href="public/icones/logo.png" />
+    <link rel="shortcut icon" type="image/png" href="{{ asset('icones/logo.png')}}" />
 
     <!-- Icons-->
     <script src="https://kit.fontawesome.com/da224091e6.js" crossorigin="anonymous"></script>
-    {# <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>"> #}
 
     <!-- Fonts-->
-    <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet"> -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,500;0,700;0,900;1,500;1,600;1,900&display=swap" rel="stylesheet">
@@ -54,7 +54,8 @@
                 <div class="d-flex flex-sm-column flex-row flex-grow-1 align-items-center align-items-sm-start px-3 pt-2 text-success2">
 
                     <div class="">
-                            <img src="{{ asset('photosAdherents/' ~ app.user.photoUser) }}" width="100" alt="{{ app.user.nameUser }} {{ app.user.firstNameUser }}">
+                            <img src="{{ asset('photosAdherents/' ~ app.user.photoUser) }}" width="100" 
+                                alt="{{ app.user.nameUser }} {{ app.user.firstNameUser }}">
                             <p>Bonjour {{ app.user.firstNameUser }}</p>
                     </div>
 
@@ -96,14 +97,14 @@
                                 <li><hr class="dropdown-divider"></li>
                                 <li>
                                     <a class="dropdown-item" href="{{ path('params_assosshow', {'id': render(controller('App\\Controller\\MainController::recupParamId')) }) }}">
-                                        <i class="fab fa-pagelines"></i>
+                                        <i class="fas fa-tree"></i>
                                         <span class="ms-1 d-none d-sm-inline"> Présentation de l'association</span>
                                     </a>
                                 </li>
                                 <li><hr class="dropdown-divider"></li>
                                 <li>
                                     <a class="dropdown-item" href="{{ path('params_mastersshow', {'id': render(controller('App\\Controller\\MainController::recupParamId')) }) }}">
-                                        <i class="fas fa-spa"></i>
+                                        <i class="fas fa-leaf"></i>
                                         <span class="ms-1 d-none d-sm-inline"> Présentation du Master</span>
                                     </a>
                                 </li>
@@ -203,8 +204,8 @@
                                 </li>
                                 <li>
                                     <a class="dropdown-item" href="{{ path('news_photos_index') }}" class="nav-link px-sm-0 px-2">
-                                        <i class="fab fa-pagelines"></i>
-                                            <span class="ms-1 d-none d-sm-inline"> Texte Alternatif des photos</span>
+                                        <i class="fas fa-images"></i>
+                                        <span class="ms-1 d-none d-sm-inline"> Texte Alternatif des photos</span>
                                     </a>
                                 </li>
                             </ul>
@@ -269,12 +270,7 @@
                             </a>
                         </li>
                         <li class="divider w-100 clLigne">
-                        {# <li>
-                            <a href="#" data-bs-toggle="collapse" class="disabled nav-link px-sm-0 px-2">
-                                <i class="fas fa-spa"></i>
-                                <span class="ms-1 d-none d-sm-inline"> Projets Masters</span>
-                            </a>
-                        </li> #}
+
 {# === Actions Masters =========================================== #}
 <li class="dropdown">
 <a href="#" class="nav-link dropdown-toggle px-sm-0 px-1" id="dropdown" data-bs-toggle="dropdown" aria-expanded="false">
@@ -346,7 +342,7 @@
 <li class="dropdown">
 <a href="#" class="nav-link dropdown-toggle px-sm-0 px-1" id="dropdown" data-bs-toggle="dropdown" aria-expanded="false">
 <i class="fas fa-seedling"></i>
-    <span class="ms-1 d-none d-sm-inline"> Matériel de l'association</span>
+    <span class="ms-1 d-none d-sm-inline"> Matériel de l'assos</span>
 </a>
 <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdown">
     <li>

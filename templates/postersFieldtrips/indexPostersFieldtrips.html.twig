@@ -16,29 +16,42 @@
 
 			<div class="{% if ((xCpt % 2) != 0) %}bg-info2{% else %}bg-success2{% endif %} py-4">
 				<div class="container">
+
+					<div class="row">
+						<div class="col-md-12 text-center">
+							<h3 class="mb-0">{{ fieldtrip.titlefieldtrip }}</h3>
+							<span class="textAlt">
+								<i class="bi bi-smartwatch"></i> 
+								<i>Sortie du {{ fieldtrip.datefieldtrip ? fieldtrip.datefieldtrip|date('d/m/y') : '' }}</i>
+							</span>  
+						</div>
+					</div>
+
 					<div class="row">
 
 						{% if ((xCpt % 2) != 0) %}
 							<div class="col-md-6 clCard">
-								<p>{{ xCpt }}</p>
+								{# <p>{{ xCpt }}</p> #}
 								<img src="{{ asset('photosFieldtrips/' ~ fieldtrip.picturefieldtrip) }}" 
-									class="W-100" 
+									class="W-100 rounded-3" 
 									height="350px" 	
 									alt="{{ fieldtrip.altpicturefieldtrip }}"
 									title="{{ fieldtrip.picturefieldtrip }}">
-								<div class="fw-light fst-italic">
+								<div class="textAlt">
 									{{ fieldtrip.altpicturefieldtrip }}
 								</div>	
 							</div>
 						{% endif %}
 
 						<div class="col-md-6">
-							<h3>{{ fieldtrip.titlefieldtrip }}</h3>
-							<p><i>Sortie du <span>{{ fieldtrip.datefieldtrip ? fieldtrip.datefieldtrip|date('d/m/y') : '' }}</span></i></p>
-							<div class="row mt-1">
-								<div class="col-md-12 border border-2 border-secondary rounded-2">
-									{{ fieldtrip.textfieldtrip|striptags|u.truncate(600, '...') }}
-									{# {{ fieldtrip.textfieldtrip |length > 500 ? fieldtrip.textfieldtrip |slice(0,500)|raw : fieldtrip.textfieldtrip|raw }} ... #}
+							{# <h3>{{ fieldtrip.titlefieldtrip }}</h3>
+							<p><i>Sortie du <span>{{ fieldtrip.datefieldtrip ? fieldtrip.datefieldtrip|date('d/m/y') : '' }}</span></i></p> #}
+							{# <div class="row mt-1">
+								<div class="col-md-12 border border-2 border-secondary rounded-2"> #}
+								{# {{ fieldtrip.textfieldtrip|striptags|u.truncate(600, '...') }} #}
+								{# {{ fieldtrip.textfieldtrip |length > 500 ? fieldtrip.textfieldtrip |slice(0,500)|raw : fieldtrip.textfieldtrip|raw }} ... #}
+								<div>
+									{{ fieldtrip.shorttextfieldtrip }}
 									<br>
 									<a class="btn btn-grad btn-primary2 btn-sm" 
 										href="{{ path('posters_fieldtrips_show', {'id': fieldtrip.id}) }}"
@@ -46,18 +59,20 @@
 										Lire la suite et voir plus de photos ...
 									</a>
 								</div>
-							</div>
+
+								{# </div>
+							</div> #}
 						</div>
 
 						{% if ((xCpt % 2) == 0) %}
 							<div class="col-md-6 clCard">
 								<p>{{ xCpt }}</p>
 								<img src="{{ asset('photosFieldtrips/' ~ fieldtrip.picturefieldtrip) }}" 
-										class="W-100" 
+										class="W-100 rounded-3" 
 										height="350px" 	
 										alt="{{ fieldtrip.altpicturefieldtrip }}"
 										title="{{ fieldtrip.picturefieldtrip }}">
-								<div class="fw-light fst-italic">
+								<div class="textAlt">
 									{{ fieldtrip.altpicturefieldtrip }}
 								</div>	
 							</div>
@@ -72,7 +87,7 @@
 			<hr class="m-0">
 
 	{% else %}
-				<div>Aucune donnée</div>
+		<div>Aucune donnée</div>
 	{% endfor %}
 
 {% endblock %}

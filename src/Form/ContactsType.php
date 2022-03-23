@@ -23,7 +23,10 @@ class ContactsType extends AbstractType
 
             ->add('nameContact', TextType::class, [
                 'label' => 'Votre Nom : ', 
-                'required'=> true 
+                'required'=> true,
+                'attr' => [
+                    'maxlength' => '250'
+                ], 
             ])
             ->add('emailContact', EmailType::class, [
                 'label' => 'Mail : ', 
@@ -31,7 +34,10 @@ class ContactsType extends AbstractType
             ])        
             ->add('subjetContact', TextType::class, [
                 'label' => 'Sujet : ',
-                'required'=> true
+                'required'=> true,
+                'attr' => [
+                    'maxlength' => '250'
+                ],
             ])
             ->add('contentContact', TextareaType::class, [
                 'label' => 'Contenu : ',

@@ -18,7 +18,10 @@ class FunctionsType extends AbstractType
         $builder
             ->add('mission', TextType::class, [
                 'label' => 'Fonction : ',
-                'required'=> true
+                'required'=> true,
+                'attr' => [
+                    'maxlength' => '250'
+                ]
             ])
             ->add('descriptionFunction', TextareaType::class, [
                 'label' => 'Description : ',

@@ -54,6 +54,11 @@ class Fieldtrips
      */
     private $altpicturefieldtrip;
 
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $shorttextfieldtrip;
+
     public function __construct()
     {
         $this->connectfieldtrip = new ArrayCollection();
@@ -162,6 +167,18 @@ class Fieldtrips
     public function setAltpicturefieldtrip(?string $altpicturefieldtrip): self
     {
         $this->altpicturefieldtrip = $altpicturefieldtrip;
+
+        return $this;
+    }
+
+    public function getShorttextfieldtrip(): ?string
+    {
+        return $this->shorttextfieldtrip;
+    }
+
+    public function setShorttextfieldtrip(?string $shorttextfieldtrip): self
+    {
+        $this->shorttextfieldtrip = $shorttextfieldtrip;
 
         return $this;
     }

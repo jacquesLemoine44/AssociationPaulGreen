@@ -5,13 +5,16 @@
 {% block body %}
     <h1>Propositions de Stages</h1>
 
-    <a class ="btn btn-grad btn-success2" href="{{ path('app_internships_new') }}">Nouveau</a>
+    <div>
+        <a class ="btn btn-grad btn-info2" href="{{ path('app_internships_new') }}">Nouveau</a>
+    </div>
+    <hr class="mb-3">
 
     <table class="table">
         <thead>
             <tr>
                 <th>Stage</th>
-                <th>L'Offre</th>
+                <th>Texte court de l'offre</th>
                 <th>Emplacement</th>
                 <th>
                     Début<br>
@@ -25,7 +28,8 @@
         {% for internship in internships %}
             <tr>
                 <td>{{ internship.titleinternship }}</td>
-                <td>{{ internship.offerinternship|striptags|u.truncate(50, '...') }}</td>
+                <td>{{ internship.shorttextinternship }}</td>
+                {# <td>{{ internship.offerinternship|striptags|u.truncate(50, '...') }}</td> #}
                 {# <td>{{ internship.offerinternship | raw }}</td> #}
                 <td>{{ internship.placeintership }}</td>
                 <td>

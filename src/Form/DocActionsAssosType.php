@@ -18,14 +18,16 @@ class DocActionsAssosType extends AbstractType
             ->add('titledocactionsasso', TextType::class, [
                 'label' => 'Titre du Lien : ',
                 'attr' => [
-                    'class' => 'form-control'
+                    'class' => 'form-control',
+                    'maxlength' => '250'
                 ]
             ])
             ->add('linkdocactionsasso', TextType::class, [
                 'label' => 'Lien :',
                 'attr' => [
-                    'class' => 'form-control'
-                ]
+                    'class' => 'form-control',
+                    'maxlength' => '250'
+                    ],
             ])
 
             //  ->add('docactasso', IntegerType::class, [

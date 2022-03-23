@@ -12,8 +12,12 @@
                 <td>{{ internship.titleinternship }}</td>
             </tr>
             <tr>
+                <th>Texte de présentation</th>
+                <td>{{ internship.shorttextinternship }}</td>
+            </tr>
+            <tr>
                 <th>L'Offre</th>
-                <td>{{ internship.offerinternship }}</td>
+                <td>{{ internship.offerinternship | raw }}</td>
             </tr>
             <tr>
                 <th>Emplacement</th>
@@ -34,10 +38,11 @@
         </tbody>
     </table>
 
-    <a class="btn btn-grad btn-secondary2 me-2" href="{{ path('app_internships_index') }}">Retour</a>
-
-    <a class="btn btn-grad btn-warning2" href="{{ path('app_internships_edit', {'id': internship.id}) }}">Modifier</a>
-
-    {{ include('internships/_delete_form.html.twig') }}
+    <hr class="mb-3">
+    <div class="d-flex flex-row my-2">
+    
+        <a class="btn btn-grad btn-secondary2 me-2" href="{{ path('app_internships_index') }}">Retour</a>
+        <a class="btn btn-grad btn-warning2" href="{{ path('app_internships_edit', {'id': internship.id}) }}">Modifier</a>
+        {{ include('internships/_delete_form.html.twig') }}
 
 {% endblock %}

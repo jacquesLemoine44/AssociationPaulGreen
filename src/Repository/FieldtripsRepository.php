@@ -45,6 +45,20 @@ class FieldtripsRepository extends ServiceEntityRepository
         }
     }
 
+    /**
+     * @return Fieldtrips[] Returns an array of Fieldtrips objects
+     */
+    
+    public function LastFiveFieldtrips()
+    {
+        return $this->createQueryBuilder('f')
+            ->orderBy('f.id', 'DESC')
+            ->setMaxResults(5)
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+
     // /**
     //  * @return Fieldtrips[] Returns an array of Fieldtrips objects
     //  */

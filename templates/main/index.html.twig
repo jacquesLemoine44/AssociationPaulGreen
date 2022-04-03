@@ -29,7 +29,7 @@ Place this code wherever you want the plugin to appear on your page.
 				<div class="col-md-3 clZIndex d-flex justify-content-center">
 					<img src="{{ asset('icones/logo_PaulGreen_1a.jpeg')}}" 
 						alt="{{ params[0].titleParam }}" width="auto" height="200" 
-						class="d-inline-block align-text-top">
+						class="d-inline-block align-text-top imgClass2">
 				</div>
 				<div class="col-md-6 ombre">
 					<div class="border border-2 border-primary rounded-3 p-5 fenetreTitre">
@@ -39,7 +39,8 @@ Place this code wherever you want the plugin to appear on your page.
 				</div>
 				<div class="col-md-2 d-flex justify-content-center">
 					<img src="{{ asset('icones/logo_PaulGreen_2a.jpeg')}}" 
-						alt="{{ params[0].titleParam }}" width="auto" height="200" class="d-inline-block align-text-top">
+						alt="{{ params[0].titleParam }}" width="auto" height="200" 
+						class="d-inline-block align-text-top imgClass2">
 				</div>
 			</div>
 		</div>
@@ -73,7 +74,7 @@ Place this code wherever you want the plugin to appear on your page.
 
 		{# Affichage des nouvelles  : limiter à 5 denières #}
 		<div class="text-center pb-5">
-			<h3>Les dernières News ! ✅</h3>
+			<h3>Les dernières du Journal de l'environnement !</h3>
 		</div>
 
 		{# <div class="container"> #}
@@ -139,7 +140,7 @@ Place this code wherever you want the plugin to appear on your page.
 <section class="clActionsAssos" id="idActionsAssos"> {# Affichage des 5 denières #}
 
 			<div class="text-center pb-5">
-				<h3>Les dernières Actions de L'association ! ✅</h3>
+				<h3>Les dernières Actions de L'association !</h3>
 			</div>
 
 			{# <div class="container"> #}
@@ -196,6 +197,161 @@ Place this code wherever you want the plugin to appear on your page.
 </section>
 {# ======================================================================== #}
 
+{# =================================================================== Les Actions Master ===== #}
+
+		<section class="clActionsMasters" id="idActionsMasters"> {# Affichage des 5 denières #}
+
+		<div class="text-center pb-5">
+			<h3>Les dernières Actions du Master !</h3>
+		</div>
+
+		{# <div class="container"> #}
+
+		{# <div class="row row-cols-1 row-cols-md-4 g-4"> #}
+
+		{# == Caroussel== #}
+
+		<div id="carouselExampleCaptions3" 
+				class="carousel slide carousel-fade" 
+				data-bs-ride="carousel3">
+			<div class="carousel-indicators">
+
+				{%  set isFirst = 0 %}
+				{% for xTab in theActionsMasters %}
+					<button type="button" 
+						data-bs-target="#carouselExampleCaptions" 
+						data-bs-slide-to="{{ isFirst }}" aria-label="Slide {{ isFirst+1 }}" 
+						class={% if (isFirst==0) %} "active" {% else %} "" {% endif %} 
+						aria-current={% if (isFirst==0) %} "true" {% else %} "false" {% endif %}>
+					</button>
+					{% set isFirst = isFirst+1 %}
+					{# 
+					{% else %}
+					<p>aucune News ???</p>
+					#}
+				{% endfor %}
+			</div>
+
+			<div class="carousel-inner">
+
+				{%  set isFirst = true %}
+				{% for xTab in theActionsMasters %}
+					<div class="carousel-item {% if isFirst == true %}active{% endif %}">
+						<div class="d-flex flex-row justify-content-center">
+							<img src="{{ asset('photosActionsMasters/' ~ xTab.pictureactionsmaster) }}" 
+								class="d-block imgClass" w-100 width="800" height="400" 
+								alt="{{ xTab.altpictureactionsmaster}}">
+						</div>
+						{% set isFirst = false %}
+						<div class="carousel-caption d-none d-md-block">
+							<h5>{{ xTab.titleactionsmaster}}</h5>
+							<p>{{ xTab.altpictureactionsmaster}}</p>
+						</div>
+					</div>
+					{# {% else %}
+					<p>aucune News ???</p> #}
+				{% endfor %}
+
+			</div>
+
+			<button class="carousel-control-prev" 
+					type="button" 
+					data-bs-target="#carouselExampleCaptions3" 
+					data-bs-slide="prev">
+				<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+				<span class="visually-hidden">Previous</span>
+			</button>
+			<button class="carousel-control-next" 
+					type="button" 
+					data-bs-target="#carouselExampleCaptions3" 
+					data-bs-slide="next">
+				<span class="carousel-control-next-icon" aria-hidden="true"></span>
+				<span class="visually-hidden">Next</span>
+			</button>
+
+		</div>
+
+</section>
+{# ======================================================================== #}
+
+
+{# =================================================================== Les Sorties ===== #}
+
+<section class="clFieldtrips" id="idFieldtrips"> {# Affichage des 5 denières #}
+
+<div class="text-center pb-5">
+	<h3>Les dernières Sorties !</h3>
+</div>
+
+{# <div class="container"> #}
+
+{# <div class="row row-cols-1 row-cols-md-4 g-4"> #}
+
+{# == Caroussel== #}
+
+<div id="carouselExampleCaptions4" 
+		class="carousel slide carousel-fade" 
+		data-bs-ride="carousel4">
+	<div class="carousel-indicators">
+
+		{%  set isFirst = 0 %}
+		{% for xTab in theFieldtrips %}
+			<button type="button" 
+				data-bs-target="#carouselExampleCaptions" 
+				data-bs-slide-to="{{ isFirst }}" aria-label="Slide {{ isFirst+1 }}" 
+				class={% if (isFirst==0) %} "active" {% else %} "" {% endif %} 
+				aria-current={% if (isFirst==0) %} "true" {% else %} "false" {% endif %}>
+			</button>
+			{% set isFirst = isFirst+1 %}
+			{# 
+			{% else %}
+			<p>aucune News ???</p>
+			#}
+		{% endfor %}
+	</div>
+
+	<div class="carousel-inner">
+
+		{%  set isFirst = true %}
+		{% for xTab in theFieldtrips %}
+			<div class="carousel-item {% if isFirst == true %}active{% endif %}">
+				<div class="d-flex flex-row justify-content-center">
+					<img src="{{ asset('photosFieldtrips/' ~ xTab.picturefieldtrip) }}" 
+						class="d-block imgClass" w-100 width="800" height="400" 
+						alt="{{ xTab.altpicturefieldtrip}}">
+				</div>
+				{% set isFirst = false %}
+				<div class="carousel-caption d-none d-md-block">
+					<h5>{{ xTab.titlefieldtrip}}</h5>
+					<p>{{ xTab.altpicturefieldtrip}}</p>
+				</div>
+			</div>
+			{# {% else %}
+			<p>aucune News ???</p> #}
+		{% endfor %}
+
+	</div>
+
+	<button class="carousel-control-prev" 
+			type="button" 
+			data-bs-target="#carouselExampleCaptions4" 
+			data-bs-slide="prev">
+		<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+		<span class="visually-hidden">Previous</span>
+	</button>
+	<button class="carousel-control-next" 
+			type="button" 
+			data-bs-target="#carouselExampleCaptions4" 
+			data-bs-slide="next">
+		<span class="carousel-control-next-icon" aria-hidden="true"></span>
+		<span class="visually-hidden">Next</span>
+	</button>
+
+</div>
+
+</section>
+{# ======================================================================== #}
+
 {# =================================================================== Les Stages ===== #}
 
 {# Affichage des 5 denières #}
@@ -208,68 +364,12 @@ Place this code wherever you want the plugin to appear on your page.
 </section> #}
 {# ======================================================================== #}
 
-{# =================================================================== L'Association Paul Green ===== #}
-
-{# Vitrine #}
-{# <section class="clPaulGreen" id="idPaulGreen"> 
-		<div class="text-center pb-5">
-			<h3>Présentation de L'Association Paul Green (En Construction) ! ✅</h3>
-		</div>
-
-</section> #}
-{# ======================================================================== #}
-
-
-
-
-{# ================================================================================ #}
-{# =================================================================== Master ===== #}
-{# ================================================================================ #}
-
-
-{# =================================================================== Les Actions du Master ===== #}
-
-{# Affichage des 5 denières #}
-{# <section class="clActionsMasters" id="idActionsMasters"> 
-
-		<div class="text-center pb-5">
-			<h3>Les dernières Actions du Master  (En Construction) ! ✅</h3>
-		</div>
-
-</section> #}
-{# ======================================================================== #}
-
-{# =================================================================== Les Sorties ===== #}
-
-{# Affichage des 5 denières #}
-{# <section class="clOutputs" id="idOutputs"> 
-
-		<div class="text-center pb-5">
-			<h3>Les dernières Sorties Proposées  (En Construction) ! ✅</h3>
-		</div>
-
-</section> #}
-{# ======================================================================== #}
-
-{# =================================================================== Le Master ===== #}
-
-{# Vitrine #}
-{# <section class="clMaster" id="idMasters"> 
-
-<div class="text-center pb-5">
-<h3>Présentation du Master  (En Construction) ! ✅</h3>
-</div>
-
-</section> #}
-{# ======================================================================== #}
-
-
 {# =================================================================== Les Partenaires ===== #}
 
 <section class="clPartners" id="idPartners"> {# Affichage des 5 denières #}
 
 	<div class="text-center pb-5">
-		<h3>Nos Partenaires ! ✅</h3>
+		<h3>Nos Partenaires !</h3>
 	</div>
 
 	<div class="container my-5">
@@ -332,7 +432,8 @@ Place this code wherever you want the plugin to appear on your page.
 									<h4 class="card-title">{{ xPartner.namePartner }}</h4>
 									<p class="card-text">{{ xPartner.namePartner|striptags|u.truncate(50, '...') }} ...</p>
 									<div class="d-flex flex-row justify-content-between align-items-center">
-										<a herf="{{ xPartner.linkPartner }}" target="_blank" class="btn btn-primary">
+										<a herf="{{ xPartner.linkPartner }}" target="_blank" 
+												class="btn btn-primary">
 											<i class="fas fa-external-link-alt"></i>
 										</a>
 										<img class="card-img-top clLogoPartners" 

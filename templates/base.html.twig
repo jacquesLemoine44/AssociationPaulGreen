@@ -175,34 +175,17 @@
 								</span>
 							</a>
 						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="#APropos">
-								A Propos
-							</a>
-						</li>
-
-						<li class="nav-item">
-							<a class="nav-link" href="{{ path('home') }}#idContacts" id="idContact">
-								Contacts
-							</a>
-						</li>
 
 						<li class="nav-item dropdown">
 							<a class="nav-link dropdown-toggle" 
 									href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-								Actions
+								Association
 							</a>
 							<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-							<li>
-								<a class="dropdown-item" href="{{ path('office_index') }}">
-									<i class="fas fa-users"></i>
-									Membres du Bureau
-								</a>
-							</li>
 								<li>
 									<a class="dropdown-item" href="{{ path('posters_news_index') }}">
 										<i class="far fa-newspaper"></i>
-										Les News
+										Journal de l'environnement
 									</a>
 								</li>
 								<li>
@@ -216,6 +199,12 @@
 										<i class="fas fa-business-time"></i>
 										Propositions de Stages
 									</a>
+								</li>
+								<li>
+									<a class="dropdown-item" href="{{ path('office_index') }}">
+										<i class="fas fa-users"></i>
+										Membres du Bureau
+									</a>
 								</li>								
 								<li>
 									<a class="dropdown-item" 
@@ -223,10 +212,20 @@
 										<i class="fas fa-tree"></i>
 										Présentation de l'association Paul Green
 									</a>
-								</li>							
-								<li>
-									<hr class="dropdown-divider">
 								</li>
+							</ul>
+						</li>
+
+						<li class="nav-item dropdown">
+
+							<a class="nav-link dropdown-toggle" 
+									href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+								Master
+							</a>
+							<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+								{# <li>
+									<hr class="dropdown-divider">
+								</li> #}
 								<li>
 									<a class="dropdown-item" 
 											href="{{ path('posters_actions_masters_index') }}">
@@ -258,7 +257,6 @@
 									</a>
 								</li>
 							{% endif %}
-
 						{% endif %}
 
 						{% if not app.user %}
@@ -296,13 +294,23 @@
 							{# {% endif %} #}
 
 						{% endif %}
-
+				
+						<li class="nav-item">
+							<a class="nav-link" href="{{ path('home') }}#idContacts" id="idContact">
+								Contacts
+							</a>
+						</li>
+											
+						<li class="nav-item">
+							<a class="nav-link" href="#APropos">
+								A Propos
+							</a>
+						</li>
 					</ul>
-
-					<form class="d-flex">
+					{# <form class="d-flex">
 						<input class="form-control me-2" type="search" placeholder="recherche" aria-label="recherche">
 						<button class="btn btn-outline-success" type="submit">Recherche</button>
-					</form>
+					</form> #}
 
 				</div>
 			</div>

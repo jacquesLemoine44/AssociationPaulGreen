@@ -53,7 +53,7 @@ Place this code wherever you want the plugin to appear on your page.
 			<div class="row">
 				<div class="col-md-12 d-flex flex-row justify-content-center mb-3">
 					<img src="{{ asset('photosParams/' ~ params[0].photoParam )}}" 
-						alt="{{ params[0].titleParam }}" width="auto" height="450" 
+						alt="{{ params[0].titleParam }}" width="100%" height="100%" 
 						class="d-inline-block align-text-top">
 				</div>
 				<div class="col-md-12">
@@ -279,13 +279,12 @@ Place this code wherever you want the plugin to appear on your page.
 
 <section class="clFieldtrips" id="idFieldtrips"> {# Affichage des 5 denières #}
 
-<div class="text-center pb-5">
-	<h3>Les dernières Sorties !</h3>
-</div>
-
-{# <div class="container"> #}
-
-{# <div class="row row-cols-1 row-cols-md-4 g-4"> #}
+	<div class="text-center pb-5">
+		<h3>Les dernières Sorties !</h3>
+	</div>
+	<div class="container ">
+		<div class="row d-flex justify-content-center">  
+			<div class="col-md-8">
 
 {# == Caroussel== #}
 
@@ -347,8 +346,10 @@ Place this code wherever you want the plugin to appear on your page.
 		<span class="visually-hidden">Next</span>
 	</button>
 
-</div>
-
+				</div>
+			</div>
+		</div>
+	</div>
 </section>
 {# ======================================================================== #}
 

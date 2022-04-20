@@ -1,0 +1,97 @@
+select movie.title,movie.year from movie
+select movie.title,movie.year from movie where movie.title="American Beauty" 
+select movie.title,movie.year from movie where movie.year=1999 
+4 - Écrire une requête qui retourne le(s) film(s) sortis avant 1998.
+select movie.title,movie.year from movie where movie.year<1998 
+
+5 - Écrire une requête qui retourne le nom de tous les utilisateurs qui ont commenté des films
+select user.* from user inner join movie_review on movie_review.user_id=user.id group by user.id
+select distinct
+
+6 - Écrire une requête qui retourne le nom de tous les utilisateurs qui ont attribué 6 étoiles ou plus à un film
+select user.* from user inner join movie_review on movie_review.user_id=user.id where movie_review.stars>=6 group by user.id
+select distinct
+11
+
+7 - Écrire une requête qui retourne les titres de tous les films qui n'ont pas de notes.
+select movie.* from movie left join movie_review on movie.id=movie_review.movie_id where movie_review.stars is null
+
+
+
+
+8 - Écrire une requête qui retourne les titres des films avec les ID 5, 6, 8
+select movie.* from movie where (id=5 or id=6 or id=8)
+select movie.* from movie where (id IN (5,6,8))
+
+
+9 - Écrire une requête qui retourne une liste de film avec l'année dont le titre des films contient les mots "Boogie" ou "Nights".
+select movie.* from movie where (movie.title like "%Boogie%") or (movie.title like "%Nights%")
+1
+
+
+10 - Écrire une requête qui retourne l'ID d'un acteur ou membre de la direction dont le prénom est
+'Woody' et le nom de famille est 'Allen'
+SELECT * FROM `staff` WHERE firstname="Woody" and lastname="Allen"
+
+
+
+
+
+Requête niveau normal
+1 - Écrire une requête qui retourne toutes les informations des acteurs qui ont joué un rôle dans le
+film «Annie Hall».
+select staff.* from staff inner join 
+(SELECT movie.*, movie_casting.* FROM movie inner join movie_casting on movie.id=movie_casting.movie_id where title="Annie Hall") as A on staff.id=A.staff_id
+jack nicho
+
+
+2 - Écrire une requête qui retourne le nom et prénom du réalisateur qui a réalisé un film dont il a joué
+un rôle.
+select staff.* from staff inner join 
+(SELECT movie_casting.* FROM `movie_casting` inner join movie_direction on (movie_casting.staff_id=movie_direction.staff_id) and (movie_casting.movie_id=movie_direction.movie_id)) AS A on staff.id=A.staff_id
+
+
+3 - Écrire une requête qui retourne tous les films qui ne sont pas américain.
+SELECT * FROM `movie` WHERE country<>"US"
+
+
+4 - Écrire une requête qui retourne le titre, l'année, la date de sortie du film, le réalisateur et acteurs
+de films qui n'ont aucune critique.
+select a.*, User.* from (SELECT title, year, released_at FROM `movie` left join movie_review on movie.id=movie_review.movie_id where movie_review.movie_id is null) as A
+select A.*, movie_direction.staff_id from (SELECT id, title, year, released_at FROM `movie` left join movie_review on movie.id=movie_review.movie_id where movie_review.movie_id is null) as A 
+left join movie_direction on A.id=movie_direction.movie_id
+
+select C.*, Staff.lastname Acteur from (
+select B.*, staff.lastname réalisateur from 
+(select A.*, movie_direction.staff_id as IdDir, movie_casting.staff_id as IdAct from (SELECT id, title, year, released_at FROM `movie` left join movie_review on movie.id=movie_review.movie_id where movie_review.movie_id is null) as A 
+left join movie_direction on A.id=movie_direction.movie_id
+left join movie_casting on A.id=movie_casting.movie_id) AS B 
+left join staff on B.IdDir=Staff.id) AS C
+left join staff on C.IdAct=Staff.id
+
+5 - Écrire une requête qui retourne le titre, l'année, la date de sortie, le réalisateur et l'acteur des films
+dont la critique existe.
+
+
+
+6 - Écrire une requête qui retourne les titres des films réalisés par le réalisateur Woddy Allen.
+
+7 - Écrire une requête qui retourne les années par ordre croissant ou au moins un film a été produit et
+qui ont reçu une note de plus de 3 étoiles.
+
+8 - Écrire une requête qui retourne les titres des films FR et US qui n'ont pas été visualisé.
+
+9 - Écrire une requête qui retourne les noms de tous les utlisateurs qui n'ont pas noté.
+10 - Écrire une requête qui retourne les utilisateurs qui ont noté plus d'un film.
+11 - Écrire une requête qui retourne le titre du film qui a le plus grand nombre d'étoiles par genre. Le
+titre du film apparaît par ordre alphabétique.
+12 - Écrire une requête qui retourne les noms de tous les utilisateurs qui ont noté le film American
+Beauty.
+13 - Écrire une requête qui retourne le prénom, nom et role joué de tous les acteurs qui ont joué
+dans le film «Annie Hall».
+14 - Écrire une requête qui retourne le prénom et nom du réalisateur de "Eyes Wide Shut" ainsi que
+l'année de sortie du film.
+15 - Écrire une requête qui retourne le nom du film et du réalisateur (prénom et nom) don le rôle de
+Sean Maguire a été joué.
+16 - Écrire une requête qui retourne tous les acteurs qui n'ont joué dans aucun film entre 1990 et
+2000

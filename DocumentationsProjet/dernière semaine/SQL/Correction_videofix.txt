@@ -1,0 +1,420 @@
+Reqêtes niveau basique
+
+-- 1 - Écrire une requête qui retourne le nom et l'année des films
+SELECT title, year FROM movie;
+
+-- 2 - Écrire une requête qui retourne l'année de sortie du film American Beauty
+SELECT title, year FROM movie WHERE title LIKE '%American Beauty%';
+ou
+SELECT title, year FROM movie WHERE title = 'American Beauty';
+
+-- 3 - Écrire une requête qui retourne le(s) film(s) sorti en 1999.
+SELECT * FROM movie WHERE year = 1999;
+
+-- 4 - Écrire une requête qui retourne le(s) film(s) sortis avant 1998.
+SELECT * FROM movie WHERE year < 1998;
+
+-- 5 - Écrire une requête qui retourne le nom de tous les utilisateurs qui ont commenté des films
+SELECT DISTINCT firstname, lastname FROM movie_review INNER JOIN user ON user.id = movie_review.user_id;
+
+-- 6 - Écrire une requête qui retourne le nom de tous les utilisateurs qui ont attribué 6 étoiles ou plus à un film
+SELECT DISTINCT firstname, lastname FROM movie_review INNER JOIN user ON user.id = movie_review.user_id WHERE stars >= 6;
+
+-- 7 - Écrire une requête qui retourne les titres de tous les films qui n'ont pas de notes.
+SELECT title FROM movie WHERE id NOT IN (SELECT movie_id FROM movie_review WHERE stars IS NOT NULL);
+
+-- 8 - Écrire une requête qui retourne les titres des films avec les ID 5, 6, 8
+SELECT title FROM movie WHERE id IN (5 , 6, 8);
+    
+-- 9 - Écrire une requête qui retourne une liste de film avec l'année dont le titre des films contient les mots "Boogie" ou "Nights".
+SELECT title, year FROM movie WHERE title LIKE '%Boogie%' OR '%Nights%';
+
+-- 10 - Écrire une requête qui retourne l'ID d'un acteur ou membre de la direction dont le prénom est 'Woody' et le nom de famille est 'Allen'
+SELECT id, firstname, lastname FROM staff WHERE firstname LIKE '%Woody%' AND lastname LIKE '%Allen%';      
+
+Requête niveau normal
+
+-- 1 - Écrire une requête qui retourne toutes les informations -- des acteurs qui ont joué un rôle dans le film «Annie Hall».
+
+SELECT s.*
+FROM movie_casting mc
+    INNER JOIN movie m ON m.id = mc.movie_id
+    INNER JOIN staff s ON s.id = mc.staff_id
+WHERE m.title LIKE '%Annie Hall%';
+
+-- 2 - Écrire une requête qui retourne le nom et prénom du réalisateur qui a réalisé un film dont il a joué un rôle.
+
+SELECT DISTINCT CONCAT(s.firstname, ' ', s.lastname) AS fullname
+FROM movie_casting mc
+    INNER JOIN staff s ON s.id = mc.staff_id
+    INNER JOIN movie_direction md ON md.movie_id = mc.movie_id
+WHERE mc.staff_id IN (
+        SELECT staff_id
+        FROM movie_direction
+    );
+
+-- 3 - Écrire une requête qui retourne tous les films qui ne sont pas américain.
+SELECT *
+FROM movie
+WHERE country NOT LIKE 'US';
+
+-- 4 - Écrire une requête qui retourne le titre, l'année, la date de sortie du film, le réalisateur et acteurs de films dont la critique du film est inconnu
+
+SELECT m.title,
+    CONCAT(
+        director.firstname,
+        ' ',
+        director.lastname
+    ) AS director,
+    m.year,
+    m.released_at,
+    CONCAT(actor.firstname, ' ', actor.lastname) AS actor
+FROM movie m
+    INNER JOIN movie_casting mc ON mc.movie_id = m.id
+    INNER JOIN movie_direction md ON md.movie_id = m.id
+    INNER JOIN staff actor ON actor.id = mc.staff_id
+    INNER JOIN staff director ON director.id = md.staff_id
+WHERE m.id NOT IN (
+        SELECT DISTINCT movie_id
+        FROM movie_review
+    );
+
+-- 5 - Écrire une requête qui retourne le titre, l'année, la date de sortie, le réalisateur et l'acteur des films dont la critique existe.
+
+SELECT m.title,
+    CONCAT(
+        director.firstname,
+        ' ',
+        director.lastname
+    ) AS director,
+    m.year,
+    m.released_at,
+    CONCAT(actor.firstname, ' ', actor.lastname) AS actor
+FROM movie m
+    INNER JOIN movie_casting mc ON mc.movie_id = m.id
+    INNER JOIN movie_direction md ON md.movie_id = m.id
+    INNER JOIN staff actor ON actor.id = mc.staff_id
+    INNER JOIN staff director ON director.id = md.staff_id
+WHERE m.id IN (
+        SELECT DISTINCT movie_id
+        FROM movie_review
+    );
+
+-- 6 - Écrire une requête qui retourne les titres des films réalisés par le réalisateur Woddy Allen.
+
+SELECT m.title
+FROM movie_direction md
+    INNER JOIN movie m ON m.id = md.movie_id
+    INNER JOIN staff s ON s.id = md.staff_id
+WHERE s.firstname LIKE '%Woody%'
+    AND s.lastname LIKE '%Allen%';
+  
+-- 7 - Écrire une requête qui retourne les années par ordre croissant ou au moins un film a été produit et qui ont reçu une note de plus de 3 étoiles.
+
+SELECT m.year,
+    AVG(stars) AS average_film
+FROM movie_review mr
+    INNER JOIN movie m ON m.id = mr.movie_id
+GROUP BY m.year
+HAVING average_film >= 3
+ORDER BY m.year;  
+
+- 8 - Écrire une requête qui retourne les titres des films FR et US qui n'ont pas été visualisé.
+
+SELECT m.title,
+    CONCAT(
+        director.firstname,
+        ' ',
+        director.lastname
+    ) AS director,
+    m.year,
+    m.released_at,
+    CONCAT(actor.firstname, ' ', actor.lastname) AS actor
+FROM movie m
+    INNER JOIN movie_casting mc ON mc.movie_id = m.id
+    INNER JOIN movie_direction md ON md.movie_id = m.id
+    INNER JOIN staff actor ON actor.id = mc.staff_id
+    INNER JOIN staff director ON director.id = md.staff_id
+WHERE m.id NOT IN (
+        SELECT DISTINCT movie_id
+        FROM movie_review
+    );
+
+-- 9 - Écrire une requête qui retourne les noms de tous les utlisateurs qui n'ont pas noté.
+
+SELECT *
+FROM user
+WHERE id NOT IN (
+        SELECT user_id
+        FROM movie_review
+    );
+
+-- 10 - Écrire une requête qui retourne les utilisateurs qui ont noté plus d'un film.
+
+SELECT CONCAT(u.firstname, ' ', u.lastname) AS fullname,
+    COUNT(*) AS nb_user_note
+FROM movie_review mr
+    INNER JOIN user u ON u.id = mr.user_id
+GROUP BY user_id
+HAVING nb_user_note > 1;
+
+-- 11 - Écrire une requête qui retourne le titre du film qui a le plus grand nombre d'étoiles par genre. 
+-- Le titre du film apparaît par ordre alphabétique.
+
+SELECT 
+    mg.genre_id, g.type, m.title, MAX(mr.stars) as best_film
+FROM
+    movie_review mr
+        INNER JOIN
+    movie m ON m.id = mr.movie_id
+        INNER JOIN
+    movie_genre mg ON mg.movie_id = m.id
+        INNER JOIN
+    genre g ON g.id = mg.genre_id
+GROUP BY mg.genre_id, g.type, m.title;
+
+-- 12 - Écrire une requête qui retourne les noms de tous les utilisateurs qui ont noté le film American Beauty.
+
+SELECT u.firstname,
+    u.lastname
+FROM movie_review mr
+    INNER JOIN movie m ON m.id = mr.movie_id
+    INNER JOIN user u ON u.id = mr.user_id
+WHERE m.title LIKE '%American Beauty%';
+
+-- 13 - Écrire une requête qui retourne le prénom, nom et role joué de tous les acteurs qui ont joué dans le film «Annie Hall».
+
+SELECT s.firstname,
+    s.lastname,
+    mc.starred_as
+FROM staff s
+    INNER JOIN movie_casting mc ON mc.staff_id = s.id
+    INNER JOIN movie m ON m.id = mc.movie_id
+WHERE m.title LIKE '%Annie Hall%';
+
+-- 14 - Écrire une requête qui retourne le prénom et nom du réalisateur de "Eyes Wide Shut" ainsi que l'année de sortie du film.
+
+SELECT 
+    CONCAT(s.firstname, ' ', s.lastname) AS director,
+    m.title,
+    m.year
+FROM
+    movie m
+        INNER JOIN
+    movie_direction md ON md.movie_id = m.id
+        INNER JOIN
+    staff s ON s.id = md.staff_id
+WHERE
+    title LIKE '%Eyes Wide Shut%'
+
+-- 15 - Écrire une requête qui retourne le nom du film et du réalisateur (prénom et nom) don le rôle de Sean Maguire a été joué.
+
+SELECT m.title,
+    CONCAT(
+        director.firstname,
+        ' ',
+        director.lastname
+    ) AS director
+FROM movie_direction md
+    INNER JOIN movie m ON m.id = md.movie_id
+    INNER JOIN staff director ON director.id = md.staff_id
+WHERE md.movie_id = (
+        SELECT m.id
+        FROM movie_casting mc
+            INNER JOIN movie m ON m.id = mc.movie_id
+        WHERE mc.starred_as LIKE '%Sean Maguire%'
+    )
+
+-- 16 - Écrire une requête qui retourne tous les acteurs qui n'ont joué dans aucun film entre 1990 et 2000.
+
+SELECT s.firstname,
+    s.lastname
+FROM staff s
+    INNER JOIN movie_casting mc ON mc.staff_id = s.id
+    INNER JOIN movie m ON m.id = mc.movie_id
+WHERE m.year NOT BETWEEN 1990 AND 2000;
+
+-- 17 - Écrire une requête qui retourne le prénom et le nom des réalisateurs avec le nombre de genres de films dirigés et classer le résultat par ordre alphabétique avec le prénom et le nom du réalisateur.
+
+SELECT 
+    mg.genre_id,
+    CONCAT(s.firstname, ' ', s.lastname) AS director,
+    COUNT(*) nb_genre_directed
+FROM
+    movie_direction md
+        INNER JOIN
+    staff s ON s.id = md.staff_id
+        INNER JOIN
+    movie m ON m.id = md.movie_id
+        INNER JOIN
+    movie_genre mg ON mg.movie_id = m.id
+GROUP BY mg.genre_id, director
+ORDER BY director;
+
+-- 18 - Écrire une requête qui retourne tous les films avec l'année de sortie, l'année de production et le(s) genre(s).
+
+SELECT YEAR(m.released_at) as released_at,
+    m.year,
+    m.title,
+    GROUP_CONCAT(g.type separator ', ')
+FROM movie m
+    INNER JOIN movie_genre mg ON mg.movie_id = m.id
+    INNER JOIN genre g ON g.id = mg.genre_id
+GROUP BY m.title,
+    released_at,
+    m.year
+ORDER BY year DESC;
+
+-- 19 - Écrire une requête qui retourne tous les films avec l'année de sortie, le(s) genre(s) et le nom du réalisateur.
+
+SELECT m.title,
+    YEAR(m.released_at) AS released_year,
+    GROUP_CONCAT(g.type separator ', '),
+    CONCAT(s.firstname, ' ', s.lastname) AS direction
+FROM movie m
+    INNER JOIN movie_genre mg ON mg.movie_id = m.id
+    INNER JOIN genre g ON g.id = mg.genre_id
+    INNER JOIN movie_direction md ON md.movie_id = m.id
+    INNER JOIN staff s ON s.id = md.staff_id
+GROUP BY m.title, released_year, direction
+ORDER BY released_year DESC;
+
+-- 20 - Écrire une requête qui retourne tous les films sorti avant le 1er janvier 1989 avec le titre, l'année, la date de sortie, la durée du film et le prénom et le nom du réalisateur et triez l'ensemble des résultats en fonction de la date de sortie la plus récente à la plus ancienne
+
+SELECT 
+    m.year,
+    m.released_at,
+    CONCAT(m.time, ' minutes'),
+    m.title,
+    g.type,
+    s.firstname,
+    s.lastname
+FROM
+    movie m
+        INNER JOIN
+    movie_genre mg ON mg.movie_id = m.id
+        INNER JOIN
+    genre g ON g.id = mg.genre_id
+        INNER JOIN
+    movie_direction md ON md.movie_id = m.id
+        INNER JOIN
+    staff s ON s.id = md.staff_id
+WHERE
+    m.released_at < '1989-01-01'
+ORDER BY m.released_at DESC;
+
+-- 21 - Écrire une requête qui calcule la durée moyenne de chaque genre de film
+
+SELECT 
+    g.id, g.type, ROUND(AVG(m.time)) as time_film
+FROM
+    movie m
+        INNER JOIN
+    movie_genre mg ON mg.movie_id = m.id
+        INNER JOIN
+    genre g ON g.id = mg.genre_id
+GROUP BY g.id, g.type
+
+-- 22 - Écrire une requête qui retourne le nombre de films et leur note moyenne par genre et dont la note est supérieur à 4.
+
+SELECT mg.genre_id,
+    g.type,
+    AVG(mr.stars) as average_note,
+    COUNT(*) as nb_film_per_genre
+FROM movie_genre mg
+    INNER JOIN genre g on g.id = mg.genre_id
+    INNER JOIN movie m on m.id = mg.movie_id
+    LEFT JOIN movie_review mr on mr.movie_id = m.id
+GROUP BY mg.genre_id,
+    g.type
+HAVING average_note > 4;
+
+-- 23 - Ecrire une requete qui retourne les 10 plus gros consommateurs de film dans l'ordre croissant, seul leur nom complet sur une seule colonne et le temps de visualisation est à retourner
+
+SELECT CONCAT(u.firstname, ' ', u.lastname) as fullname,
+    SUM(time_watched) as total
+from movie_watch m
+    inner join user u on u.id = m.user_id
+GROUP by m.user_id
+ORDER BY total DESC
+LIMIT 10
+
+-- 24 - Ecrire une requete qui retourne les 5 moins gros consommateurs de film dans l'ordre croissant. Afficher le nom complet sur une seule colonne, l'email et le temps de visualisation est à retourner.
+
+SELECT concat(u.firstname, ' ', u.lastname) as fullname,
+    email,
+    SUM(time_watched) as total
+from movie_watch m
+    inner join user u on u.id = m.user_id
+GROUP by m.user_id
+order by total ASC
+LIMIT 5
+
+-- 25 - Ecrire une requete qui retourne les trois films les plus vues en 2021 ainsi que leur note moyenne arrondi à l'entier supérieur
+
+SELECT m.id,
+    m.title,
+    SUM(w.time_watched) as total,
+    ROUND(AVG(r.stars),2) as note
+FROM `movie` m
+    INNER JOIN movie_watch w on w.movie_id = m.id
+    INNER JOIN movie_review r on r.movie_id = m.id
+WHERE YEAR(w.created_at) = 2021
+GROUP BY m.id
+ORDER by total desc
+LIMIT 3;
+
+-- 26 - Ecrire une requete qui retourne les films vues mais jamais noté.
+
+SELECT DISTINCT w.movie_id,
+    m.title
+FROM movie_watch w
+    INNER JOIN movie m on w.movie_id = m.id
+WHERE w.movie_id NOT IN (
+        SELECT DISTINCT movie_id
+        FROM movie_review r
+    )
+
+-- 27 - Ecrire une requete qui retourne les genres de films les plus vues de l'année de 2020.
+
+SELECT g.type,
+    COUNT(m.id) as view
+FROM movie m
+    INNER JOIN movie_watch w ON w.movie_id = m.id
+    INNER JOIN movie_genre mg on mg.movie_id = m.id
+    INNER JOIN genre g on g.id = mg.genre_id
+WHERE YEAR(w.created_at) = 2020
+GROUP BY g.type
+ORDER BY view DESC;
+
+-- 28 - Ecrire une requete qui retourne les utilisateurs qui n'ont vu aucun film.
+
+SELECT *
+FROM user
+WHERE id NOT IN (
+        SELECT DISTINCT user_id
+        FROM movie_watch
+    )
+
+-- 29 - Ecrire une requete qui retourne le total des films vues par mois et année
+
+SELECT DATE_FORMAT(w.created_at, '%Y-%m') as time,
+    SUM(time_watched)
+FROM `movie_watch` w
+INNER JOIN movie m on m.id = w.movie_id
+WHERE YEAR(w.created_at) IN (2019, 2020)
+GROUP BY DATE_FORMAT(w.created_at, '%Y-%m')
+ORDER BY time ASC
+
+-- 30 - Ecrire une requete qui retourne le temps de visualisation mensuel pour toutes utilisateurs de l'année 2021
+
+SELECT DATE_FORMAT(w.created_at, '%Y-%m') as Time,
+    SUM(time_watched) as Time_watched,
+    CONCAT(firstname, ' ', lastname) as Fullname
+FROM `movie_watch` w
+    INNER JOIN user u on u.id = w.user_id
+WHERE YEAR(w.created_at) = 2021
+GROUP BY DATE_FORMAT(w.created_at, '%Y-%m'),
+    w.user_id
+ORDER BY time,
+    w.user_id ASC

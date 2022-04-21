@@ -101,7 +101,8 @@ Place this code wherever you want the plugin to appear on your page.
 				{% for new in theNews %}
 					<div class="carousel-item {% if isFirst == true %}active{% endif %}">
 						<div class="d-flex flex-row justify-content-center">
-							<img src="{{ asset('photosNews/' ~ new.pictureNew) }}" class="d-block imgClass" w-100 width="800" height="400" alt="{{ new.altpicturenew }}">
+							<img src="{{ asset('photosNews/' ~ new.pictureNew) }}" 
+								class="d-block imgClass" w-100 width="800" height="400" alt="{{ new.altpicturenew }}">
 						</div>
 						{% set isFirst = false %}
 						<div class="carousel-caption d-none d-md-block">
@@ -171,7 +172,8 @@ Place this code wherever you want the plugin to appear on your page.
 					{% for xTab in theActionsAssos %}
 						<div class="carousel-item {% if isFirst == true %}active{% endif %}">
 							<div class="d-flex flex-row justify-content-center">
-								<img src="{{ asset('photosActionsAssos/' ~ xTab.pictureactionsasso) }}" class="d-block imgClass" w-100 width="800" height="400" alt="{{ xTab.altPictureActionsAssos}}">
+								<img src="{{ asset('photosActionsAssos/' ~ xTab.pictureactionsasso) }}" 
+									class="d-block imgClass" w-100 width="800" height="400" alt="{{ xTab.altPictureActionsAssos}}">
 							</div>
 							{% set isFirst = false %}
 							<div class="carousel-caption d-none d-md-block">

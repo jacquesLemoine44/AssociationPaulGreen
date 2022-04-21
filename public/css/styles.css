@@ -480,4 +480,10 @@ footer .clCopyright p {
   margin-right: 2px;
   font-style: italic;
 }
+
+@media screen and (max-width: 770px) {
+  .clPartners {
+    display: none;
+  }
+}
 /*# sourceMappingURL=styles.css.map */

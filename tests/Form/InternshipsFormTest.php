@@ -26,3 +26,14 @@ $date=new Datetime();
  $this->assertCount(0,$error);
  }
 }
+<?php
+//tests/Controller/ThemeControllerTest.php
+namespace App\Tests\Controller;
+ 
+use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
+ 
+class ThemeControllerTest extends WebTestCase 
+{ 
+    public function testNewTheme() 
+    { 
+        $client=static::createClient();

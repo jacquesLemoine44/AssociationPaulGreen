@@ -56,6 +56,14 @@ class UsersRepository extends ServiceEntityRepository implements PasswordUpgrade
 // FROM users INNER JOIN (functions RIGHT JOIN users_functions ON functions.id = users_functions.functions_id) ON users.id = users_functions.users_id
 // ORDER BY functions.level_function, users.name_user, users.first_name_user
 
+
+
+
+// SELECT users.*, function.* FROM users 
+// INNER JOIN users_functions ON users.id=users_functions.users_id
+// INNER JOIN functions ON users_functions.functions_id=functions.id
+// ORDER BY functions.level_function, users.name_user, users.first_name_user
+
 public function findOffice()
     {
             $entityManager = $this->getEntityManager();
@@ -68,6 +76,8 @@ public function findOffice()
 
             return $query->getResult();
 }    
+
+
 
 
     // // src/AppBundle/Entity/ProductRepository.php

@@ -52,9 +52,9 @@ class PhotosActionsMastersRepository extends ServiceEntityRepository
     public function findByTri2createQueryBuilder()
     {
         $query =$this->createQueryBuilder('p')
-            ->select(['p','titi'])
-            ->Join('p.PhotosActions','titi')
-            ->orderBy('titi.titleactionsmaster','ASC')  
+            ->select(['p','pa'])
+            ->Join('p.PhotosActions','pa')
+            ->orderBy('pa.titleactionsmaster','ASC')  
             ->addorderBy('p.altphotoactionsmaster','ASC')   
         ;
         return $query->getQuery()->getResult();

@@ -61,9 +61,9 @@ public function findOffice()
             $entityManager = $this->getEntityManager();
             $query = $entityManager->createQuery(
                     'SELECT u, f
-                    FROM App\Entity\Users u
-                    INNER JOIN u.functionUser f
-                    ORDER BY f.levelFunction, u.nameUser, u.firstNameUser'
+                     FROM App\Entity\Users u
+                     INNER JOIN u.functionUser f
+                     ORDER BY f.levelFunction, u.nameUser, u.firstNameUser'
             );
 
             return $query->getResult();

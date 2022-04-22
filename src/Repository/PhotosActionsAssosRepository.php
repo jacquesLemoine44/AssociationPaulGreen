@@ -27,9 +27,9 @@ class PhotosActionsAssosRepository extends ServiceEntityRepository
     public function findByTri2createQueryBuilder()
     {
         $query =$this->createQueryBuilder('p')
-            ->select(['p','titi'])
-            ->Join('p.photoactasso','titi')
-            ->orderBy('titi.titleactionsasso','ASC')  
+            ->select(['p','pa'])
+            ->Join('p.photoactasso','pa')
+            ->orderBy('pa.titleactionsasso','ASC')  
             ->addorderBy('p.altphotoactionsasso','ASC')   
         ;
         return $query->getQuery()->getResult();

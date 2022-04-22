@@ -19,9 +19,12 @@
         <tbody>
         {% for photos_actions_master in photos_actions_masters %}
             <tr>
-                <td>{{ photos_actions_master.photoactmaster.titleactionsmaster }}</td> 
+                {# <pre>
+                    {{ dump(photos_actions_master.PhotosActions) }}
+                </pre> #}
+                <td>{{ photos_actions_master.PhotosActions.titleactionsmaster }}</td> 
                 <td>
-                    <img src="{{ asset('photosActionsAssos/' ~ photos_actions_master.photoactionsmaster) }}" width="100" alt=">{{ photos_actions_master.altphotoactionsmaster }}">
+                    <img src="{{ asset('photosActionsMasters/' ~ photos_actions_master.photoactionsmaster) }}" width="100" alt=">{{ photos_actions_master.altphotoactionsmaster }}">
                 </td>
                 <td>{{ photos_actions_master.altphotoactionsmaster }}</td>                    
                 <td>

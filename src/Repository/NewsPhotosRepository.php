@@ -27,9 +27,9 @@ class NewsPhotosRepository extends ServiceEntityRepository
     public function findByTri2createQueryBuilder()
     {
         $query =$this->createQueryBuilder('n')
-            ->select(['n','toto'])
-            ->Join('n.newsPhotosnews','toto')
-            ->orderBy('toto.titleNew','ASC')  
+            ->select(['n','np'])
+            ->Join('n.newsPhotosnews','np')
+            ->orderBy('np.titleNew','ASC')  
             ->addorderBy('n.altNewsPhoto','ASC')   
         ;
         return $query->getQuery()->getResult();

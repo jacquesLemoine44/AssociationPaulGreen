@@ -52,9 +52,9 @@ class FieldtripphotosRepository extends ServiceEntityRepository
     public function findByTri2createQueryBuilder()
     {
         $query =$this->createQueryBuilder('f')
-            ->select(['f','toto'])
-            ->Join('f.fieldstripsorigin','toto')
-            ->orderBy('toto.titlefieldtrip','ASC')  
+            ->select(['f','ft'])
+            ->Join('f.fieldstripsorigin','ft')
+            ->orderBy('ft.titlefieldtrip','ASC')  
             ->addorderBy('f.altfieldtripphoto','ASC')   
         ;
         return $query->getQuery()->getResult();

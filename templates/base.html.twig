@@ -20,6 +20,16 @@
 		<!-- Favicon -->
 		<link rel="shortcut icon" type="image/png" href="{{ asset('icones/logo.png')}}" />
 
+{# ============== Global site tag (gtag.js) - Google Analytics ============== #}
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-HJBPYR1GB9"></script>
+	<script>
+  		window.dataLayer = window.dataLayer || [];
+  		function gtag(){dataLayer.push(arguments);}
+  		gtag('js', new Date());
+
+  		gtag('config', 'G-HJBPYR1GB9');
+	</script>		
+
 {# ============== reCAPTCHA ============== #}
 
 	<script src="https://www.google.com/recaptcha/api.js?render=6LdcH44fAAAAACrehdt6C6m6TerjtWj04krFK05w"></script>
@@ -199,20 +209,26 @@
 							</a>
 							<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
 								<li>
-									<a class="dropdown-item" href="{{ path('posters_news_index') }}">
-										<i class="far fa-newspaper"></i>
+									<a class="dropdown-item {{ (is_granted('ROLE_ADMIN') or is_granted('ROLE_ASSO') or is_granted('ROLE_GE')) ? '' : 'disabled' }}" 
+										href="{{ path('posters_news_index') }}">
+											<i class="far fa-newspaper"></i>
 										Journal de l'environnement
 									</a>
 								</li>
+								{# {% if is_granted('ROLE_ADMIN') or is_granted('ROLE_ASSO')%}
+								{% endif %} #}
 								<li>
-									<a class="dropdown-item" href="{{ path('posters_actions_assos_index') }}">
-										<i class="fab fa-pagelines"></i>
+									<a class="dropdown-item {{ (is_granted('ROLE_ADMIN') or is_granted('ROLE_ASSO')) ? '' : 'disabled' }}" 
+										href="{{ path('posters_actions_assos_index') }}">
+											<i class="fab fa-pagelines"></i>
 										Actions Associatives
 									</a>
 								</li>
+
 								<li>
-									<a class="dropdown-item" href="{{ path('posters_internships_index') }}">
-										<i class="fas fa-business-time"></i>
+									<a class="dropdown-item {{ (is_granted('ROLE_ADMIN') or is_granted('ROLE_ASSO')) ? '' : 'disabled' }}" 
+										href="{{ path('posters_internships_index') }}">
+											<i class="fas fa-business-time"></i>
 										Propositions de Stages
 									</a>
 								</li>
@@ -243,15 +259,16 @@
 									<hr class="dropdown-divider">
 								</li> #}
 								<li>
-									<a class="dropdown-item" 
+									<a class="dropdown-item {{ (is_granted('ROLE_ADMIN') or is_granted('ROLE_ASSO') or is_granted('ROLE_GE')) ? '' : 'disabled' }}" 
 											href="{{ path('posters_actions_masters_index') }}">
 										<i class="fas fa-spa"></i>
 										Actions Masters
 									</a>
 								</li>
 								<li>
-									<a class="dropdown-item" href="{{ path('posters_fieldtrips_index') }}">
-										<i class="fas fa-hiking"></i>
+									<a class="dropdown-item {{ (is_granted('ROLE_ADMIN') or is_granted('ROLE_ASSO') or is_granted('ROLE_GE')) ? '' : 'disabled' }}" 
+										href="{{ path('posters_fieldtrips_index') }}">
+											<i class="fas fa-hiking"></i>
 										Les Sorties
 									</a>
 								</li>								

@@ -257,24 +257,25 @@ class MainController extends AbstractController
     }
 
  // ====== INTERNSHIP =============================
+
     /**
      * @Route("/postersInternships/indexPostersInternships", name="posters_internships_index", methods={"GET"})
      */
     public function indexPostersInterships(ParamsRepository $paramsRepository, SocialNetworksRepository $socialNetworksRepository, InternshipsRepository $internshipsRepository): Response
     {
-        return $this->render('postersInternships/internshipsIndex.html.twig', [
+        return $this->render('postersInternships/InternshipsIndex.html.twig', [
             'params' => $paramsRepository->findAll(),
             'social_networks' => $socialNetworksRepository->findAll(),
             'internships' => $internshipsRepository->findAll(),
         ]);
     }
 
-       /**
+    /**
      * @Route("/postersInterships/showPostersInternships/{id}", name="posters_internships_show", methods={"GET"})
      */
     public function internshipsShow(Internships $internship, ParamsRepository $paramsRepository, SocialNetworksRepository $socialNetworksRepository): Response
     {
-        return $this->render('postersInternships/internshipsShow.html.twig', [
+        return $this->render('postersInternships/InternshipsShow.html.twig', [
             'params' => $paramsRepository->findAll(),
             'social_networks' => $socialNetworksRepository->findAll(),
             'internships' => $internship,

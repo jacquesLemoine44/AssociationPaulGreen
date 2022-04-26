@@ -114,7 +114,7 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
      * @ORM\Column(type="string", length=50)
      * @Assert\Regex(
      *     pattern="/0[1-9]\d{8}/",
-     *     message="Votre nom ne peut pas contenir de chiffre !"
+     *     message="Votre N° ne peut pas contenir de chiffre !"
      * )
      */
     private $phoneUser;

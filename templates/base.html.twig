@@ -212,7 +212,7 @@ Voir l'intégration côté serveur LA CLÉ SECRÈTE 6LdcH44fAAAAAFbVOABpA4t9S4R0
 							</a>
 							<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
 								<li>
-									<a class="dropdown-item {{ (is_granted('ROLE_ADMIN') or is_granted('ROLE_ASSO') or is_granted('ROLE_GE')) ? '' : 'disabled' }}" 
+									<a class="dropdown-item {{ (is_granted('ROLE_ADMIN') or is_granted('ROLE_OTHER') or is_granted('ROLE_GE')) ? '' : 'disabled' }}" 
 										href="{{ path('posters_news_index') }}">
 											<i class="far fa-newspaper"></i>
 										Journal de l'environnement
@@ -221,7 +221,7 @@ Voir l'intégration côté serveur LA CLÉ SECRÈTE 6LdcH44fAAAAAFbVOABpA4t9S4R0
 								{# {% if is_granted('ROLE_ADMIN') or is_granted('ROLE_ASSO')%}
 								{% endif %} #}
 								<li>
-									<a class="dropdown-item {{ (is_granted('ROLE_ADMIN') or is_granted('ROLE_ASSO')) ? '' : 'disabled' }}" 
+									<a class="dropdown-item {{ (is_granted('ROLE_ADMIN') or is_granted('ROLE_OTHER')) ? '' : 'disabled' }}" 
 										href="{{ path('posters_actions_assos_index') }}">
 											<i class="fab fa-pagelines"></i>
 										Actions Associatives

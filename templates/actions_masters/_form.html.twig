@@ -42,63 +42,70 @@
 <div class="d-flex flex-row my-2 bg-secondary py-2 ps-3">
 	<button class="btn btn-grad btn-success2 me-2">{{ button_label|default('Sauver') }}</button>
     <a class="btn btn-grad btn-secondary2 me-2" href="{{ path('app_actions_masters_index') }}">Retour</a>
-    {{ include('actions_masters/_delete_form.html.twig') }}
+    {% if app.request.attributes.get('_route') == 'app_actions_masters_edit' %}
+        {{ include('actions_masters/_delete_form.html.twig') }}
+    {% endif %}        
 </div>
 <hr class="mt-1">
 {{ form_end(form) }}
 
 {# FIN DE FORM ============================================================================================ #}
 
-<h4>Liste des documents à consulter :</h4>
-<div>
-    <a class="btn btn-primary me-1 mb-1" href="{{ path('add_doc_actions_masters', {'id': actions_master.id}) }}">
-        Nouveau Document
-    </a>
-</div>
+{% if app.request.attributes.get('_route') == 'app_actions_masters_edit' %}
 
-{% for xDoc in actions_master.ActionsDocs %}
-    <div class="d-flex flex-row border border-3">
-        <a class="btn btn-info mb-3 mr-1 me-1 btn-sm" href="{{ xDoc.linkdocactionsmaster }}" 
-                role="button" data-bs-slide="prev">
-            <i class="fas fa-external-link-alt"></i>
-            Aller Voir ...
+    <h4>Liste des documents à consulter :</h4>
+    <div>
+        <a class="btn btn-primary me-1 mb-1" href="{{ path('add_doc_actions_masters', {'id': actions_master.id}) }}">
+            Nouveau Document
         </a>
-        <p>{{ xDoc.titledocactionsmaster }}</p>
-        <a class="btn me-1" href="{{ path('mod_doc_actions_masters', {'id': xDoc.id}) }}">
-            <img src="{{ asset('icones/btM.png') }}" alt="Modifier" 
-                title="Modifier" width="20" height="20">
-        </a>
-        <form method="post" action="{{ path('del_doc_actions_masters', {'id': xDoc.id}) }}" 
-                onsubmit="return confirm('Voulez vous vraiment supprimer cette item ? {{ xDoc.id }} ');">
-            <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ xDoc.id) }}">
-            <button class="btn me-1">
-                <img src="{{ asset('icones/btS.png') }}" alt="Supprimer" 
-                    title="Supprimer" width="20" height="20" class="">
-            </button>            
-        </form>
     </div>
-{% else %}
-    <p>Aucun document</p>
-{% endfor %}
+
+    {% for xDoc in actions_master.ActionsDocs %}
+        <div class="d-flex flex-row border border-3">
+            <a class="btn btn-info mb-3 mr-1 me-1 btn-sm" href="{{ xDoc.linkdocactionsmaster }}" 
+                    role="button" data-bs-slide="prev">
+                <i class="fas fa-external-link-alt"></i>
+                Aller Voir ...
+            </a>
+            <p>{{ xDoc.titledocactionsmaster }}</p>
+            <a class="btn me-1" href="{{ path('mod_doc_actions_masters', {'id': xDoc.id}) }}">
+                <img src="{{ asset('icones/btM.png') }}" alt="Modifier" 
+                    title="Modifier" width="20" height="20">
+            </a>
+            <form method="post" action="{{ path('del_doc_actions_masters', {'id': xDoc.id}) }}" 
+                    onsubmit="return confirm('Voulez vous vraiment supprimer cette item ? {{ xDoc.id }} ');">
+                <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ xDoc.id) }}">
+                <button class="btn me-1">
+                    <img src="{{ asset('icones/btS.png') }}" alt="Supprimer" 
+                        title="Supprimer" width="20" height="20" class="">
+                </button>            
+            </form>
+        </div>
+    {% else %}
+        <p>Aucun document</p>
+    {% endfor %}
 
 {# ========================================================================================= #}
 
-<hr>
-<h4>Liste de sites à étudier :</h4>
-<div>
-	<a class="btn btn-primary me-1" href="">Nouveau Site</a>
-</div>
-{% for xDoc in actions_master.ActionsLinks %}
-	<div class="d-flex flex-row">
-		<a class="btn btn-primary mb-3 mr-1 me-1" href="{{ xDoc.linkactionsmaster }}" role="button" data-bs-slide="prev">
-			<i class="fas fa-external-link-alt"></i>
-			Aller Voir ...
-		</a>
-		<p>{{ xDoc.titlelinkactionsmaster }}</p>
-		<hr>
-	</div>
-{% else %}
-	<p>Aucun site</p>
-{% endfor %}
+    <hr>
+    <h4>Liste de sites à étudier :</h4>
+    <div>
+	    <a class="btn btn-primary me-1" href="">Nouveau Site</a>
+    </div>
+    {% for xDoc in actions_master.ActionsLinks %}
+	    <div class="d-flex flex-row">
+    		<a class="btn btn-primary mb-3 mr-1 me-1" href="{{ xDoc.linkactionsmaster }}" role="button" data-bs-slide="prev">
+			    <i class="fas fa-external-link-alt"></i>
+		    	Aller Voir ...
+	    	</a>
+    		<p>{{ xDoc.titlelinkactionsmaster }}</p>
+		    <hr>
+	    </div>
+    {% else %}
+	    <p>Aucun site</p>
+    {% endfor %}
+
+{% endif %}        
+
 
 <hr>
